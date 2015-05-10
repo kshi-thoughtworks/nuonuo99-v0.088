@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            {% include 'brand-logo.html' %}
+        </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+            {% include 'nav-list.html' %}
+        </ul>
+
+        <ul class="nav navbar-nav pull-right">
+        {% if user.is_authenticated %}
+            <li> <a href="{% url 'userena_profile_detail' user %}">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user.username }}</a> </li>
+            <li> <a href="{% url 'userena_profile_edit' user %}">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a> </li>
+            <li> <a href="{% url 'userena_signout' %}">
+                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a> </li>
+        {% else %}
+            <li> <a href="{% url 'userena_signin' %}"> Sign in </a> </li>
+            <li> <a href="{% url 'userena_signup' %}"> Sign up </a> </li>
+        {% endif %}
+        </ul>
+
+    </div><!-- /.navbar-collapse -->
+</nav>

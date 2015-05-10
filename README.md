@@ -1,2 +1,7 @@
-# nuonuo99-v0.88
-最新代码库
+## nuonuo
+
+#### Build Dev Env
+
+```shell
+$ sudo pip install -r requirement.txt
+```
