@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*-
 from django.db import models
+from base.models import Choice
 from provider.models import ProviderInfo
 
 
@@ -18,8 +19,15 @@ class ServiceInfo(models.Model):
         abstract = True
 
 
+class C_FlowerCategory(Choice):
+    class Meta:
+        verbose_name = "花艺类型"
+        verbose_name_plural = verbose_name
+
+
 class S_Flower(ServiceInfo):
     """花艺服务"""
+    category = models.ForeignKey(C_FlowerCategory, verbose_name=u'花艺类型')
     amount = models.IntegerField(verbose_name='花朵数量')
 
     class Meta:
