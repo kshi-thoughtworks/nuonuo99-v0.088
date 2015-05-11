@@ -33,3 +33,10 @@ class C_FlowerCategory(Choice):
     class Meta:
         verbose_name = "花艺类型"
         verbose_name_plural = verbose_name
+
+
+class C_AvType(Choice):
+    """AV 类型库"""
+    class Meta:
+        verbose_name = "AV 类型"
+        verbose_name_plural = verbose_name
