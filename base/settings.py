@@ -25,6 +25,7 @@ DEBUG = True
 project_app = (
     'accounts',
     'provider',
+    'service',
     )
 
 
