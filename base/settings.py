@@ -140,6 +140,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 AVATAR_PATH = "avatar"
 DEMO_PATH = "demo"
+SERVICE_PATH = "service_photo"
 
 
 AUTHENTICATION_BACKENDS = (
