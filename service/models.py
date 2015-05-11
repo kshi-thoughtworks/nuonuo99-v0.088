@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 from django.db import models
-from base.models import Choice
+from base.models import C_FlowerCategory
 from provider.models import ProviderInfo
 
 
@@ -17,12 +17,6 @@ class ServiceInfo(models.Model):
 
     class Meta:
         abstract = True
-
-
-class C_FlowerCategory(Choice):
-    class Meta:
-        verbose_name = "花艺类型"
-        verbose_name_plural = verbose_name
 
 
 class S_Flower(ServiceInfo):

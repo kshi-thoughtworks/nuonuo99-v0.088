@@ -1,14 +1,8 @@
 #-*- coding:utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
-from base.models import Choice
+from base.models import SLA_Provider
 from django.conf import settings
-
-
-class SLA_Provider(Choice):
-    class Meta:
-        verbose_name = "供应商星级"
-        verbose_name_plural = verbose_name
 
 
 class ProviderInfo(models.Model):

@@ -23,6 +23,7 @@ SECRET_KEY = 'aurxubv)48jyi$(yfc&wf4mz$13-q$)05t1siz-8fv^tj*__v*'
 DEBUG = True
 
 project_app = (
+    'base',
     'accounts',
     'provider',
     'service',
@@ -138,6 +139,7 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 AVATAR_PATH = "avatar"
+DEMO_PATH = "demo"
 
 
 AUTHENTICATION_BACKENDS = (
