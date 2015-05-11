@@ -137,6 +137,7 @@ TEMPLATE_DIRS = (
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+AVATAR_PATH = "avatar"
 
 
 AUTHENTICATION_BACKENDS = (

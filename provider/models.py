@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from base.models import Choice
+from django.conf import settings
 
 
 class SLA_Provider(Choice):
@@ -14,6 +15,7 @@ class ProviderInfo(models.Model):
     """供应商基本信息
 
     """
+    avatar = models.FileField(u'头像', upload_to=settings.AVATAR_PATH)
     name = models.CharField(u'供应商名', max_length=255)
     contact = models.CharField(u'联系人', max_length=255)
     phone = models.CharField(u'手机号', max_length=16)
