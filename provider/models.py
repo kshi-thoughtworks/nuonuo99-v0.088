@@ -13,6 +13,9 @@ class ProviderInfo(models.Model):
     level = models.IntegerField(u'星级', default=0)  # SLA
     desc = models.TextField(u'详细描述', blank=True)
 
+    def __unicode__(self):
+        return '%s-%s(%s)' % (self.name, self.contact, self.phone)
+
     class Meta:
         verbose_name = u"供应商信息"
         verbose_name_plural = verbose_name
