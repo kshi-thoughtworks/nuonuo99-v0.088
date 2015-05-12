@@ -24,6 +24,13 @@ class SlaProvider(SlaBase):
 
 # ------------------- Choice --------------------------
 
+C_GENDER = (
+    (0, "未知"),  # default
+    (1 , "男"),
+    (2 , "女"),
+    )
+
+
 
 class Choice(models.Model):
     """Abstract Choice info class"""
