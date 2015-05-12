@@ -3,6 +3,28 @@ from django.db import models
 from django.conf import settings
 
 
+class SlaBase(models.Model):
+    """Abstract Choice info class"""
+    order = models.PositiveIntegerField(u'排序等级', default=5)
+    name = models.CharField(u'名称', max_length=255)
+    desc = models.TextField(u'详细说明', blank=True)
+
+    def __unicode__(self):
+        return '%s' % self.name
+
+    class Meta:
+        abstract = True
+
+
+class SlaProvider(SlaBase):
+    class Meta:
+        verbose_name = "供应商星级"
+        verbose_name_plural = verbose_name
+
+
+# ------------------- Choice --------------------------
+
+
 class Choice(models.Model):
     """Abstract Choice info class"""
     name = models.CharField(u'名称', max_length=255)
@@ -19,14 +41,6 @@ class Choice(models.Model):
     class Meta:
         abstract = True
 
-
-class SLA_Provider(Choice):
-    class Meta:
-        verbose_name = "供应商星级"
-        verbose_name_plural = verbose_name
-
-
-# 类型库
 
 class C_FlowerCategory(Choice):
     """花艺类型库"""

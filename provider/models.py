@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
-from base.models import SLA_Provider
+from base.models import SlaProvider
 from django.conf import settings
 
 
@@ -14,7 +14,7 @@ class ProviderInfo(models.Model):
     contact = models.CharField(u'联系人', max_length=255)
     phone = models.CharField(u'手机号', max_length=16)
     address = models.TextField(u'地址', max_length=255)
-    level = models.ForeignKey(SLA_Provider, verbose_name=u'供应商星级')
+    level = models.ForeignKey(SlaProvider, verbose_name=u'供应商星级')
     desc = models.TextField(u'详细描述', blank=True)
 
     def __unicode__(self):
