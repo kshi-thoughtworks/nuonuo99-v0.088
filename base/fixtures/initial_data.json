@@ -1,0 +1,15 @@
+[
+{
+    "fields": {
+        "name": "\u82b1\u95e8",
+        "brief": "",
+        "demo2": "demo/flower_door_fresh.jpg",
+        "demo3": "demo/flower_door_half.jpg",
+        "demo1": "demo/flower_door_design.jpg",
+        "demo4": "demo/flower_door_red.jpg",
+        "desc": ""
+    },
+    "model": "base.c_flowercategory",
+    "pk": 1
+}
+]
