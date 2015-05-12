@@ -12,7 +12,7 @@ class ProviderInfoAdmin(object):
     show_avatar.allow_tags = True
     show_avatar.is_column = True
 
-    list_display = ("name", "show_avatar", "contact", "phone", "address", "level", "desc")
+    list_display = ("name", "show_avatar", "contact", "phone", "address", "level")
 
 
 xadmin.site.register(ProviderInfo, ProviderInfoAdmin)
