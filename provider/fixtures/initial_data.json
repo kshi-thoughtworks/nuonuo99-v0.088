@@ -24,5 +24,18 @@
     },
     "model": "provider.providerinfo",
     "pk": 2
+},
+{
+    "fields": {
+        "name": "\u865a\u62df.for.\u81ea\u7531\u804c\u4e1a\u8005",
+        "level": 1,
+        "phone": "110",
+        "contact": "\u7f51\u7ad9\u5ba2\u6237\u7ecf\u7406",
+        "avatar": "avatar/freelancer.jpg",
+        "address": "\u5317\u4eac",
+        "desc": "\u865a\u62df\u4f9b\u5e94\u5546, \u4f9b\u81ea\u7531\u804c\u4e1a\u8005\u6302\u9760."
+    },
+    "model": "provider.providerinfo",
+    "pk": 3
 }
 ]
