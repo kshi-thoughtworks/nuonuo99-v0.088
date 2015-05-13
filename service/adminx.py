@@ -1,10 +1,15 @@
 #-*- coding:utf-8 -*-
 import xadmin
-from service.models import S_Flower
+import service.models as S
 
 
 class ServiceAdmin(object):
     list_display = ("name", "provider", "price")
 
 
-xadmin.site.register(S_Flower, ServiceAdmin)
+class McAdmin(object):
+    list_display = ("name", "avatar_html", "gender", "style", "price")
+
+
+xadmin.site.register(S.S_Flower, ServiceAdmin)
+xadmin.site.register(S.MC, McAdmin)

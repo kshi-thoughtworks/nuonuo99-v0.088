@@ -24,12 +24,18 @@ class SlaProvider(SlaBase):
 
 # ------------------- Choice --------------------------
 
+# no default value provided
 C_GENDER = (
-    (0, "未知"),  # default
     (1 , "男"),
     (2 , "女"),
     )
 
+
+C_WEDDING_STYLE = (
+    (0, "不限"),
+    (1, "中式"),
+    (2, "西式"),
+    )
 
 
 class Choice(models.Model):

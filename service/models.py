@@ -14,9 +14,16 @@ class ServiceInfo(models.Model):
     name = models.CharField(u'服务名称', max_length=255)
     provider = models.ForeignKey(ProviderInfo, verbose_name=u'供应商')
 
+    avatar = models.FileField(u'头像', upload_to=settings.SERVICE_PATH)
     # product TODO
     product_desc = models.TextField(u'商品描述', blank=True)
     price = models.FloatField(u'售价')
+
+    def avatar_html(self):
+        return '<img src="%s" style="width:180px;" title="%s"/>' % (self.avatar.url, self.name)
+
+    avatar_html.short_description = "头像"
+    avatar_html.allow_tags = True
 
     class Meta:
         abstract = True
@@ -37,18 +44,21 @@ class S_Flower(ServiceInfo):
 
 
     class Meta:
-        verbose_name = "花艺服务"
+        verbose_name = u"花艺服务"
         verbose_name_plural = verbose_name
 
 
 class MC(ServiceInfo):
     """司仪服务 master of ceremonies"""
-    avator = models.FileField(u'头像', upload_to=settings.SERVICE_PATH)
     desc = models.TextField(u'服务理念')
     t_start = models.DateField(u'工作开始时间',
         help_text=u'用于计算从业时间(当前时间 - 工作开始时间)')
-    gender = models.IntegerField(choices=choice_set.C_GENDER, default=0)
+    gender = models.IntegerField(u'性别', choices=choice_set.C_GENDER)
+    t_birth_year = models.DateField(u'出生年')
+    style = models.IntegerField(u'专业', choices=choice_set.C_WEDDING_STYLE, default=0)
+    height = models.IntegerField(u'身高')
+    honor = models.TextField(u'所获荣誉', blank=True)
 
     class Meta:
-        verbose_name = "司仪服务"
+        verbose_name = u"司仪服务"
         verbose_name_plural = verbose_name
