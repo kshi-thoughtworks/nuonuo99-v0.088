@@ -49,3 +49,9 @@ SLA 目前只设 order, name, desc 三个基本字段.
 provider 与 STD product 整合为 1 个 APP
 
 Expert 自身构成一个 APP
+
+#### 档期
+
+专业技能, 选择 服务提供者 时, 存在档期的概念.
+
+档期需要结合订单状态来处理.
