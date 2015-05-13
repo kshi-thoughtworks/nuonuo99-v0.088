@@ -13,3 +13,4 @@ class ExpertAdmin(object):
 
 xadmin.site.register(S.S_Flower, ServiceAdmin)
 xadmin.site.register(S.MC, ExpertAdmin)
+xadmin.site.register(S.MakeUp, ExpertAdmin)

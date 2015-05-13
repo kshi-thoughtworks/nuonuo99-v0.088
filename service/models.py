@@ -6,6 +6,9 @@ from provider.models import ProviderInfo
 from django.conf import settings
 
 
+_help_text_charge = u'-1 -- 不提供该服务. 0 -- 免费提供. > 0 -- 提供且收取对应的费用'
+
+
 class AvatarBase(models.Model):
     avatar = models.FileField(u'头像', upload_to=settings.SERVICE_PATH)
 
@@ -84,4 +87,26 @@ class MC(Expert):
 
     class Meta:
         verbose_name = u"司仪服务"
+        verbose_name_plural = verbose_name
+
+
+class MakeUp(Expert):
+    """化妆师"""
+
+    cosmetics_brand = models.CharField(u'常用化妆品品牌', max_length=255)
+    is_cosmetics_imported = models.BooleanField(u'进口化妆品', default=False)
+    photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)
+    vcr = models.FileField(u'自我介绍视频', upload_to=settings.SERVICE_PATH, blank=True)
+
+    charge_decoration = models.FloatField(u'提供饰品, 加价',
+        help_text=_help_text_charge)
+    charge_hair = models.FloatField(u'提供盘头, 加价',
+        help_text=_help_text_charge)
+    charge_dress_mum = models.FloatField(u'提供妈妈装, 加价',
+        help_text=_help_text_charge)
+    charge_dress_peer = models.FloatField(u'提供伴娘装, 加价',
+        help_text=_help_text_charge)
+
+    class Meta:
+        verbose_name = u"化妆师"
         verbose_name_plural = verbose_name
