@@ -56,8 +56,13 @@ class MC(ServiceInfo):
     gender = models.IntegerField(u'性别', choices=choice_set.C_GENDER)
     t_birth_year = models.DateField(u'出生年')
     style = models.IntegerField(u'专业', choices=choice_set.C_WEDDING_STYLE, default=0)
+    language = models.IntegerField(u'语言', choices=choice_set.C_LANG, default=0)
     height = models.IntegerField(u'身高')
     honor = models.TextField(u'所获荣誉', blank=True)
+    photo_chinse = models.FileField(u'中式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
+    photo_west = models.FileField(u'西式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
+    photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)
+    vcr = models.FileField(u'自我介绍视频', upload_to=settings.SERVICE_PATH, blank=True)
 
     class Meta:
         verbose_name = u"司仪服务"

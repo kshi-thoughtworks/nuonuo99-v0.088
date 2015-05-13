@@ -38,6 +38,13 @@ C_WEDDING_STYLE = (
     )
 
 
+C_LANG = (
+    (0, "普通话_标准"),
+    (1, "粤语"),
+    (11, "普通话_不标准"),
+    )
+
+
 class Choice(models.Model):
     """Abstract Choice info class"""
     name = models.CharField(u'名称', max_length=255)
