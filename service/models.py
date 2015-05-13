@@ -6,7 +6,7 @@ from provider.models import ProviderInfo
 from django.conf import settings
 
 
-class ServiceInfo(models.Model):
+class StdProduct(models.Model):
     """Abstract service info class
 
     TODO: SLA info
@@ -29,7 +29,7 @@ class ServiceInfo(models.Model):
         abstract = True
 
 
-class S_Flower(ServiceInfo):
+class S_Flower(StdProduct):
     """花艺服务"""
     category = models.ForeignKey(choice_set.C_FlowerCategory, verbose_name=u'花艺类型')
     color = models.CharField(u'颜色', max_length=32)
@@ -48,7 +48,7 @@ class S_Flower(ServiceInfo):
         verbose_name_plural = verbose_name
 
 
-class MC(ServiceInfo):
+class MC(StdProduct):
     """司仪服务 master of ceremonies"""
     desc = models.TextField(u'服务理念')
     t_start = models.DateField(u'工作开始时间',
