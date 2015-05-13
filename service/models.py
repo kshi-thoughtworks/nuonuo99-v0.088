@@ -6,7 +6,19 @@ from provider.models import ProviderInfo
 from django.conf import settings
 
 
-class StdProduct(models.Model):
+class AvatarBase(models.Model):
+    avatar = models.FileField(u'头像', upload_to=settings.SERVICE_PATH)
+
+    def avatar_html(self):
+        return '<img src="%s" style="width:180px;" title="%s"/>' % (self.avatar.url, self.name)
+
+    avatar_html.short_description = "头像"
+    avatar_html.allow_tags = True
+
+    class Meta:
+        abstract = True
+
+class StdProduct(AvatarBase):
     """Abstract service info class
 
     TODO: SLA info
@@ -14,16 +26,10 @@ class StdProduct(models.Model):
     name = models.CharField(u'服务名称', max_length=255)
     provider = models.ForeignKey(ProviderInfo, verbose_name=u'供应商')
 
-    avatar = models.FileField(u'头像', upload_to=settings.SERVICE_PATH)
     # product TODO
     product_desc = models.TextField(u'商品描述', blank=True)
     price = models.FloatField(u'售价')
 
-    def avatar_html(self):
-        return '<img src="%s" style="width:180px;" title="%s"/>' % (self.avatar.url, self.name)
-
-    avatar_html.short_description = "头像"
-    avatar_html.allow_tags = True
 
     class Meta:
         abstract = True
@@ -48,17 +54,29 @@ class S_Flower(StdProduct):
         verbose_name_plural = verbose_name
 
 
-class MC(StdProduct):
-    """司仪服务 master of ceremonies"""
-    desc = models.TextField(u'服务理念')
+class Expert(AvatarBase):
+    name = models.CharField(u'姓名', max_length=255)
+    gender = models.IntegerField(u'性别', choices=choice_set.C_GENDER)
+    t_birth_age = models.DateField(u'出生年')
+
+    desc = models.TextField(u'服务理念', max_length=255)
+    wed_style = models.IntegerField(u'专业', choices=choice_set.C_WEDDING_STYLE, default=0)
+    honor = models.TextField(u'所获荣誉', blank=True)
+
     t_start = models.DateField(u'工作开始时间',
         help_text=u'用于计算从业时间(当前时间 - 工作开始时间)')
-    gender = models.IntegerField(u'性别', choices=choice_set.C_GENDER)
-    t_birth_year = models.DateField(u'出生年')
-    style = models.IntegerField(u'专业', choices=choice_set.C_WEDDING_STYLE, default=0)
+
+    price = models.FloatField(u'基础报价')
+
+    class Meta:
+        abstract = True
+
+
+class MC(Expert):
+    """司仪服务 master of ceremonies"""
     language = models.IntegerField(u'语言', choices=choice_set.C_LANG, default=0)
     height = models.IntegerField(u'身高')
-    honor = models.TextField(u'所获荣誉', blank=True)
+
     photo_chinse = models.FileField(u'中式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
     photo_west = models.FileField(u'西式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
     photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)

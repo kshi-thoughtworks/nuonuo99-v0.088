@@ -7,9 +7,9 @@ class ServiceAdmin(object):
     list_display = ("name", "provider", "price")
 
 
-class McAdmin(object):
-    list_display = ("name", "avatar_html", "gender", "style", "price")
+class ExpertAdmin(object):
+    list_display = ("name", "avatar_html", "gender", "wed_style", "price")
 
 
 xadmin.site.register(S.S_Flower, ServiceAdmin)
-xadmin.site.register(S.MC, McAdmin)
+xadmin.site.register(S.MC, ExpertAdmin)
