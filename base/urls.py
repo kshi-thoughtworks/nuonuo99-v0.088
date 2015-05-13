@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'base.views.home', name='home'),
     url(r'^admin/', include(xadmin.site.urls)),
     url(r'^accounts/', include('userena.urls')),
+    url(r'^service/', include('service.urls')),
 )
 
 
