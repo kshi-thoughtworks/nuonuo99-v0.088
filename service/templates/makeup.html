@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title> Home </title>
+<title>选择化妆师</title>
 {% endblock %}
 
 {% block content %}
@@ -10,32 +10,84 @@
     <h2>化妆师</h2>
 
     <form action="{% url "makeup_filter" %}" class="form-horizontal" method="GET"> {% csrf_token %}
+
         <div class="form-group">
-            <label class="checkbox-inline">
-                <input type="checkbox" id="extra-hair" name="extra_hair" value="1"> 盘头
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" id="extra-decro" name="extra_decro" value="1"> 提供饰品
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" id="extra-dress-mum" name="extra_dress_mum" value="1"> 包含妈妈装
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" id="extra-dress-peer" name="extra_dress_peer" value="1"> 包含伴娘装
-            </label>
+            <label for="user_location" class="col-lg-1 col-md-1">归属地</label>
+            <div class="col-lg-2 col-md-2">
+                <select class="form-control" id="user_location" name="location">
+                    <option>北京</option>
+                    <option>上海</option>
+                    <option>西安</option>
+                </select>
+            </div>
         </div>
 
         <div class="form-group">
-            <label class="radio-inline">
-                <input type="radio" name="gender" id="gender3" value="all" checked> 不限
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="gender" id="gender1" value="man"> 男
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="gender" id="gender2" value="female"> 女
-            </label>
+            <label for="gender" class="col-lg-1 col-md-1">性别</label>
+            <div class="col-lg-6 col-md-6">
+                <label class="radio-inline">
+                    <input type="radio" name="gender" id="gender3" value="all" checked> 不限
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="gender" id="gender1" value="man"> 男
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="gender" id="gender2" value="female"> 女
+                </label>
+            </div>
         </div>
+
+        <div class="form-group">
+            <label for="wed-style" class="col-lg-1 col-md-1">专业</label>
+            <div class="col-lg-6 col-md-6">
+                <label class="radio-inline">
+                    <input type="radio" name="wed_style" id="style0" value="all" checked> 不限
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="wed_style" id="style1" value="chinese"> 中式
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="wed_style" id="style2" value="west"> 西式
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="makeup-style" class="col-lg-1 col-md-1">化妆风格</label>
+            <div class="col-lg-6 col-md-6">
+                <label class="radio-inline">
+                    <input type="radio" name="makeup_style" id="style0" value="all" checked> 不限
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="makeup_style" id="style1" value="chinese"> 中式
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="makeup_style" id="style2" value="west"> 西式
+                </label>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label for="extra" class="col-lg-1 col-md-1">附带服务</label>
+            <div class="col-lg-6 col-md-6">
+                <label class="checkbox">
+                    <input type="checkbox" id="extra-hair" name="extra_hair" value="1"> 盘头
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" id="extra-decro" name="extra_decro" value="1"> 提供饰品
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" id="extra-dress-mum" name="extra_dress_mum" value="1"> 包含妈妈装
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" id="extra-dress-peer" name="extra_dress_peer" value="1"> 包含伴娘装
+                </label>
+            </div>
+        </div>
+
 
         <button type="submit" class="btn btn-default">提交</button>
     </form>
