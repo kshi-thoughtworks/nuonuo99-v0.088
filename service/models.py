@@ -22,14 +22,8 @@ class AvatarBase(models.Model):
         abstract = True
 
 class StdProduct(AvatarBase):
-    """Abstract service info class
-
-    TODO: SLA info
-    """
+    """Abstract service info class"""
     name = models.CharField(u'服务名称', max_length=255)
-    provider = models.ForeignKey(ProviderInfo, verbose_name=u'供应商')
-
-    # product TODO
     product_desc = models.TextField(u'商品描述', blank=True)
     price = models.FloatField(u'售价')
 

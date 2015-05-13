@@ -4,7 +4,7 @@ import service.models as S
 
 
 class ServiceAdmin(object):
-    list_display = ("name", "provider", "price")
+    list_display = ("name", "product_desc", "price")
 
 
 class ExpertAdmin(object):
