@@ -10,3 +10,9 @@ def filter_makeup(request):
     content = {
             }
     return render_to_response('makeup.html', RequestContext(request, content))
+
+
+def filter_flower(request):
+    content = {
+            }
+    return render_to_response('flower.html', RequestContext(request, content))
