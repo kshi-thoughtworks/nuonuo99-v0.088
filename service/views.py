@@ -5,16 +5,35 @@ from django.http import HttpResponse
 
 from service.models import MC, MakeUp, S_Flower
 
+from base.models import C_FLOWER_STYLE_DOOR, C_FLOWER_STYLE_DESK, C_FLOWER_STYLE_ROAD
+
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 
-def expert_filter(query_set):
+def price_filter(query_set):
     kwargs = dict()
+    bottom, top = query_set.get('price', '-').split('-')
 
-    # gender filter
-    gender = query_set.get('gender', '0')
-    if gender != '0':
-        kwargs['gender'] = gender
+    if bottom:
+        kwargs['price__gte'] = bottom
+
+    if top:
+        kwargs['price__lte'] = top
+
+    return kwargs
+
+
+def expert_filter(query_set):
+    kwargs = price_filter(query_set)
+
+    def add_para(db, para):
+        value = query_set.get(para, '0')
+        if value != '0':
+            kwargs[db] = value
+
+    add_para('gender', 'gender')
+    add_para('wed_style', 'wed_style')
+    add_para('t_birth_age', 'age')
 
     return kwargs
 
@@ -35,9 +54,18 @@ def filter_mc(request):
     return render_to_response('mc.html', RequestContext(request, content))
 
 
-def filter_flower(request):
-    kwargs = dict()
+def filter_flower(request, category):
+    subclass = None
+    if category == 'door':
+        subclass = C_FLOWER_STYLE_DOOR
+    elif category == 'road':
+        subclass = C_FLOWER_STYLE_ROAD
+    elif category == 'desk':
+        subclass = C_FLOWER_STYLE_DESK
+
+    kwargs = price_filter(request.GET)
     content = {
+        'subclass': subclass,
         'data_set': S_Flower.objects.filter(**kwargs),
         }
     return render_to_response('flower.html', RequestContext(request, content))

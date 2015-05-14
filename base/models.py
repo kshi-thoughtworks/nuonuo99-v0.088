@@ -31,6 +31,16 @@ C_GENDER = (
     )
 
 
+C_AGE = (
+    (60 , "60后"),
+    (70 , "70后"),
+    (80 , "80后"),
+    (90 , "90后"),
+    )
+
+
+
+
 C_WEDDING_STYLE = (
     (0, "不限"),
     (1, "中式"),
@@ -44,6 +54,24 @@ C_LANG = (
     (11, "普通话_不标准"),
     )
 
+
+C_FLOWER_STYLE_DOOR = (
+    (1, '全花门'),
+    (2, '半花门'),
+    (3, '三点式'),
+    (4, '五点式'),
+    (5, '异形'),
+    )
+
+
+C_FLOWER_STYLE_ROAD = (
+    (1, '球形'),
+    (2, '放射形'),
+    (3, '异形'),
+    )
+
+
+C_FLOWER_STYLE_DESK = C_FLOWER_STYLE_ROAD
 
 
 class Choice(models.Model):

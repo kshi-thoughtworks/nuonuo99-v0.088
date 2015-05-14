@@ -30,7 +30,7 @@ class StdProduct(AvatarBase):
     price = models.FloatField(u'售价')
 
     def __unicode__(self):
-        return "%s-%s-%s" % (self.name, self.gender, self.price)
+        return "%s-%s" % (self.name, self.price)
 
     class Meta:
         abstract = True
@@ -69,7 +69,7 @@ class S_FlowerItems(models.Model):
 class Expert(AvatarBase):
     name = models.CharField(u'姓名', max_length=255)
     gender = models.IntegerField(u'性别', choices=choice_set.C_GENDER)
-    t_birth_age = models.DateField(u'出生年')
+    t_birth_age = models.IntegerField(u'年龄', choices=choice_set.C_AGE)
 
     desc = models.TextField(u'服务理念', max_length=255)
     wed_style = models.IntegerField(u'专业', choices=choice_set.C_WEDDING_STYLE, default=0)
