@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 
-from service.models import MC, MakeUp
+from service.models import MC, MakeUp, S_Flower
 
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
@@ -36,6 +36,8 @@ def filter_mc(request):
 
 
 def filter_flower(request):
+    kwargs = dict()
     content = {
-            }
+        'data_set': S_Flower.objects.filter(**kwargs),
+        }
     return render_to_response('flower.html', RequestContext(request, content))

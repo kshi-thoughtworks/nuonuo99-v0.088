@@ -22,12 +22,15 @@ class AvatarBase(models.Model):
     class Meta:
         abstract = True
 
+
 class StdProduct(AvatarBase):
     """Abstract service info class"""
     name = models.CharField(u'服务名称', max_length=255)
     product_desc = models.TextField(u'商品描述', blank=True)
     price = models.FloatField(u'售价')
 
+    def __unicode__(self):
+        return "%s-%s-%s" % (self.name, self.gender, self.price)
 
     class Meta:
         abstract = True
