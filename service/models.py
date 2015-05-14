@@ -65,6 +65,9 @@ class Expert(AvatarBase):
 
     price = models.FloatField(u'基础报价')
 
+    def __unicode__(self):
+        return "%s-%s-%s" % (self.name, self.gender, self.price)
+
     class Meta:
         abstract = True
 
@@ -78,6 +81,7 @@ class MC(Expert):
     photo_west = models.FileField(u'西式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
     photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)
     vcr = models.FileField(u'自我介绍视频', upload_to=settings.SERVICE_PATH, blank=True)
+
 
     class Meta:
         verbose_name = u"司仪服务"
