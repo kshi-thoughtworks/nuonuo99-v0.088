@@ -35,7 +35,8 @@ def filter_mc(request):
     return render_to_response('mc.html', RequestContext(request, content))
 
 
-def filter_flower(request):
+def filter_flower(request, category):
+    print category
     kwargs = dict()
     content = {
         'data_set': S_Flower.objects.filter(**kwargs),
