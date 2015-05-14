@@ -13,10 +13,15 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 def expert_filter(query_set):
     kwargs = dict()
 
-    # gender filter
-    gender = query_set.get('gender', '0')
-    if gender != '0':
-        kwargs['gender'] = gender
+    def add_para(db, para):
+        value = query_set.get(para, '0')
+        print para, value
+        if value != '0':
+            kwargs[db] = value
+
+    add_para('gender', 'gender')
+    add_para('wed_style', 'wed_style')
+    add_para('t_birth_age', 'age')
 
     return kwargs
 
