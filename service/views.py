@@ -25,7 +25,6 @@ def price_filter(query_set):
 
 def expert_filter(query_set):
     kwargs = price_filter(query_set)
-    print kwargs
 
     def add_para(db, para):
         value = query_set.get(para, '0')
@@ -64,7 +63,7 @@ def filter_flower(request, category):
     elif category == 'desk':
         subclass = C_FLOWER_STYLE_DESK
 
-    kwargs = dict()
+    kwargs = price_filter(request.GET)
     content = {
         'subclass': subclass,
         'data_set': S_Flower.objects.filter(**kwargs),
