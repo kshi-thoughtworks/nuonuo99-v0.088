@@ -1,0 +1,125 @@
+[
+{
+    "fields": {
+        "category": 1,
+        "name": "\u62f1\u5f62\u82b1\u95e8",
+        "product_desc": "",
+        "price": 3000.0,
+        "photo2": "",
+        "photo3": "",
+        "amount": 1000,
+        "photo1": "service_photo/huamen2.jpg",
+        "avatar": "service_photo/huamen1.jpg",
+        "photo4": "",
+        "desc": "",
+        "size": "100*200"
+    },
+    "model": "service.s_flower",
+    "pk": 1
+},
+{
+    "fields": {
+        "category": 2,
+        "name": "\u9ec4\u8272\u8def\u5f15",
+        "product_desc": "",
+        "price": 400.0,
+        "photo2": "",
+        "photo3": "",
+        "amount": 300,
+        "photo1": "service_photo/huamen2_y3iPGJG.jpg",
+        "avatar": "service_photo/huamen2_8XXTLQA.jpg",
+        "photo4": "",
+        "desc": "",
+        "size": "100"
+    },
+    "model": "service.s_flower",
+    "pk": 2
+},
+{
+    "fields": {
+        "color": 1,
+        "typeID": 1,
+        "des": "\u7ea2\u8272\u73ab\u747010\u679d\uff0c\u7ea2\u5e03\u5305\u88f9",
+        "number": 10,
+        "flowerID": 1
+    },
+    "model": "service.s_floweritems",
+    "pk": 1
+},
+{
+    "fields": {
+        "color": 1,
+        "typeID": 1,
+        "des": "\u9ec4\u8272\u73ab\u747030\u6735",
+        "number": 100,
+        "flowerID": 2
+    },
+    "model": "service.s_floweritems",
+    "pk": 2
+},
+{
+    "fields": {
+        "t_birth_age": "1979-02-07",
+        "name": "\u53f8\u4eea1",
+        "language": 0,
+        "wed_style": 1,
+        "gender": 1,
+        "price": 3000.0,
+        "photo_chinse": "",
+        "t_start": "2001-03-07",
+        "height": 170,
+        "vcr": "",
+        "avatar": "service_photo/3.jpg",
+        "photo_life": "",
+        "photo_west": "",
+        "honor": "",
+        "desc": "\u597d"
+    },
+    "model": "service.mc",
+    "pk": 1
+},
+{
+    "fields": {
+        "t_birth_age": "2015-04-29",
+        "name": "\u5973\u53f8\u4eea",
+        "language": 1,
+        "wed_style": 2,
+        "gender": 2,
+        "price": 300.0,
+        "photo_chinse": "",
+        "t_start": "2015-04-29",
+        "height": 180,
+        "vcr": "",
+        "avatar": "service_photo/1.jpg",
+        "photo_life": "",
+        "photo_west": "",
+        "honor": "",
+        "desc": "\u963f\u65af\u987ff"
+    },
+    "model": "service.mc",
+    "pk": 2
+},
+{
+    "fields": {
+        "t_birth_age": "2015-05-14",
+        "name": "\u5316\u5986\u5e081",
+        "charge_dress_mum": 200.0,
+        "wed_style": 1,
+        "gender": 1,
+        "price": 2000.0,
+        "t_start": "2015-05-14",
+        "cosmetics_brand": "\u5170\u853b",
+        "vcr": "",
+        "charge_hair": 300.0,
+        "avatar": "service_photo/2.jpg",
+        "is_cosmetics_imported": false,
+        "photo_life": "",
+        "charge_decoration": 200.0,
+        "honor": "",
+        "charge_dress_peer": 100.0,
+        "desc": "\u7f8e\u4e3d\u7684\u4f60\u8ba9\u6211\u88c5\u626e\u6210SB"
+    },
+    "model": "service.makeup",
+    "pk": 1
+}
+]
