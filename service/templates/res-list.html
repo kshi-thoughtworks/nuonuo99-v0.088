@@ -1,7 +1,19 @@
 <div class="row">
-      <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="..." alt="...">
-        </a>
-      </div>
-  </div>
+    {% for item in data_set %}
+    <div class="col-sm-6 col-md-3 col-lg-3">
+        <div class="thumbnail">
+            <img src="{{ item.avatar.url }} "></img>
+            <div class="caption">
+                <h3>{{ item }}</h3>
+                <p>
+                    {{ item.desc }}
+                </p>
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">加入购物车</a>
+                    <a href="#" class="btn btn-default" role="button">看他档期</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
