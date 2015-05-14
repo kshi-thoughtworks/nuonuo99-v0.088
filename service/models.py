@@ -36,7 +36,7 @@ class StdProduct(AvatarBase):
 class S_Flower(StdProduct):
     """花艺产品"""
     category = models.ForeignKey(choice_set.C_FlowerCategory, verbose_name=u'花艺类型')
-    color = models.CharField(u'颜色', max_length=32)
+    #color = models.CharField(u'颜色', max_length=32)
     amount = models.IntegerField(u'花朵数')
     size = models.CharField(u'尺寸', max_length=32)
     desc = models.TextField(u'原材料介绍', blank=True)
@@ -47,7 +47,7 @@ class S_Flower(StdProduct):
 
 
     class Meta:
-        verbose_name = u"花艺服务"
+        verbose_name = u"花艺产品"
         verbose_name_plural = verbose_name
 
 class S_FlowerItems(models.Model):
@@ -56,8 +56,11 @@ class S_FlowerItems(models.Model):
     typeID=models.ForeignKey(C_FlowerType,verbose_name=u'品种')
     number=models.IntegerField(default=1,verbose_name=u'数量')
     color=models.ForeignKey(C_Color,verbose_name=u'色彩')
-    desc=models.TextField(u'工艺描述')
+    des=models.TextField(u'工艺描述')
 
+    class Meta:
+        verbose_name=u'花艺产品子项'
+        verbose_name_plural=verbose_name
 
 
 class Expert(AvatarBase):
