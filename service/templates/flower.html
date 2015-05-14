@@ -11,20 +11,21 @@
 
     <form class="form-horizontal" method="GET"> {% csrf_token %}
 
+        {% if subclass %}
         <div class="form-group">
-            <label for="wed-style" class="col-lg-1 col-md-1">专业</label>
+            <label for="wed-style" class="col-lg-1 col-md-1">样式</label>
             <div class="col-lg-6 col-md-6">
                 <label class="radio-inline">
-                    <input type="radio" name="wed_style" id="style0" value="all" checked> 不限
+                    <input type="radio" name="f_style" id="style0" value="0" checked> 不限
                 </label>
-                <label class="radio-inline">
-                    <input type="radio" name="wed_style" id="style1" value="chinese"> 中式
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="wed_style" id="style2" value="west"> 西式
-                </label>
+                {% for value, name in subclass %}
+                    <label class="radio-inline">
+                        <input type="radio" name="f_style" id="style0" value="{{ value }}"> {{ name }}
+                    </label>
+                {% endfor %}
             </div>
         </div>
+        {% endif %}
 
         {% include 'std_product_form.html' %}
 

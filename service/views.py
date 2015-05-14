@@ -5,6 +5,8 @@ from django.http import HttpResponse
 
 from service.models import MC, MakeUp, S_Flower
 
+from base.models import C_FLOWER_STYLE_DOOR, C_FLOWER_STYLE_DESK, C_FLOWER_STYLE_ROAD
+
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 
@@ -36,9 +38,17 @@ def filter_mc(request):
 
 
 def filter_flower(request, category):
-    print category
+    subclass = None
+    if category == 'door':
+        subclass = C_FLOWER_STYLE_DOOR
+    elif category == 'road':
+        subclass = C_FLOWER_STYLE_ROAD
+    elif category == 'desk':
+        subclass = C_FLOWER_STYLE_DESK
+
     kwargs = dict()
     content = {
+        'subclass': subclass,
         'data_set': S_Flower.objects.filter(**kwargs),
         }
     return render_to_response('flower.html', RequestContext(request, content))
