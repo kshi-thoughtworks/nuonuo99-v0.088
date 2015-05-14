@@ -63,10 +63,14 @@ class Choice(models.Model):
 
 
 class C_FlowerCategory(Choice):
-    """花艺类型库"""
+    """花艺产品类型库"""
+
     class Meta:
         verbose_name = "花艺类型"
         verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return '%s' % self.name
 
 
 class C_AvType(Choice):
@@ -74,3 +78,20 @@ class C_AvType(Choice):
     class Meta:
         verbose_name = "AV 类型"
         verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return '%s' % self.name
+
+
+class C_FlowerType(Choice):
+    """花品种库"""
+    startDate=models.DateField('花材可用起始日期',null=True)
+    endDate=models.DateField('花材可用结束日期',null=True)
+    class Meta:
+            verbose_name='花品种'
+            verbose_name_plural=verbose_name
+
+    def __unicode__(self):
+        return '%s' % self.name
+
+
