@@ -45,6 +45,7 @@ C_LANG = (
     )
 
 
+
 class Choice(models.Model):
     """Abstract Choice info class"""
     name = models.CharField(u'名称', max_length=255)
@@ -79,19 +80,22 @@ class C_AvType(Choice):
         verbose_name = "AV 类型"
         verbose_name_plural = verbose_name
 
-    def __unicode__(self):
-        return '%s' % self.name
 
 
 class C_FlowerType(Choice):
     """花品种库"""
-    startDate=models.DateField('花材可用起始日期',null=True)
-    endDate=models.DateField('花材可用结束日期',null=True)
+    startDate=models.DateField(u'花材可用起始日期',null=True)
+    endDate=models.DateField(u'花材可用结束日期',null=True)
     class Meta:
-            verbose_name='花品种'
+            verbose_name=u'花品种'
             verbose_name_plural=verbose_name
 
-    def __unicode__(self):
-        return '%s' % self.name
+
+class C_Color(Choice):
+    RGB=models.CharField(max_length=255,verbose_name=u'RGB值')
+    class Meta:
+            verbose_name=u'色彩'
+            verbose_name_plural=verbose_name
+
 
 
