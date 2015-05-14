@@ -1,7 +1,7 @@
 [
 {
     "fields": {
-        "t_birth_age": "1988-02-02",
+        "t_birth_age": 80,
         "name": "Kunth",
         "language": 0,
         "wed_style": 1,
@@ -22,7 +22,7 @@
 },
 {
     "fields": {
-        "t_birth_age": "2015-05-12",
+        "t_birth_age": 50,
         "name": "\u6614\u65e5\u65b0\u5a18",
         "language": 0,
         "wed_style": 2,
