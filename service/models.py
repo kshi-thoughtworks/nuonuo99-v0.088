@@ -30,7 +30,7 @@ class StdProduct(AvatarBase):
     price = models.FloatField(u'售价')
 
     def __unicode__(self):
-        return "%s-%s-%s" % (self.name, self.gender, self.price)
+        return "%s-%s" % (self.name, self.price)
 
     class Meta:
         abstract = True
