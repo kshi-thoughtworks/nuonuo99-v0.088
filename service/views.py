@@ -12,6 +12,12 @@ def filter_makeup(request):
     return render_to_response('makeup.html', RequestContext(request, content))
 
 
+def filter_mc(request):
+    content = {
+            }
+    return render_to_response('mc.html', RequestContext(request, content))
+
+
 def filter_flower(request):
     content = {
             }
