@@ -10,12 +10,25 @@ from base.models import C_FLOWER_STYLE_DOOR, C_FLOWER_STYLE_DESK, C_FLOWER_STYLE
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 
-def expert_filter(query_set):
+def price_filter(query_set):
     kwargs = dict()
+    bottom, top = query_set.get('price', '-').split('-')
+
+    if bottom:
+        kwargs['price__gte'] = bottom
+
+    if top:
+        kwargs['price__lte'] = top
+
+    return kwargs
+
+
+def expert_filter(query_set):
+    kwargs = price_filter(query_set)
+    print kwargs
 
     def add_para(db, para):
         value = query_set.get(para, '0')
-        print para, value
         if value != '0':
             kwargs[db] = value
 
