@@ -4,7 +4,10 @@
         <div class="thumbnail">
             <img src="{{ item.avatar.url }} "></img>
             <div class="caption">
-                <h3>{{ item }}</h3>
+                <h3>
+                    {{ item.name }}
+                    <span class="pull-right">￥{{ item.price }} </span>
+                </h3>
                 <p>
                     {{ item.desc }}
                 </p>
