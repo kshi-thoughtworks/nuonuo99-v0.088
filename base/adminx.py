@@ -12,5 +12,8 @@ class ChoiceAdmin(object):
 
 
 
+
 xadmin.site.register(c_model.SlaProvider, SlaAdmin)
 xadmin.site.register(c_model.C_FlowerCategory, ChoiceAdmin)
+xadmin.site.register(c_model.C_Color,ChoiceAdmin)
+xadmin.site.register(c_model.C_FlowerType,ChoiceAdmin)

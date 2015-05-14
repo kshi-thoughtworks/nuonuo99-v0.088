@@ -10,7 +10,10 @@ class ServiceAdmin(object):
 class ExpertAdmin(object):
     list_display = ("name", "avatar_html", "gender", "wed_style", "price")
 
+class FlowerItemsAdmin(object):
+    list_display=('flowerID','typeID','number','color','des')
 
 xadmin.site.register(S.S_Flower, ServiceAdmin)
 xadmin.site.register(S.MC, ExpertAdmin)
 xadmin.site.register(S.MakeUp, ExpertAdmin)
+xadmin.site.register(S.S_FlowerItems,FlowerItemsAdmin)
