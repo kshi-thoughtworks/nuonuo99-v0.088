@@ -34,13 +34,14 @@
 价格等商品信息, 从网站上实时获取最新数据.
 
 - draft
-    - User ID
     - 产品 ID
     - 数量
     - 加入购物车时间
-    - 婚礼 ID / 婚礼方案 ID, 外键
+    - 婚礼 / 婚礼方案, 外键连接至 weding-info
 
 - weding-info
+    - 婚礼 ID / 婚礼方案 ID
+    - user ID
     - date
     - location
     - 桌数
