@@ -27,6 +27,7 @@ project_app = (
     'accounts',
     'provider',
     'service',
+    'location',
     )
 
 
