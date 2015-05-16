@@ -28,6 +28,7 @@ project_app = (
     'provider',
     'service',
     'location',
+    'expert',
     )
 
 
