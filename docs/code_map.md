@@ -1,5 +1,18 @@
 ## 代码结构说明
 
+
+#### APP 功能说明
+
+已明确:
+
+- location 管理省市县信息
+- expert 专家类业务管理, 具体包括: 摄影师, 摄像师, 化妆师, 司仪
+- std_product 标准化产品管理. 具体包括: 花艺(花门/路引/桌花/其他), AV, 场布
+- account 帐号与基本信息管理
+
+
+#### 通用模块与框架
+
 fixtures 目录下是该 app 的 model 的初始数据
 
 - backup.sh  数据库与 media 目录下文件备份
@@ -44,15 +57,3 @@ fixtures 目录下是该 app 的 model 的初始数据
     - code\_map.md  本文, 文档地图
     - frs/  需求管理
     - dev-iter1/  迭代1 开发文档
-
-- provider:  供应商管理
-    - adminx.py
-    - fixtures/
-    - \_\_init\_\_.py
-    - models.py
-
-- service:  服务内容与产品管理
-    - adminx.py
-    - fixtures/
-    - \_\_init\_\_.py
-    - models.py
