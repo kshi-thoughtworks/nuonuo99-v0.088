@@ -4,6 +4,8 @@ from django.conf import settings
 
 import base.models as choice_set
 
+from location.models import City
+
 
 _help_text_charge = u'-1 -- 不提供该服务. 0 -- 免费提供. > 0 -- 提供且收取对应的费用'
 
@@ -36,14 +38,15 @@ class Expert(models.Model):
 
 class MC(Expert):
     """司仪服务 master of ceremonies"""
+    loc_native = models.ForeignKey(City, verbose_name=u'祖籍')
     language = models.IntegerField(u'语言', choices=choice_set.C_LANG, default=0)
     height = models.IntegerField(u'身高')
 
     photo_chinse = models.FileField(u'中式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
     photo_west = models.FileField(u'西式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
     photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)
-    vcr = models.FileField(u'自我介绍视频', upload_to=settings.SERVICE_PATH, blank=True)
 
+    vcr = models.CharField(u'自我介绍视频 url', max_length=255, blank=True)
 
     class Meta:
         verbose_name = u"司仪服务"
