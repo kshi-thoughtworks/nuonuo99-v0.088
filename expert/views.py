@@ -42,12 +42,10 @@ type_map = {
     }
 
 
-def filter_html(request):
-    type_key = request.GET.get('type', '').lower()
-
+def filter_html(request, type_key):
     type_model = type_map.get(type_key, None)
     if type_model is None:
-        return render_to_response('50x.html', RequestContext(request))
+        return render_to_response('404.html', RequestContext(request))
 
     kwargs = expert_filter(request.GET)
     content = {
