@@ -26,9 +26,9 @@ project_app = (
     'base',
     'accounts',
     'provider',
-    'service',
     'location',
     'expert',
+    'std_product',
     )
 
 

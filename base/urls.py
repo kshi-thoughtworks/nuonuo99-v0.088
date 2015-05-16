@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(xadmin.site.urls)),
     url(r'^accounts/', include('userena.urls')),
     url(r'^expert/', include('expert.urls')),
-    url(r'^service/', include('service.urls')),
+    url(r'^standard/', include('std_product.urls')),
 )
 
 
