@@ -3650,7 +3650,7 @@
     "fields": {
         "city": 3,
         "zipcode": "120225",
-        "name": "\u84df\u3000\u53bf"
+        "name": "\u84df\u53bf"
     },
     "model": "location.county",
     "pk": 36
@@ -3812,7 +3812,7 @@
     "fields": {
         "city": 5,
         "zipcode": "130133",
-        "name": "\u8d75\u3000\u53bf"
+        "name": "\u8d75\u53bf"
     },
     "model": "location.county",
     "pk": 55
@@ -3920,7 +3920,7 @@
     "fields": {
         "city": 6,
         "zipcode": "130223",
-        "name": "\u6ee6\u3000\u53bf"
+        "name": "\u6ee6\u53bf"
     },
     "model": "location.county",
     "pk": 68
@@ -4127,7 +4127,7 @@
     "fields": {
         "city": 8,
         "zipcode": "130426",
-        "name": "\u6d89\u3000\u53bf"
+        "name": "\u6d89\u53bf"
     },
     "model": "location.county",
     "pk": 93
@@ -4136,7 +4136,7 @@
     "fields": {
         "city": 8,
         "zipcode": "130427",
-        "name": "\u78c1\u3000\u53bf"
+        "name": "\u78c1\u53bf"
     },
     "model": "location.county",
     "pk": 94
@@ -4163,7 +4163,7 @@
     "fields": {
         "city": 8,
         "zipcode": "130430",
-        "name": "\u90b1\u3000\u53bf"
+        "name": "\u90b1\u53bf"
     },
     "model": "location.county",
     "pk": 97
@@ -4199,7 +4199,7 @@
     "fields": {
         "city": 8,
         "zipcode": "130434",
-        "name": "\u9b4f\u3000\u53bf"
+        "name": "\u9b4f\u53bf"
     },
     "model": "location.county",
     "pk": 101
@@ -4289,7 +4289,7 @@
     "fields": {
         "city": 9,
         "zipcode": "130526",
-        "name": "\u4efb\u3000\u53bf"
+        "name": "\u4efb\u53bf"
     },
     "model": "location.county",
     "pk": 112
@@ -4352,7 +4352,7 @@
     "fields": {
         "city": 9,
         "zipcode": "130533",
-        "name": "\u5a01\u3000\u53bf"
+        "name": "\u5a01\u53bf"
     },
     "model": "location.county",
     "pk": 119
@@ -4478,7 +4478,7 @@
     "fields": {
         "city": 10,
         "zipcode": "130627",
-        "name": "\u5510\u3000\u53bf"
+        "name": "\u5510\u53bf"
     },
     "model": "location.county",
     "pk": 134
@@ -4532,7 +4532,7 @@
     "fields": {
         "city": 10,
         "zipcode": "130633",
-        "name": "\u6613\u3000\u53bf"
+        "name": "\u6613\u53bf"
     },
     "model": "location.county",
     "pk": 140
@@ -4550,7 +4550,7 @@
     "fields": {
         "city": 10,
         "zipcode": "130635",
-        "name": "\u8821\u3000\u53bf"
+        "name": "\u8821\u53bf"
     },
     "model": "location.county",
     "pk": 142
@@ -4577,7 +4577,7 @@
     "fields": {
         "city": 10,
         "zipcode": "130638",
-        "name": "\u96c4\u3000\u53bf"
+        "name": "\u96c4\u53bf"
     },
     "model": "location.county",
     "pk": 145
@@ -4703,7 +4703,7 @@
     "fields": {
         "city": 11,
         "zipcode": "130726",
-        "name": "\u851a\u3000\u53bf"
+        "name": "\u851a\u53bf"
     },
     "model": "location.county",
     "pk": 160
@@ -4892,7 +4892,7 @@
     "fields": {
         "city": 13,
         "zipcode": "130921",
-        "name": "\u6ca7\u3000\u53bf"
+        "name": "\u6ca7\u53bf"
     },
     "model": "location.county",
     "pk": 183
@@ -4901,7 +4901,7 @@
     "fields": {
         "city": 13,
         "zipcode": "130922",
-        "name": "\u9752\u3000\u53bf"
+        "name": "\u9752\u53bf"
     },
     "model": "location.county",
     "pk": 184
@@ -4964,7 +4964,7 @@
     "fields": {
         "city": 13,
         "zipcode": "130929",
-        "name": "\u732e\u3000\u53bf"
+        "name": "\u732e\u53bf"
     },
     "model": "location.county",
     "pk": 191
@@ -5171,7 +5171,7 @@
     "fields": {
         "city": 15,
         "zipcode": "131127",
-        "name": "\u666f\u3000\u53bf"
+        "name": "\u666f\u53bf"
     },
     "model": "location.county",
     "pk": 216
@@ -5297,7 +5297,7 @@
     "fields": {
         "city": 17,
         "zipcode": "140202",
-        "name": "\u57ce\u3000\u533a"
+        "name": "\u57ce\u533a"
     },
     "model": "location.county",
     "pk": 232
@@ -5306,7 +5306,7 @@
     "fields": {
         "city": 17,
         "zipcode": "140203",
-        "name": "\u77ff\u3000\u533a"
+        "name": "\u77ff\u533a"
     },
     "model": "location.county",
     "pk": 233
@@ -5396,7 +5396,7 @@
     "fields": {
         "city": 18,
         "zipcode": "140302",
-        "name": "\u57ce\u3000\u533a"
+        "name": "\u57ce\u533a"
     },
     "model": "location.county",
     "pk": 244
@@ -5405,7 +5405,7 @@
     "fields": {
         "city": 18,
         "zipcode": "140303",
-        "name": "\u77ff\u3000\u533a"
+        "name": "\u77ff\u533a"
     },
     "model": "location.county",
     "pk": 245
@@ -5414,7 +5414,7 @@
     "fields": {
         "city": 18,
         "zipcode": "140311",
-        "name": "\u90ca\u3000\u533a"
+        "name": "\u90ca\u533a"
     },
     "model": "location.county",
     "pk": 246
@@ -5432,7 +5432,7 @@
     "fields": {
         "city": 18,
         "zipcode": "140322",
-        "name": "\u76c2\u3000\u53bf"
+        "name": "\u76c2\u53bf"
     },
     "model": "location.county",
     "pk": 248
@@ -5441,7 +5441,7 @@
     "fields": {
         "city": 19,
         "zipcode": "140402",
-        "name": "\u57ce\u3000\u533a"
+        "name": "\u57ce\u533a"
     },
     "model": "location.county",
     "pk": 250
@@ -5450,7 +5450,7 @@
     "fields": {
         "city": 19,
         "zipcode": "140411",
-        "name": "\u90ca\u3000\u533a"
+        "name": "\u90ca\u533a"
     },
     "model": "location.county",
     "pk": 251
@@ -5531,7 +5531,7 @@
     "fields": {
         "city": 19,
         "zipcode": "140430",
-        "name": "\u6c81\u3000\u53bf"
+        "name": "\u6c81\u53bf"
     },
     "model": "location.county",
     "pk": 260
@@ -5558,7 +5558,7 @@
     "fields": {
         "city": 20,
         "zipcode": "140502",
-        "name": "\u57ce\u3000\u533a"
+        "name": "\u57ce\u533a"
     },
     "model": "location.county",
     "pk": 264
@@ -5639,7 +5639,7 @@
     "fields": {
         "city": 21,
         "zipcode": "140622",
-        "name": "\u5e94\u3000\u53bf"
+        "name": "\u5e94\u53bf"
     },
     "model": "location.county",
     "pk": 274
@@ -5729,7 +5729,7 @@
     "fields": {
         "city": 22,
         "zipcode": "140727",
-        "name": "\u7941\u3000\u53bf"
+        "name": "\u7941\u53bf"
     },
     "model": "location.county",
     "pk": 285
@@ -5819,7 +5819,7 @@
     "fields": {
         "city": 23,
         "zipcode": "140826",
-        "name": "\u7edb\u3000\u53bf"
+        "name": "\u7edb\u53bf"
     },
     "model": "location.county",
     "pk": 296
@@ -5837,7 +5837,7 @@
     "fields": {
         "city": 23,
         "zipcode": "140828",
-        "name": "\u590f\u3000\u53bf"
+        "name": "\u590f\u53bf"
     },
     "model": "location.county",
     "pk": 298
@@ -5909,7 +5909,7 @@
     "fields": {
         "city": 24,
         "zipcode": "140923",
-        "name": "\u4ee3\u3000\u53bf"
+        "name": "\u4ee3\u53bf"
     },
     "model": "location.county",
     "pk": 307
@@ -6053,7 +6053,7 @@
     "fields": {
         "city": 25,
         "zipcode": "141025",
-        "name": "\u53e4\u3000\u53bf"
+        "name": "\u53e4\u53bf"
     },
     "model": "location.county",
     "pk": 324
@@ -6080,7 +6080,7 @@
     "fields": {
         "city": 25,
         "zipcode": "141028",
-        "name": "\u5409\u3000\u53bf"
+        "name": "\u5409\u53bf"
     },
     "model": "location.county",
     "pk": 327
@@ -6107,7 +6107,7 @@
     "fields": {
         "city": 25,
         "zipcode": "141031",
-        "name": "\u96b0\u3000\u53bf"
+        "name": "\u96b0\u53bf"
     },
     "model": "location.county",
     "pk": 330
@@ -6125,7 +6125,7 @@
     "fields": {
         "city": 25,
         "zipcode": "141033",
-        "name": "\u84b2\u3000\u53bf"
+        "name": "\u84b2\u53bf"
     },
     "model": "location.county",
     "pk": 332
@@ -6188,7 +6188,7 @@
     "fields": {
         "city": 26,
         "zipcode": "141123",
-        "name": "\u5174\u3000\u53bf"
+        "name": "\u5174\u53bf"
     },
     "model": "location.county",
     "pk": 340
@@ -6197,7 +6197,7 @@
     "fields": {
         "city": 26,
         "zipcode": "141124",
-        "name": "\u4e34\u3000\u53bf"
+        "name": "\u4e34\u53bf"
     },
     "model": "location.county",
     "pk": 341
@@ -6224,7 +6224,7 @@
     "fields": {
         "city": 26,
         "zipcode": "141127",
-        "name": "\u5c9a\u3000\u53bf"
+        "name": "\u5c9a\u53bf"
     },
     "model": "location.county",
     "pk": 344
@@ -7664,7 +7664,7 @@
     "fields": {
         "city": 45,
         "zipcode": "210727",
-        "name": "\u4e49\u3000\u53bf"
+        "name": "\u4e49\u53bf"
     },
     "model": "location.county",
     "pk": 519
@@ -8717,7 +8717,7 @@
     "fields": {
         "city": 62,
         "zipcode": "230125",
-        "name": "\u5bbe\u3000\u53bf"
+        "name": "\u5bbe\u53bf"
     },
     "model": "location.county",
     "pk": 652
@@ -9437,7 +9437,7 @@
     "fields": {
         "city": 69,
         "zipcode": "230811",
-        "name": "\u90ca\u3000\u533a"
+        "name": "\u90ca\u533a"
     },
     "model": "location.county",
     "pk": 739
@@ -10202,7 +10202,7 @@
     "fields": {
         "city": 79,
         "zipcode": "320321",
-        "name": "\u4e30\u3000\u53bf"
+        "name": "\u4e30\u53bf"
     },
     "model": "location.county",
     "pk": 831
@@ -10211,7 +10211,7 @@
     "fields": {
         "city": 79,
         "zipcode": "320322",
-        "name": "\u6c9b\u3000\u53bf"
+        "name": "\u6c9b\u53bf"
     },
     "model": "location.county",
     "pk": 832
@@ -10724,7 +10724,7 @@
     "fields": {
         "city": 86,
         "zipcode": "321011",
-        "name": "\u90ca\u3000\u533a"
+        "name": "\u90ca\u533a"
     },
     "model": "location.county",
     "pk": 896
@@ -12065,7 +12065,7 @@
     "fields": {
         "city": 107,
         "zipcode": "340711",
-        "name": "\u90ca\u3000\u533a"
+        "name": "\u90ca\u533a"
     },
     "model": "location.county",
     "pk": 1066
@@ -12101,7 +12101,7 @@
     "fields": {
         "city": 108,
         "zipcode": "340811",
-        "name": "\u90ca\u3000\u533a"
+        "name": "\u90ca\u533a"
     },
     "model": "location.county",
     "pk": 1071
@@ -12209,7 +12209,7 @@
     "fields": {
         "city": 109,
         "zipcode": "341021",
-        "name": "\u6b59\u3000\u53bf"
+        "name": "\u6b59\u53bf"
     },
     "model": "location.county",
     "pk": 1084
@@ -12227,7 +12227,7 @@
     "fields": {
         "city": 109,
         "zipcode": "341023",
-        "name": "\u9edf\u3000\u53bf"
+        "name": "\u9edf\u53bf"
     },
     "model": "location.county",
     "pk": 1086
@@ -12407,7 +12407,7 @@
     "fields": {
         "city": 112,
         "zipcode": "341322",
-        "name": "\u8427\u3000\u53bf"
+        "name": "\u8427\u53bf"
     },
     "model": "location.county",
     "pk": 1109
@@ -12425,7 +12425,7 @@
     "fields": {
         "city": 112,
         "zipcode": "341324",
-        "name": "\u6cd7\u3000\u53bf"
+        "name": "\u6cd7\u53bf"
     },
     "model": "location.county",
     "pk": 1111
@@ -12470,7 +12470,7 @@
     "fields": {
         "city": 113,
         "zipcode": "341424",
-        "name": "\u548c\u3000\u53bf"
+        "name": "\u548c\u53bf"
     },
     "model": "location.county",
     "pk": 1117
@@ -12497,7 +12497,7 @@
     "fields": {
         "city": 114,
         "zipcode": "341521",
-        "name": "\u5bff\u3000\u53bf"
+        "name": "\u5bff\u53bf"
     },
     "model": "location.county",
     "pk": 1121
@@ -12641,7 +12641,7 @@
     "fields": {
         "city": 117,
         "zipcode": "341823",
-        "name": "\u6cfe\u3000\u53bf"
+        "name": "\u6cfe\u53bf"
     },
     "model": "location.county",
     "pk": 1140
@@ -12956,7 +12956,7 @@
     "fields": {
         "city": 121,
         "zipcode": "350427",
-        "name": "\u6c99\u3000\u53bf"
+        "name": "\u6c99\u53bf"
     },
     "model": "location.county",
     "pk": 1179
@@ -13766,7 +13766,7 @@
     "fields": {
         "city": 133,
         "zipcode": "360721",
-        "name": "\u8d63\u3000\u53bf"
+        "name": "\u8d63\u53bf"
     },
     "model": "location.county",
     "pk": 1281
@@ -15143,7 +15143,7 @@
     "fields": {
         "city": 148,
         "zipcode": "371122",
-        "name": "\u8392\u3000\u53bf"
+        "name": "\u8392\u53bf"
     },
     "model": "location.county",
     "pk": 1449
@@ -15233,7 +15233,7 @@
     "fields": {
         "city": 150,
         "zipcode": "371325",
-        "name": "\u8d39\u3000\u53bf"
+        "name": "\u8d39\u53bf"
     },
     "model": "location.county",
     "pk": 1461
@@ -15287,7 +15287,7 @@
     "fields": {
         "city": 151,
         "zipcode": "371421",
-        "name": "\u9675\u3000\u53bf"
+        "name": "\u9675\u53bf"
     },
     "model": "location.county",
     "pk": 1468
@@ -15395,7 +15395,7 @@
     "fields": {
         "city": 152,
         "zipcode": "371522",
-        "name": "\u8398\u3000\u53bf"
+        "name": "\u8398\u53bf"
     },
     "model": "location.county",
     "pk": 1481
@@ -15422,7 +15422,7 @@
     "fields": {
         "city": 152,
         "zipcode": "371525",
-        "name": "\u51a0\u3000\u53bf"
+        "name": "\u51a0\u53bf"
     },
     "model": "location.county",
     "pk": 1484
@@ -15521,7 +15521,7 @@
     "fields": {
         "city": 154,
         "zipcode": "371721",
-        "name": "\u66f9\u3000\u53bf"
+        "name": "\u66f9\u53bf"
     },
     "model": "location.county",
     "pk": 1497
@@ -15530,7 +15530,7 @@
     "fields": {
         "city": 154,
         "zipcode": "371722",
-        "name": "\u5355\u3000\u53bf"
+        "name": "\u5355\u53bf"
     },
     "model": "location.county",
     "pk": 1498
@@ -15737,7 +15737,7 @@
     "fields": {
         "city": 156,
         "zipcode": "410211",
-        "name": "\u90ca\u3000\u533a"
+        "name": "\u90ca\u533a"
     },
     "model": "location.county",
     "pk": 1523
@@ -15746,7 +15746,7 @@
     "fields": {
         "city": 156,
         "zipcode": "410221",
-        "name": "\u675e\u3000\u53bf"
+        "name": "\u675e\u53bf"
     },
     "model": "location.county",
     "pk": 1524
@@ -15872,7 +15872,7 @@
     "fields": {
         "city": 157,
         "zipcode": "410325",
-        "name": "\u5d69\u3000\u53bf"
+        "name": "\u5d69\u53bf"
     },
     "model": "location.county",
     "pk": 1539
@@ -15971,7 +15971,7 @@
     "fields": {
         "city": 158,
         "zipcode": "410422",
-        "name": "\u53f6\u3000\u53bf"
+        "name": "\u53f6\u53bf"
     },
     "model": "location.county",
     "pk": 1551
@@ -15989,7 +15989,7 @@
     "fields": {
         "city": 158,
         "zipcode": "410425",
-        "name": "\u90cf\u3000\u53bf"
+        "name": "\u90cf\u53bf"
     },
     "model": "location.county",
     "pk": 1553
@@ -16070,7 +16070,7 @@
     "fields": {
         "city": 159,
         "zipcode": "410526",
-        "name": "\u6ed1\u3000\u53bf"
+        "name": "\u6ed1\u53bf"
     },
     "model": "location.county",
     "pk": 1563
@@ -16124,7 +16124,7 @@
     "fields": {
         "city": 160,
         "zipcode": "410621",
-        "name": "\u6d5a\u3000\u53bf"
+        "name": "\u6d5a\u53bf"
     },
     "model": "location.county",
     "pk": 1570
@@ -16133,7 +16133,7 @@
     "fields": {
         "city": 160,
         "zipcode": "410622",
-        "name": "\u6dc7\u3000\u53bf"
+        "name": "\u6dc7\u53bf"
     },
     "model": "location.county",
     "pk": 1571
@@ -16313,7 +16313,7 @@
     "fields": {
         "city": 162,
         "zipcode": "410825",
-        "name": "\u6e29\u3000\u53bf"
+        "name": "\u6e29\u53bf"
     },
     "model": "location.county",
     "pk": 1593
@@ -16376,7 +16376,7 @@
     "fields": {
         "city": 163,
         "zipcode": "410926",
-        "name": "\u8303\u3000\u53bf"
+        "name": "\u8303\u53bf"
     },
     "model": "location.county",
     "pk": 1601
@@ -16520,7 +16520,7 @@
     "fields": {
         "city": 166,
         "zipcode": "411222",
-        "name": "\u9655\u3000\u53bf"
+        "name": "\u9655\u53bf"
     },
     "model": "location.county",
     "pk": 1620
@@ -16700,7 +16700,7 @@
     "fields": {
         "city": 168,
         "zipcode": "411422",
-        "name": "\u7762\u3000\u53bf"
+        "name": "\u7762\u53bf"
     },
     "model": "location.county",
     "pk": 1642
@@ -16790,7 +16790,7 @@
     "fields": {
         "city": 169,
         "zipcode": "411523",
-        "name": "\u65b0\u3000\u53bf"
+        "name": "\u65b0\u53bf"
     },
     "model": "location.county",
     "pk": 1653
@@ -16835,7 +16835,7 @@
     "fields": {
         "city": 169,
         "zipcode": "411528",
-        "name": "\u606f\u3000\u53bf"
+        "name": "\u606f\u53bf"
     },
     "model": "location.county",
     "pk": 1658
@@ -17213,7 +17213,7 @@
     "fields": {
         "city": 174,
         "zipcode": "420321",
-        "name": "\u90e7\u3000\u53bf"
+        "name": "\u90e7\u53bf"
     },
     "model": "location.county",
     "pk": 1705
@@ -17249,7 +17249,7 @@
     "fields": {
         "city": 174,
         "zipcode": "420325",
-        "name": "\u623f\u3000\u53bf"
+        "name": "\u623f\u53bf"
     },
     "model": "location.county",
     "pk": 1709
@@ -18068,7 +18068,7 @@
     "fields": {
         "city": 187,
         "zipcode": "430223",
-        "name": "\u6538\u3000\u53bf"
+        "name": "\u6538\u53bf"
     },
     "model": "location.county",
     "pk": 1811
@@ -18482,7 +18482,7 @@
     "fields": {
         "city": 192,
         "zipcode": "430723",
-        "name": "\u6fa7\u3000\u53bf"
+        "name": "\u6fa7\u53bf"
     },
     "model": "location.county",
     "pk": 1862
@@ -18581,7 +18581,7 @@
     "fields": {
         "city": 194,
         "zipcode": "430921",
-        "name": "\u5357\u3000\u53bf"
+        "name": "\u5357\u53bf"
     },
     "model": "location.county",
     "pk": 1875
@@ -18761,7 +18761,7 @@
     "fields": {
         "city": 196,
         "zipcode": "431124",
-        "name": "\u9053\u3000\u53bf"
+        "name": "\u9053\u53bf"
     },
     "model": "location.county",
     "pk": 1897
@@ -19751,7 +19751,7 @@
     "fields": {
         "city": 211,
         "zipcode": "441421",
-        "name": "\u6885\u3000\u53bf"
+        "name": "\u6885\u53bf"
     },
     "model": "location.county",
     "pk": 2021
@@ -19814,7 +19814,7 @@
     "fields": {
         "city": 212,
         "zipcode": "441502",
-        "name": "\u57ce\u3000\u533a"
+        "name": "\u57ce\u533a"
     },
     "model": "location.county",
     "pk": 2029
@@ -20228,7 +20228,7 @@
     "fields": {
         "city": 221,
         "zipcode": "450127",
-        "name": "\u6a2a\u3000\u53bf"
+        "name": "\u6a2a\u53bf"
     },
     "model": "location.county",
     "pk": 2082
@@ -20516,7 +20516,7 @@
     "fields": {
         "city": 224,
         "zipcode": "450422",
-        "name": "\u85e4\u3000\u53bf"
+        "name": "\u85e4\u53bf"
     },
     "model": "location.county",
     "pk": 2117
@@ -20705,7 +20705,7 @@
     "fields": {
         "city": 229,
         "zipcode": "450921",
-        "name": "\u5bb9\u3000\u53bf"
+        "name": "\u5bb9\u53bf"
     },
     "model": "location.county",
     "pk": 2143
@@ -21551,7 +21551,7 @@
     "fields": {
         "city": 238,
         "zipcode": "500233",
-        "name": "\u5fe0\u3000\u53bf"
+        "name": "\u5fe0\u53bf"
     },
     "model": "location.county",
     "pk": 2244
@@ -21560,7 +21560,7 @@
     "fields": {
         "city": 238,
         "zipcode": "500234",
-        "name": "\u5f00\u3000\u53bf"
+        "name": "\u5f00\u53bf"
     },
     "model": "location.county",
     "pk": 2245
@@ -21776,7 +21776,7 @@
     "fields": {
         "city": 241,
         "zipcode": "510124",
-        "name": "\u90eb\u3000\u53bf"
+        "name": "\u90eb\u53bf"
     },
     "model": "location.county",
     "pk": 2270
@@ -21884,7 +21884,7 @@
     "fields": {
         "city": 242,
         "zipcode": "510321",
-        "name": "\u8363\u3000\u53bf"
+        "name": "\u8363\u53bf"
     },
     "model": "location.county",
     "pk": 2283
@@ -21902,7 +21902,7 @@
     "fields": {
         "city": 243,
         "zipcode": "510402",
-        "name": "\u4e1c\u3000\u533a"
+        "name": "\u4e1c\u533a"
     },
     "model": "location.county",
     "pk": 2286
@@ -21911,7 +21911,7 @@
     "fields": {
         "city": 243,
         "zipcode": "510403",
-        "name": "\u897f\u3000\u533a"
+        "name": "\u897f\u533a"
     },
     "model": "location.county",
     "pk": 2287
@@ -21974,7 +21974,7 @@
     "fields": {
         "city": 244,
         "zipcode": "510521",
-        "name": "\u6cf8\u3000\u53bf"
+        "name": "\u6cf8\u53bf"
     },
     "model": "location.county",
     "pk": 2295
@@ -22100,7 +22100,7 @@
     "fields": {
         "city": 246,
         "zipcode": "510724",
-        "name": "\u5b89\u3000\u53bf"
+        "name": "\u5b89\u53bf"
     },
     "model": "location.county",
     "pk": 2311
@@ -22577,7 +22577,7 @@
     "fields": {
         "city": 253,
         "zipcode": "511525",
-        "name": "\u9ad8\u3000\u53bf"
+        "name": "\u9ad8\u53bf"
     },
     "model": "location.county",
     "pk": 2371
@@ -22586,7 +22586,7 @@
     "fields": {
         "city": 253,
         "zipcode": "511526",
-        "name": "\u73d9\u3000\u53bf"
+        "name": "\u73d9\u53bf"
     },
     "model": "location.county",
     "pk": 2372
@@ -22676,7 +22676,7 @@
     "fields": {
         "city": 255,
         "zipcode": "511721",
-        "name": "\u8fbe\u3000\u53bf"
+        "name": "\u8fbe\u53bf"
     },
     "model": "location.county",
     "pk": 2384
@@ -22712,7 +22712,7 @@
     "fields": {
         "city": 255,
         "zipcode": "511725",
-        "name": "\u6e20\u3000\u53bf"
+        "name": "\u6e20\u53bf"
     },
     "model": "location.county",
     "pk": 2388
@@ -22883,7 +22883,7 @@
     "fields": {
         "city": 259,
         "zipcode": "513222",
-        "name": "\u7406\u3000\u53bf"
+        "name": "\u7406\u53bf"
     },
     "model": "location.county",
     "pk": 2410
@@ -22892,7 +22892,7 @@
     "fields": {
         "city": 259,
         "zipcode": "513223",
-        "name": "\u8302\u3000\u53bf"
+        "name": "\u8302\u53bf"
     },
     "model": "location.county",
     "pk": 2411
@@ -23423,7 +23423,7 @@
     "fields": {
         "city": 263,
         "zipcode": "520222",
-        "name": "\u76d8\u3000\u53bf"
+        "name": "\u76d8\u53bf"
     },
     "model": "location.county",
     "pk": 2471
@@ -24683,7 +24683,7 @@
     "fields": {
         "city": 278,
         "zipcode": "530922",
-        "name": "\u4e91\u3000\u53bf"
+        "name": "\u4e91\u53bf"
     },
     "model": "location.county",
     "pk": 2621
@@ -25754,7 +25754,7 @@
     "fields": {
         "city": 291,
         "zipcode": "542427",
-        "name": "\u7d22\u3000\u53bf"
+        "name": "\u7d22\u53bf"
     },
     "model": "location.county",
     "pk": 2741
@@ -25907,7 +25907,7 @@
     "fields": {
         "city": 293,
         "zipcode": "542627",
-        "name": "\u6717\u3000\u53bf"
+        "name": "\u6717\u53bf"
     },
     "model": "location.county",
     "pk": 2758
@@ -26015,7 +26015,7 @@
     "fields": {
         "city": 294,
         "zipcode": "610125",
-        "name": "\u6237\u3000\u53bf"
+        "name": "\u6237\u53bf"
     },
     "model": "location.county",
     "pk": 2771
@@ -26123,7 +26123,7 @@
     "fields": {
         "city": 296,
         "zipcode": "610326",
-        "name": "\u7709\u3000\u53bf"
+        "name": "\u7709\u53bf"
     },
     "model": "location.county",
     "pk": 2785
@@ -26132,7 +26132,7 @@
     "fields": {
         "city": 296,
         "zipcode": "610327",
-        "name": "\u9647\u3000\u53bf"
+        "name": "\u9647\u53bf"
     },
     "model": "location.county",
     "pk": 2786
@@ -26159,7 +26159,7 @@
     "fields": {
         "city": 296,
         "zipcode": "610330",
-        "name": "\u51e4\u3000\u53bf"
+        "name": "\u51e4\u53bf"
     },
     "model": "location.county",
     "pk": 2789
@@ -26222,7 +26222,7 @@
     "fields": {
         "city": 297,
         "zipcode": "610424",
-        "name": "\u4e7e\u3000\u53bf"
+        "name": "\u4e7e\u53bf"
     },
     "model": "location.county",
     "pk": 2797
@@ -26249,7 +26249,7 @@
     "fields": {
         "city": 297,
         "zipcode": "610427",
-        "name": "\u5f6c\u3000\u53bf"
+        "name": "\u5f6c\u53bf"
     },
     "model": "location.county",
     "pk": 2800
@@ -26312,7 +26312,7 @@
     "fields": {
         "city": 298,
         "zipcode": "610521",
-        "name": "\u534e\u3000\u53bf"
+        "name": "\u534e\u53bf"
     },
     "model": "location.county",
     "pk": 2808
@@ -26474,7 +26474,7 @@
     "fields": {
         "city": 299,
         "zipcode": "610628",
-        "name": "\u5bcc\u3000\u53bf"
+        "name": "\u5bcc\u53bf"
     },
     "model": "location.county",
     "pk": 2827
@@ -26546,7 +26546,7 @@
     "fields": {
         "city": 300,
         "zipcode": "610723",
-        "name": "\u6d0b\u3000\u53bf"
+        "name": "\u6d0b\u53bf"
     },
     "model": "location.county",
     "pk": 2836
@@ -26564,7 +26564,7 @@
     "fields": {
         "city": 300,
         "zipcode": "610725",
-        "name": "\u52c9\u3000\u53bf"
+        "name": "\u52c9\u53bf"
     },
     "model": "location.county",
     "pk": 2838
@@ -26690,7 +26690,7 @@
     "fields": {
         "city": 301,
         "zipcode": "610828",
-        "name": "\u4f73\u3000\u53bf"
+        "name": "\u4f73\u53bf"
     },
     "model": "location.county",
     "pk": 2853
@@ -27311,7 +27311,7 @@
     "fields": {
         "city": 313,
         "zipcode": "621022",
-        "name": "\u73af\u3000\u53bf"
+        "name": "\u73af\u53bf"
     },
     "model": "location.county",
     "pk": 2934
@@ -27347,7 +27347,7 @@
     "fields": {
         "city": 313,
         "zipcode": "621026",
-        "name": "\u5b81\u3000\u53bf"
+        "name": "\u5b81\u53bf"
     },
     "model": "location.county",
     "pk": 2938
@@ -27410,7 +27410,7 @@
     "fields": {
         "city": 314,
         "zipcode": "621125",
-        "name": "\u6f33\u3000\u53bf"
+        "name": "\u6f33\u53bf"
     },
     "model": "location.county",
     "pk": 2946
@@ -27419,7 +27419,7 @@
     "fields": {
         "city": 314,
         "zipcode": "621126",
-        "name": "\u5cb7\u3000\u53bf"
+        "name": "\u5cb7\u53bf"
     },
     "model": "location.county",
     "pk": 2947
@@ -27437,7 +27437,7 @@
     "fields": {
         "city": 315,
         "zipcode": "621221",
-        "name": "\u6210\u3000\u53bf"
+        "name": "\u6210\u53bf"
     },
     "model": "location.county",
     "pk": 2950
@@ -27446,7 +27446,7 @@
     "fields": {
         "city": 315,
         "zipcode": "621222",
-        "name": "\u6587\u3000\u53bf"
+        "name": "\u6587\u53bf"
     },
     "model": "location.county",
     "pk": 2951
@@ -27464,7 +27464,7 @@
     "fields": {
         "city": 315,
         "zipcode": "621224",
-        "name": "\u5eb7\u3000\u53bf"
+        "name": "\u5eb7\u53bf"
     },
     "model": "location.county",
     "pk": 2953
@@ -27482,7 +27482,7 @@
     "fields": {
         "city": 315,
         "zipcode": "621226",
-        "name": "\u793c\u3000\u53bf"
+        "name": "\u793c\u53bf"
     },
     "model": "location.county",
     "pk": 2955
@@ -27491,7 +27491,7 @@
     "fields": {
         "city": 315,
         "zipcode": "621227",
-        "name": "\u5fbd\u3000\u53bf"
+        "name": "\u5fbd\u53bf"
     },
     "model": "location.county",
     "pk": 2956
