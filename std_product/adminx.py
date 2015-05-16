@@ -3,7 +3,6 @@ import xadmin
 from std_product.models import WedFlower
 
 def full_cols(*args):
-    print args
     return ('name', 'price') + args + ('desc',)
 
 class StdProductAdmin(object):
