@@ -15,7 +15,9 @@ class Expert(models.Model):
 
     # basic info
     gender = models.IntegerField(u'性别', choices=choice_set.C_GENDER)  # use boolean field instead
-    t_birth_age = models.IntegerField(u'年龄', choices=choice_set.C_AGE)  # integer and varify
+
+    # https://github.com/kugua456/nuonuo99-v0.88/issues/13
+    # t_birth_age = models.IntegerField(u'年龄', choices=choice_set.C_AGE)  # TODO
 
     # service info
     wed_style = models.IntegerField(u'专业', choices=choice_set.C_WEDDING_STYLE)
