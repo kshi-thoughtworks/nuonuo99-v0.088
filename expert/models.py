@@ -4,7 +4,7 @@ from django.conf import settings
 
 import base.models as choice_set
 
-from location.models import City
+from location.models import County
 
 
 _help_text_charge = u'-1 -- 不提供该服务. 0 -- 免费提供. > 0 -- 提供且收取对应的费用'
@@ -38,7 +38,7 @@ class Expert(models.Model):
 
 class MC(Expert):
     """司仪服务 master of ceremonies"""
-    loc_native = models.ForeignKey(City, verbose_name=u'祖籍')
+    loc_native = models.ForeignKey(County, verbose_name=u'祖籍')
     language = models.IntegerField(u'语言', choices=choice_set.C_LANG, default=0)
     height = models.IntegerField(u'身高')
 
