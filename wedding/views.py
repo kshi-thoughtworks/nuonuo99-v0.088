@@ -33,8 +33,13 @@ def add_service(user, obj):
     c_type= ContentType.objects.get_for_model(obj)
     try:
         item = CartInfo.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
+        lvl = messages.WARNING
+        msg = u'%s ( %s ) 已经在我的婚礼方案中, 无需重复加入!' % (c_type, obj.name)
     except ObjectDoesNotExist:  # add new item to cart
         CartInfo(buyer=user, content_object=obj, amount=1).save()
+        lvl = messages.SUCCESS
+        msg = u'%s ( %s ) 成功加入我的婚礼方案!' % (c_type, obj.name)
+    return lvl, msg
 
 
 def add_service_mc(request, obj_id):
@@ -44,8 +49,8 @@ def add_service_mc(request, obj_id):
         error_msg = '司仪(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
 
-    add_service(request.user, obj)
-    messages.success(request, u'司仪(%s) 已经加入我的婚礼方案!' % obj.name)
+    lvl, msg = add_service(request.user, obj)
+    messages.add_message(request, lvl, msg)
 
     return HttpResponseRedirect(reverse('wedding_overview'))
 
@@ -57,8 +62,8 @@ def add_service_makeup(request, obj_id):
         error_msg = '化妆师(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
 
-    add_service(request.user, obj)
-    messages.success(request, u'化妆师 (%s) 已经加入我的婚礼方案!' % obj.name)
+    lvl, msg = add_service(request.user, obj)
+    messages.add_message(request, lvl, msg)
 
     return HttpResponseRedirect(reverse('wedding_overview'))
 
