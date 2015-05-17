@@ -90,6 +90,7 @@ def overview(request):
     return render_to_response('overview.html', RequestContext(request, content))
 
 
-def charge(request):
+def charge(request, cart_id):
+    print cart_id
     content = wed_program(request.user)
     return render_to_response('overview.html', RequestContext(request, content))
