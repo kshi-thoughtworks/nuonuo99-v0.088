@@ -1,13 +1,38 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>我的 NuoNuo </title>
+<title>我的婚礼方案</title>
 {% endblock %}
 
 {% block content %}
 
+
+<div class="basic-info">
+
+    <h2>婚礼基本信息</h2>
+
+    <ul class="list-group">
+        <li class="list-group-item">婚期: {{ wed_info.t_wed }}</li>
+        <li class="list-group-item">地点: {{ wed_info.loc }} </li>
+        <li class="list-group-item">
+            新人: {{ wed_info.boy }} -- {{ wed_info.girl }}
+        </li>
+        <li class="list-group-item">
+            桌数: {{ wed_info.btm_table_num }} - {{ wed_info.top_table_num}}
+        </li>
+    </ul>
+
+    <h2>新人期望</h2>
+
+    <p> {{ wed_info.expect }} </p>
+
+</div>
+
+
 <div class="cart-item">
-    <h3>我的购物车</h3>
+    <h2>待定内容</h2>
+
+    <p>TODO: 按婚礼的要素罗列, 而不是按购物车中的内容</p>
 
     <table class="table table-bordered">
         <thead>
@@ -28,7 +53,34 @@
             </tr>
             {% endfor %}
         </tbody>
-        </table>
+    </table>
 </div>
+
+
+<div class="ordered-item">
+    <h2>已预定项目</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>商品类型</td>
+                <td>名称</td>
+                <td>数量</td>
+                <td>价格</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_data %}
+            <tr>
+                <th>{{ item.content_type }}</th>
+                <th>{{ item.content_object.name }}</th>
+                <th>{{ item.amount }}</th>
+                <th>￥{{ item.content_object.price }}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 
 {% endblock %}

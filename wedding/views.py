@@ -4,7 +4,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 
-from wedding.models import CartInfo
+from wedding.models import CartInfo, WedEssential
 
 from django.contrib.contenttypes.models import ContentType
 import expert.models
@@ -76,7 +76,14 @@ def add(request, product_key):
 
 
 def overview(request):
+
+    try:
+        wed_info = WedEssential.objects.get(user=request.user)
+    except ObjectDoesNotExist:
+        wed_info = None
+
     content = {
+        'wed_info': wed_info,
         'cart_data': CartInfo.objects.filter(buyer=request.user),
         }
 
