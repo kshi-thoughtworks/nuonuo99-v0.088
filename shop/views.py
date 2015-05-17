@@ -68,6 +68,7 @@ def add(request, product_key):
 
     content = {
         'error_msg': error_msg,
+        'show_success': not bool(error_msg),
         'cart_data': CartInfo.objects.all(),
         }
 
