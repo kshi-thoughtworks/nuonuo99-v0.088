@@ -36,6 +36,19 @@ def parse_product_key(product_key):
     return obj
 
 
+def wed_program(user):
+    try:
+        wed_info = WedEssential.objects.get(user=user)
+    except ObjectDoesNotExist:
+        wed_info = None
+
+    return {
+        'wed_info': wed_info,
+        'cart_data': CartInfo.objects.filter(buyer=user),
+        }
+
+
+
 # login required
 def add(request, product_key):
     raw_amount = request.GET.get('amount', '1')
@@ -66,25 +79,12 @@ def add(request, product_key):
             item.amount += amount
             item.save()
 
-    content = {
-        'error_msg': error_msg,
-        'show_success': not bool(error_msg),
-        'cart_data': CartInfo.objects.filter(buyer=request.user),
-        }
-
-    return render_to_response('my_cart.html', RequestContext(request, content))
+    content = wed_program(request.user)
+    content['error_msg'] = error_msg
+    content['show_success'] = not bool(error_msg)
+    return render_to_response('overview.html', RequestContext(request, content))
 
 
 def overview(request):
-
-    try:
-        wed_info = WedEssential.objects.get(user=request.user)
-    except ObjectDoesNotExist:
-        wed_info = None
-
-    content = {
-        'wed_info': wed_info,
-        'cart_data': CartInfo.objects.filter(buyer=request.user),
-        }
-
+    content = wed_program(request.user)
     return render_to_response('overview.html', RequestContext(request, content))
