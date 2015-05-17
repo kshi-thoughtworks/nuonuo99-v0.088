@@ -73,3 +73,11 @@ def add(request, product_key):
         }
 
     return render_to_response('my_cart.html', RequestContext(request, content))
+
+
+def my_nuonuo(request):
+    content = {
+        'cart_data': CartInfo.objects.filter(buyer=request.user),
+        }
+
+    return render_to_response('my_nuonuo.html', RequestContext(request, content))
