@@ -22,11 +22,7 @@ def parse_product_key(product_key):
     return None, if error occurs
     raise ObjectDoesNotExist, if there is no error but obj not exist
     """
-    params = product_key.split('_')
-    if len(params) != 2:
-        return  # format error
-
-    type_key, obj_id = params
+    type_key, obj_id = product_key.split('_')
 
     if type_key not in type_map:
         return  # type error
@@ -40,9 +36,8 @@ def parse_product_key(product_key):
 
 
 # login required
-def add(request):
-    raw_amount = request.GET.get('amount')
-    product_key = request.GET.get('product_key', '')
+def add(request, product_key):
+    raw_amount = request.GET.get('amount', '1')
 
     error_msg = ''
 
