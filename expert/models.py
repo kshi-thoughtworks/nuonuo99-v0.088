@@ -23,7 +23,7 @@ class Expert(models.Model):
 
     # service info
     wed_style = models.IntegerField(u'专业', choices=choice_set.C_WEDDING_STYLE)
-    t_start = models.DateField(u'工作开始时间', help_text=u'从业时间 = 当前时间-工作开始时间)')
+    t_start = models.DateField(u'工作开始时间', help_text=u'从业时间 = 当前时间-工作开始时间')
     desc = models.TextField(u'服务理念', max_length=255)
 
     # more info
@@ -44,7 +44,7 @@ class MC(Expert):
     """司仪服务 master of ceremonies"""
     loc_native = models.ForeignKey(County, verbose_name=u'祖籍')
     language = models.IntegerField(u'语言', choices=choice_set.C_LANG, default=0)
-    height = models.IntegerField(u'身高')
+    height = models.IntegerField(u'身高(cm)')
 
     photo_chinse = models.FileField(u'中式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
     photo_west = models.FileField(u'西式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
