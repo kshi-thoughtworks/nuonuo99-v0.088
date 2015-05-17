@@ -1,7 +1,10 @@
 #-*- coding:utf-8 -*-
 import xadmin
-from wedding.models import CartInfo
+from wedding.models import CartInfo, WedEssential
 
+
+class WedEssentialAdmin(object):
+    list_display = ("user", "boy", "girl", "t_wed", "loc", "expect")
 
 class CartInfoAdmin(object):
 
@@ -20,4 +23,5 @@ class CartInfoAdmin(object):
     list_display = ("buyer", "content_type", "product_name", "product_price", "amount", "object_id")
 
 
+xadmin.site.register(WedEssential, WedEssentialAdmin)
 xadmin.site.register(CartInfo, CartInfoAdmin)
