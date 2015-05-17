@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 class CartInfo(models.Model):
     buyer = models.ForeignKey(User, verbose_name=u'购买人')
-    amount = models.PositiveIntegerField(u'数量')
+    amount = models.PositiveIntegerField(u'数量', default=0)
 
     content_type = models.ForeignKey(ContentType, verbose_name=u'商品类型')
     object_id = models.PositiveIntegerField(u'商品 ID')
@@ -21,3 +21,4 @@ class CartInfo(models.Model):
     class Meta:
         verbose_name = u"购物车"
         verbose_name_plural = verbose_name
+        unique_together = ("buyer", "content_type", "object_id")
