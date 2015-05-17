@@ -88,3 +88,8 @@ def add(request, product_key):
 def overview(request):
     content = wed_program(request.user)
     return render_to_response('overview.html', RequestContext(request, content))
+
+
+def charge(request):
+    content = wed_program(request.user)
+    return render_to_response('overview.html', RequestContext(request, content))
