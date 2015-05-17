@@ -60,7 +60,7 @@ class MC(Expert):
 class MakeUp(Expert):
     """化妆师"""
 
-    cosmetics_brand = models.CharField(u'常用化妆品品牌', max_length=255)
+    cosmetics_brand = models.CharField(u'常用化妆品品牌', max_length=255, blank=True)
     is_cosmetics_imported = models.BooleanField(u'进口化妆品', default=False)
     photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)
     vcr = models.FileField(u'自我介绍视频', upload_to=settings.SERVICE_PATH, blank=True)
