@@ -68,6 +68,7 @@ def add(request, product_key):
 
     content = {
         'error_msg': error_msg,
+        'cart_data': CartInfo.objects.all(),
         }
 
     return render_to_response('my_cart.html', RequestContext(request, content))
