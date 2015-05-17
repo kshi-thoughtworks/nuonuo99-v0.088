@@ -39,14 +39,16 @@ def expert_filter(query_set):
 def filter_mc(request):
     kwargs = expert_filter(request.GET)
     content = {
+        'cart_url': 'add_service_mc',
         'data_set': MC.objects.filter(**kwargs),
-            }
+        }
     return render_to_response('mc.html', RequestContext(request, content))
 
 
 def filter_makeup(request):
     kwargs = expert_filter(request.GET)
     content = {
+        'cart_url': 'add_service_makeup',
         'data_set': MakeUp.objects.filter(**kwargs),
-            }
+        }
     return render_to_response('makeup.html', RequestContext(request, content))
