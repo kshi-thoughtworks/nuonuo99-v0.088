@@ -20,7 +20,7 @@
 
         <ul class="nav navbar-nav pull-right">
         {% if user.is_authenticated %}
-            <li> <a href="{% url 'userena_profile_detail' user %}">
+            <li> <a href="{% url 'my_nuonuo' %}">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user.username }}</a> </li>
             <li> <a href="{% url 'userena_profile_edit' user %}">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a> </li>
