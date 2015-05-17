@@ -1,13 +1,19 @@
 #-*- coding:utf-8 -*-
 from django.db import models
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+
 from django.contrib.auth.models import User
 
-from expert.models import Expert
 
-
-class Cart(models.Model):
+class CartInfo(models.Model):
     buyer = models.ForeignKey(User, verbose_name=u'购买人')
-    price = models.DecimalField(u'单价', max_digits=8, decimal_places=2)
+    amount = models.PositiveIntegerField(u'数量')
+
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+    # t_add = models.TimeField(u'加入时间', default=time.time())
 
     def __unicode__(self):
         return self.buyer.username

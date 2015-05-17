@@ -1,10 +1,14 @@
 #-*- coding:utf-8 -*-
 import xadmin
-from shop.models import Cart
+from shop.models import CartInfo
 
 
-class CartInfo(object):
-    list_display = ("buyer", "price")
+class CartInfoAdmin(object):
+
+    def product_name(self, ins):
+        return ins.content_object.name
+
+    list_display = ("buyer", "amount", "content_type", "product_name")
 
 
-xadmin.site.register(Cart, CartInfo)
+xadmin.site.register(CartInfo, CartInfoAdmin)
