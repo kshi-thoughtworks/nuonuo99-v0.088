@@ -31,7 +31,7 @@ def wed_program(user):
 def add_service(user, obj):
     c_type= ContentType.objects.get_for_model(obj)
     try:
-        item = CartInfo.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
+        item = Order.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
     except ObjectDoesNotExist:  # not exists in order table
         try:
             item = CartInfo.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
