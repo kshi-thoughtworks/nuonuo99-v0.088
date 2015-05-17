@@ -2,7 +2,7 @@
 from django.conf.urls import patterns, include, url
 
 
-urlpatterns = patterns('shop.views',
+urlpatterns = patterns('wedding.views',
     url(r'^add/(\w+_\d+)$', 'add', name='add_to_cart'),
     url(r'^my$', 'overview', name='wedding_overview'),
 )
