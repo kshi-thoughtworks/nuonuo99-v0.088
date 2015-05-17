@@ -6,5 +6,5 @@ urlpatterns = patterns('wedding.views',
     url(r'^add-service/mc/(\d+)$', 'add_service_mc', name='add_service_mc'),
     url(r'^add-service/makeup/(\d+)$', 'add_service_makeup', name='add_service_makeup'),
     url(r'^my$', 'overview', name='wedding_overview'),
-    url(r'^charge/(.+)$', 'charge', name='charge_product'),
+    url(r'^book/(.+)$', 'book', name='book_service'),
 )

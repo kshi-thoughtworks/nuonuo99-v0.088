@@ -78,7 +78,7 @@ def overview(request):
     return render_to_response('overview.html', RequestContext(request, content))
 
 
-def charge(request, cart_id):
+def book(request, cart_id):
     cart_obj = CartInfo.objects.get(id=cart_id)
 
     t_wed = WedEssential.objects.get(user=request.user).t_wed
