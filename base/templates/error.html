@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Oh snap! 出错了</title>
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Oh snap! 出错了</h1>
+
+<div class="alert alert-info" role="alert">
+    {% if error_msg %}
+        {{ error_msg }}
+    {% else %}
+        系统错误!
+    {% endif %}
+</div>
+
+{% endblock %}

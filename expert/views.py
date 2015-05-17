@@ -36,19 +36,17 @@ def expert_filter(query_set):
     return kwargs
 
 
-type_map = {
-    'mc': MC,
-    'makeup': MakeUp,
-    }
-
-
-def filter_html(request, type_key):
-    type_model = type_map.get(type_key, None)
-    if type_model is None:
-        return render_to_response('404.html', RequestContext(request))
-
+def filter_mc(request):
     kwargs = expert_filter(request.GET)
     content = {
-        'data_set': type_model.objects.filter(**kwargs),
+        'data_set': MC.objects.filter(**kwargs),
             }
-    return render_to_response('%s.html' % type_key, RequestContext(request, content))
+    return render_to_response('mc.html', RequestContext(request, content))
+
+
+def filter_makeup(request):
+    kwargs = expert_filter(request.GET)
+    content = {
+        'data_set': MakeUp.objects.filter(**kwargs),
+            }
+    return render_to_response('makeup.html', RequestContext(request, content))
