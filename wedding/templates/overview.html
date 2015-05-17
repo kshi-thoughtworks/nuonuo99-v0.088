@@ -32,7 +32,7 @@
     <h2>婚礼基本信息</h2>
 
     <ul class="list-group">
-        <li class="list-group-item">婚期: {{ wed_info.t_wed }}</li>
+        <li class="list-group-item">婚期: {{ wed_info.t_wed | date:"Y. n. j" }}</li>
         <li class="list-group-item">地点: {{ wed_info.loc }} </li>
         <li class="list-group-item">
             新人: {{ wed_info.boy }} -- {{ wed_info.girl }}
