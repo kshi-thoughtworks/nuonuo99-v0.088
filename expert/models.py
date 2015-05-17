@@ -29,6 +29,10 @@ class Expert(models.Model):
     # more info
     honor = models.TextField(u'所获荣誉', blank=True)
 
+    def product_key(self):
+        return '%s_%s' % (self._meta.object_name.lower(), self.id)
+
+
     def __unicode__(self):
         return "%s-%s" % (self.name, self.price)
 
