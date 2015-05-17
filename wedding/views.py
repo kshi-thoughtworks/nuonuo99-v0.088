@@ -4,7 +4,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 
-from wedding.models import CartInfo, WedEssential
+from wedding.models import CartInfo, WedEssential, Order
 
 from django.contrib.contenttypes.models import ContentType
 import expert.models
@@ -45,8 +45,8 @@ def wed_program(user):
     return {
         'wed_info': wed_info,
         'cart_data': CartInfo.objects.filter(buyer=user),
+        'order_data': Order.objects.filter(buyer=user),
         }
-
 
 
 # login required

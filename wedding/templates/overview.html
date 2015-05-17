@@ -85,15 +85,19 @@
                 <td>商品类型</td>
                 <td>名称</td>
                 <td>数量</td>
+                <td>状态</td>
+                <td>准备进展</td>
                 <td>价格</td>
             </tr>
         </thead>
         <tbody>
-            {% for item in cart_data %}
+            {% for item in order_data %}
             <tr>
                 <th>{{ item.content_type }}</th>
                 <th>{{ item.content_object.name }}</th>
                 <th>{{ item.amount }}</th>
+                <th>{{ item.status }}</th>
+                <th>{{ item.progress }}</th>
                 <th>￥{{ item.content_object.price }}</th>
             </tr>
             {% endfor %}
