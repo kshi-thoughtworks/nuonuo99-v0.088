@@ -69,7 +69,7 @@ def add(request, product_key):
     content = {
         'error_msg': error_msg,
         'show_success': not bool(error_msg),
-        'cart_data': CartInfo.objects.all(),
+        'cart_data': CartInfo.objects.filter(buyer=request.user),
         }
 
     return render_to_response('my_cart.html', RequestContext(request, content))
