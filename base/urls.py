@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('userena.urls')),
     url(r'^expert/', include('expert.urls')),
     url(r'^standard/', include('std_product.urls')),
-    url(r'^shop/', include('shop.urls')),
+    url(r'^wedding/', include('wedding.urls')),
 )
 
 

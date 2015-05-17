@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 import xadmin
-from shop.models import CartInfo
+from wedding.models import CartInfo
 
 
 class CartInfoAdmin(object):

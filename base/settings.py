@@ -29,7 +29,7 @@ project_app = (
     'location',
     'expert',
     'std_product',
-    'shop',
+    'wedding',
     )
 
 
