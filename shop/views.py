@@ -14,6 +14,7 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 type_map = {
     'makeup': expert.models.MakeUp,
+    'mc': expert.models.MC,
     }
 
 def parse_product_key(product_key):
@@ -49,10 +50,10 @@ def add(request, product_key):
     try:
         product_obj = parse_product_key(product_key)
     except ObjectDoesNotExist:
-        error_msg += 'param error. product_key error'
+        error_msg += '商品(%s)不存在!' % product_key
     else:
         if product_obj is None:
-            error_msg += 'param error. product_key error'
+            error_msg += '系统错误!'
 
     if not error_msg:
         # add product_obj, amount, user to CartInfo
