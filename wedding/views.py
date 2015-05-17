@@ -1,39 +1,17 @@
 #-*- coding:utf-8 -*-
-import json
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from django.http import HttpResponse
+
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 
 from wedding.models import CartInfo, WedEssential, Order
 
 from django.contrib.contenttypes.models import ContentType
-import expert.models
+from expert.models import MC, MakeUp
 import std_product.models
 
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
-
-type_map = {
-    'makeup': expert.models.MakeUp,
-    'mc': expert.models.MC,
-    }
-
-def parse_product_key(product_key):
-    """return product obj
-
-    return None, if error occurs
-    raise ObjectDoesNotExist, if there is no error but obj not exist
-    """
-    type_key, obj_id = product_key.split('_')
-
-    if type_key not in type_map:
-        return  # type error
-
-    try:
-        obj = type_map[type_key].objects.get(id=obj_id)
-    except MultipleObjectsReturned:
-        return  # error
-
-    return obj
 
 
 def wed_program(user):
@@ -49,40 +27,37 @@ def wed_program(user):
         }
 
 
-# login required
-def add(request, product_key):
-    raw_amount = request.GET.get('amount', '1')
-
-    error_msg = ''
-
+def add_service(user, obj):
+    # add obj, user to CartInfo if not exists in cart
+    c_type= ContentType.objects.get_for_model(obj)
     try:
-        amount = int(raw_amount)
-    except ValueError:
-        error_msg += 'param error. amount is necessary and number is required.'
+        item = CartInfo.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
+    except ObjectDoesNotExist:  # add new item to cart
+        CartInfo(buyer=user, content_object=obj, amount=1).save()
 
+
+def add_service_mc(request, obj_id):
     try:
-        product_obj = parse_product_key(product_key)
+        obj = MC.objects.get(id=obj_id)
     except ObjectDoesNotExist:
-        error_msg += '商品(%s)不存在!' % product_key
-    else:
-        if product_obj is None:
-            error_msg += '系统错误!'
+        error_msg = '司仪(id=%s)不存在!' % obj_id
+        return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
 
-    if not error_msg:
-        # add product_obj, amount, user to CartInfo
-        try:
-            product_type = ContentType.objects.get_for_model(product_obj)
-            item = CartInfo.objects.get(buyer=request.user, object_id=product_obj.id, content_type__pk=product_type.id)
-        except ObjectDoesNotExist:  # add new item to cart
-            CartInfo(buyer=request.user, content_object=product_obj, amount=amount).save()
-        else:
-            item.amount += amount
-            item.save()
+    add_service(request.user, obj)
 
-    content = wed_program(request.user)
-    content['error_msg'] = error_msg
-    content['show_success'] = not bool(error_msg)
-    return render_to_response('overview.html', RequestContext(request, content))
+    return HttpResponseRedirect(reverse('wedding_overview'))
+
+
+def add_service_makeup(request, obj_id):
+    try:
+        obj = MakeUp.objects.get(id=obj_id)
+    except ObjectDoesNotExist:
+        error_msg = '化妆师(id=%s)不存在!' % obj_id
+        return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
+
+    add_service(request.user, obj)
+
+    return HttpResponseRedirect(reverse('wedding_overview'))
 
 
 def overview(request):
