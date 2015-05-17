@@ -54,17 +54,19 @@ def add(request, product_key):
         if product_obj is None:
             error_msg += 'param error. product_key error'
 
-    if error_msg:
-        return HttpResponse(json.dumps({'res_code': '1', 'message': error_msg}), content_type="application/json")
+    if not error_msg:
+        # add product_obj, amount, user to CartInfo
+        try:
+            product_type = ContentType.objects.get_for_model(product_obj)
+            item = CartInfo.objects.get(buyer=request.user, object_id=product_obj.id, content_type__pk=product_type.id)
+        except ObjectDoesNotExist:  # add new item to cart
+            CartInfo(buyer=request.user, content_object=product_obj, amount=amount).save()
+        else:
+            item.amount += amount
+            item.save()
 
-    # add product_obj, amount, user to CartInfo
-    try:
-        product_type = ContentType.objects.get_for_model(product_obj)
-        item = CartInfo.objects.get(buyer=request.user, object_id=product_obj.id, content_type__pk=product_type.id)
-    except ObjectDoesNotExist:  # add new item to cart
-        CartInfo(buyer=request.user, content_object=product_obj, amount=amount).save()
-    else:
-        item.amount += amount
-        item.save()
+    content = {
+        'error_msg': error_msg,
+        }
 
-    return HttpResponse(json.dumps({'res_code': '0', 'message': 'success'}), content_type="application/json")
+    return render_to_response('my_cart.html', RequestContext(request, content))
