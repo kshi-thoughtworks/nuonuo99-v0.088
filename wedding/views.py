@@ -29,16 +29,21 @@ def wed_program(user):
 
 
 def add_service(user, obj):
-    # add obj, user to CartInfo if not exists in cart
     c_type= ContentType.objects.get_for_model(obj)
     try:
         item = CartInfo.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
-        lvl = messages.WARNING
-        msg = u'%s ( %s ) 已经在我的婚礼方案中, 无需重复加入!' % (c_type, obj.name)
-    except ObjectDoesNotExist:  # add new item to cart
-        CartInfo(buyer=user, content_object=obj, amount=1).save()
-        lvl = messages.SUCCESS
-        msg = u'%s ( %s ) 成功加入我的婚礼方案!' % (c_type, obj.name)
+    except ObjectDoesNotExist:  # not exists in order table
+        try:
+            item = CartInfo.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
+            lvl = messages.WARNING
+            msg = u'%s ( %s ) 已经在我的婚礼方案中, 无需重复加入!' % (c_type, obj.name)
+        except ObjectDoesNotExist:  # add new item to cart
+            CartInfo(buyer=user, content_object=obj, amount=1).save()
+            lvl = messages.SUCCESS
+            msg = u'%s ( %s ) 成功加入我的婚礼方案!' % (c_type, obj.name)
+    else:
+        lvl = messages.ERROR
+        msg = u'%s ( %s ) 已经下单, 无需重复加入!' % (c_type, obj.name)
     return lvl, msg
 
 
