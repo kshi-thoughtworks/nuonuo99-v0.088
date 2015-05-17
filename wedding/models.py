@@ -6,6 +6,9 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User
 from location.models import County
 
+import datetime
+import base.models as choice_set
+
 
 class WedEssential(models.Model):
     boy = models.CharField(u'新郎', max_length=255)
@@ -36,7 +39,7 @@ class CartInfo(models.Model):
     content_type = models.ForeignKey(ContentType, verbose_name=u'商品类型')
     object_id = models.PositiveIntegerField(u'商品 ID')
     content_object = GenericForeignKey('content_type', 'object_id')
-    # t_add = models.TimeField(u'加入时间', default=time.time())
+    t_add = models.DateTimeField(u'加入时间', default=datetime.datetime.now)
 
     def __unicode__(self):
         return self.buyer.username
@@ -45,3 +48,29 @@ class CartInfo(models.Model):
         verbose_name = u"购物车"
         verbose_name_plural = verbose_name
         unique_together = ("buyer", "content_type", "object_id")
+
+
+class Order(models.Model):
+    """decided
+
+    keypoint: status, deadline. current progress
+    """
+    buyer = models.ForeignKey(User, verbose_name=u'购买人')
+    t_wed = models.DateField(u'婚期')
+    status = models.PositiveIntegerField(u'状态', choices=choice_set.C_ORDER_STATUS)
+    t_add = models.DateTimeField(u'加入时间', default=datetime.datetime.now)
+    t_paid = models.DateTimeField(u'付款时间', blank=True, null=True)
+    amount = models.PositiveIntegerField(u'数量', default=0)
+
+    content_type = models.ForeignKey(ContentType, verbose_name=u'商品类型')
+    object_id = models.PositiveIntegerField(u'商品 ID')
+    content_object = GenericForeignKey('content_type', 'object_id')
+
+    progress = models.CharField(u'准备进展', max_length=255, blank=True)
+
+    def __unicode__(self):
+        return self.buyer.username
+
+    class Meta:
+        verbose_name = u"订单"
+        verbose_name_plural = verbose_name
