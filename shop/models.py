@@ -10,8 +10,8 @@ class CartInfo(models.Model):
     buyer = models.ForeignKey(User, verbose_name=u'购买人')
     amount = models.PositiveIntegerField(u'数量')
 
-    content_type = models.ForeignKey(ContentType)
-    object_id = models.PositiveIntegerField()
+    content_type = models.ForeignKey(ContentType, verbose_name=u'商品类型')
+    object_id = models.PositiveIntegerField(u'商品 ID')
     content_object = GenericForeignKey('content_type', 'object_id')
     # t_add = models.TimeField(u'加入时间', default=time.time())
 
