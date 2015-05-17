@@ -91,6 +91,20 @@ def overview(request):
 
 
 def charge(request, cart_id):
-    print cart_id
+    cart_obj = CartInfo.objects.get(id=cart_id)
+
+    t_wed = WedEssential.objects.get(user=request.user).t_wed
+
+    kwargs = {
+        "buyer": cart_obj.buyer,
+        "amount": cart_obj.amount,
+        "content_object": cart_obj.content_object,
+        "status": 1,
+        "t_wed": t_wed,
+        }
+
+    Order(**kwargs).save()
+    cart_obj.delete()
+
     content = wed_program(request.user)
     return render_to_response('overview.html', RequestContext(request, content))
