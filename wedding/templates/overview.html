@@ -7,10 +7,16 @@
 {% block content %}
 
 
-{% if error_msg %}
-    <p> {{ error_msg }} </p>
-{% endif %}
+{% if messages %}
+<ul class="messages list-group">
+    {% for message in messages %}
+        <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
 
+<p class="text-warning">您还可以 <a class="btn btn-danger" href="javascript:history.back();">继续购物</a></p>
+
+{% endif %}
 
 {% if show_success %}
     <div class="success">

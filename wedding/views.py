@@ -11,7 +11,8 @@ from django.contrib.contenttypes.models import ContentType
 from expert.models import MC, MakeUp
 import std_product.models
 
-from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib import messages
 
 
 def wed_program(user):
@@ -44,6 +45,7 @@ def add_service_mc(request, obj_id):
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
 
     add_service(request.user, obj)
+    messages.success(request, u'司仪(%s) 已经加入我的婚礼方案!' % obj.name)
 
     return HttpResponseRedirect(reverse('wedding_overview'))
 
@@ -56,6 +58,7 @@ def add_service_makeup(request, obj_id):
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
 
     add_service(request.user, obj)
+    messages.success(request, u'化妆师 (%s) 已经加入我的婚礼方案!' % obj.name)
 
     return HttpResponseRedirect(reverse('wedding_overview'))
 
