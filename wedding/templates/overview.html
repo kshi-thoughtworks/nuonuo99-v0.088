@@ -72,7 +72,7 @@
                 <th>{{ item.amount }}</th>
                 <th>￥{{ item.content_object.price }}</th>
                 <th>
-                    <a href="{%url "book_service" item.id %}" type="button" class="btn btn-danger">结算</a>
+                    <a href="{%url "book_service" wed_info.t_wed item.id %}" type="button" class="btn btn-danger">结算</a>
                 </th>
             </tr>
             {% endfor %}

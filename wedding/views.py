@@ -10,6 +10,7 @@ from wedding.models import CartInfo, WedEssential, Order
 from django.contrib.contenttypes.models import ContentType
 from expert.models import MC, MakeUp
 import std_product.models
+import datetime
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
@@ -78,21 +79,37 @@ def overview(request):
     return render_to_response('overview.html', RequestContext(request, content))
 
 
-def book(request, cart_id):
+def is_booked(t_wed, obj_id, obj_type):
+    try:
+        item = Order.objects.get(t_wed=t_wed, object_id=obj_id, content_type__pk=obj_type.id)
+    except ObjectDoesNotExist:
+        return False
+    else:
+        return True
+
+
+def book(request, t_wed, cart_id):
+
     cart_obj = CartInfo.objects.get(id=cart_id)
+    c_type = cart_obj.content_type
+    obj = cart_obj.content_object
 
-    t_wed = WedEssential.objects.get(user=request.user).t_wed
+    if is_booked(t_wed, obj.id, c_type):
+        lvl = messages.ERROR
+        msg = u'%s ( %s ) 档期不可用!' % (c_type, obj.name)
+    else:
+        kwargs = {
+            "buyer": request.user,
+            "content_object": obj,
+            "t_wed": t_wed,
+            "amount": 1,
+            "status": 1,
+            }
+        Order(**kwargs).save()
+        cart_obj.delete()
 
-    kwargs = {
-        "buyer": cart_obj.buyer,
-        "amount": cart_obj.amount,
-        "content_object": cart_obj.content_object,
-        "status": 1,
-        "t_wed": t_wed,
-        }
+        lvl = messages.SUCCESS
+        msg = u'%s ( %s ) 预定成功, 请尽快付款完成购买!' % (c_type, obj.name)
 
-    Order(**kwargs).save()
-    cart_obj.delete()
-
-    content = wed_program(request.user)
-    return render_to_response('overview.html', RequestContext(request, content))
+    messages.add_message(request, lvl, msg)
+    return HttpResponseRedirect(reverse('wedding_overview'))
