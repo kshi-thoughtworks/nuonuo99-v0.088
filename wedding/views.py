@@ -79,13 +79,19 @@ def overview(request):
     return render_to_response('overview.html', RequestContext(request, content))
 
 
-def is_booked(t_wed, obj_id, obj_type):
+def is_booked(t_wed, obj_id, obj_type, user=None):
+    """check if a service(obj_type, obj_id) is booked on t_wed
+
+    0: unbooked
+    1: booked by others
+    2: booked by user
+    """
     try:
         item = Order.objects.get(t_wed=t_wed, object_id=obj_id, content_type__pk=obj_type.id)
     except ObjectDoesNotExist:
-        return False
-    else:
-        return True
+        return 0  # False
+    else:  # True
+        return (item.user == user) + 1
 
 
 def book(request, t_wed, cart_id):
