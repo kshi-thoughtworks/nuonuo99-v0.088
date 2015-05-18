@@ -121,7 +121,7 @@ class C_FLOWER_STYLE_DOOR(BaseChoices):
 
     )
 
-class C_FLOWER_STYLE_DOOR(BaseChoices):
+class C_FLOWER_STYLE_OTHERS(BaseChoices):
     GLOBAL = 0 #球形
     RADIO = 1 #放射形
     OTHERS = 2 #异形
