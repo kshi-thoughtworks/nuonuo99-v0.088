@@ -2,7 +2,7 @@
 from django.db import models
 from django.conf import settings
 
-from base.models import C_FlowerCategory, C_FlowerStyle, C_FlowerVariety
+from base.models import C_FlowerCategory, C_FlowerStyle, C_FlowerVariety, C_Scale
 
 
 class StdProduct(models.Model):
@@ -29,8 +29,8 @@ class WedFlower(StdProduct):
     """花艺产品"""
     category = models.ForeignKey(C_FlowerCategory, verbose_name=u'类型')
     style = models.ForeignKey(C_FlowerStyle, verbose_name=u'样式')
-    scale = models.CharField(u'尺寸', max_length=32)
     color = models.CharField(u'颜色', max_length=32)
+    scale = models.ManyToManyField(C_Scale, through='FlowerScale', through_fields=('product', 'key'), verbose_name=u'尺寸')
     items = models.ManyToManyField(C_FlowerVariety, through='FlowerItem', through_fields=('product', 'variety'), verbose_name=u'花材')
 
     class Meta:
@@ -50,3 +50,17 @@ class FlowerItem(models.Model):
         verbose_name = u"花艺原料组成细节"
         verbose_name_plural = verbose_name
         unique_together = ("product", "variety")
+
+
+class FlowerScale(models.Model):
+    product = models.ForeignKey(WedFlower, verbose_name=u'花艺产品')
+    key = models.ForeignKey(C_Scale, verbose_name=u'尺寸类型')
+    value = models.PositiveIntegerField(u'数量')
+
+    def __unicode__(self):
+        return '%s(%s)' % (self.key, self.product)
+
+    class Meta:
+        verbose_name = u"花艺产品尺寸细节"
+        verbose_name_plural = verbose_name
+        unique_together = ("product", "key")
