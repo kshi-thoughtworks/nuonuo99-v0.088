@@ -46,6 +46,13 @@ class Choice(models.Model):
         abstract = True
 
 
+class C_Color(Choice):
+    """颜色"""
+    class Meta:
+        verbose_name = "颜色"
+        verbose_name_plural = verbose_name
+
+
 class C_FlowerCategory(Choice):
     """花艺产品类型库"""
     class Meta:
@@ -58,6 +65,13 @@ class C_FlowerStyle(Choice):
     category = models.ForeignKey(C_FlowerCategory, verbose_name=u'花艺类型')
     class Meta:
         verbose_name = "花艺样式"
+        verbose_name_plural = verbose_name
+
+
+class C_FlowerVariety(Choice):
+    """鲜花品种"""
+    class Meta:
+        verbose_name = "鲜花品种"
         verbose_name_plural = verbose_name
 
 
@@ -76,13 +90,3 @@ class C_FlowerType(Choice):
     class Meta:
             verbose_name=u'花品种'
             verbose_name_plural=verbose_name
-
-
-class C_Color(Choice):
-    RGB=models.CharField(max_length=255,verbose_name=u'RGB值')
-    class Meta:
-            verbose_name=u'色彩'
-            verbose_name_plural=verbose_name
-
-
-

@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 import xadmin
-from base.models import SlaProvider, C_FlowerCategory, C_FlowerStyle
+from base.models import SlaProvider, C_FlowerCategory, C_FlowerStyle, C_FlowerVariety, C_Color
 
 
 class SlaAdmin(object):
@@ -17,8 +17,9 @@ class C_FlowerStyleAdmin(object):
 
 xadmin.site.register(SlaProvider, SlaAdmin)
 
+
+xadmin.site.register(C_Color, ChoiceAdmin)
+
 xadmin.site.register(C_FlowerCategory, ChoiceAdmin)
 xadmin.site.register(C_FlowerStyle, C_FlowerStyleAdmin)
-
-#xadmin.site.register(c_model.C_Color,ChoiceAdmin)
-#xadmin.site.register(c_model.C_FlowerType,ChoiceAdmin)
+xadmin.site.register(C_FlowerVariety, ChoiceAdmin)
