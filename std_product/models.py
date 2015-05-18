@@ -2,7 +2,7 @@
 from django.db import models
 from django.conf import settings
 
-from base.models import C_FlowerCategory, C_FlowerStyle
+from base.models import C_FlowerCategory, C_FlowerStyle, C_FlowerVariety
 
 
 class StdProduct(models.Model):
@@ -31,8 +31,21 @@ class WedFlower(StdProduct):
     style = models.ForeignKey(C_FlowerStyle, verbose_name=u'样式')
     scale = models.CharField(u'尺寸', max_length=32)
     color = models.CharField(u'颜色', max_length=32)
-    material = models.TextField(u'花材(品种, 数量, 颜色)', max_length=255)
+    items = models.ManyToManyField(C_FlowerVariety, through='FlowerItem', through_fields=('product', 'variety'))
 
     class Meta:
         verbose_name = u"花艺产品"
+        verbose_name_plural = verbose_name
+
+
+class FlowerItem(models.Model):
+    product = models.ForeignKey(WedFlower, verbose_name=u'花艺产品')
+    variety = models.ForeignKey(C_FlowerVariety, verbose_name=u'鲜花品种')
+    amount = models.PositiveIntegerField(u'数量')
+
+    def __unicode__(self):
+        return '%s(%s)' % (self.variety, self.product)
+
+    class Meta:
+        verbose_name = u"花艺原料组成细节"
         verbose_name_plural = verbose_name

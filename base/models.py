@@ -70,6 +70,9 @@ class C_FlowerStyle(Choice):
 
 class C_FlowerVariety(Choice):
     """鲜花品种"""
+
+    # startDate=models.DateField(u'花材可用起始日期',null=True)
+    # endDate=models.DateField(u'花材可用结束日期',null=True)
     class Meta:
         verbose_name = "鲜花品种"
         verbose_name_plural = verbose_name
@@ -80,13 +83,3 @@ class C_AvType(Choice):
     class Meta:
         verbose_name = "AV 类型"
         verbose_name_plural = verbose_name
-
-
-
-class C_FlowerType(Choice):
-    """花品种库"""
-    startDate=models.DateField(u'花材可用起始日期',null=True)
-    endDate=models.DateField(u'花材可用结束日期',null=True)
-    class Meta:
-            verbose_name=u'花品种'
-            verbose_name_plural=verbose_name
