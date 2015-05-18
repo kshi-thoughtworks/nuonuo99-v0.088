@@ -30,14 +30,13 @@ category_map = {
     }
 
 
-
-
 def filter_flower(request, f_type):
     category = category_map.get(f_type, None)
 
     kwargs = price_filter(request.GET)
     content = {
         'category': category,
+        'cart_url': 'add_product_flower',
         'data_set': WedFlower.objects.filter(**kwargs),
         }
     return render_to_response('flower.html', RequestContext(request, content))

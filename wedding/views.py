@@ -119,3 +119,7 @@ def book(request, t_wed, cart_id):
 
     messages.add_message(request, lvl, msg)
     return HttpResponseRedirect(reverse('wedding_overview'))
+
+
+def add_product_flower(request, obj_id):
+    return HttpResponseRedirect(reverse('wedding_overview'))
