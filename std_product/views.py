@@ -25,15 +25,8 @@ def price_filter(query_set):
     return kwargs
 
 
-category_map = {
-    'door': C_FLOWER_STYLE_DOOR.CHOICES,
-    'road': C_FLOWER_STYLE_OTHERS.CHOICES,
-    'desk': C_FLOWER_STYLE_OTHERS.CHOICES,
-    }
-
-
-def filter_flower(request, f_type):
-    f_style = C_FlowerStyle.objects.filter(f_style=f_type)
+def filter_flower(request, cate):
+    f_style = C_FlowerStyle.objects.filter(category=cate)
 
     kwargs = price_filter(request.GET)
     content = {

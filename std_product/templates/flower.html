@@ -11,16 +11,16 @@
 
     <form class="form-horizontal" method="GET"> {% csrf_token %}
 
-        {% if category %}
+        {% if f_style %}
         <div class="form-group">
             <label for="wed-style" class="col-lg-1 col-md-1">样式</label>
             <div class="col-lg-6 col-md-6">
                 <label class="radio-inline">
                     <input type="radio" name="f_style" id="style0" value="0" checked> 不限
                 </label>
-                {% for value, name in category %}
+                {% for item in f_style %}
                     <label class="radio-inline">
-                        <input type="radio" name="f_style" id="style0" value="{{ value }}"> {{ name }}
+                        <input type="radio" name="f_style" id="style0" value="{{ item.keyword }}"> {{ item.name }}
                     </label>
                 {% endfor %}
             </div>
