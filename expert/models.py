@@ -1,11 +1,10 @@
 #-*- coding:utf-8 -*-
 from django.db import models
 from django.conf import settings
-
-import base.models as choice_set
+from base.models import SlaProvider
 
 from location.models import County
-from base.choices import C_GenderChoices,C_LANGUAGE,C_ProductTypeChoices,C_WEDDINGSTYLE
+from base.choices import C_GenderChoices, C_LANGUAGE, C_ProductTypeChoices, C_WEDDINGSTYLE, C_CAMERA_STYLE, C_CAMERA_BRAND, C_VIDEO_DEVICE_TYPE
 
 
 _help_text_charge = u'-1 -- 不提供该服务. 0 -- 免费提供. > 0 -- 提供且收取对应的费用'
@@ -18,21 +17,20 @@ class Expert(models.Model):
 
     # basic info
     gender = models.IntegerField(u'性别', choices=C_GenderChoices.CHOICES)  # use boolean field instead
-
-    # https://github.com/kugua456/nuonuo99-v0.88/issues/13
-    # t_birth_age = models.IntegerField(u'年龄', choices=choice_set.C_AGE)  # TODO
+    birthday = models.DateField(u'出生日期', null=True)
 
     # service info
     wed_style = models.IntegerField(u'专业', choices=C_WEDDINGSTYLE.CHOICES,default=C_WEDDINGSTYLE.DEFAULT)
     t_start = models.DateField(u'工作开始时间', help_text=u'从业时间 = 当前时间-工作开始时间')
     desc = models.TextField(u'服务理念', max_length=255)
+    # SLAtype = models.ForeignKey(SlaProvider,verbose_name='供应商评级',blank=True)
 
     # more info
     honor = models.TextField(u'所获荣誉', blank=True)
+    vcr = models.CharField(u'自我介绍视频 url', max_length=255, blank=True)
 
     def product_key(self):
         return '%s_%s' % (self._meta.object_name.lower(), self.id)
-
 
     def __unicode__(self):
         return "%s-%s" % (self.name, self.price)
@@ -51,7 +49,7 @@ class MC(Expert):
     photo_west = models.FileField(u'西式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
     photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)
 
-    vcr = models.CharField(u'自我介绍视频 url', max_length=255, blank=True)
+
 
     class Meta:
         verbose_name = u"司仪服务"
@@ -64,7 +62,7 @@ class MakeUp(Expert):
     cosmetics_brand = models.CharField(u'常用化妆品品牌', max_length=255, blank=True)
     is_cosmetics_imported = models.BooleanField(u'进口化妆品', default=False)
     photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)
-    vcr = models.FileField(u'自我介绍视频', upload_to=settings.SERVICE_PATH, blank=True)
+
 
     charge_decoration = models.FloatField(u'提供饰品, 加价',
         help_text=_help_text_charge)
@@ -77,4 +75,28 @@ class MakeUp(Expert):
 
     class Meta:
         verbose_name = u"化妆师"
+        verbose_name_plural = verbose_name
+
+
+class photo(Expert):
+    """摄影师"""
+
+    camera_brand = models.PositiveIntegerField(u'使用相机品牌',choices=C_CAMERA_BRAND.CHOICES)
+    size = models.IntegerField(u'设备类型', choices=C_CAMERA_STYLE.CHOICES)
+
+    class Meta:
+        verbose_name = u"摄影师"
+        verbose_name_plural = verbose_name
+
+
+class video(Expert):
+    """摄像师"""
+
+    VIDEO_DEVICE_TYPE = models.PositiveIntegerField(u'使用设备类型',choices=C_VIDEO_DEVICE_TYPE.CHOICES)
+
+    charge_yaobi=models.FloatField(u'提供摇臂,加价',
+        help_text=_help_text_charge)
+
+    class Meta:
+        verbose_name = u"摄像师"
         verbose_name_plural = verbose_name

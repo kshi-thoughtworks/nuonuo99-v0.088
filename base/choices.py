@@ -23,26 +23,28 @@ class BaseChoices(object):
         return None
 
 
-
 class C_GenderChoices(BaseChoices):
-    MALE = 0
-    FEMALE = 1
-    UNKNOWN = 2
+    UNKNOWN = 0
+    MALE = 1
+    FEMALE = 2
 
     CHOICES = (
         (MALE, "男"),
         (FEMALE, "女"),
     )
 
+
 class C_ProductTypeChoices(BaseChoices):
-    SIYI = 0 #司仪
-    HUAYI = 1 #花艺
-    CHANGDI = 2 #场地布置
-    SHOOTING = 3 #摄像
-    HOTEL = 4 #酒店
-    PHOTOGRAPHER = 5 #摄影
-    AV = 6 #灯光音响AV
-    HUAZHUANG = 7 #化妆师
+    SIYI = 0  # 司仪
+    HUAZHUANG = 1  # 化妆师
+    PHOTOGRAPHER = 2  # 摄影
+    SHOOTING = 3  # 摄像
+    HUAYI = 4  # 花艺
+    CHANGDI = 5  # 场地布置
+    HOTEL = 6  # 酒店
+    AV = 7  # 灯光音响AV
+    CAR = 8  # 婚车
+
 
     CHOICES = (
         (SIYI, "司仪"),
@@ -53,14 +55,15 @@ class C_ProductTypeChoices(BaseChoices):
         (PHOTOGRAPHER, "摄影"),
         (AV, "AV工程"),
         (HUAZHUANG, "化妆师"),
+        (CAR, '婚车'),
     )
 
 
 class C_WEDDINGSTYLE(BaseChoices):
-    DEFAULT= -1#不限
-    CHINESE = 0#中式
-    WEST = 1#西式
-    OUTDOOR = 2#户外
+    DEFAULT= 0  # 不限
+    CHINESE = 1  # 中式
+    WEST = 2  # 西式
+    OUTDOOR = 3  # 户外
 
     CHOICES = (
         (DEFAULT,'不限'),
@@ -69,11 +72,12 @@ class C_WEDDINGSTYLE(BaseChoices):
         (OUTDOOR, "户外"),
     )
 
+
 class C_LANGUAGE(BaseChoices):
-    PUTONG = 0#普通话
-    GUANGDONG = 1#广东话
-    ENGLISH = 2#英语
-    OTHERS = 3#其他方言
+    PUTONG = 0  # 普通话
+    GUANGDONG = 1  # 广东话
+    ENGLISH = 2  # 英语
+    OTHERS = 3  # 其他方言
 
     CHOICES = (
         (PUTONG, "普通话"),
@@ -83,16 +87,14 @@ class C_LANGUAGE(BaseChoices):
     )
 
 
-
 class C_ORDER_STATUS(BaseChoices):
-    NOPAY = 0 #未付款
-    PAYED = 1 #已付款
-    CHECKING = 2 #订单正在确认
-    PROCESSING = 3 #正在准备中
-    WEDDING = 4 #婚礼执行中
-    COMPLETED = 5 #执行完毕
-    COMMENTING = 6 #评价期
-
+    NOPAY = 0 # 未付款
+    PAYED = 1 # 已付款
+    CHECKING = 2 # 订单正在确认
+    PROCESSING = 3  # 正在准备中
+    WEDDING = 4  # 婚礼执行中
+    COMPLETED = 5  # 执行完毕
+    COMMENTING = 6  # 评价期
 
     CHOICES = (
         (NOPAY, "未付款"),
@@ -121,6 +123,7 @@ class C_FLOWER_STYLE_DOOR(BaseChoices):
 
     )
 
+
 class C_FLOWER_STYLE_OTHERS(BaseChoices):
     GLOBAL = 0 #球形
     RADIO = 1 #放射形
@@ -132,3 +135,38 @@ class C_FLOWER_STYLE_OTHERS(BaseChoices):
         (OTHERS, "异形"),
     )
 
+
+class C_CAMERA_STYLE(BaseChoices):
+    ALL = 0 #全类型
+    FULL = 1 #全画幅
+    HALF = 2 #非全画幅
+
+    CHOICES = (
+        (ALL, "全类型"),
+        (FULL, "全画幅"),
+        (HALF, "非全画幅"),
+    )
+
+
+class C_CAMERA_BRAND(BaseChoices):
+    ALL = 0 #全类型
+    CANON = 1 #佳能
+    NIKON = 2 #尼康
+
+    CHOICES = (
+        (ALL, "全类型"),
+        (CANON, "佳能"),
+        (NIKON, "尼康"),
+    )
+
+
+class C_VIDEO_DEVICE_TYPE(BaseChoices):
+    ALL = 0 #全类型
+    CAMERA = 1 #照相机
+    VIDEO = 2 #摄像机
+
+    CHOICES = (
+        (ALL, "全类型"),
+        (CAMERA, "照相机"),
+        (VIDEO, "摄像机"),
+    )

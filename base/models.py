@@ -1,27 +1,29 @@
 #-*- coding:utf-8 -*-
 from django.db import models
 from django.conf import settings
-from choices import C_FLOWER_STYLE_DOOR, C_ORDER_STATUS, C_WEDDINGSTYLE, C_LANGUAGE
+from choices import C_FLOWER_STYLE_DOOR,C_ORDER_STATUS,C_WEDDINGSTYLE,C_LANGUAGE,C_ProductTypeChoices
+
 
 class SlaBase(models.Model):
     """Abstract Choice info class"""
     order = models.PositiveIntegerField(u'排序等级', default=5)
     name = models.CharField(u'名称', max_length=255)
     desc = models.TextField(u'详细说明', blank=True)
+    # type = models.PositiveIntegerField(u'供应商类型', choices=C_ProductTypeChoices.CHOICES)
 
 
     def __unicode__(self):
-        return '%s' % self.name
+        return self.name
 
     class Meta:
         abstract = True
 
 
 class SlaProvider(SlaBase):
+
     class Meta:
         verbose_name = "供应商星级"
         verbose_name_plural = verbose_name
-
 
 # ------------------- Choice --------------------------
 
@@ -82,4 +84,11 @@ class C_AvType(Choice):
     """AV 类型库"""
     class Meta:
         verbose_name = "AV 类型"
+        verbose_name_plural = verbose_name
+
+
+class C_ChangBuType(Choice):
+    """场布类型"""
+    class Meta:
+        verbose_name = '场布类型'
         verbose_name_plural = verbose_name
