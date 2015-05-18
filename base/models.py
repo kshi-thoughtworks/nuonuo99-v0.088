@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 from django.db import models
 from django.conf import settings
-from choices import C_FLOWER_STYLE_DOOR,C_ORDER_STATUS,C_WEDDINGSTYLE,C_LANGUAGE
+from choices import C_FLOWER_STYLE_DOOR, C_ORDER_STATUS, C_WEDDINGSTYLE, C_LANGUAGE
 
 class SlaBase(models.Model):
     """Abstract Choice info class"""
