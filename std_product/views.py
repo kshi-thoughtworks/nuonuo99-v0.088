@@ -26,12 +26,20 @@ def price_filter(query_set):
 
 
 def filter_flower(request, cate):
-    f_style = C_FlowerStyle.objects.filter(category=cate)
-
     kwargs = price_filter(request.GET)
+
+    query_set = request.GET
+
+    def add_para(db, para):
+        value = query_set.get(para, '0')
+        if value != '0':
+            kwargs[db] = value
+
+    add_para("style", "f_style")
+
     content = {
-        'f_style': f_style,
+        'f_style': C_FlowerStyle.objects.filter(category=cate),
         'cart_url': 'add_product_flower',
-        'data_set': WedFlower.objects.filter(**kwargs),
+        'data_set': WedFlower.objects.filter(category=cate, **kwargs),
         }
     return render_to_response('flower.html', RequestContext(request, content))
