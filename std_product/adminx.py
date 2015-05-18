@@ -14,7 +14,7 @@ class WedFlowerAdmin(StdProductAdmin):
 
 
 class FlowerItemAdmin(object):
-    list_display = ("variety", "amount")
+    list_display = ("product", "variety", "amount")
 
 
 xadmin.site.register(FlowerItem, FlowerItemAdmin)

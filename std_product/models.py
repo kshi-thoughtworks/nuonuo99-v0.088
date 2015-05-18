@@ -31,7 +31,7 @@ class WedFlower(StdProduct):
     style = models.ForeignKey(C_FlowerStyle, verbose_name=u'样式')
     scale = models.CharField(u'尺寸', max_length=32)
     color = models.CharField(u'颜色', max_length=32)
-    items = models.ManyToManyField(C_FlowerVariety, through='FlowerItem', through_fields=('product', 'variety'))
+    items = models.ManyToManyField(C_FlowerVariety, through='FlowerItem', through_fields=('product', 'variety'), verbose_name=u'花材')
 
     class Meta:
         verbose_name = u"花艺产品"
@@ -49,3 +49,4 @@ class FlowerItem(models.Model):
     class Meta:
         verbose_name = u"花艺原料组成细节"
         verbose_name_plural = verbose_name
+        unique_together = ("product", "variety")
