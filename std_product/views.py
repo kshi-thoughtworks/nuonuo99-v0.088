@@ -31,7 +31,7 @@ type_map = {
 category_map = {
     'door': C_FLOWER_STYLE_DOOR,
     'road': C_FLOWER_STYLE_ROAD,
-    'desk': C_FLOWER_STYLE_DESK,
+    'desk': C_FLOWER_STYLE_ROAD,
     }
 
 
