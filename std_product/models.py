@@ -2,7 +2,8 @@
 from django.db import models
 from django.conf import settings
 
-from base.models import C_FlowerCategory, C_FlowerStyle, C_FlowerVariety, C_Scale
+from base.models import C_FlowerStyle, C_FlowerVariety, C_Scale
+from base.choices import C_FLOWER_CATEGORY
 
 
 class StdProduct(models.Model):
@@ -27,7 +28,7 @@ class StdProduct(models.Model):
 
 class WedFlower(StdProduct):
     """花艺产品"""
-    category = models.ForeignKey(C_FlowerCategory, verbose_name=u'类型')
+    category = models.CharField(u'花艺类型', max_length=31, choices=C_FLOWER_CATEGORY.CHOICES)
     style = models.ForeignKey(C_FlowerStyle, verbose_name=u'样式')
     color = models.CharField(u'颜色', max_length=32)
     scale = models.ManyToManyField(C_Scale, through='FlowerScale', through_fields=('product', 'key'), verbose_name=u'尺寸')

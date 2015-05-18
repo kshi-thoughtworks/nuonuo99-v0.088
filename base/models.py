@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 from django.db import models
 from django.conf import settings
-from choices import C_FLOWER_STYLE_DOOR,C_ORDER_STATUS,C_WEDDINGSTYLE,C_LANGUAGE,C_ProductTypeChoices
+from choices import C_FLOWER_STYLE_DOOR, C_ORDER_STATUS, C_WEDDINGSTYLE, C_LANGUAGE, C_ProductTypeChoices, C_FLOWER_CATEGORY
 
 
 class SlaBase(models.Model):
@@ -62,16 +62,10 @@ class C_Scale(Choice):
         verbose_name_plural = verbose_name
 
 
-class C_FlowerCategory(Choice):
-    """花艺产品类型库"""
-    class Meta:
-        verbose_name = "花艺类型"
-        verbose_name_plural = verbose_name
-
-
 class C_FlowerStyle(Choice):
     """花艺样式"""
-    category = models.ForeignKey(C_FlowerCategory, verbose_name=u'花艺类型')
+    category = models.CharField(u'花艺类型', max_length=31, choices=C_FLOWER_CATEGORY.CHOICES)
+
     class Meta:
         verbose_name = "花艺样式"
         verbose_name_plural = verbose_name

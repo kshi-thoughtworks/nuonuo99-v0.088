@@ -46,43 +46,7 @@
 },
 {
     "fields": {
-        "name": "\u82b1\u95e8",
-        "keyword": "door",
-        "brief": ""
-    },
-    "model": "base.c_flowercategory",
-    "pk": 1
-},
-{
-    "fields": {
-        "name": "\u8def\u5f15",
-        "keyword": "road",
-        "brief": ""
-    },
-    "model": "base.c_flowercategory",
-    "pk": 2
-},
-{
-    "fields": {
-        "name": "\u684c\u82b1",
-        "keyword": "desk",
-        "brief": ""
-    },
-    "model": "base.c_flowercategory",
-    "pk": 3
-},
-{
-    "fields": {
-        "name": "\u5176\u4ed6",
-        "keyword": "other",
-        "brief": ""
-    },
-    "model": "base.c_flowercategory",
-    "pk": 4
-},
-{
-    "fields": {
-        "category": 1,
+        "category": "door",
         "name": "\u5168\u82b1\u95e8",
         "keyword": "door_full",
         "brief": ""
@@ -92,7 +56,7 @@
 },
 {
     "fields": {
-        "category": 1,
+        "category": "door",
         "name": "\u534a\u82b1\u95e8",
         "keyword": "door_half",
         "brief": ""
@@ -102,7 +66,7 @@
 },
 {
     "fields": {
-        "category": 1,
+        "category": "door",
         "name": "\u4e09\u70b9\u5f0f",
         "keyword": "door_three",
         "brief": ""
@@ -112,7 +76,7 @@
 },
 {
     "fields": {
-        "category": 1,
+        "category": "door",
         "name": "\u4e94\u70b9\u5f0f",
         "keyword": "door_five",
         "brief": ""
@@ -122,7 +86,7 @@
 },
 {
     "fields": {
-        "category": 1,
+        "category": "door",
         "name": "\u5f02\u5f62",
         "keyword": "door_special",
         "brief": ""
@@ -132,7 +96,7 @@
 },
 {
     "fields": {
-        "category": 2,
+        "category": "road",
         "name": "\u7403\u5f62",
         "keyword": "road_ball",
         "brief": ""
@@ -142,7 +106,7 @@
 },
 {
     "fields": {
-        "category": 3,
+        "category": "desk",
         "name": "\u7403\u5f62",
         "keyword": "desk_ball",
         "brief": ""
@@ -152,7 +116,7 @@
 },
 {
     "fields": {
-        "category": 2,
+        "category": "road",
         "name": "\u653e\u5c04\u5f62",
         "keyword": "road_radiate",
         "brief": ""
@@ -162,7 +126,7 @@
 },
 {
     "fields": {
-        "category": 3,
+        "category": "desk",
         "name": "\u653e\u5c04\u5f62",
         "keyword": "desk_radiate",
         "brief": ""
@@ -172,7 +136,7 @@
 },
 {
     "fields": {
-        "category": 2,
+        "category": "road",
         "name": "\u5f02\u5f62",
         "keyword": "road_special",
         "brief": ""
@@ -182,7 +146,7 @@
 },
 {
     "fields": {
-        "category": 3,
+        "category": "desk",
         "name": "\u5f02\u5f62",
         "keyword": "desk_special",
         "brief": ""

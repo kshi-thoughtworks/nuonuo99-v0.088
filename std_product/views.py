@@ -7,6 +7,8 @@ from std_product.models import WedFlower
 
 from base.choices import C_FLOWER_STYLE_DOOR,C_FLOWER_STYLE_OTHERS
 
+from base.models import C_FlowerStyle
+
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 
@@ -31,11 +33,11 @@ category_map = {
 
 
 def filter_flower(request, f_type):
-    category = category_map.get(f_type, None)
+    f_style = C_FlowerStyle.objects.filter(f_style=f_type)
 
     kwargs = price_filter(request.GET)
     content = {
-        'category': category,
+        'f_style': f_style,
         'cart_url': 'add_product_flower',
         'data_set': WedFlower.objects.filter(**kwargs),
         }

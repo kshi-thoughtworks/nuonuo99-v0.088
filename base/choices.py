@@ -107,6 +107,15 @@ class C_ORDER_STATUS(BaseChoices):
     )
 
 
+class C_FLOWER_CATEGORY(BaseChoices):
+    CHOICES = (
+        ("door", "花门"),
+        ("road", "路引"),
+        ("desk", "桌花"),
+        ("other", "其他"),
+    )
+
+
 class C_FLOWER_STYLE_DOOR(BaseChoices):
     ALL = 0 #全花门
     HALF = 1 #半花门
