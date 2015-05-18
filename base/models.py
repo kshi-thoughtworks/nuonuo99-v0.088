@@ -55,6 +55,13 @@ class C_Color(Choice):
         verbose_name_plural = verbose_name
 
 
+class C_Scale(Choice):
+    """尺寸规格"""
+    class Meta:
+        verbose_name = "尺寸"
+        verbose_name_plural = verbose_name
+
+
 class C_FlowerCategory(Choice):
     """花艺产品类型库"""
     class Meta:
