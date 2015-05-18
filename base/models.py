@@ -1,13 +1,14 @@
 #-*- coding:utf-8 -*-
 from django.db import models
 from django.conf import settings
-
+from choices import C_FLOWER_STYLE_DOOR,C_ORDER_STATUS,C_WEDDINGSTYLE,C_LANGUAGE
 
 class SlaBase(models.Model):
     """Abstract Choice info class"""
     order = models.PositiveIntegerField(u'排序等级', default=5)
     name = models.CharField(u'名称', max_length=255)
     desc = models.TextField(u'详细说明', blank=True)
+
 
     def __unicode__(self):
         return '%s' % self.name
@@ -24,63 +25,6 @@ class SlaProvider(SlaBase):
 
 # ------------------- Choice --------------------------
 
-# no default value provided
-C_GENDER = (
-    (1 , "男"),
-    (2 , "女"),
-    )
-
-
-C_AGE = (
-    (60 , "60后"),
-    (70 , "70后"),
-    (80 , "80后"),
-    (90 , "90后"),
-    )
-
-
-
-
-C_WEDDING_STYLE = (
-    (0, "不限"),
-    (1, "中式"),
-    (2, "西式"),
-    )
-
-
-C_LANG = (
-    (0, "普通话_标准"),
-    (1, "粤语"),
-    (11, "普通话_不标准"),
-    )
-
-
-C_ORDER_STATUS = (
-    (1, "未付款"),
-    (2, "已付款, 准备中"),
-    (3, "准备就绪"),
-    (9, "已完婚"),
-    (99, "已关闭"),
-    )
-
-
-C_FLOWER_STYLE_DOOR = (
-    (1, '全花门'),
-    (2, '半花门'),
-    (3, '三点式'),
-    (4, '五点式'),
-    (5, '异形'),
-    )
-
-
-C_FLOWER_STYLE_ROAD = (
-    (1, '球形'),
-    (2, '放射形'),
-    (3, '异形'),
-    )
-
-
-C_FLOWER_STYLE_DESK = C_FLOWER_STYLE_ROAD
 
 
 class Choice(models.Model):

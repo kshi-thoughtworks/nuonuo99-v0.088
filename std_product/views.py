@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 from std_product.models import WedFlower
 
-from base.models import C_FLOWER_STYLE_DOOR, C_FLOWER_STYLE_DESK, C_FLOWER_STYLE_ROAD
+from base.choices import C_FLOWER_STYLE_DOOR,C_FLOWER_STYLE_OTHERS
 
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
@@ -29,9 +29,9 @@ type_map = {
 
 
 category_map = {
-    'door': C_FLOWER_STYLE_DOOR,
-    'road': C_FLOWER_STYLE_ROAD,
-    'desk': C_FLOWER_STYLE_DESK,
+    'door': C_FLOWER_STYLE_DOOR.CHOICES,
+    'road': C_FLOWER_STYLE_OTHERS.CHOICES,
+    'desk': C_FLOWER_STYLE_OTHERS.CHOICES,
     }
 
 

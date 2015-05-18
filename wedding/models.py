@@ -5,6 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from django.contrib.auth.models import User
 from location.models import County
+from base.choices import C_ORDER_STATUS
 
 import datetime
 import base.models as choice_set
@@ -57,7 +58,7 @@ class Order(models.Model):
     """
     buyer = models.ForeignKey(User, verbose_name=u'购买人')
     t_wed = models.DateField(u'婚期')
-    status = models.PositiveIntegerField(u'状态', choices=choice_set.C_ORDER_STATUS)
+    status = models.PositiveIntegerField(u'状态', choices=C_ORDER_STATUS.CHOICES,default=C_ORDER_STATUS.NOPAY)
     t_add = models.DateTimeField(u'加入时间', default=datetime.datetime.now)
     t_paid = models.DateTimeField(u'付款时间', blank=True, null=True)
     amount = models.PositiveIntegerField(u'数量', default=0)

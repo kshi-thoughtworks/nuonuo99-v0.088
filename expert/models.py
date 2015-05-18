@@ -5,6 +5,7 @@ from django.conf import settings
 import base.models as choice_set
 
 from location.models import County
+from base.choices import C_GenderChoices,C_LANGUAGE,C_ProductTypeChoices,C_WEDDINGSTYLE
 
 
 _help_text_charge = u'-1 -- 不提供该服务. 0 -- 免费提供. > 0 -- 提供且收取对应的费用'
@@ -16,13 +17,13 @@ class Expert(models.Model):
     avatar = models.FileField(u'头像', upload_to=settings.SERVICE_PATH)
 
     # basic info
-    gender = models.IntegerField(u'性别', choices=choice_set.C_GENDER)  # use boolean field instead
+    gender = models.IntegerField(u'性别', choices=C_GenderChoices.CHOICES)  # use boolean field instead
 
     # https://github.com/kugua456/nuonuo99-v0.88/issues/13
     # t_birth_age = models.IntegerField(u'年龄', choices=choice_set.C_AGE)  # TODO
 
     # service info
-    wed_style = models.IntegerField(u'专业', choices=choice_set.C_WEDDING_STYLE)
+    wed_style = models.IntegerField(u'专业', choices=C_WEDDINGSTYLE.CHOICES,default=C_WEDDINGSTYLE.DEFAULT)
     t_start = models.DateField(u'工作开始时间', help_text=u'从业时间 = 当前时间-工作开始时间')
     desc = models.TextField(u'服务理念', max_length=255)
 
@@ -43,7 +44,7 @@ class Expert(models.Model):
 class MC(Expert):
     """司仪服务 master of ceremonies"""
     loc_native = models.ForeignKey(County, verbose_name=u'祖籍')
-    language = models.IntegerField(u'语言', choices=choice_set.C_LANG, default=0)
+    language = models.IntegerField(u'语言', choices=C_LANGUAGE.CHOICES, default=C_LANGUAGE.PUTONG)
     height = models.IntegerField(u'身高(cm)')
 
     photo_chinse = models.FileField(u'中式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
