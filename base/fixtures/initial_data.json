@@ -25,5 +25,151 @@
     },
     "model": "base.slaprovider",
     "pk": 3
+},
+{
+    "fields": {
+        "name": "\u82b1\u95e8",
+        "keyword": "door",
+        "brief": ""
+    },
+    "model": "base.c_flowercategory",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "\u8def\u5f15",
+        "keyword": "road",
+        "brief": ""
+    },
+    "model": "base.c_flowercategory",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "\u684c\u82b1",
+        "keyword": "desk",
+        "brief": ""
+    },
+    "model": "base.c_flowercategory",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "\u5176\u4ed6",
+        "keyword": "other",
+        "brief": ""
+    },
+    "model": "base.c_flowercategory",
+    "pk": 4
+},
+{
+    "fields": {
+        "category": 1,
+        "name": "\u5168\u82b1\u95e8",
+        "keyword": "door_full",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 1
+},
+{
+    "fields": {
+        "category": 1,
+        "name": "\u534a\u82b1\u95e8",
+        "keyword": "door_half",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 2
+},
+{
+    "fields": {
+        "category": 1,
+        "name": "\u4e09\u70b9\u5f0f",
+        "keyword": "door_three",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 3
+},
+{
+    "fields": {
+        "category": 1,
+        "name": "\u4e94\u70b9\u5f0f",
+        "keyword": "door_five",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 4
+},
+{
+    "fields": {
+        "category": 1,
+        "name": "\u5f02\u5f62",
+        "keyword": "door_special",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 5
+},
+{
+    "fields": {
+        "category": 2,
+        "name": "\u7403\u5f62",
+        "keyword": "road_ball",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 6
+},
+{
+    "fields": {
+        "category": 3,
+        "name": "\u7403\u5f62",
+        "keyword": "desk_ball",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 7
+},
+{
+    "fields": {
+        "category": 2,
+        "name": "\u653e\u5c04\u5f62",
+        "keyword": "road_radiate",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 8
+},
+{
+    "fields": {
+        "category": 3,
+        "name": "\u653e\u5c04\u5f62",
+        "keyword": "desk_radiate",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 9
+},
+{
+    "fields": {
+        "category": 2,
+        "name": "\u5f02\u5f62",
+        "keyword": "road_special",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 10
+},
+{
+    "fields": {
+        "category": 3,
+        "name": "\u5f02\u5f62",
+        "keyword": "desk_special",
+        "brief": ""
+    },
+    "model": "base.c_flowerstyle",
+    "pk": 11
 }
 ]
