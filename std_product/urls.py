@@ -3,5 +3,5 @@ from django.conf.urls import patterns, include, url
 
 
 urlpatterns = patterns('std_product.views',
-    url(r'^filter/(\w+)$', 'filter_html', name='expert_filter'),
+    url(r'^flower/(\w+)$', 'filter_flower', name='flower_filter'),
 )

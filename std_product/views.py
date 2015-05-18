@@ -23,11 +23,6 @@ def price_filter(query_set):
     return kwargs
 
 
-type_map = {
-    'flower': WedFlower,
-    }
-
-
 category_map = {
     'door': C_FLOWER_STYLE_DOOR.CHOICES,
     'road': C_FLOWER_STYLE_OTHERS.CHOICES,
@@ -35,17 +30,14 @@ category_map = {
     }
 
 
-def filter_html(request, type_key):
-    type_model = type_map.get(type_key, None)
-    if type_model is None:
-        return render_to_response('404.html', RequestContext(request))
 
-    cate_key = request.GET.get('cate', '').lower()
-    category = category_map.get(cate_key, None)
+
+def filter_flower(request, f_type):
+    category = category_map.get(f_type, None)
 
     kwargs = price_filter(request.GET)
     content = {
         'category': category,
-        'data_set': type_model.objects.filter(**kwargs),
+        'data_set': WedFlower.objects.filter(**kwargs),
         }
-    return render_to_response('%s.html' % type_key, RequestContext(request, content))
+    return render_to_response('flower.html', RequestContext(request, content))
