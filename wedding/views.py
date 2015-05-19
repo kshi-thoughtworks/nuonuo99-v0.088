@@ -121,5 +121,6 @@ def book(request, t_wed, cart_id):
     return HttpResponseRedirect(reverse('wedding_overview'))
 
 
-def add_product_flower(request, obj_id):
+def add_product_flower(request, obj_id, amount_str):
+    amount = int(amount_str)
     return HttpResponseRedirect(reverse('wedding_overview'))
