@@ -1,19 +1,17 @@
 #-*- coding:utf-8 -*-
+import datetime
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-
-from wedding.models import CartInfo, WedEssential, Order
+from django.contrib import messages
 
 from django.contrib.contenttypes.models import ContentType
-from expert.models import MC, MakeUp
-import std_product.models
-import datetime
-
 from django.core.exceptions import ObjectDoesNotExist
-from django.contrib import messages
+
+from expert.models import MC, MakeUp
+from std_product.models import WedFlower
+from wedding.models import CartInfo, WedEssential, Order
 
 
 def wed_program(user):
@@ -45,6 +43,22 @@ def add_service(user, obj):
     else:
         lvl = messages.ERROR
         msg = u'%s ( %s ) 已经下单, 无需重复加入!' % (c_type, obj.name)
+    return lvl, msg
+
+
+def add_product(user, obj, amount):
+    c_type= ContentType.objects.get_for_model(obj)
+    try:
+        item = CartInfo.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
+    except ObjectDoesNotExist:  # add new item to cart
+        CartInfo(buyer=user, content_object=obj, amount=amount).save()
+        lvl = messages.SUCCESS
+        msg = u'%s 件 %s ( %s ) 成功加入我的婚礼方案!' % (amount, c_type, obj.name)
+    else:
+        item.amount += amount
+        item.save()
+        lvl = messages.WARNING
+        msg = u'新增 %s 件 %s ( %s ), 共计 %s 件!' % (amount, c_type, obj.name, item.amount)
     return lvl, msg
 
 
@@ -123,4 +137,14 @@ def book(request, t_wed, cart_id):
 
 def add_product_flower(request, obj_id, amount_str):
     amount = int(amount_str)
+
+    try:
+        obj = WedFlower.objects.get(id=obj_id)
+    except ObjectDoesNotExist:
+        error_msg = '花艺(id=%s)不存在!' % obj_id
+        return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
+
+    lvl, msg = add_product(request.user, obj, amount)
+    messages.add_message(request, lvl, msg)
+
     return HttpResponseRedirect(reverse('wedding_overview'))
