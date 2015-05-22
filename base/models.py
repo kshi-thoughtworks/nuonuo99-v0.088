@@ -8,8 +8,8 @@ from choices import C_FLOWER_STYLE_DOOR, C_ORDER_STATUS, C_WEDDINGSTYLE, C_LANGU
 
 class Scenario(models.Model):
     sid = models.CharField(u'唯一标识码', primary_key=True,
-            max_length=31,
-            help_text=u'接口间传递数据时, 使用该字段区分业务类型')
+        max_length=31,
+        help_text=u'接口间传递数据时, 使用该字段区分业务类型')
     name = models.CharField(u'名称', max_length=255,
         help_text=u'用户友好的名称, 用于界面展示等')
     parent = models.ForeignKey('self', verbose_name=u'父节点', null=True)
@@ -22,6 +22,29 @@ class Scenario(models.Model):
         verbose_name = u'业务类型'
         verbose_name_plural = verbose_name
 
+
+# ----------------- Key - value of DIY Filter -------------------
+
+class DiyFilter(models.Model):
+    Q_KEYS = (
+            ('gender', u'性别'),
+            )
+    scen = models.ForeignKey(Scenario, verbose_name=u'业务类型')
+    name = models.CharField(u'查询字段名', max_length=7, choices=Q_KEYS)
+    value = models.CharField(u'值', max_length=255,
+        help_text=u'取值, 用于接口间传递数据, 代码友好')
+    value_disp = models.CharField(u'显示值', max_length=255,
+        help_text=u'取值, 用于界面显示, 用户友好')
+    order = models.PositiveIntegerField(u'顺序号',
+        help_text=u'界面展示时, 按序列号从小到大显示 value')
+    desc = models.TextField(u'备注说明', blank=True)
+
+    def __unicode__(self):
+        return '%s=%s' % (self.name, self.value_disp)
+
+    class Meta:
+        verbose_name = u'DIY 过滤器'
+        verbose_name_plural = verbose_name
 
 # ---------------------------------------------------------------
 
