@@ -17,3 +17,7 @@ def get_filter_sets(key):
     for item in DiyFilter.objects.filter(scen=key).order_by('order'):
         add_item(item)
     return kwargs
+
+
+def get_filter_names(key):
+    return set([item.name for item in DiyFilter.objects.filter(scen=key)])
