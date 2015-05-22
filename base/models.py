@@ -4,6 +4,27 @@ from django.conf import settings
 from choices import C_FLOWER_STYLE_DOOR, C_ORDER_STATUS, C_WEDDINGSTYLE, C_LANGUAGE, C_ProductTypeChoices, C_FLOWER_CATEGORY
 
 
+# ---------------- Scenario 大类信息 ----------------------------
+
+class Scenario(models.Model):
+    sid = models.CharField(u'唯一标识码', primary_key=True,
+            max_length=31,
+            help_text=u'接口间传递数据时, 使用该字段区分业务类型')
+    name = models.CharField(u'名称', max_length=255,
+        help_text=u'用户友好的名称, 用于界面展示等')
+    parent = models.ForeignKey('self', verbose_name=u'父节点', null=True)
+    desc = models.TextField(u'备注说明', blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = u'业务类型'
+        verbose_name_plural = verbose_name
+
+
+# ---------------------------------------------------------------
+
 class SlaBase(models.Model):
     """Abstract Choice info class"""
     order = models.PositiveIntegerField(u'排序等级', default=5)

@@ -1,6 +1,11 @@
 #-*- coding:utf-8 -*-
 import xadmin
+from base.models import Scenario
 from base.models import SlaProvider, C_FlowerStyle, C_FlowerVariety, C_Color, C_ChangBuType, C_Scale
+
+
+class ScenarioAdmin(object):
+    list_display = ("sid", "name", "parent", "desc")
 
 
 class SlaAdmin(object):
@@ -14,6 +19,8 @@ class ChoiceAdmin(object):
 class C_FlowerStyleAdmin(object):
     list_display = ("keyword", "name", "category", "brief")
 
+
+xadmin.site.register(Scenario, ScenarioAdmin)
 
 xadmin.site.register(SlaProvider, SlaAdmin)
 

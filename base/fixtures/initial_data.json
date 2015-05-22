@@ -1,6 +1,51 @@
 [
 {
     "fields": {
+        "name": "\u5a5a\u793c\u4eba",
+        "parent": null,
+        "desc": ""
+    },
+    "model": "base.scenario",
+    "pk": "expert"
+},
+{
+    "fields": {
+        "name": "\u82b1\u827a",
+        "parent": "std_product",
+        "desc": "\u5305\u542b: \u82b1\u95e8, \u5f55\u97f3, \u684c\u82b1 \u7b49\u5b50\u7c7b\u522b."
+    },
+    "model": "base.scenario",
+    "pk": "flower"
+},
+{
+    "fields": {
+        "name": "\u5316\u5986\u5e08",
+        "parent": "expert",
+        "desc": ""
+    },
+    "model": "base.scenario",
+    "pk": "markup"
+},
+{
+    "fields": {
+        "name": "\u53f8\u4eea",
+        "parent": "expert",
+        "desc": ""
+    },
+    "model": "base.scenario",
+    "pk": "mc"
+},
+{
+    "fields": {
+        "name": "\u573a\u5730\u5e03\u7f6e",
+        "parent": null,
+        "desc": ""
+    },
+    "model": "base.scenario",
+    "pk": "std_product"
+},
+{
+    "fields": {
         "desc": "\u6ca1\u6709\u4f18\u79c0\u7684\u6848\u4f8b, \u6216\u8005\u4e0d\u826f\u8bb0\u5f55. \u65b0\u7b7e\u7ea6\u4f9b\u5e94\u5546\u7684\u9ed8\u8ba4\u7b49\u7ea7.",
         "order": 5,
         "name": "\u666e\u901a\u4f9b\u5e94\u5546"
