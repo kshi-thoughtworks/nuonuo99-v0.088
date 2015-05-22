@@ -4,7 +4,7 @@ from django.conf import settings
 from base.models import SlaProvider
 
 from location.models import County
-from base.choices import C_GenderChoices, C_LANGUAGE, C_ProductTypeChoices, C_WEDDINGSTYLE, C_CAMERA_STYLE, C_CAMERA_BRAND, C_VIDEO_DEVICE_TYPE
+from base.choices import C_LANGUAGE, C_ProductTypeChoices, C_WEDDINGSTYLE, C_CAMERA_STYLE, C_CAMERA_BRAND, C_VIDEO_DEVICE_TYPE
 
 
 _help_text_charge = u'-1 -- 不提供该服务. 0 -- 免费提供. > 0 -- 提供且收取对应的费用'
@@ -16,7 +16,7 @@ class Expert(models.Model):
     avatar = models.FileField(u'头像', upload_to=settings.SERVICE_PATH)
 
     # basic info
-    gender = models.IntegerField(u'性别', choices=C_GenderChoices.CHOICES)  # use boolean field instead
+    gender = models.CharField(u'性别', max_length=7)
     birthday = models.DateField(u'出生日期', null=True)
 
     # service info

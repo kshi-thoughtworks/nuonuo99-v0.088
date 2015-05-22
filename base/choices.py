@@ -23,17 +23,6 @@ class BaseChoices(object):
         return None
 
 
-class C_GenderChoices(BaseChoices):
-    UNKNOWN = 0
-    MALE = 1
-    FEMALE = 2
-
-    CHOICES = (
-        (MALE, "男"),
-        (FEMALE, "女"),
-    )
-
-
 class C_ProductTypeChoices(BaseChoices):
     SIYI = 0  # 司仪
     HUAZHUANG = 1  # 化妆师
