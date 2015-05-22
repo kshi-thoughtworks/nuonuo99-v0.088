@@ -20,7 +20,7 @@ class Expert(models.Model):
     birthday = models.DateField(u'出生日期', null=True)
 
     # service info
-    wed_style = models.CharField(u'专业', max_length=7)
+    wed_sty = models.CharField(u'专业', max_length=7)
     birthday = models.DateField(u'出生日期', null=True)
     t_start = models.DateField(u'工作开始时间', help_text=u'从业时间 = 当前时间-工作开始时间')
     desc = models.TextField(u'服务理念', max_length=255)
