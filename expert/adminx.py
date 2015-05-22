@@ -4,7 +4,7 @@ from expert.models import MC, MakeUp
 
 
 def full_cols(*args):
-    return ("product_key", "avatar_html", "name", "price") + args + ("gender", "wed_style", "desc")
+    return ("product_key", "avatar_html", "name", "price") + args + ("gender", "wed_sty", "desc")
 
 
 class ExpertAdmin(object):
