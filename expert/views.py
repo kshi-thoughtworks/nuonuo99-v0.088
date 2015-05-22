@@ -26,8 +26,8 @@ def expert_filter(query_set, url, obj):
     kwargs = price_filter(query_set)
 
     def add_para(db, para):
-        value = query_set.get(para, '0')
-        if value != '0':
+        value = query_set.get(para, 'all')
+        if value != 'all':
             kwargs[db] = value
 
     for para in utils.get_filter_names('expert'):
