@@ -4,7 +4,7 @@ from django.conf import settings
 from base.models import SlaProvider
 
 from location.models import County
-from base.choices import C_LANGUAGE, C_ProductTypeChoices, C_WEDDINGSTYLE, C_CAMERA_STYLE, C_CAMERA_BRAND, C_VIDEO_DEVICE_TYPE
+from base.choices import C_LANGUAGE, C_ProductTypeChoices, C_CAMERA_STYLE, C_CAMERA_BRAND, C_VIDEO_DEVICE_TYPE
 
 
 _help_text_charge = u'-1 -- 不提供该服务. 0 -- 免费提供. > 0 -- 提供且收取对应的费用'
@@ -20,7 +20,7 @@ class Expert(models.Model):
     birthday = models.DateField(u'出生日期', null=True)
 
     # service info
-    wed_style = models.IntegerField(u'专业', choices=C_WEDDINGSTYLE.CHOICES,default=C_WEDDINGSTYLE.DEFAULT)
+    wed_style = models.IntegerField(u'专业')
     t_start = models.DateField(u'工作开始时间', help_text=u'从业时间 = 当前时间-工作开始时间')
     desc = models.TextField(u'服务理念', max_length=255)
     # SLAtype = models.ForeignKey(SlaProvider,verbose_name='供应商评级',blank=True)

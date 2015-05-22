@@ -70,6 +70,42 @@
 },
 {
     "fields": {
+        "value_disp": "\u4e2d\u5f0f",
+        "name": "wed_sty",
+        "scen": "expert",
+        "value": "cn",
+        "order": 1,
+        "desc": ""
+    },
+    "model": "base.diyfilter",
+    "pk": 3
+},
+{
+    "fields": {
+        "value_disp": "\u897f\u5f0f",
+        "name": "wed_sty",
+        "scen": "expert",
+        "value": "west",
+        "order": 2,
+        "desc": ""
+    },
+    "model": "base.diyfilter",
+    "pk": 4
+},
+{
+    "fields": {
+        "value_disp": "\u6237\u5916",
+        "name": "wed_sty",
+        "scen": "expert",
+        "value": "outdoor",
+        "order": 3,
+        "desc": ""
+    },
+    "model": "base.diyfilter",
+    "pk": 5
+},
+{
+    "fields": {
         "desc": "\u6ca1\u6709\u4f18\u79c0\u7684\u6848\u4f8b, \u6216\u8005\u4e0d\u826f\u8bb0\u5f55. \u65b0\u7b7e\u7ea6\u4f9b\u5e94\u5546\u7684\u9ed8\u8ba4\u7b49\u7ea7.",
         "order": 5,
         "name": "\u666e\u901a\u4f9b\u5e94\u5546"

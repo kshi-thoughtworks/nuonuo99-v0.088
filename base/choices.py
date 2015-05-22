@@ -48,20 +48,6 @@ class C_ProductTypeChoices(BaseChoices):
     )
 
 
-class C_WEDDINGSTYLE(BaseChoices):
-    DEFAULT= 0  # 不限
-    CHINESE = 1  # 中式
-    WEST = 2  # 西式
-    OUTDOOR = 3  # 户外
-
-    CHOICES = (
-        (DEFAULT,'不限'),
-        (CHINESE, "中式"),
-        (WEST, "西式"),
-        (OUTDOOR, "户外"),
-    )
-
-
 class C_LANGUAGE(BaseChoices):
     PUTONG = 0  # 普通话
     GUANGDONG = 1  # 广东话

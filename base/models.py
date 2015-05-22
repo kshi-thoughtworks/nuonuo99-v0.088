@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 from django.db import models
 from django.conf import settings
-from choices import C_FLOWER_STYLE_DOOR, C_ORDER_STATUS, C_WEDDINGSTYLE, C_LANGUAGE, C_ProductTypeChoices, C_FLOWER_CATEGORY
+from choices import C_FLOWER_STYLE_DOOR, C_ORDER_STATUS, C_LANGUAGE, C_ProductTypeChoices, C_FLOWER_CATEGORY
 
 
 # ---------------- Scenario 大类信息 ----------------------------
@@ -28,6 +28,7 @@ class Scenario(models.Model):
 class DiyFilter(models.Model):
     Q_KEYS = (
             ('gender', u'性别'),
+            ('wed_sty', u'专业'),
             )
     scen = models.ForeignKey(Scenario, verbose_name=u'业务类型')
     name = models.CharField(u'查询字段名', max_length=7, choices=Q_KEYS)
