@@ -106,6 +106,54 @@
 },
 {
     "fields": {
+        "value_disp": "60 \u540e",
+        "name": "age",
+        "scen": "expert",
+        "value": "60-69",
+        "order": 1,
+        "desc": ""
+    },
+    "model": "base.diyfilter",
+    "pk": 6
+},
+{
+    "fields": {
+        "value_disp": "70 \u540e",
+        "name": "age",
+        "scen": "expert",
+        "value": "70-79",
+        "order": 2,
+        "desc": ""
+    },
+    "model": "base.diyfilter",
+    "pk": 7
+},
+{
+    "fields": {
+        "value_disp": "80 \u540e",
+        "name": "age",
+        "scen": "expert",
+        "value": "80-89",
+        "order": 3,
+        "desc": ""
+    },
+    "model": "base.diyfilter",
+    "pk": 8
+},
+{
+    "fields": {
+        "value_disp": "90 \u540e",
+        "name": "age",
+        "scen": "expert",
+        "value": "90-99",
+        "order": 4,
+        "desc": ""
+    },
+    "model": "base.diyfilter",
+    "pk": 9
+},
+{
+    "fields": {
         "desc": "\u6ca1\u6709\u4f18\u79c0\u7684\u6848\u4f8b, \u6216\u8005\u4e0d\u826f\u8bb0\u5f55. \u65b0\u7b7e\u7ea6\u4f9b\u5e94\u5546\u7684\u9ed8\u8ba4\u7b49\u7ea7.",
         "order": 5,
         "name": "\u666e\u901a\u4f9b\u5e94\u5546"

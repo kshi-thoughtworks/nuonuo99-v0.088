@@ -29,6 +29,7 @@ class DiyFilter(models.Model):
     Q_KEYS = (
             ('gender', u'性别'),
             ('wed_sty', u'专业'),
+            ('age', u'年龄'),
             )
     scen = models.ForeignKey(Scenario, verbose_name=u'业务类型')
     name = models.CharField(u'查询字段名', max_length=7, choices=Q_KEYS)
