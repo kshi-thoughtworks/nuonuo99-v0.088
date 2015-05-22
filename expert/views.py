@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 
+import base.util as utils
 from expert.models import MC, MakeUp
 
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
@@ -21,7 +22,7 @@ def price_filter(query_set):
     return kwargs
 
 
-def expert_filter(query_set):
+def expert_filter(query_set, url, obj):
     kwargs = price_filter(query_set)
 
     def add_para(db, para):
@@ -29,26 +30,23 @@ def expert_filter(query_set):
         if value != '0':
             kwargs[db] = value
 
-    add_para('gender', 'gender')
-    add_para('wed_style', 'wed_style')
-    add_para('t_birth_age', 'age')
+    for para in utils.get_filter_names('expert'):
+        add_para(para, para)
 
-    return kwargs
+    content = {
+        'paras': utils.get_filter_sets('expert'),
+        'cart_url': url,
+        'data_set': obj.objects.filter(**kwargs),
+        }
+
+    return content
 
 
 def filter_mc(request):
-    kwargs = expert_filter(request.GET)
-    content = {
-        'cart_url': 'add_service_mc',
-        'data_set': MC.objects.filter(**kwargs),
-        }
+    content = expert_filter(request.GET, 'add_service_mc', MC)
     return render_to_response('mc.html', RequestContext(request, content))
 
 
 def filter_makeup(request):
-    kwargs = expert_filter(request.GET)
-    content = {
-        'cart_url': 'add_service_makeup',
-        'data_set': MakeUp.objects.filter(**kwargs),
-        }
+    content = expert_filter(request.GET, 'add_service_makeup', MakeUp)
     return render_to_response('makeup.html', RequestContext(request, content))

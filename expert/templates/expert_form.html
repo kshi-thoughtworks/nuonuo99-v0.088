@@ -1,82 +1,15 @@
+{% for para, v in paras.items %}
 <div class="form-group">
-    <label for="gender" class="col-lg-1 col-md-1">性别</label>
+    <label for="{{ para }}" class="col-lg-1 col-md-1"> {{ v.disp_name }}</label>
     <div class="col-lg-6 col-md-6">
         <label class="radio-inline">
-            <input type="radio" name="gender" id="gender0" value="0" checked> 全部
+            <input type="radio" name="{{ para }}" value="all"> 全部
         </label>
+        {% for raw, disp in v.values %}
         <label class="radio-inline">
-            <input type="radio" name="gender" id="gender1" value="1"> 男
+            <input type="radio" name="{{ para }}" value="{{ raw }}"> {{ disp }}
         </label>
-        <label class="radio-inline">
-            <input type="radio" name="gender" id="gender2" value="2"> 女
-        </label>
+        {% endfor %}
     </div>
 </div>
-
-
-<div class="form-group">
-    <label for="wed_style" class="col-lg-1 col-md-1">专业</label>
-    <div class="col-lg-6 col-md-6">
-        <label class="radio-inline">
-            <input type="radio" name="wed_style" id="style0" value="0" checked> 全部
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="wed_style" id="style1" value="1"> 中式
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="wed_style" id="style2" value="2"> 西式
-        </label>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="age" class="col-lg-1 col-md-1">年龄</label>
-    <div class="col-lg-6 col-md-6">
-        <label class="radio-inline">
-            <input type="radio" name="age" id="style0" value="0" checked> 全部
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="age" id="style1" value="60"> 60 后
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="age" id="style2" value="70"> 70 后
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="age" id="style3" value="80"> 80 后
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="age" id="style4" value="90"> 90 后
-        </label>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="price" class="col-lg-1 col-md-1">价格</label>
-    <div class="col-lg-6 col-md-6">
-        <label class="radio-inline">
-            <input type="radio" name="price" id="style0" value="-" checked> 全部
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="price" id="low" value="-2000"> 2000 以下
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="price" id="mid" value="2000-4000"> 2000-4000
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="price" id="high" value="4000-"> 4000 以上
-        </label>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="user_location" class="col-lg-1 col-md-1">归属地</label>
-    <div class="col-lg-2 col-md-2">
-        <select class="form-control" id="user_location" name="location">
-            <option>北京</option>
-            <option>上海</option>
-            <option>西安</option>
-        </select>
-    </div>
-</div>
-
-
+{% endfor %}
