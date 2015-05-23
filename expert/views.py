@@ -28,7 +28,7 @@ def expert_filter(query_set, url, obj):
     def add_para(db, para):
         value = query_set.get(para, 'all')
         if value != 'all':
-            kwargs[db] = value
+            kwargs['%s__in' % db] = (value, 'all')
 
     for para in utils.get_filter_names('expert'):
         add_para(para, para)

@@ -4,6 +4,7 @@ from base.models import DiyFilter
 def get_choice_set(key):
     return [(item.value, item.value_disp) for item in DiyFilter.objects.filter(name=key)]
 
+
 def get_filter_sets(key):
     kwargs = dict()
     def add_item(item):
@@ -14,7 +15,7 @@ def get_filter_sets(key):
                 'disp_name': item.get_name_display(),
                 'values': [(item.value, item.value_disp)],
                 }
-    for item in DiyFilter.objects.filter(scen=key).order_by('order'):
+    for item in DiyFilter.objects.filter(scen=key, order__gt=0).order_by('order'):
         add_item(item)
     return kwargs
 
