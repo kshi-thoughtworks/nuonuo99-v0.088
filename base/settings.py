@@ -1,3 +1,4 @@
+#coding:utf-8
 """
 Django settings for base project.
 
@@ -23,13 +24,14 @@ SECRET_KEY = 'aurxubv)48jyi$(yfc&wf4mz$13-q$)05t1siz-8fv^tj*__v*'
 DEBUG = True
 
 project_app = (
-    'base',
-    'accounts',
-    'provider',
-    'location',
-    'expert',
-    'std_product',
-    'wedding',
+    'base',  # 基础类
+    'accounts',  # 用户账号
+    'provider',  # 供应商
+    'location',  # 位置信息
+    'expert',  # 婚礼人
+    'std_product',  # 单品
+    'wedding',  # 婚礼信息/购物车/订单
+    # 'space',  # 场地
     )
 
 
@@ -141,9 +143,12 @@ TEMPLATE_DIRS = (
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
-AVATAR_PATH = "avatar"
-DEMO_PATH = "demo"
-SERVICE_PATH = "service_photo"
+AVATAR_PATH = "avatar_photo"  # 头像相册
+DEMO_PATH = "demo_photo"
+SERVICE_PATH = "service_photo"  # 服务效果图片
+PRODUCT_PATH="product_photo"  # 单品效果图片
+WEDDING_CASE_PATH="wedding_case_photo"  # 婚礼案例/作品库图片
+SPACE_PATH="space_photo"
 
 
 AUTHENTICATION_BACKENDS = (
