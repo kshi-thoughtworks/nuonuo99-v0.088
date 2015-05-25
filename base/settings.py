@@ -31,7 +31,7 @@ project_app = (
     'expert',  # 婚礼人
     'std_product',  # 单品
     'wedding',  # 婚礼信息/购物车/订单
-    # 'space',  # 场地
+    'space',  # 场地
     )
 
 

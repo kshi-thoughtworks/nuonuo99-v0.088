@@ -154,3 +154,21 @@ class C_VIDEO_DEVICE_TYPE(BaseChoices):
         (CAMERA, "照相机"),
         (VIDEO, "摄像机"),
     )
+
+
+class C_HOTEL_STAR(BaseChoices):  # 酒店星级
+    NONE = 0 # 普通酒店
+    ECNOMIC = 1  # 经济型酒店
+    THREESTAR = 3  # 三星
+    FOURSTAR = 4  # 四星
+    FIVESTAR = 5  # 五星
+    LAX = 7  # 超豪华
+
+    CHOICES = (
+        (NONE, '普通酒店'),
+        (ECNOMIC, '经济型酒店'),
+        (THREESTAR, '三星'),
+        (FOURSTAR, '四星'),
+        (FIVESTAR, '五星'),
+        (LAX, '超豪华'),
+    )
