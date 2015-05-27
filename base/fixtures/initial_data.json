@@ -10,15 +10,6 @@
 },
 {
     "fields": {
-        "name": "\u82b1\u827a",
-        "parent": "std_product",
-        "desc": "\u5305\u542b: \u82b1\u95e8, \u5f55\u97f3, \u684c\u82b1 \u7b49\u5b50\u7c7b\u522b."
-    },
-    "model": "base.scenario",
-    "pk": "flower"
-},
-{
-    "fields": {
         "name": "\u5316\u5986\u5e08",
         "parent": "expert",
         "desc": ""
@@ -37,12 +28,57 @@
 },
 {
     "fields": {
+        "name": "\u6444\u5f71\u5e08",
+        "parent": "expert",
+        "desc": ""
+    },
+    "model": "base.scenario",
+    "pk": "photographer"
+},
+{
+    "fields": {
+        "name": "\u821e\u53f0\u6548\u679c",
+        "parent": "std_product",
+        "desc": "\u5b50\u7c7b\u5305\u62ec: \u821e\u53f0\u80cc\u666f , T \u53f0 , \u5730\u6bef , \u70db\u53f0 , \u9999\u69df\u53f0 , \u6295\u5f71\u4eea , \u5e72\u51b0\u673a , \u78c1\u60ac\u6d6e\u5e55\u5e03"
+    },
+    "model": "base.scenario",
+    "pk": "stage_effect"
+},
+{
+    "fields": {
         "name": "\u573a\u5730\u5e03\u7f6e",
         "parent": null,
         "desc": ""
     },
     "model": "base.scenario",
     "pk": "std_product"
+},
+{
+    "fields": {
+        "name": "\u6444\u50cf\u5e08",
+        "parent": "expert",
+        "desc": ""
+    },
+    "model": "base.scenario",
+    "pk": "vedio_guys"
+},
+{
+    "fields": {
+        "name": "AV \u4ea7\u54c1",
+        "parent": "std_product",
+        "desc": "\u5b50\u7c7b\u5305\u62ec: \u706f\u5149, \u97f3\u54cd, LED\u5927\u5c4f\r\n"
+    },
+    "model": "base.scenario",
+    "pk": "wed_av"
+},
+{
+    "fields": {
+        "name": "\u82b1\u827a",
+        "parent": "std_product",
+        "desc": "\u5b50\u7c7b\u5305\u542b: \u82b1\u95e8, \u5f55\u97f3, \u684c\u82b1 \u7b49\u5b50\u7c7b\u522b."
+    },
+    "model": "base.scenario",
+    "pk": "wed_flower"
 },
 {
     "fields": {
