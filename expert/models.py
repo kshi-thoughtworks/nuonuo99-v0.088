@@ -53,20 +53,22 @@ class Expert(models.Model):
 
 
 class MC(Expert):
-    """司仪服务 master of ceremonies"""
+    """司仪 master of ceremonies"""
     wed_sty = models.CharField(u'专业', max_length=7)
-    loc_native = models.ForeignKey(County, verbose_name=u'祖籍')
-    language = models.IntegerField(u'语言', choices=C_LANGUAGE.CHOICES, default=C_LANGUAGE.PUTONG)
+    lang = models.IntegerField(u'主持语言')
     height = models.IntegerField(u'身高(cm)')
+    loc_native = models.ForeignKey(County, verbose_name=u'籍贯')
 
     photo_chinse = models.FileField(u'中式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
     photo_west = models.FileField(u'西式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
     photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)
 
-
+    # mc_num = models.IntegerField(u'主持场次')
+    mc_tech = models.CharField(u'主持才艺', max_length=255, blank=True)
+    mc_sty = models.CharField(u'主持风格', max_length=255, blank=True)
 
     class Meta:
-        verbose_name = u"司仪服务"
+        verbose_name = u"司仪"
         verbose_name_plural = verbose_name
 
 
