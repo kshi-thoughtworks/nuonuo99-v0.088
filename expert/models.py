@@ -94,23 +94,24 @@ class MakeUp(Expert):
         verbose_name_plural = verbose_name
 
 
-class photo(Expert):
+class Photographer(Expert):
     """摄影师"""
 
-    camera_brand = models.PositiveIntegerField(u'使用相机品牌',choices=C_CAMERA_BRAND.CHOICES)
-    size = models.IntegerField(u'设备类型', choices=C_CAMERA_STYLE.CHOICES)
+    device_brand = models.CharField(u'相机品牌', max_length=255, blank=True)
+    is_full_frame = models.BooleanField(u'全画幅', default=False)
+    allow_teamwork = models.BooleanField(u'愿意合作', default=False)
 
     class Meta:
         verbose_name = u"摄影师"
         verbose_name_plural = verbose_name
 
 
-class video(Expert):
+class VedioGuys(Expert):
     """摄像师"""
 
-    VIDEO_DEVICE_TYPE = models.PositiveIntegerField(u'使用设备类型',choices=C_VIDEO_DEVICE_TYPE.CHOICES)
+    use_camera = models.BooleanField(u'使用照相机', default=False)
 
-    charge_yaobi=models.FloatField(u'提供摇臂,加价',
+    charge_arm = models.FloatField(u'摇臂加价',
         help_text=_help_text_charge)
 
     class Meta:
