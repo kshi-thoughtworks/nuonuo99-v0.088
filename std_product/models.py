@@ -2,22 +2,21 @@
 from django.db import models
 from django.conf import settings
 
-from base.models import C_FlowerStyle, C_FlowerVariety, C_Scale
-from base.choices import C_FLOWER_CATEGORY
+from base.models import C_FlowerVariety, C_Scale
 
 
 class StdProduct(models.Model):
     """每个产品, 推荐 4 个样图, 最少 1 个"""
 
+    category = models.CharField(u'产品子类', max_length=7)
     name = models.CharField(u'产品名称', max_length=255)
+    price = models.IntegerField(u'单价(起步单价)')
     desc = models.TextField(u'产品描述', max_length=255)
-    price = models.DecimalField(u'单价', max_digits=8, decimal_places=2)
 
     photo1 = models.FileField(u'样图1', upload_to=settings.SERVICE_PATH)
     photo2 = models.FileField(u'样图2', upload_to=settings.SERVICE_PATH, blank=True)
     photo3 = models.FileField(u'样图3', upload_to=settings.SERVICE_PATH, blank=True)
     photo4 = models.FileField(u'样图4', upload_to=settings.SERVICE_PATH, blank=True)
-
 
     def __unicode__(self):
         return "%s-%s" % (self.name, self.price)
@@ -28,11 +27,10 @@ class StdProduct(models.Model):
 
 class WedFlower(StdProduct):
     """花艺产品"""
-    category = models.CharField(u'花艺类型', max_length=31, choices=C_FLOWER_CATEGORY.CHOICES)
-    style = models.ForeignKey(C_FlowerStyle, verbose_name=u'样式')
+    style = models.CharField(u'样式', max_length=7)
     color = models.CharField(u'颜色', max_length=32)
-    scale = models.ManyToManyField(C_Scale, through='FlowerScale', through_fields=('product', 'key'), verbose_name=u'尺寸')
     items = models.ManyToManyField(C_FlowerVariety, through='FlowerItem', through_fields=('product', 'variety'), verbose_name=u'花材')
+    scale = models.ManyToManyField(C_Scale, through='FlowerScale', through_fields=('product', 'key'), verbose_name=u'尺寸')
 
     class Meta:
         verbose_name = u"花艺产品"
