@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 from django.db import models
 from django.conf import settings
-from base.models import SlaProvider
+from base.models import SlaExpert
 
 from location.models import County
 from base.choices import C_LANGUAGE, C_ProductTypeChoices, C_CAMERA_STYLE, C_CAMERA_BRAND, C_VIDEO_DEVICE_TYPE
@@ -35,9 +35,8 @@ class Expert(models.Model):
 
     # service info
     t_start = models.DateField(u'从业开始时间', help_text=u'从业时间 = 当前时间-从业开始时间')
-    wed_sty = models.CharField(u'专业', max_length=7)
     desc = models.TextField(u'服务理念', max_length=255)
-    # SLAtype = models.ForeignKey(SlaProvider,verbose_name='供应商评级',blank=True)
+    sla = models.ForeignKey(SlaExpert, verbose_name='等级')
 
     # more info
     honor = models.TextField(u'所获荣誉', blank=True)
@@ -55,6 +54,7 @@ class Expert(models.Model):
 
 class MC(Expert):
     """司仪服务 master of ceremonies"""
+    wed_sty = models.CharField(u'专业', max_length=7)
     loc_native = models.ForeignKey(County, verbose_name=u'祖籍')
     language = models.IntegerField(u'语言', choices=C_LANGUAGE.CHOICES, default=C_LANGUAGE.PUTONG)
     height = models.IntegerField(u'身高(cm)')
@@ -73,6 +73,7 @@ class MC(Expert):
 class MakeUp(Expert):
     """化妆师"""
 
+    wed_sty = models.CharField(u'专业', max_length=7)
     cosmetics_brand = models.CharField(u'常用化妆品品牌', max_length=255, blank=True)
     is_cosmetics_imported = models.BooleanField(u'进口化妆品', default=False)
     photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)

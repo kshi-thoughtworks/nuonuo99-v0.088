@@ -71,6 +71,13 @@ class SlaProvider(SlaBase):
         verbose_name = "供应商星级"
         verbose_name_plural = verbose_name
 
+
+class SlaExpert(SlaBase):
+
+    class Meta:
+        verbose_name = "婚礼人等级"
+        verbose_name_plural = verbose_name
+
 # ------------------- Choice --------------------------
 
 

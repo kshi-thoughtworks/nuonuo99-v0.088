@@ -181,6 +181,24 @@
 },
 {
     "fields": {
+        "desc": "",
+        "order": 5,
+        "name": "\u666e\u901a"
+    },
+    "model": "base.slaexpert",
+    "pk": 1
+},
+{
+    "fields": {
+        "desc": "",
+        "order": 10,
+        "name": "\u91d1\u724c"
+    },
+    "model": "base.slaexpert",
+    "pk": 2
+},
+{
+    "fields": {
         "name": "\u76f4\u5f84",
         "keyword": "diameter",
         "brief": "\u82b1\u95e8\u76f4\u5f84: \u534a\u5706\u5f62\u62f1\u95e8\u7684\u76f4\u5f84, \u4e00\u822c\u7b49\u4e8e\u5de6\u53f3\u4e24\u6839\u652f\u67f1\u4e4b\u95f4\u7684\u8ddd\u79bb"

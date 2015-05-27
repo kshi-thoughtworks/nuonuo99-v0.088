@@ -1,7 +1,8 @@
 #-*- coding:utf-8 -*-
 import xadmin
 from base.models import Scenario, DiyFilter
-from base.models import SlaProvider, C_FlowerStyle, C_FlowerVariety, C_Color, C_ChangBuType, C_Scale
+from base.models import C_FlowerStyle, C_FlowerVariety, C_Color, C_ChangBuType, C_Scale
+from base.models import SlaProvider, SlaExpert
 
 
 class ScenarioAdmin(object):
@@ -28,6 +29,7 @@ xadmin.site.register(Scenario, ScenarioAdmin)
 xadmin.site.register(DiyFilter, DiyFilterAdmin)
 
 xadmin.site.register(SlaProvider, SlaAdmin)
+xadmin.site.register(SlaExpert, SlaAdmin)
 
 
 xadmin.site.register(C_Color, ChoiceAdmin)
