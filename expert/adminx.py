@@ -17,7 +17,7 @@ class ExpertAdmin(object):
 
 
 class McAdmin(ExpertAdmin):
-    list_display = full_cols('loc_native', 'language')
+    list_display = full_cols('loc_native', 'lang')
 
 
 class MakeUpAdmin(ExpertAdmin):

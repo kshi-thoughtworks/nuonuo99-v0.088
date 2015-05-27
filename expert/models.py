@@ -55,7 +55,7 @@ class Expert(models.Model):
 class MC(Expert):
     """司仪 master of ceremonies"""
     wed_sty = models.CharField(u'专业', max_length=7)
-    lang = models.IntegerField(u'主持语言')
+    lang = models.CharField(u'主持语言', max_length=7)
     height = models.IntegerField(u'身高(cm)')
     loc_native = models.ForeignKey(County, verbose_name=u'籍贯')
 
@@ -78,16 +78,15 @@ class MakeUp(Expert):
     wed_sty = models.CharField(u'专业', max_length=7)
     cosmetics_brand = models.CharField(u'常用化妆品品牌', max_length=255, blank=True)
     is_cosmetics_imported = models.BooleanField(u'进口化妆品', default=False)
-    photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)
+    makeup_sty = models.CharField(u'化妆风格', max_length=7)
 
-
-    charge_decoration = models.FloatField(u'提供饰品, 加价',
+    charge_decoration = models.FloatField(u'饰品加价',
         help_text=_help_text_charge)
-    charge_hair = models.FloatField(u'提供盘头, 加价',
+    charge_hair = models.FloatField(u'盘头加价',
         help_text=_help_text_charge)
-    charge_dress_mum = models.FloatField(u'提供妈妈装, 加价',
+    charge_dress_mum = models.FloatField(u'妈妈装加价',
         help_text=_help_text_charge)
-    charge_dress_peer = models.FloatField(u'提供伴娘装, 加价',
+    charge_dress_peer = models.FloatField(u'伴娘装加价',
         help_text=_help_text_charge)
 
     class Meta:
