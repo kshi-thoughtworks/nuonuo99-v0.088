@@ -11,18 +11,31 @@ _help_text_charge = u'-1 -- 不提供该服务. 0 -- 免费提供. > 0 -- 提供
 
 
 class Expert(models.Model):
+    """婚礼人的公共属性, 10 字段
+
+    - 姓名
+    - 基础价格
+    - 头像
+    - 性别
+    - 年龄 / 出生日期
+    - 服务理念
+    - 从业时间 / 从业开始时间
+    - 级别
+    - 自我介绍视频
+    - 荣誉
+    """
+
     name = models.CharField(u'姓名', max_length=255)
-    price = models.DecimalField(u'基础报价', max_digits=8, decimal_places=2)
+    price = models.IntegerField(u'基础价格')
     avatar = models.FileField(u'头像', upload_to=settings.SERVICE_PATH)
 
     # basic info
     gender = models.CharField(u'性别', max_length=7)
-    birthday = models.DateField(u'出生日期', null=True)
+    t_birth = models.DateField(u'出生日期')
 
     # service info
+    t_start = models.DateField(u'从业开始时间', help_text=u'从业时间 = 当前时间-从业开始时间')
     wed_sty = models.CharField(u'专业', max_length=7)
-    t_birth = models.DateField(u'出生日期', null=True)
-    t_start = models.DateField(u'工作开始时间', help_text=u'从业时间 = 当前时间-工作开始时间')
     desc = models.TextField(u'服务理念', max_length=255)
     # SLAtype = models.ForeignKey(SlaProvider,verbose_name='供应商评级',blank=True)
 
