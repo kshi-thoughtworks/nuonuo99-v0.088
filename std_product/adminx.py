@@ -3,14 +3,15 @@ import xadmin
 from std_product.models import WedFlower, FlowerItem, FlowerScale
 
 def full_cols(*args):
-    return ('name', 'price') + args + ('desc',)
+    return ('category', 'name', 'price') + args + ('desc',)
+
 
 class StdProductAdmin(object):
     pass
 
 
 class WedFlowerAdmin(StdProductAdmin):
-    list_display = full_cols('color', 'items', 'scale')
+    list_display = full_cols('style', 'color', 'items', 'scale')
 
 
 class FlowerItemAdmin(object):

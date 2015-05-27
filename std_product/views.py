@@ -5,10 +5,6 @@ from django.http import HttpResponse
 
 from std_product.models import WedFlower
 
-from base.choices import C_FLOWER_STYLE_DOOR,C_FLOWER_STYLE_OTHERS
-
-from base.models import C_FlowerStyle
-
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 
@@ -38,7 +34,7 @@ def filter_flower(request, cate):
     add_para("style", "f_style")
 
     content = {
-        'f_style': C_FlowerStyle.objects.filter(category=cate),
+        'f_style': [],
         'cart_url': 'add_product_flower',
         'data_set': WedFlower.objects.filter(category=cate, **kwargs),
         }

@@ -43,7 +43,7 @@ class FlowerItem(models.Model):
     amount = models.PositiveIntegerField(u'数量')
 
     def __unicode__(self):
-        return '%s(%s)' % (self.variety, self.product)
+        return u'%s 朵 %s' % (self.amount, self.variety)
 
     class Meta:
         verbose_name = u"花艺原料组成细节"
@@ -54,10 +54,10 @@ class FlowerItem(models.Model):
 class FlowerScale(models.Model):
     product = models.ForeignKey(WedFlower, verbose_name=u'花艺产品')
     key = models.ForeignKey(C_Scale, verbose_name=u'尺寸类型')
-    value = models.PositiveIntegerField(u'数量')
+    value = models.PositiveIntegerField(u'数值')
 
     def __unicode__(self):
-        return '%s(%s)' % (self.key, self.product)
+        return '%s: %s' % (self.key, self.value)
 
     class Meta:
         verbose_name = u"花艺产品尺寸细节"
