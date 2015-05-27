@@ -63,3 +63,34 @@ class FlowerScale(models.Model):
         verbose_name = u"花艺产品尺寸细节"
         verbose_name_plural = verbose_name
         unique_together = ("product", "key")
+
+
+class WedAv(StdProduct):
+    """AV 产品"""
+    wed_env = models.CharField(u'使用场地', max_length=7)
+    power = models.PositiveIntegerField(u'功率')
+    coverage = models.PositiveIntegerField(u'覆盖面积(m^2)')
+
+    base_amount = models.PositiveIntegerField(u'起步数量')
+    unit = models.CharField(u'计价单位', max_length=7)
+    amount_step = models.PositiveIntegerField(u'计价数量')
+    float_price = models.PositiveIntegerField(u'计价价格')
+
+    class Meta:
+        verbose_name = u"AV 产品"
+        verbose_name_plural = verbose_name
+
+
+class StageEffect(StdProduct):
+    """舞台效果"""
+    wed_env = models.CharField(u'使用场地', max_length=7)
+    sub_category = models.CharField(u'三级子类别', max_length=7)
+
+    base_amount = models.PositiveIntegerField(u'起步数量')
+    unit = models.CharField(u'计价单位', max_length=7)
+    amount_step = models.PositiveIntegerField(u'计价数量')
+    float_price = models.PositiveIntegerField(u'计价价格')
+
+    class Meta:
+        verbose_name = u"舞台效果"
+        verbose_name_plural = verbose_name
