@@ -3,7 +3,6 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 
-import base.util as utils
 from expert.models import MC, MakeUp
 
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
@@ -30,11 +29,11 @@ def expert_filter(query_set, url, obj):
         if value != 'all':
             kwargs['%s__in' % db] = (value, 'all')
 
-    for para in utils.get_filter_names('expert'):
-        add_para(para, para)
+    #for para in utils.get_filter_names('expert'):
+    #    add_para(para, para)
 
     content = {
-        'paras': utils.get_filter_sets('expert'),
+        'paras': [],
         'cart_url': url,
         'data_set': obj.objects.filter(**kwargs),
         }

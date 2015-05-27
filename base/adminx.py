@@ -1,16 +1,12 @@
 #-*- coding:utf-8 -*-
 import xadmin
-from base.models import Scenario, DiyFilter
+from base.models import Scenario
 from base.models import C_FlowerVariety, C_ChangBuType, C_Scale
 from base.models import SlaProvider, SlaExpert
 
 
 class ScenarioAdmin(object):
     list_display = ("sid", "name", "parent", "desc")
-
-
-class DiyFilterAdmin(object):
-    list_display = ("scen", "name", "value_disp", "order")
 
 
 class SlaAdmin(object):
@@ -22,7 +18,6 @@ class ChoiceAdmin(object):
 
 
 xadmin.site.register(Scenario, ScenarioAdmin)
-xadmin.site.register(DiyFilter, DiyFilterAdmin)
 
 xadmin.site.register(SlaProvider, SlaAdmin)
 xadmin.site.register(SlaExpert, SlaAdmin)

@@ -23,31 +23,6 @@ class Scenario(models.Model):
         verbose_name_plural = verbose_name
 
 
-# ----------------- Key - value of DIY Filter -------------------
-
-class DiyFilter(models.Model):
-    Q_KEYS = (
-            ('gender', u'性别'),
-            ('wed_sty', u'专业'),
-            ('t_birth', u'年龄'),
-            )
-    scen = models.ForeignKey(Scenario, verbose_name=u'业务类型')
-    name = models.CharField(u'查询字段名', max_length=7, choices=Q_KEYS)
-    value = models.CharField(u'值', max_length=255,
-        help_text=u'取值, 用于接口间传递数据, 代码友好')
-    value_disp = models.CharField(u'显示值', max_length=255,
-        help_text=u'取值, 用于界面显示, 用户友好')
-    order = models.PositiveIntegerField(u'顺序号',
-        help_text=u'界面展示时, 按序列号从小到大显示 value')
-    desc = models.TextField(u'备注说明', blank=True)
-
-    def __unicode__(self):
-        return '%s=%s' % (self.name, self.value_disp)
-
-    class Meta:
-        verbose_name = u'DIY 过滤器'
-        verbose_name_plural = verbose_name
-
 # ---------------------------------------------------------------
 
 class SlaBase(models.Model):
