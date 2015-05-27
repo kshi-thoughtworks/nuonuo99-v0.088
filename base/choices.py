@@ -82,44 +82,6 @@ class C_ORDER_STATUS(BaseChoices):
     )
 
 
-class C_FLOWER_CATEGORY(BaseChoices):
-    CHOICES = (
-        ("door", "花门"),
-        ("road", "路引"),
-        ("desk", "桌花"),
-        ("other", "其他"),
-    )
-
-
-class C_FLOWER_STYLE_DOOR(BaseChoices):
-    ALL = 0 #全花门
-    HALF = 1 #半花门
-    THREEPOINT = 2 #三点式
-    FIVEPOINT = 3 #五点式
-    OTHERS = 4 #其他异形
-
-    CHOICES = (
-        (ALL, "全花门"),
-        (HALF, "半花门"),
-        (THREEPOINT, "三点式"),
-        (FIVEPOINT, "五点式"),
-        (OTHERS, "异形"),
-
-    )
-
-
-class C_FLOWER_STYLE_OTHERS(BaseChoices):
-    GLOBAL = 0 #球形
-    RADIO = 1 #放射形
-    OTHERS = 2 #异形
-
-    CHOICES = (
-        (GLOBAL, "球形"),
-        (RADIO, "放射形"),
-        (OTHERS, "异形"),
-    )
-
-
 class C_CAMERA_STYLE(BaseChoices):
     ALL = 0 #全类型
     FULL = 1 #全画幅
