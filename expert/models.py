@@ -99,7 +99,7 @@ class Photographer(Expert):
 
     device_brand = models.CharField(u'相机品牌', max_length=255, blank=True)
     is_full_frame = models.BooleanField(u'全画幅', default=False)
-    allow_teamwork = models.BooleanField(u'愿意合作', default=False)
+    no_teamwork = models.BooleanField(u'不与他人合作', default=False)
 
     class Meta:
         verbose_name = u"摄影师"

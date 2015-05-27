@@ -25,7 +25,7 @@ class MakeUpAdmin(ExpertAdmin):
 
 
 class PhotographerAdmin(ExpertAdmin):
-    list_display = full_cols('device_brand', 'is_full_frame', 'allow_teamwork')
+    list_display = full_cols('device_brand', 'is_full_frame', 'no_teamwork')
 
 
 class VedioGuysAdmin(ExpertAdmin):
