@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'reversion',
     'xadmin',
+    'rest_framework',
 ) + project_app
 
 MIDDLEWARE_CLASSES = (
@@ -164,6 +165,15 @@ USERENA_SIGNIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 USERENA_ACTIVATION_REQUIRED = False
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 
 try:
