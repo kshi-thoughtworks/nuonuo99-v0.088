@@ -29,8 +29,12 @@ class McFilter(django_filters.FilterSet):
 def mc_home(request):
     content = {
         'paras': choice_set.MC_PARAS(),
+        'list_url': 'mc_list',
+        'cart_url': 'add_service_mc',
+        'data_set': MC.objects.all(),
+        'disp_name': u'司仪',
         }
-    return render_to_response('mc.html', RequestContext(request, content))
+    return render_to_response('expert.html', RequestContext(request, content))
 
 
 class McList(generics.ListCreateAPIView):
