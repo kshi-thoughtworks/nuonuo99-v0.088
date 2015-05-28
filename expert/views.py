@@ -7,18 +7,7 @@ from expert.models import MC, MakeUp
 
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
-
-def price_filter(query_set):
-    kwargs = dict()
-    bottom, top = query_set.get('price', '-').split('-')
-
-    if bottom:
-        kwargs['price__gte'] = bottom
-
-    if top:
-        kwargs['price__lte'] = top
-
-    return kwargs
+from base.utils import price_filter
 
 
 def expert_filter(query_set, url, obj):
@@ -47,5 +36,10 @@ def filter_mc(request):
 
 
 def filter_makeup(request):
+    content = expert_filter(request.GET, 'add_service_makeup', MakeUp)
+    return render_to_response('makeup.html', RequestContext(request, content))
+
+
+def filter_vedioguys(request):
     content = expert_filter(request.GET, 'add_service_makeup', MakeUp)
     return render_to_response('makeup.html', RequestContext(request, content))
