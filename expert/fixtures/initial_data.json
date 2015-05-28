@@ -1,8 +1,8 @@
 [
 {
     "fields": {
-        "wed_sty": "cn",
-        "lang": "other",
+        "wed_sty": 1,
+        "lang": 4,
         "loc_native": 603,
         "photo_life": "",
         "name": "\u65b9\u796f",
@@ -25,8 +25,8 @@
 },
 {
     "fields": {
-        "wed_sty": "cn",
-        "lang": "en",
+        "wed_sty": 1,
+        "lang": 3,
         "loc_native": 1,
         "photo_life": "",
         "name": "\u718a\u6656",
@@ -49,8 +49,8 @@
 },
 {
     "fields": {
-        "wed_sty": "west",
-        "lang": "dialect",
+        "wed_sty": 2,
+        "lang": 2,
         "loc_native": 1897,
         "photo_life": "",
         "name": "\u6768\u949f",
@@ -73,8 +73,8 @@
 },
 {
     "fields": {
-        "wed_sty": "west",
-        "lang": "cn",
+        "wed_sty": 2,
+        "lang": 1,
         "loc_native": 461,
         "photo_life": "",
         "name": "\u7fbd\u88f3",
@@ -97,7 +97,7 @@
 },
 {
     "fields": {
-        "wed_sty": "west",
+        "wed_sty": 2,
         "name": "\u4e50\u4e50",
         "charge_dress_mum": 400.0,
         "cosmetics_brand": "\u96c5\u8bd7\u5170\u9edb \u6b27\u83b1\u96c5 \u5170\u853b",
@@ -120,7 +120,7 @@
 },
 {
     "fields": {
-        "wed_sty": "cn",
+        "wed_sty": 1,
         "name": "\u5510\u7ea2",
         "charge_dress_mum": 0.0,
         "cosmetics_brand": "",
@@ -143,7 +143,7 @@
 },
 {
     "fields": {
-        "wed_sty": "cn",
+        "wed_sty": 1,
         "name": "\u73ca\u73ca",
         "charge_dress_mum": 0.0,
         "cosmetics_brand": "",
@@ -166,7 +166,7 @@
 },
 {
     "fields": {
-        "wed_sty": "west",
+        "wed_sty": 2,
         "name": "kevin",
         "charge_dress_mum": 3000.0,
         "cosmetics_brand": "",

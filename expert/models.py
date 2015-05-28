@@ -4,7 +4,8 @@ from django.conf import settings
 from base.models import SlaExpert
 
 from location.models import County
-from base.choices import C_LANGUAGE, C_ProductTypeChoices, C_CAMERA_STYLE, C_CAMERA_BRAND, C_VIDEO_DEVICE_TYPE
+import base.choices as choice_set
+
 
 
 _help_text_charge = u'-1 -- 不提供该服务. 0 -- 免费提供. > 0 -- 提供且收取对应的费用'
@@ -54,8 +55,8 @@ class Expert(models.Model):
 
 class MC(Expert):
     """司仪 master of ceremonies"""
-    wed_sty = models.CharField(u'专业', max_length=7)
-    lang = models.CharField(u'主持语言', max_length=7)
+    wed_sty = models.IntegerField(u'专业', choices=choice_set.C_WED_STY)
+    lang = models.IntegerField(u'主持语言', choices=choice_set.C_LANG)
     height = models.IntegerField(u'身高(cm)')
     loc_native = models.ForeignKey(County, verbose_name=u'籍贯')
 

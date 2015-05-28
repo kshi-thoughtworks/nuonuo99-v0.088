@@ -1,7 +1,6 @@
 #-*- coding:utf-8 -*-
 from django.db import models
 from django.conf import settings
-from choices import C_ORDER_STATUS, C_LANGUAGE, C_ProductTypeChoices
 
 
 # ---------------- Scenario 大类信息 ----------------------------

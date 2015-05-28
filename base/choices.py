@@ -15,6 +15,9 @@ def bool_choice(values):
 _c_wed_sty = (u'中式', u'西式')
 C_WED_STY = int_choice(_c_wed_sty)
 
+_c_lang = (u"普通话", u"广东话", u"英语", u"其他方言")
+C_LANG = int_choice(_c_lang)
+
 _gender = (u'男', u'女')
 
 _age = (
@@ -129,20 +132,6 @@ class C_ProductTypeChoices(BaseChoices):
         (AV, "AV工程"),
         (HUAZHUANG, "化妆师"),
         (CAR, '婚车'),
-    )
-
-
-class C_LANGUAGE(BaseChoices):
-    PUTONG = 0  # 普通话
-    GUANGDONG = 1  # 广东话
-    ENGLISH = 2  # 英语
-    OTHERS = 3  # 其他方言
-
-    CHOICES = (
-        (PUTONG, "普通话"),
-        (GUANGDONG, "广东话"),
-        (ENGLISH, "英语"),
-        (OTHERS, "其他方言"),
     )
 
 
