@@ -12,42 +12,23 @@ from expert.models import MC, MakeUp
 from expert.serializers import McSerializer, MakeUpSerializer
 
 from base.utils import price_filter
-from base.choices import MC_PARAS
-
-
-def range_filter(name, value):
-    kwargs = dict()
-
-    if not value:
-        return kwargs
-
-    bottom, top = value.split('-')
-
-    if bottom:
-        kwargs['%s__gte' % name] = bottom
-
-    if top:
-        kwargs['%s__lte' % name] = top
-
-    return kwargs
-
-
-def price_action(queryset, value):
-    kwargs = range_filter('price', value)
-    return queryset.filter(**kwargs)
+import base.choices as choice_set
 
 
 class McFilter(django_filters.FilterSet):
-    price = django_filters.CharFilter(action=price_action)
+    price = django_filters.CharFilter(action=choice_set.range_action('price'))
+    age = django_filters.CharFilter(action=choice_set.range_action('t_birth'))
+    height = django_filters.CharFilter(action=choice_set.range_action('height'))
+    mc_tech = django_filters.CharFilter(lookup_type='isnull')
 
     class Meta:
         model = MC
-        fields = ['wed_sty', 'is_man', 'loc_native', 'price']
+        fields = ['price', 'wed_sty', 'is_man', 'age', 'height', 'loc_native', 'mc_tech']
 
 
 def mc_home(request):
     content = {
-        'paras': MC_PARAS(),
+        'paras': choice_set.MC_PARAS(),
         }
     return render_to_response('mc.html', RequestContext(request, content))
 

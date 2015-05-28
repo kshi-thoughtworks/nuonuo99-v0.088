@@ -65,7 +65,7 @@ class MC(Expert):
     photo_life = models.FileField(u'生活照', upload_to=settings.SERVICE_PATH, blank=True)
 
     # mc_num = models.IntegerField(u'主持场次')
-    mc_tech = models.CharField(u'主持才艺', max_length=255, blank=True)
+    mc_tech = models.CharField(u'主持才艺', max_length=255, null=True, blank=True)
     mc_sty = models.CharField(u'主持风格', max_length=255, blank=True)
 
     class Meta:

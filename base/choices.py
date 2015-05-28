@@ -2,6 +2,21 @@
 from location.models import Province
 
 
+def range_action(name):
+    def action(queryset, value):
+        if not value:
+            return queryset
+
+        kwargs = dict()
+        bottom, top = value.split('~')
+        if bottom:
+            kwargs['%s__gte' % name] = bottom
+        if top:
+            kwargs['%s__lte' % name] = top
+        return queryset.filter(**kwargs)
+    return action
+
+
 def int_choice(values, start=1):
     return [(i, v) for i, v in zip(range(start, start+len(values)), values)]
 
@@ -21,27 +36,24 @@ C_LANG = int_choice(_c_lang)
 _gender = (u'男', u'女')
 
 _age = (
-    ('60-69', '60 后'),
-    ('70-79', '70 后'),
-    ('80-89', '80 后'),
-    ('90-99', '90 后'),
+    ('1960-1-1~1969-12-31', '60 后'),
+    ('1970-1-1~1979-12-31', '70 后'),
+    ('1980-1-1~1989-12-31', '80 后'),
+    ('1990-1-1~1999-12-31', '90 后'),
     )
 
 _height = (
-    ('-170', '170 以下'),
-    ('170-175', '170-175'),
-    ('175-', '175以上'),
+    ('~170', '170 以下'),
+    ('170~175', '170~175'),
+    ('175~', '175以上'),
     )
 
-_skill = (
-    ('has', '有'),
-    ('null', '无'),
-    )
+_skill = ('无', '有')
 
 _mc_price = (
-    ('-2000', '2000 以下'),
-    ('2000-4000', '2000-4000'),
-    ('4000-', '4000 以上'),
+    ('~2000', '2000 以下'),
+    ('2000~4000', '2000~4000'),
+    ('4000~', '4000 以上'),
 
         )
 
@@ -74,9 +86,9 @@ def MC_PARAS():
         'values': _height,
     },
     {
-        'name': 'skill',
+        'name': 'mc_tech',
         'disp_name': u'才艺',
-        'values': _skill,
+        'values': bool_choice(_skill),
     },
     {
         'name': 'loc_native',
