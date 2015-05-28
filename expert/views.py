@@ -15,11 +15,34 @@ from base.utils import price_filter
 from base.choices import MC_PARAS
 
 
+def range_filter(name, value):
+    kwargs = dict()
+
+    if not value:
+        return kwargs
+
+    bottom, top = value.split('-')
+
+    if bottom:
+        kwargs['%s__gte' % name] = bottom
+
+    if top:
+        kwargs['%s__lte' % name] = top
+
+    return kwargs
+
+
+def price_action(queryset, value):
+    kwargs = range_filter('price', value)
+    return queryset.filter(**kwargs)
+
+
 class McFilter(django_filters.FilterSet):
+    price = django_filters.CharFilter(action=price_action)
 
     class Meta:
         model = MC
-        fields = ['wed_sty', 'is_man', 'loc_native']
+        fields = ['wed_sty', 'is_man', 'loc_native', 'price']
 
 
 def mc_home(request):
