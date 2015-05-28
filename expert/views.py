@@ -43,6 +43,17 @@ class McList(generics.ListCreateAPIView):
     filter_class = McFilter
 
 
+def makeup_home(request):
+    content = {
+        'paras': choice_set.MAKEUP_PARAS(),
+        'list_url': 'makeup_list',
+        'cart_url': 'add_service_makeup',
+        'data_set': MakeUp.objects.all(),
+        'disp_name': u'化妆师',
+        }
+    return render_to_response('expert.html', RequestContext(request, content))
+
+
 class MakeUpList(generics.ListCreateAPIView):
     queryset = MakeUp.objects.all()
     serializer_class = MakeUpSerializer

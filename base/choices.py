@@ -54,8 +54,18 @@ _mc_price = (
     ('~2000', '2000 以下'),
     ('2000~4000', '2000~4000'),
     ('4000~', '4000 以上'),
+    )
 
-        )
+
+_c_makeup_sty = (u'韩系', u'日系')
+C_MAKEUP_STY = int_choice(_c_makeup_sty)
+
+
+_makeup_price = (
+    ('~2000', '2000 以下'),
+    ('2000~4000', '2000~4000'),
+    ('4000~', '4000 以上'),
+    )
 
 
 def MC_PARAS():
@@ -94,6 +104,26 @@ def MC_PARAS():
         'name': 'loc_native',
         'disp_name': u'籍贯',
         'values': [(item.pk, item.name) for item in Province.objects.all()],
+    },
+    ]
+
+
+def MAKEUP_PARAS():
+    return [
+    {
+        'name': 'price',
+        'disp_name': u'价格',
+        'values': _makeup_price,
+    },
+    {
+        'name': 'wed_sty',
+        'disp_name': u'专业',
+        'values': C_WED_STY,
+    },
+    {
+        'name': 'makeup_sty',
+        'disp_name': u'化妆风格',
+        'values': C_MAKEUP_STY,
     },
     ]
 
