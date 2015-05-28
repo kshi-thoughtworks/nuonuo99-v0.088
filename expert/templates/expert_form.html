@@ -1,15 +1,17 @@
-{% for para, v in paras.items %}
+{% for para in paras %}
+
 <div class="form-group">
-    <label for="{{ para }}" class="col-lg-1 col-md-1"> {{ v.disp_name }}</label>
+    <label for="{{ para.name }}" class="col-lg-1 col-md-1"> {{ para.disp_name }}</label>
     <div class="col-lg-6 col-md-6">
         <label class="radio-inline">
-            <input type="radio" name="{{ para }}" value="all"> 全部
+            <input type="radio" name="{{ para.name }}" value="all"> 全部
         </label>
-        {% for raw, disp in v.values %}
+        {% for raw, disp in para.values %}
         <label class="radio-inline">
-            <input type="radio" name="{{ para }}" value="{{ raw }}"> {{ disp }}
+            <input type="radio" name="{{ para.name }}" value="{{ raw }}"> {{ disp }}
         </label>
         {% endfor %}
     </div>
 </div>
+
 {% endfor %}

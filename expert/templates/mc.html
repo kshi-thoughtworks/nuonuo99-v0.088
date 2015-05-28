@@ -9,37 +9,7 @@
 <div id="mc">
     <h2>司仪</h2>
 
-    <form class="form-horizontal" method="GET"> {% csrf_token %}
-
-        <div class="form-group">
-            <label for="mc-style" class="col-lg-1 col-md-1">主持风格</label>
-            <div class="col-lg-6 col-md-6">
-                <label class="radio-inline">
-                    <input type="radio" name="mc_style" id="style0" value="all" checked> 全部
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="mc_style" id="style1" value="1"> 成熟端庄
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="mc_style" id="style2" value="2"> 幽默诙谐
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="mc_style" id="style3" value="3"> 巧嘴灵舌
-                </label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="native_loc" class="col-lg-1 col-md-1">籍贯</label>
-
-            <div class="col-lg-2 col-md-2">
-                <select class="form-control" id="native_loc" name="native_loc">
-                    <option>北京</option>
-                    <option>上海</option>
-                    <option>西安</option>
-                </select>
-            </div>
-        </div>
+    <form action="{% url "mc_filter" %}" class="form-horizontal" method="GET"> {% csrf_token %}
 
         {% include 'expert_form.html' %}
 
