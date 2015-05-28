@@ -128,6 +128,41 @@ def MAKEUP_PARAS():
     ]
 
 
+def PHOTO_PARAS():
+    return [
+    {
+        'name': 'price',
+        'disp_name': u'价格',
+        'values': _mc_price,
+    },
+    {
+        'name': 'is_full_frame',
+        'disp_name': u'画幅',
+        'values': bool_choice([u'全画幅', u'半画幅']),
+    },
+    {
+        'name': 'no_teamwork',
+        'disp_name': u'不与他人合作',
+        'values': bool_choice([u'是', u'否']),
+    },
+    ]
+
+
+def VEDIO_PARAS():
+    return [
+    {
+        'name': 'price',
+        'disp_name': u'价格',
+        'values': _mc_price,
+    },
+    {
+        'name': 'use_camera',
+        'disp_name': u'器材',
+        'values': bool_choice([u'照相机', u'摄像机']),
+    },
+    ]
+
+
 # -------------------------------------------------
 
 class BaseChoices(object):
