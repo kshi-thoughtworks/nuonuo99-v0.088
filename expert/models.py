@@ -76,10 +76,10 @@ class MC(Expert):
 class MakeUp(Expert):
     """化妆师"""
 
-    wed_sty = models.CharField(u'专业', max_length=7)
+    wed_sty = models.IntegerField(u'专业', choices=choice_set.C_WED_STY)
     cosmetics_brand = models.CharField(u'常用化妆品品牌', max_length=255, blank=True)
     is_cosmetics_imported = models.BooleanField(u'进口化妆品', default=False)
-    makeup_sty = models.CharField(u'化妆风格', max_length=7)
+    makeup_sty = models.IntegerField(u'化妆风格', choices=choice_set.C_MAKEUP_STY)
 
     charge_decoration = models.FloatField(u'饰品加价',
         help_text=_help_text_charge)

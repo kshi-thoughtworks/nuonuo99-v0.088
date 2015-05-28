@@ -26,6 +26,14 @@ class McFilter(django_filters.FilterSet):
         fields = ['price', 'wed_sty', 'is_man', 'age', 'height', 'loc_native', 'mc_tech']
 
 
+class MakeUpFilter(django_filters.FilterSet):
+    price = django_filters.CharFilter(action=choice_set.range_action('price'))
+
+    class Meta:
+        model = MakeUp
+        fields = ['price', 'wed_sty', 'makeup_sty']
+
+
 def mc_home(request):
     content = {
         'paras': choice_set.MC_PARAS(),
@@ -57,3 +65,4 @@ def makeup_home(request):
 class MakeUpList(generics.ListCreateAPIView):
     queryset = MakeUp.objects.all()
     serializer_class = MakeUpSerializer
+    filter_class = MakeUpFilter
