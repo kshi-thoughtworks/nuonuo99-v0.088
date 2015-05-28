@@ -9,7 +9,7 @@
 <div id="mc">
     <h2>司仪</h2>
 
-    <form action="{% url "mc_filter" %}" class="form-horizontal" method="GET"> {% csrf_token %}
+    <form action="{% url "mc_list" %}" class="form-horizontal" method="GET"> {% csrf_token %}
 
         {% include 'expert_form.html' %}
 

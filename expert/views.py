@@ -13,14 +13,14 @@ from base.utils import price_filter
 from base.choices import MC_PARAS
 
 
-def mc_list(request):
+def mc_home(request):
     content = {
         'paras': MC_PARAS(),
         }
     return render_to_response('mc.html', RequestContext(request, content))
 
 
-class McFilter(generics.ListCreateAPIView):
+class McList(generics.ListCreateAPIView):
     queryset = MC.objects.all()
     serializer_class = McSerializer
 

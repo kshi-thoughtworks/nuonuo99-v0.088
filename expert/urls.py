@@ -4,7 +4,7 @@ from expert import views
 
 
 urlpatterns = (
-    url(r'^mc$', views.mc_list, name='mc_list'),
-    url(r'^mc/q$', views.McFilter.as_view(), name='mc_filter'),
+    url(r'^mc$', views.mc_home, name='mc_home'),
+    url(r'^mc/q$', views.McList.as_view(), name='mc_list'),
     url(r'^makeup$', views.MakeUpList.as_view(), name='makeup_list'),
 )
