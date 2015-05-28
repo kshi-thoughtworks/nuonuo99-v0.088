@@ -1,5 +1,89 @@
-#coding:utf-8
-__author__ = 'shikai'
+#-*- coding:utf-8 -*-
+from location.models import Province
+
+
+def int_choice(values, start=1):
+    return [(i, v) for i, v in zip(range(start, start+len(values)), values)]
+
+
+def bool_choice(values):
+    return (
+            (0, values[0]),
+            (1, values[1]),
+            )
+
+_c_wed_sty = (u'中式', u'西式')
+C_WED_STY = int_choice(_c_wed_sty)
+
+_gender = (u'男', u'女')
+
+_age = (
+    ('60-69', '60 后'),
+    ('70-79', '70 后'),
+    ('80-89', '80 后'),
+    ('90-99', '90 后'),
+    )
+
+_height = (
+    ('-170', '170 以下'),
+    ('170-175', '170-175'),
+    ('175-', '175以上'),
+    )
+
+_skill = (
+    ('has', '有'),
+    ('null', '无'),
+    )
+
+_mc_price = (
+    ('-2000', '2000 以下'),
+    ('2000-4000', '2000-4000'),
+    ('4000-', '4000 以上'),
+
+        )
+
+
+def MC_PARAS():
+    return [
+    {
+        'name': 'price',
+        'disp_name': u'价格',
+        'values': _mc_price,
+    },
+    {
+        'name': 'wed_sty',
+        'disp_name': u'专业',
+        'values': C_WED_STY,
+    },
+    {
+        'name': 'is_man',
+        'disp_name': u'性别',
+        'values': bool_choice(_gender),
+    },
+    {
+        'name': 'age',
+        'disp_name': u'年龄',
+        'values': _age,
+    },
+    {
+        'name': 'height',
+        'disp_name': u'身高',
+        'values': _height,
+    },
+    {
+        'name': 'skill',
+        'disp_name': u'才艺',
+        'values': _skill,
+    },
+    {
+        'name': 'native_loc',
+        'disp_name': u'籍贯',
+        'values': [(item.pk, item.name) for item in Province.objects.all()],
+    },
+    ]
+
+
+# -------------------------------------------------
 
 class BaseChoices(object):
     CHOICES = ()

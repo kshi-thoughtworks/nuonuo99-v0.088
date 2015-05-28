@@ -30,7 +30,7 @@ class Expert(models.Model):
     avatar = models.FileField(u'头像', upload_to=settings.SERVICE_PATH)
 
     # basic info
-    gender = models.CharField(u'性别', max_length=7)
+    is_man = models.BooleanField(u'性别-男', default=False)  # gender
     t_birth = models.DateField(u'出生日期')
 
     # service info
