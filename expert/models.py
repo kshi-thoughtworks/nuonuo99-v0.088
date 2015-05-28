@@ -3,7 +3,7 @@ from django.db import models
 from django.conf import settings
 from base.models import SlaExpert
 
-from location.models import County
+from location.models import Province
 import base.choices as choice_set
 
 
@@ -58,7 +58,7 @@ class MC(Expert):
     wed_sty = models.IntegerField(u'专业', choices=choice_set.C_WED_STY)
     lang = models.IntegerField(u'主持语言', choices=choice_set.C_LANG)
     height = models.IntegerField(u'身高(cm)')
-    loc_native = models.ForeignKey(County, verbose_name=u'籍贯')
+    loc_native = models.ForeignKey(Province, verbose_name=u'籍贯')
 
     photo_chinse = models.FileField(u'中式定妆照', upload_to=settings.SERVICE_PATH, blank=True)
     photo_west = models.FileField(u'西式定妆照', upload_to=settings.SERVICE_PATH, blank=True)

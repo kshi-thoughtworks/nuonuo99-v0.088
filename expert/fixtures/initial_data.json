@@ -3,7 +3,7 @@
     "fields": {
         "wed_sty": 1,
         "lang": 4,
-        "loc_native": 603,
+        "loc_native": 1,
         "photo_life": "",
         "name": "\u65b9\u796f",
         "mc_sty": "",
@@ -51,7 +51,7 @@
     "fields": {
         "wed_sty": 2,
         "lang": 2,
-        "loc_native": 1897,
+        "loc_native": 1,
         "photo_life": "",
         "name": "\u6768\u949f",
         "mc_sty": "",
@@ -75,7 +75,7 @@
     "fields": {
         "wed_sty": 2,
         "lang": 1,
-        "loc_native": 461,
+        "loc_native": 2,
         "photo_life": "",
         "name": "\u7fbd\u88f3",
         "mc_sty": "",

@@ -8,8 +8,8 @@ def int_choice(values, start=1):
 
 def bool_choice(values):
     return (
-            (0, values[0]),
-            (1, values[1]),
+            ('True', values[0]),
+            ('False', values[1]),
             )
 
 _c_wed_sty = (u'中式', u'西式')
@@ -79,7 +79,7 @@ def MC_PARAS():
         'values': _skill,
     },
     {
-        'name': 'native_loc',
+        'name': 'loc_native',
         'disp_name': u'籍贯',
         'values': [(item.pk, item.name) for item in Province.objects.all()],
     },
