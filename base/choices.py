@@ -163,6 +163,20 @@ def VEDIO_PARAS():
     ]
 
 
+# ----------------------------------------------
+
+_flower_cate = (u'花门', u'路引', u'桌花', u'手捧花', u'合影区', u'司仪台', u'车花', u'签到台', u'香槟塔', u'迎宾水牌', u'烛台桌花', u'背景花艺', u'碎花', u'胸花')
+C_FLOWER_CATE = int_choice(_flower_cate)
+
+def FLOWER_PARAS(cate):
+    return [
+    {
+        'name': 'price',
+        'disp_name': u'价格',
+        'values': _mc_price,
+    },
+    ]
+
 # -------------------------------------------------
 
 class BaseChoices(object):
@@ -187,31 +201,6 @@ class BaseChoices(object):
         return None
 
 
-class C_ProductTypeChoices(BaseChoices):
-    SIYI = 0  # 司仪
-    HUAZHUANG = 1  # 化妆师
-    PHOTOGRAPHER = 2  # 摄影
-    SHOOTING = 3  # 摄像
-    HUAYI = 4  # 花艺
-    CHANGDI = 5  # 场地布置
-    HOTEL = 6  # 酒店
-    AV = 7  # 灯光音响AV
-    CAR = 8  # 婚车
-
-
-    CHOICES = (
-        (SIYI, "司仪"),
-        (HUAYI, "花艺"),
-        (CHANGDI, "场布"),
-        (SHOOTING, "摄像"),
-        (HOTEL, "酒店"),
-        (PHOTOGRAPHER, "摄影"),
-        (AV, "AV工程"),
-        (HUAZHUANG, "化妆师"),
-        (CAR, '婚车'),
-    )
-
-
 class C_ORDER_STATUS(BaseChoices):
     NOPAY = 0 # 未付款
     PAYED = 1 # 已付款
@@ -229,42 +218,6 @@ class C_ORDER_STATUS(BaseChoices):
         (WEDDING, "婚礼执行中"),
         (COMPLETED, "执行完毕"),
         (COMMENTING, "评价期"),
-    )
-
-
-class C_CAMERA_STYLE(BaseChoices):
-    ALL = 0 #全类型
-    FULL = 1 #全画幅
-    HALF = 2 #非全画幅
-
-    CHOICES = (
-        (ALL, "全类型"),
-        (FULL, "全画幅"),
-        (HALF, "非全画幅"),
-    )
-
-
-class C_CAMERA_BRAND(BaseChoices):
-    ALL = 0 #全类型
-    CANON = 1 #佳能
-    NIKON = 2 #尼康
-
-    CHOICES = (
-        (ALL, "全类型"),
-        (CANON, "佳能"),
-        (NIKON, "尼康"),
-    )
-
-
-class C_VIDEO_DEVICE_TYPE(BaseChoices):
-    ALL = 0 #全类型
-    CAMERA = 1 #照相机
-    VIDEO = 2 #摄像机
-
-    CHOICES = (
-        (ALL, "全类型"),
-        (CAMERA, "照相机"),
-        (VIDEO, "摄像机"),
     )
 
 

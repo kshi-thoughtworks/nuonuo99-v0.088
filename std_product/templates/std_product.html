@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>选择{{ disp_name }}</title>
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <h2>选择{{ disp_name }}</h2>
+
+    <form action="{% url list_url %}" class="form-horizontal" method="GET" target="_blank"> {% csrf_token %}
+
+        <input type="hidden" name="type" value="mc">
+
+        {% for para in paras %}
+
+        <div class="form-group">
+
+            <label for="{{ para.name }}" class="col-lg-1 col-md-1"> {{ para.disp_name }}</label>
+            
+            <div class="col-lg-6 col-md-6">
+                <label class="radio-inline">
+                    <input type="radio" name="{{ para.name }}"> 全部
+                </label>
+                {% for raw, disp in para.values %}
+                <label class="radio-inline">
+                    <input type="radio" name="{{ para.name }}" value="{{ raw }}"> {{ disp }}
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% endfor %}
+
+        <button type="submit" class="btn btn-default">提交</button>
+    </form>
+
+    <div class="row">
+        {% for item in data_set %}
+        <div class="col-sm-6 col-md-3 col-lg-3">
+            <div class="thumbnail">
+                <img src="{{ item.avatar.url }} "></img>
+                <div class="caption">
+                    <h3>
+                        {{ item.name }}
+                        <span class="pull-right">￥{{ item.price }} </span>
+                    </h3>
+                    <p>
+                        {{ item.desc }}
+                    </p>
+                    <p>
+                        <a href="{% url cart_url item.id %}" class="btn btn-primary" role="button">组成我的婚礼方案</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

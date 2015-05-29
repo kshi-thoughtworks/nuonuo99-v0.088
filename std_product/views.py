@@ -1,41 +1,40 @@
 #-*- coding:utf-8 -*-
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from django.http import HttpResponse
 
-from std_product.models import WedFlower
+# REST framework
+from rest_framework import generics
+from rest_framework import permissions
 
-from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+import django_filters
 
+from std_product.models import WedFlower, WedAv, StageEffect
+from std_product.serializers import WedFlowerSerializer, WedAvSerializer, StageEffectSerializer
 
-def price_filter(query_set):
-    kwargs = dict()
-    bottom, top = query_set.get('price', '-').split('-')
-
-    if bottom:
-        kwargs['price__gte'] = bottom
-
-    if top:
-        kwargs['price__lte'] = top
-
-    return kwargs
+from base.utils import price_filter
+import base.choices as choice_set
 
 
-def filter_flower(request, cate):
-    kwargs = price_filter(request.GET)
+class WedFlowerFilter(django_filters.FilterSet):
+    price = django_filters.CharFilter(action=choice_set.range_action('price'))
 
-    query_set = request.GET
+    class Meta:
+        model = WedFlower
+        fields = ['price', 'category', 'style']
 
-    def add_para(db, para):
-        value = query_set.get(para, '0')
-        if value != '0':
-            kwargs[db] = value
 
-    add_para("style", "f_style")
-
+def wedflower_home(request, cate):
     content = {
-        'f_style': [],
-        'cart_url': 'add_product_flower',
-        'data_set': WedFlower.objects.filter(category=cate, **kwargs),
+        'paras': choice_set.FLOWER_PARAS(cate),
+        'list_url': 'flower_list',
+        'cart_url': 'add_service_mc',
+        'data_set': WedFlower.objects.filter(category=cate),
+        'disp_name': u'花艺',
         }
-    return render_to_response('flower.html', RequestContext(request, content))
+    return render_to_response('std_product.html', RequestContext(request, content))
+
+
+class WedFlowerList(generics.ListCreateAPIView):
+    queryset = WedFlower.objects.all()
+    serializer_class = WedFlowerSerializer
+    filter_class = WedFlowerFilter
