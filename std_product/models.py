@@ -86,7 +86,7 @@ class WedAv(StdProduct):
 class StageEffect(StdProduct):
     """舞台效果"""
     category = models.IntegerField(u'产品子类', choices=choice_set.C_STAGE_CATE)
-    sub_category = models.IntegerField(u'三级子类别', choices=choice_set.C_STAGE_SUB_CATE)
+    sub_category = models.IntegerField(u'种类', choices=choice_set.C_STAGE_SUB_CATE)
     wed_env = models.IntegerField(u'使用场地', choices=choice_set.C_WED_ENV)
 
     base_amount = models.PositiveIntegerField(u'起步数量')
