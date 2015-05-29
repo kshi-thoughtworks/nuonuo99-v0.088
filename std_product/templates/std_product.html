@@ -11,7 +11,7 @@
 
     <form action="{% url list_url %}" class="form-horizontal" method="GET" target="_blank"> {% csrf_token %}
 
-        <input type="hidden" name="type" value="mc">
+        <input type="hidden" name="category" value="{{ cate }}">
 
         {% for para in paras %}
 
