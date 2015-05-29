@@ -69,7 +69,7 @@ class FlowerScale(models.Model):
 class WedAv(StdProduct):
     """AV 产品"""
     category = models.IntegerField(u'产品子类', choices=choice_set.C_AV_CATE)
-    wed_env = models.IntegerField(u'使用场地', choices=choice_set.C_AV_ENV)
+    wed_env = models.IntegerField(u'使用场地', choices=choice_set.C_WED_ENV)
     power = models.PositiveIntegerField(u'功率')
     coverage = models.PositiveIntegerField(u'覆盖面积(m^2)')
 
@@ -86,8 +86,8 @@ class WedAv(StdProduct):
 class StageEffect(StdProduct):
     """舞台效果"""
     category = models.IntegerField(u'产品子类', choices=choice_set.C_STAGE_CATE)
-    wed_env = models.CharField(u'使用场地', max_length=7)
-    sub_category = models.CharField(u'三级子类别', max_length=7)
+    sub_category = models.IntegerField(u'三级子类别', choices=choice_set.C_STAGE_SUB_CATE)
+    wed_env = models.IntegerField(u'使用场地', choices=choice_set.C_WED_ENV)
 
     base_amount = models.PositiveIntegerField(u'起步数量')
     unit = models.CharField(u'计价单位', max_length=7)

@@ -65,3 +65,29 @@ class WedAvList(generics.ListCreateAPIView):
     queryset = WedAv.objects.all()
     serializer_class = WedAvSerializer
     filter_class = WedAvFilter
+
+
+class StageEffectFilter(django_filters.FilterSet):
+    price = django_filters.CharFilter(action=choice_set.range_action('price'))
+
+    class Meta:
+        model = StageEffect
+        fields = ['price', 'category', 'sub_category']
+
+
+def stage_home(request, cate):
+    content = {
+        'paras': choice_set.STAGE_PARAS(cate),
+        'list_url': 'stage_list',
+        'cart_url': 'add_service_mc',
+        'data_set': StageEffect.objects.filter(category=cate),
+        'disp_name': choice_set.get_disp_stage_cate(cate),
+        'cate': cate,
+        }
+    return render_to_response('std_product.html', RequestContext(request, content))
+
+
+class StageEffectList(generics.ListCreateAPIView):
+    queryset = StageEffect.objects.all()
+    serializer_class = StageEffectSerializer
+    filter_class = StageEffectFilter

@@ -230,8 +230,8 @@ C_AV_CATE = int_choice(_av_cate, start=1)
 def get_disp_av_cate(cate):
     return u'AV-%s' % _av_cate[int(cate)-1]
 
-_av_env = (u'室内', u'室外')
-C_AV_ENV = int_choice(_av_env)
+_wed_env = (u'室内', u'室外')
+C_WED_ENV = int_choice(_wed_env)
 
 
 def AV_PARAS(cate):
@@ -247,13 +247,70 @@ def AV_PARAS(cate):
             {
                 'name': 'wed_env',
                 'disp_name': u'使用场地',
-                'values': C_AV_ENV,
+                'values': C_WED_ENV,
             },
             )
     return paras
 
-_stage_cate = (u'舞台背景', u'T 台', u'地毯', u'烛台', u'香槟台', u'投影仪', u'干冰机', u'磁悬浮幕布')
+_stage_cate = (u'舞台背景', u'投影仪', u'地毯', u'T 台', u'烛台', u'香槟台', u'干冰机', u'磁悬浮幕布')
 C_STAGE_CATE = int_choice(_stage_cate)
+
+def get_disp_stage_cate(cate):
+    return u'舞台效果-%s' % _stage_cate[int(cate)-1]
+
+
+C_STAGE_SUB_CATE = (
+    # 舞台背景
+    (1, u'宝丽布喷绘'),
+    (2, u'纱幔'),
+    (3, u'景片制作'),
+    # 投影仪
+    (4, u'120 寸'),
+    (5, u'150 寸'),
+    # 地毯
+    (6, u'镜面地毯'),
+    (7, u'白地毯'),
+    (8, u'红地毯'),
+    (9, u'长毛地毯'),
+    )
+
+_stage_sub_cate = {
+    '1': (
+        (1, u'宝丽布喷绘'),
+        (2, u'纱幔'),
+        (3, u'景片制作'),
+        ),
+    '2': (
+        (4, u'120 寸'),
+        (5, u'150 寸'),
+        ),
+    '3': (
+        (6, u'镜面地毯'),
+        (7, u'白地毯'),
+        (8, u'红地毯'),
+        (9, u'长毛地毯'),
+        ),
+    }
+
+
+def STAGE_PARAS(cate):
+    paras = [
+        {
+            'name': 'price',
+            'disp_name': u'价格',
+            'values': _mc_price,
+        },
+        ]
+    if cate in _stage_sub_cate:
+        paras.append(
+            {
+                'name': 'sub_category',
+                'disp_name': u'种类',
+                'values': _stage_sub_cate[cate],
+            }
+            )
+    return paras
+
 
 # -------------------------------------------------
 
