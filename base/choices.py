@@ -168,7 +168,7 @@ def VEDIO_PARAS():
 _flower_cate = (u'花门', u'路引', u'桌花', u'手捧花', u'合影区', u'司仪台', u'车花', u'签到台', u'香槟塔', u'迎宾水牌', u'烛台桌花', u'背景花艺', u'碎花', u'胸花')
 C_FLOWER_CATE = int_choice(_flower_cate, start=1)
 
-def get_disp_cate(cate):
+def get_disp_flower_cate(cate):
     return u'花艺-%s' % _flower_cate[int(cate)-1]
 
 C_FLOWER_STYLE = (
@@ -225,7 +225,32 @@ def FLOWER_PARAS(cate):
 
 
 _av_cate = (u'灯光', u'音响', u'LED大屏')
-C_AV_CATE = int_choice(_av_cate)
+C_AV_CATE = int_choice(_av_cate, start=1)
+
+def get_disp_av_cate(cate):
+    return u'AV-%s' % _av_cate[int(cate)-1]
+
+_av_env = (u'室内', u'室外')
+C_AV_ENV = int_choice(_av_env)
+
+
+def AV_PARAS(cate):
+    paras = [
+        {
+            'name': 'price',
+            'disp_name': u'价格',
+            'values': _mc_price,
+        },
+        ]
+    if cate == '2':  # 音响
+        paras.append(
+            {
+                'name': 'wed_env',
+                'disp_name': u'使用场地',
+                'values': C_AV_ENV,
+            },
+            )
+    return paras
 
 _stage_cate = (u'舞台背景', u'T 台', u'地毯', u'烛台', u'香槟台', u'投影仪', u'干冰机', u'磁悬浮幕布')
 C_STAGE_CATE = int_choice(_stage_cate)

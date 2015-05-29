@@ -69,7 +69,7 @@ class FlowerScale(models.Model):
 class WedAv(StdProduct):
     """AV 产品"""
     category = models.IntegerField(u'产品子类', choices=choice_set.C_AV_CATE)
-    wed_env = models.CharField(u'使用场地', max_length=7)
+    wed_env = models.IntegerField(u'使用场地', choices=choice_set.C_AV_ENV)
     power = models.PositiveIntegerField(u'功率')
     coverage = models.PositiveIntegerField(u'覆盖面积(m^2)')
 

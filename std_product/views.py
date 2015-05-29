@@ -29,7 +29,7 @@ def wedflower_home(request, cate):
         'list_url': 'flower_list',
         'cart_url': 'add_service_mc',
         'data_set': WedFlower.objects.filter(category=cate),
-        'disp_name': choice_set.get_disp_cate(cate),
+        'disp_name': choice_set.get_disp_flower_cate(cate),
         'cate': cate,
         }
     return render_to_response('std_product.html', RequestContext(request, content))
@@ -39,3 +39,29 @@ class WedFlowerList(generics.ListCreateAPIView):
     queryset = WedFlower.objects.all()
     serializer_class = WedFlowerSerializer
     filter_class = WedFlowerFilter
+
+
+class WedAvFilter(django_filters.FilterSet):
+    price = django_filters.CharFilter(action=choice_set.range_action('price'))
+
+    class Meta:
+        model = WedAv
+        fields = ['price', 'category', 'wed_env']
+
+
+def wedav_home(request, cate):
+    content = {
+        'paras': choice_set.AV_PARAS(cate),
+        'list_url': 'av_list',
+        'cart_url': 'add_service_mc',
+        'data_set': WedAv.objects.filter(category=cate),
+        'disp_name': choice_set.get_disp_av_cate(cate),
+        'cate': cate,
+        }
+    return render_to_response('std_product.html', RequestContext(request, content))
+
+
+class WedAvList(generics.ListCreateAPIView):
+    queryset = WedAv.objects.all()
+    serializer_class = WedAvSerializer
+    filter_class = WedAvFilter
