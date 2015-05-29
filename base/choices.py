@@ -166,7 +166,48 @@ def VEDIO_PARAS():
 # ----------------------------------------------
 
 _flower_cate = (u'花门', u'路引', u'桌花', u'手捧花', u'合影区', u'司仪台', u'车花', u'签到台', u'香槟塔', u'迎宾水牌', u'烛台桌花', u'背景花艺', u'碎花', u'胸花')
-C_FLOWER_CATE = int_choice(_flower_cate)
+C_FLOWER_CATE = int_choice(_flower_cate, start=1)
+
+def get_disp_cate(cate):
+    return u'花艺-%s' % _flower_cate[int(cate)-1]
+
+C_FLOWER_STYLE = (
+    (1, u'全花门'),
+    (2, u'半花门'),
+    (3, u'三点式'),
+    (4, u'五点式'),
+    (5, u'异形'),
+    (6, u'球形'),
+    (7, u'放射形'),
+    (8, u'花球'),
+    (9, u'花环'),
+    )
+
+_cate_style = {
+    '1': (  # 花门
+        (1, u'全花门'),
+        (2, u'半花门'),
+        (3, u'三点式'),
+        (4, u'五点式'),
+        (5, u'异形'),
+        ),
+    '2': (  # 路引
+        (6, u'球形'),
+        (7, u'放射形'),
+        (5, u'异形'),
+        ),
+    '3': (  # 桌花
+        (6, u'球形'),
+        (7, u'放射形'),
+        (5, u'异形'),
+        ),
+    'other': (  # 其他
+        (8, u'花球'),
+        (9, u'花环'),
+        (5, u'异形'),
+        ),
+    }
+
 
 def FLOWER_PARAS(cate):
     return [
@@ -175,7 +216,19 @@ def FLOWER_PARAS(cate):
         'disp_name': u'价格',
         'values': _mc_price,
     },
+    {
+        'name': 'style',
+        'disp_name': u'花艺样式',
+        'values': _cate_style.get(cate, _cate_style['other']),
+    },
     ]
+
+
+_av_cate = (u'灯光', u'音响', u'LED大屏')
+C_AV_CATE = int_choice(_av_cate)
+
+_stage_cate = (u'舞台背景', u'T 台', u'地毯', u'烛台', u'香槟台', u'投影仪', u'干冰机', u'磁悬浮幕布')
+C_STAGE_CATE = int_choice(_stage_cate)
 
 # -------------------------------------------------
 

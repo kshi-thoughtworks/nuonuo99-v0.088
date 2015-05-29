@@ -29,7 +29,7 @@ def wedflower_home(request, cate):
         'list_url': 'flower_list',
         'cart_url': 'add_service_mc',
         'data_set': WedFlower.objects.filter(category=cate),
-        'disp_name': u'花艺',
+        'disp_name': choice_set.get_disp_cate(cate),
         }
     return render_to_response('std_product.html', RequestContext(request, content))
 

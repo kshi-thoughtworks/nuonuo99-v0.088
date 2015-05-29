@@ -2,13 +2,13 @@
 from django.db import models
 from django.conf import settings
 
+import base.choices as choice_set
 from base.models import C_FlowerVariety, C_Scale
 
 
 class StdProduct(models.Model):
     """每个产品, 推荐 4 个样图, 最少 1 个"""
 
-    category = models.CharField(u'产品子类', max_length=7)
     name = models.CharField(u'产品名称', max_length=255)
     price = models.IntegerField(u'单价(起步单价)')
     desc = models.TextField(u'产品描述', max_length=255)
@@ -27,7 +27,8 @@ class StdProduct(models.Model):
 
 class WedFlower(StdProduct):
     """花艺产品"""
-    style = models.CharField(u'样式', max_length=7)
+    category = models.IntegerField(u'产品子类', choices=choice_set.C_FLOWER_CATE)
+    style = models.IntegerField(u'样式', choices=choice_set.C_FLOWER_STYLE)
     color = models.CharField(u'颜色', max_length=32)
     items = models.ManyToManyField(C_FlowerVariety, through='FlowerItem', through_fields=('product', 'variety'), verbose_name=u'花材')
     scale = models.ManyToManyField(C_Scale, through='FlowerScale', through_fields=('product', 'key'), verbose_name=u'尺寸')
@@ -67,6 +68,7 @@ class FlowerScale(models.Model):
 
 class WedAv(StdProduct):
     """AV 产品"""
+    category = models.IntegerField(u'产品子类', choices=choice_set.C_AV_CATE)
     wed_env = models.CharField(u'使用场地', max_length=7)
     power = models.PositiveIntegerField(u'功率')
     coverage = models.PositiveIntegerField(u'覆盖面积(m^2)')
@@ -83,6 +85,7 @@ class WedAv(StdProduct):
 
 class StageEffect(StdProduct):
     """舞台效果"""
+    category = models.IntegerField(u'产品子类', choices=choice_set.C_STAGE_CATE)
     wed_env = models.CharField(u'使用场地', max_length=7)
     sub_category = models.CharField(u'三级子类别', max_length=7)
 
