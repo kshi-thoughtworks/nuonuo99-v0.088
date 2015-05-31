@@ -6,45 +6,42 @@
 
 {% block content %}
 
-<section id="home">
-    <div class="container">
-
 <h2> 婚礼人 </h2>
 
-<ul class="list-group">
-    <li class="list-group-item">
-        <a href="{% url "mc_home" %}">司仪</a></li>
-    <li class="list-group-item">
-        <a href="{% url "makeup_home" %}">化妆师</a></li>
-    <li class="list-group-item">
-        <a href="{% url "photographer_home" %}">摄影师</a></li>
-    <li class="list-group-item">
-        <a href="{% url "vedioguys_home" %}">摄像师</a></li>
+    <div class="btn-group">
+        <a href="{% url "mc_home" %}" type="button" class="btn btn-warning">司仪</a>
+        <a href="{% url "makeup_home" %}" type="button" class="btn btn-warning">化妆师</a>
+        <a href="{% url "photographer_home" %}" type="button" class="btn btn-warning">摄影师</a>
+        <a href="{% url "vedioguys_home" %}" type="button" class="btn btn-warning">摄像师</a>
+    </div>
 </ul>
 
 <div>
     <h2> 花艺 </h2>
 
+    <div class="btn-group">
     {% for id, name in flower %}
     <a href="{% url "flower_home" id %}" type="button" class="btn btn-success">{{ name }}</a>
     {% endfor %}
+    </div>
 </div>
 
 <div>
     <h2> AV </h2>
+    <div class="btn-group">
     {% for id, name in av %}
     <a href="{% url "av_home" id %}" type="button" class="btn btn-danger">{{ name }}</a>
     {% endfor %}
+    </div>
 </div>
 
 <div>
     <h2> 舞台效果 </h2>
+    <div class="btn-group">
     {% for id, name in stage %}
     <a href="{% url "stage_home" id %}" type="button" class="btn btn-info">{{ name }}</a>
     {% endfor %}
-</div>
-
     </div>
-</section>
+</div>
 
 {% endblock %}
