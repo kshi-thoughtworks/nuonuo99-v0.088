@@ -1,36 +1,43 @@
-<nav class="navbar navbar-default" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">
-            {% include 'brand-logo.html' %}
-        </a>
+<header class="header">
+    <div class="container">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">
+                    <img src="/static/images/logo.png" class="img-responsive" alt="诺诺">
+                </a>
+            </div>
+            <!--/.navbar-header-->
+            <div id="main-nav" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav pull-left" id="mainNav">
+                    <li class="active"><a href="/" class="scroll-link">首页</a></li>
+                    <li><a href="#" class="scroll-link">婚礼 DIY</a></li>
+                    <li><a href="#" class="scroll-link">精选案例</a></li>
+                    <li><a href="#" class="scroll-link">帮助中心</a></li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                {% if user.is_authenticated %}
+                    <li> <a href="{% url 'wedding_overview' %}">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user.username }}</a> </li>
+                    <li> <a href="{% url 'userena_profile_edit' user %}">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a> </li>
+                    <li> <a href="{% url 'userena_signout' %}">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a> </li>
+                {% else %}
+                    <li> <a href="{% url 'userena_signin' %}"> Sign in </a> </li>
+                    <li> <a href="{% url 'userena_signup' %}"> Sign up </a> </li>
+                {% endif %}
+                </ul>
+            </div>
+            <!--/.navbar-collapse-->
+        </nav>
+        <!--/.navbar-->
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            {% include 'nav-list.html' %}
-        </ul>
-
-        <ul class="nav navbar-nav pull-right">
-        {% if user.is_authenticated %}
-            <li> <a href="{% url 'wedding_overview' %}">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user.username }}</a> </li>
-            <li> <a href="{% url 'userena_profile_edit' user %}">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a> </li>
-            <li> <a href="{% url 'userena_signout' %}">
-                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a> </li>
-        {% else %}
-            <li> <a href="{% url 'userena_signin' %}"> Sign in </a> </li>
-            <li> <a href="{% url 'userena_signup' %}"> Sign up </a> </li>
-        {% endif %}
-        </ul>
-
-    </div><!-- /.navbar-collapse -->
-</nav>
+    <!--/.container-->
+</header>
+<!--/.header-->

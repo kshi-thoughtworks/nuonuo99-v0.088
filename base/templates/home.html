@@ -1,45 +1,271 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title> Home </title>
+<title> 诺诺 - 首页 </title>
 {% endblock %}
 
 {% block content %}
 
+<section id="home">
+    <div class="banner-container">
+        <img src="/static/images/banner-bg.jpg" alt="banner" />
+        <div class="container banner-content">
+            <div id="da-slider" class="da-slider">
+                <div class="da-slide">
+                    <h2>产品标准化</h2>
+                    <p>诺诺帮你提前审核您将选择的商品，你选你放心</p>
+                    <div class="da-img"></div>
+                </div>
+                <div class="da-slide">
+                    <h2>您不满意, 我们赔!</h2>
+                    <p>通过你的评级，和诺诺线下督导，你不满意我们做相应理赔</p>
+                    <div class="da-img"></div>
+                </div>
+                <div class="da-slide">
+                    <h2>供应商实名认证</h2>
+                    <p>保证您的消费有可追溯!</p>
+                    <div class="da-img"></div>
+                </div>
+            <!--  <nav class="da-arrows">
+                    <span class="da-arrows-prev"></span>
+                    <span class="da-arrows-next"></span>
+                </nav> -->
+            </div>
+        </div>
+    </div>
+</section>
 
-<h2> 婚礼人 </h2>
+<!--About-->
+<section id="aboutUs" class="secPad">
+    <div class="container">
+        <div class="heading text-center">
+            <!-- Heading -->
+            <h2>诺诺 -- 发挥设计天赋, 享受任性婚礼!</h2>
+            <p>从简约圣洁的西式婚礼, 到热烈喜庆的中式婚礼; 从高贵奢华的婚礼，到简洁清爽的旅游结婚；</br>
+            诺诺的标准化产品和案例库, 为婚礼设计提供了丰富素材和模板, 任性但不随意!
+            </p>
 
-<ul class="list-group">
-    <li class="list-group-item">
-        <a href="{% url "mc_home" %}">司仪</a></li>
-    <li class="list-group-item">
-        <a href="{% url "makeup_home" %}">化妆师</a></li>
-    <li class="list-group-item">
-        <a href="{% url "photographer_home" %}">摄影师</a></li>
-    <li class="list-group-item">
-        <a href="{% url "vedioguys_home" %}">摄像师</a></li>
-</ul>
+        </div>
+        <div class="row">
+            <!-- item -->
+            <div class="col-md-4 text-center tileBox">
+               <div class="txtHead"> <i class="fa fa-desktop"></i>
+                <h3>丰富的创意素材库</h3></div>
+                <p>规范的素材库, 却始终不失艺术风范。
+                填写婚礼基本信息, 挑选花艺, 设计舞台, 配上一套创意灯光效果,
+                下单等待惊喜, 让一切变得井然有序，轻松简单。</p>
+            </div>
+            <!-- end: -->
 
-<div>
-    <h2> 花艺 </h2>
+            <!-- item -->
+            <div class="col-md-4 text-center tileBox">
+                <div class="txtHead"><i class="fa fa-thumbs-up"></i>
+                <h3>婚礼之美, 美不胜数</h3></div>
+                <p>他山之石，可以攻玉.
+                诺诺为你准备了丰富案例, 婚礼是美的, 令人惊叹的美.
+                从其他人的婚礼中发现美, 学习美, 创造自己的美!</p>
+            </div>
+            <!-- end: -->
 
-    {% for id, name in flower %}
-    <a href="{% url "flower_home" id %}" type="button" class="btn btn-success">{{ name }}</a>
-    {% endfor %}
-</div>
+            <!-- item -->
+            <div class="col-md-4 text-center tileBox">
+                <div class="txtHead"><i class="fa fa-heart"></i>
+                <h3>安全放心, 不吃差价</h3></div>
+                <p>标准的产品，实名认证的供应商，虔诚的赔付方案，
+                保障诺诺实现对你的承诺，帮助实现你的愿望，完成对她（他） 的承诺。
+                </p>
+            </div>
+            <!-- end: -->
+        </div>
+    </div>
+</section>
+<!--Quote-->
+<section id="quote" class="bg-parlex">
+    <div class="parlex-back">
+        <div class="container secPad text-center">
+            <h2>If I asked people what they wanted, they would have said ‘Faster Horses’.</h2><h3>-Henry Ford</h3>
+        </div>
+        <!--/.container-->
+    </div>
+</section>
 
-<div>
-    <h2> AV </h2>
-    {% for id, name in av %}
-    <a href="{% url "av_home" id %}" type="button" class="btn btn-danger">{{ name }}</a>
-    {% endfor %}
-</div>
+<!--Portfolio-->
+<section id="portfolio" class="page-section section appear clearfix secPad">
+    <div class="container">
 
-<div>
-    <h2> 舞台效果 </h2>
-    {% for id, name in stage %}
-    <a href="{% url "stage_home" id %}" type="button" class="btn btn-info">{{ name }}</a>
-    {% endfor %}
-</div>
+        <div class="heading text-center">
+            <!-- Heading -->
+            <h2>精选案例</h2>
+            <p>欣赏美， 创造美！</p>
+        </div>
+
+        <div class="row">
+            <nav id="filter" class="col-md-12 text-center">
+                <ul>
+                    <li><a href="#" class="current btn-theme btn-small" data-filter="*">全部</a></li>
+                    <li><a href="#" class="btn-theme btn-small" data-filter=".theme">主题婚礼</a></li>
+                    <li><a href="#" class="btn-theme btn-small" data-filter=".chinese">中式婚礼</a></li>
+                    <li><a href="#" class="btn-theme btn-small" data-filter=".west">西式婚礼</a></li>
+                    <li><a href="#" class="btn-theme btn-small" data-filter=".outdoor">户外婚礼</a></li>
+                </ul>
+            </nav>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="portfolio-items isotopeWrapper clearfix" id="3">
+
+                        <article class="col-sm-4 isotopeItem theme">
+                            <div class="portfolio-item">
+                                <img src="/static/images/portfolio/img1.jpg" alt="" />
+                                <div class="portfolio-desc align-center">
+                                    <div class="folio-info">
+                                        <a href="/static/images/portfolio/img1.jpg" class="fancybox">
+                                            <h5>婚礼方案名称</h5>
+                                            <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="col-sm-4 isotopeItem chinese">
+                            <div class="portfolio-item">
+                                <img src="/static/images/portfolio/img2.jpg" alt="" />
+                                <div class="portfolio-desc align-center">
+                                    <div class="folio-info">
+                                        <a href="/static/images/portfolio/img2.jpg" class="fancybox">
+                                            <h5>婚礼方案名称</h5>
+                                            <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+
+                        <article class="col-sm-4 isotopeItem west">
+                            <div class="portfolio-item">
+                                <img src="/static/images/portfolio/img3.jpg" alt="" />
+                                <div class="portfolio-desc align-center">
+                                    <div class="folio-info">
+                                        <a href="images/portfolio/img3.jpg" class="fancybox">
+                                            <h5>婚礼方案名称</h5>
+                                            <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="col-sm-4 isotopeItem outdoor">
+                            <div class="portfolio-item">
+                                <img src="/static/images/portfolio/img4.jpg" alt="" />
+                                <div class="portfolio-desc align-center">
+                                    <div class="folio-info">
+                                        <a href="/static/images/portfolio/img4.jpg" class="fancybox">
+                                            <h5>婚礼方案名称</h5>
+                                            <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="col-sm-4 isotopeItem outdoor">
+                            <div class="portfolio-item">
+                                <img src="/static/images/portfolio/img5.jpg" alt="" />
+                                <div class="portfolio-desc align-center">
+                                    <div class="folio-info">
+                                        <a href="/static/images/portfolio/img5.jpg" class="fancybox">
+                                            <h5>婚礼方案名称</h5>
+                                            <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="col-sm-4 isotopeItem theme">
+                            <div class="portfolio-item">
+                                <img src="/static/images/portfolio/img6.jpg" alt="" />
+                                <div class="portfolio-desc align-center">
+                                    <div class="folio-info">
+                                        <a href="/static/images/portfolio/img6.jpg" class="fancybox">
+                                            <h5>婚礼方案名称</h5>
+                                            <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="col-sm-4 isotopeItem west">
+                            <div class="portfolio-item">
+                                <img src="/static/images/portfolio/img7.jpg" alt="" />
+                                <div class="portfolio-desc align-center">
+                                    <div class="folio-info">
+                                        <a href="/static/images/portfolio/img7.jpg" class="fancybox">
+                                            <h5>婚礼方案名称</h5>
+                                            <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="col-sm-4 isotopeItem chinese">
+                            <div class="portfolio-item">
+                                <img src="/static/images/portfolio/img8.jpg" alt="" />
+                                <div class="portfolio-desc align-center">
+                                    <div class="folio-info">
+                                        <a href="/static/images/portfolio/img8.jpg" class="fancybox">
+                                            <h5>婚礼方案名称</h5>
+                                            <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="col-sm-4 isotopeItem chinese">
+                            <div class="portfolio-item">
+                                <img src="/static/images/portfolio/img9.jpg" alt="" />
+                                <div class="portfolio-desc align-center">
+                                    <div class="folio-info">
+                                        <a href="/static/images/portfolio/img9.jpg" class="fancybox">
+                                            <h5>婚礼方案名称</h5>
+                                            <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <p>
+                <a href="#">关于我们</a>     
+                <span>|</span>   
+                <a href="#">用户协议</a>   
+                <span>|</span> 
+                <a href="#">商家协议</a> 
+                <span>|</span>   
+                <a href="#">合作联系</a> 
+                <span>|</span>   
+                <a href="#">联系我们</a>  
+                <span>|</span>  
+                <a href="#">加入我们</a>
+                </p>
+
+                <p>
+                Copyright © 诺诺久久（北京）科技发展有限公司. All Rights Reserved. 京ICP备123456789号
+                </p>
+            </div>
+        </div>
+        <!-- / .row -->
+    </div>
+</section>
 
 {% endblock %}
