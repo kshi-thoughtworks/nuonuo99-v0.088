@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 
 
 urlpatterns = patterns('wedding.views',
+    url(r'^diy$', 'diy', name='diy_home'),
     url(r'^add-service/mc/(\d+)$', 'add_service_mc', name='add_service_mc'),
     url(r'^add-service/makeup/(\d+)$', 'add_service_makeup', name='add_service_makeup'),
     url(r'^add-product/flower/(\d+)/(\d+)$', 'add_product_flower', name='add_product_flower'),

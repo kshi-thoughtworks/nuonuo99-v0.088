@@ -13,6 +13,18 @@ from expert.models import MC, MakeUp
 from std_product.models import WedFlower
 from wedding.models import CartInfo, WedEssential, Order
 
+import base.choices as choise_set
+
+
+def diy(request):
+    content = {
+        'flower': choise_set.C_FLOWER_CATE,
+        'av': choise_set.C_AV_CATE,
+        'stage': choise_set.C_STAGE_CATE,
+        }
+    return render_to_response('diy.html', RequestContext(request, content))
+
+
 
 def wed_program(user):
     try:
