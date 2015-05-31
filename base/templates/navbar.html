@@ -17,7 +17,7 @@
                 <ul class="nav navbar-nav pull-left" id="mainNav">
                     <li class="active"><a href="/" class="scroll-link">首页</a></li>
                     <li><a href="#" class="scroll-link">婚礼 DIY</a></li>
-                    <li><a href="#" class="scroll-link">精选案例</a></li>
+                    <li><a href="#portfolio" class="scroll-link">精选案例</a></li>
                     <li><a href="#" class="scroll-link">帮助中心</a></li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
@@ -29,8 +29,8 @@
                     <li> <a href="{% url 'userena_signout' %}">
                         <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a> </li>
                 {% else %}
-                    <li> <a href="{% url 'userena_signin' %}"> Sign in </a> </li>
-                    <li> <a href="{% url 'userena_signup' %}"> Sign up </a> </li>
+                    <li> <a href="{% url 'userena_signin' %}">登录</a> </li>
+                    <li> <a href="{% url 'userena_signup' %}">免费注册</a> </li>
                 {% endif %}
                 </ul>
             </div>
