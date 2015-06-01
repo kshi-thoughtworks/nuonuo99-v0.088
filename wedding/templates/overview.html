@@ -8,6 +8,7 @@
 
 
 {% if messages %}
+
 <ul class="messages list-group">
     {% for message in messages %}
         <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>{{ message }}</li>
@@ -18,6 +19,8 @@
 
 {% endif %}
 
+
+
 {% if show_success %}
     <div class="success">
         <h3>商品已成功加入购物车！</h3>
@@ -27,11 +30,12 @@
 {% endif %}
 
 
+
 <div class="basic-info">
 
     <h2>婚礼基本信息</h2>
 
-    <ul class="list-group">
+    <ul class="list-group col-lg-6 col-md-6">
         <li class="list-group-item">婚期: {{ wed_info.t_wed | date:"Y. n. j" }}</li>
         <li class="list-group-item">地点: {{ wed_info.loc }} </li>
         <li class="list-group-item">
@@ -42,11 +46,17 @@
         </li>
     </ul>
 
-    <h2>新人期望</h2>
-
-    <p> {{ wed_info.expect }} </p>
+    <div class="col-lg-6 col-md-6">
+        <h3>新人期望</h3>
+        <p> {{ wed_info.expect }} </p>
+    </div>
 
 </div>
+
+
+
+<div class="clearfix"></div>
+
 
 
 <div class="cart-item">
@@ -74,36 +84,6 @@
                 <th>
                     <a href="{%url "book_service" wed_info.t_wed item.id %}" type="button" class="btn btn-danger">结算</a>
                 </th>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-
-
-<div class="ordered-item">
-    <h2>已预定项目</h2>
-
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <td>商品类型</td>
-                <td>名称</td>
-                <td>数量</td>
-                <td>状态</td>
-                <td>准备进展</td>
-                <td>价格</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in order_data %}
-            <tr>
-                <th>{{ item.content_type }}</th>
-                <th>{{ item.content_object.name }}</th>
-                <th>{{ item.amount }}</th>
-                <th>{{ item.status }}</th>
-                <th>{{ item.progress }}</th>
-                <th>￥{{ item.content_object.price }}</th>
             </tr>
             {% endfor %}
         </tbody>
