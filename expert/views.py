@@ -36,11 +36,13 @@ class McList(generics.ListCreateAPIView):
 
 
 def makeup_home(request):
+    data = MakeUpFilter(request.GET, queryset=MakeUp.objects.all())
+
     content = {
         'paras': choice_set.MAKEUP_PARAS(),
         'list_url': 'makeup_list',
         'cart_url': 'add_service_makeup',
-        'data_set': MakeUp.objects.all(),
+        'data_set': data,
         'disp_name': u'化妆师',
         }
     return render_to_response('expert.html', RequestContext(request, content))
@@ -53,11 +55,14 @@ class MakeUpList(generics.ListCreateAPIView):
 
 
 def photographer_home(request):
+
+    data = PhotographerFilter(request.GET, queryset=Photographer.objects.all())
+
     content = {
         'paras': choice_set.PHOTO_PARAS(),
         'list_url': 'photographer_list',
         'cart_url': 'add_service_mc',
-        'data_set': Photographer.objects.all(),
+        'data_set': data,
         'disp_name': u'摄影师',
         }
     return render_to_response('expert.html', RequestContext(request, content))
@@ -70,11 +75,14 @@ class PhotographerList(generics.ListCreateAPIView):
 
 
 def vedioguys_home(request):
+
+    data = VedioGuysFilter(request.GET, queryset=VedioGuys.objects.all())
+
     content = {
         'paras': choice_set.VEDIO_PARAS(),
         'list_url': 'vedioguys_list',
         'cart_url': 'add_service_mc',
-        'data_set': VedioGuys.objects.all(),
+        'data_set': data,
         'disp_name': u'摄像师',
         }
     return render_to_response('expert.html', RequestContext(request, content))
