@@ -106,13 +106,13 @@
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <a data-toggle="collapse" data-parent="#accordion" href="#items-mc" aria-expanded="true" aria-controls="collapseOne">
                 司仪 
                 </a>
                 <a href="{% url "mc_home" %}" type="button" class="btn btn-success pull-right">添加</a>
             </h4>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div id="items-mc" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
                 {% for item in mc_item %}
                     <div class="col-sm-3 col-md-2 col-lg-2">
@@ -134,13 +134,13 @@
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <a data-toggle="collapse" data-parent="#accordion" href="#items-makeup" aria-expanded="true" aria-controls="collapseOne">
                 化妆师
                 </a>
                 <a href="{% url "makeup_home" %}" type="button" class="btn btn-success pull-right">添加</a>
             </h4>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div id="items-makeup" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
 
                 {% for item in makeup_item %}
