@@ -15,12 +15,15 @@ from expert.serializers import McSerializer, MakeUpSerializer, PhotographerSeria
 from base.utils import price_filter
 import base.choices as choice_set
 
+
 def mc_home(request):
+    data = McFilter(request.GET, queryset=MC.objects.all())
+
     content = {
         'paras': choice_set.MC_PARAS(),
         'list_url': 'mc_list',
         'cart_url': 'add_service_mc',
-        'data_set': MC.objects.all(),
+        'data_set': data,
         'disp_name': u'司仪',
         }
     return render_to_response('expert.html', RequestContext(request, content))
