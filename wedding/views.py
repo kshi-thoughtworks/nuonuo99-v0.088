@@ -7,8 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 
 from django.contrib.contenttypes.models import ContentType
-from django.core.exceptions import ObjectDoesNotExist
-
+from django.core.exceptions import ObjectDoesNotExist 
 from expert.models import MC, MakeUp
 from std_product.models import WedFlower
 from wedding.models import CartInfo, WedEssential, Order
@@ -17,26 +16,28 @@ import base.choices as choise_set
 
 
 def diy(request):
-    content = {
-        'flower': choise_set.C_FLOWER_CATE,
-        'av': choise_set.C_AV_CATE,
-        'stage': choise_set.C_STAGE_CATE,
-        }
-    return render_to_response('diy.html', RequestContext(request, content))
 
+    user = request.user
 
-
-def wed_program(user):
     try:
         wed_info = WedEssential.objects.get(user=user)
     except ObjectDoesNotExist:
         wed_info = None
 
-    return {
+
+    mc_type= ContentType.objects.get_for_model(MC)
+    makeup_type= ContentType.objects.get_for_model(MakeUp)
+
+    content = {
+        'flower_cate': choise_set.C_FLOWER_CATE,
+        'mc_item': CartInfo.objects.filter(buyer=user, content_type__pk=mc_type.id),
+        'makeup_item': CartInfo.objects.filter(buyer=user, content_type__pk=makeup_type.id),
+        'av': choise_set.C_AV_CATE,
+        'stage': choise_set.C_STAGE_CATE,
         'wed_info': wed_info,
         'cart_data': CartInfo.objects.filter(buyer=user),
-        'order_data': Order.objects.filter(buyer=user),
         }
+    return render_to_response('diy.html', RequestContext(request, content))
 
 
 def add_service(user, obj):
@@ -98,11 +99,6 @@ def add_service_makeup(request, obj_id):
     messages.add_message(request, lvl, msg)
 
     return HttpResponseRedirect(reverse('wedding_overview'))
-
-
-def overview(request):
-    content = wed_program(request.user)
-    return render_to_response('overview.html', RequestContext(request, content))
 
 
 def is_booked(t_wed, obj_id, obj_type, user=None):

@@ -1,47 +1,165 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title> 婚礼 DIY </title>
+<title>我的婚礼方案</title>
 {% endblock %}
 
 {% block content %}
 
-<h2> 婚礼人 </h2>
 
-    <div class="btn-group">
-        <a href="{% url "mc_home" %}" type="button" class="btn btn-warning">司仪</a>
-        <a href="{% url "makeup_home" %}" type="button" class="btn btn-warning">化妆师</a>
-        <a href="{% url "photographer_home" %}" type="button" class="btn btn-warning">摄影师</a>
-        <a href="{% url "vedioguys_home" %}" type="button" class="btn btn-warning">摄像师</a>
-    </div>
+{% if messages %}
+
+<ul class="messages list-group">
+    {% for message in messages %}
+        <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
 </ul>
 
-<div>
-    <h2> 花艺 </h2>
+<p class="text-warning">您还可以 <a class="btn btn-danger" href="javascript:history.back();">继续购物</a></p>
 
-    <div class="btn-group">
-    {% for id, name in flower %}
-    <a href="{% url "flower_home" id %}" type="button" class="btn btn-success">{{ name }}</a>
-    {% endfor %}
+{% endif %}
+
+
+
+{% if show_success %}
+    <div class="success">
+        <h3>商品已成功加入购物车！</h3>
+        <a class="btn" href="#" id="GotoShoppingCart">去购物车结算</a>
+        <span>您还可以 <a class="btn" href="javascript:history.back();">继续购物</a></span>
+    </div>
+{% endif %}
+
+
+
+<div class="basic-info">
+
+    <h2>婚礼基本信息</h2>
+
+    <ul class="list-group col-lg-6 col-md-6">
+        <li class="list-group-item">婚期: {{ wed_info.t_wed | date:"Y. n. j" }}</li>
+        <li class="list-group-item">地点: {{ wed_info.loc }} </li>
+        <li class="list-group-item">
+            新人: {{ wed_info.boy }} -- {{ wed_info.girl }}
+        </li>
+        <li class="list-group-item">
+            桌数: {{ wed_info.btm_table_num }} - {{ wed_info.top_table_num}}
+        </li>
+    </ul>
+
+    <div class="col-lg-6 col-md-6">
+        <h3>新人期望</h3>
+        <p> {{ wed_info.expect }} </p>
+    </div>
+
+</div>
+
+
+
+<div class="clearfix"></div>
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <!--
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                花艺
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+
+                {% for id, name in flower_cate %}
+                    <a href="{% url "flower_home" id %}" type="button" class="btn btn-success">{{ name }}</a>
+                {% endfor %}
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>名称</td>
+                    <td>数量</td>
+                    <td>价格</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in flower_item %}
+                <tr>
+                    <th>{{ item.content_object.name }}</th>
+                    <th>{{ item.amount }}</th>
+                    <th>￥{{ item.content_object.price }}</th>
+                    <th>
+                        <a href="{%url "book_service" wed_info.t_wed item.id %}" type="button" class="btn btn-danger">结算</a>
+                    </th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    -->
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                司仪 
+                </a>
+                <a href="{% url "mc_home" %}" type="button" class="btn btn-success pull-right">添加</a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                {% for item in mc_item %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }}
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                化妆师
+                </a>
+                <a href="{% url "makeup_home" %}" type="button" class="btn btn-success pull-right">添加</a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+
+                {% for item in makeup_item %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} "></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }}
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
 
-<div>
-    <h2> AV </h2>
-    <div class="btn-group">
-    {% for id, name in av %}
-    <a href="{% url "av_home" id %}" type="button" class="btn btn-danger">{{ name }}</a>
-    {% endfor %}
-    </div>
-</div>
-
-<div>
-    <h2> 舞台效果 </h2>
-    <div class="btn-group">
-    {% for id, name in stage %}
-    <a href="{% url "stage_home" id %}" type="button" class="btn btn-info">{{ name }}</a>
-    {% endfor %}
-    </div>
-</div>
 
 {% endblock %}
