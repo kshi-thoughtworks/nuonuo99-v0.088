@@ -31,24 +31,26 @@ class WedEssential(models.Model):
         verbose_name_plural = verbose_name
 
 
-class CartInfo(models.Model):
+class WedScheme(models.Model):
     """under decision
     """
-    buyer = models.ForeignKey(User, verbose_name=u'购买人')
-    amount = models.PositiveIntegerField(u'数量', default=0)
+    owner = models.ForeignKey(User, verbose_name=u'用户')
 
     content_type = models.ForeignKey(ContentType, verbose_name=u'商品类型')
     object_id = models.PositiveIntegerField(u'商品 ID')
     content_object = GenericForeignKey('content_type', 'object_id')
+
+    amount = models.PositiveIntegerField(u'数量', default=0)
+
     t_add = models.DateTimeField(u'加入时间', default=datetime.datetime.now)
 
     def __unicode__(self):
-        return self.buyer.username
+        return self.owner.username
 
     class Meta:
-        verbose_name = u"购物车"
+        verbose_name = u"我的婚礼方案"
         verbose_name_plural = verbose_name
-        unique_together = ("buyer", "content_type", "object_id")
+        unique_together = ("owner", "content_type", "object_id")
 
 
 class Order(models.Model):

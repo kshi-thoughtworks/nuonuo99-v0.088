@@ -1,13 +1,13 @@
 #-*- coding:utf-8 -*-
 import xadmin
-from wedding.models import CartInfo, WedEssential, Order
+from wedding.models import WedScheme, WedEssential, Order
 
 
 class WedEssentialAdmin(object):
     list_display = ("user", "boy", "girl", "t_wed", "loc", "expect")
 
 
-class CartInfoAdmin(object):
+class WedSchemeAdmin(object):
 
     def product_name(self, ins):
         return ins.content_object.name
@@ -21,7 +21,7 @@ class CartInfoAdmin(object):
     product_price.short_description = u"商品单价"
     product_price.allow_tags = True
 
-    list_display = ("buyer", "content_type", "product_name", "product_price", "amount", "object_id", "t_add")
+    list_display = ("owner", "content_type", "product_name", "product_price", "amount", "object_id", "t_add")
 
 
 class OrderAdmin(object):
@@ -42,5 +42,5 @@ class OrderAdmin(object):
 
 
 xadmin.site.register(WedEssential, WedEssentialAdmin)
-xadmin.site.register(CartInfo, CartInfoAdmin)
+xadmin.site.register(WedScheme, WedSchemeAdmin)
 xadmin.site.register(Order, OrderAdmin)

@@ -10,7 +10,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist 
 from expert.models import MC, MakeUp
 from std_product.models import WedFlower
-from wedding.models import CartInfo, WedEssential, Order
+from wedding.models import WedScheme, WedEssential, Order
 
 import base.choices as choise_set
 
@@ -30,12 +30,12 @@ def diy(request):
 
     content = {
         'flower_cate': choise_set.C_FLOWER_CATE,
-        'mc_item': CartInfo.objects.filter(buyer=user, content_type__pk=mc_type.id),
-        'makeup_item': CartInfo.objects.filter(buyer=user, content_type__pk=makeup_type.id),
+        'mc_item': WedScheme.objects.filter(owner=user, content_type__pk=mc_type.id),
+        'makeup_item': WedScheme.objects.filter(owner=user, content_type__pk=makeup_type.id),
         'av': choise_set.C_AV_CATE,
         'stage': choise_set.C_STAGE_CATE,
         'wed_info': wed_info,
-        'cart_data': CartInfo.objects.filter(buyer=user),
+        'cart_data': WedScheme.objects.filter(owner=user),
         }
     return render_to_response('diy.html', RequestContext(request, content))
 
@@ -46,11 +46,11 @@ def add_service(user, obj):
         item = Order.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
     except ObjectDoesNotExist:  # not exists in order table
         try:
-            item = CartInfo.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
+            item = WedScheme.objects.get(owner=user, object_id=obj.id, content_type__pk=c_type.id)
             lvl = messages.WARNING
             msg = u'%s ( %s ) 已经在我的婚礼方案中, 无需重复加入!' % (c_type, obj.name)
         except ObjectDoesNotExist:  # add new item to cart
-            CartInfo(buyer=user, content_object=obj, amount=1).save()
+            WedScheme(owner=user, content_object=obj, amount=1).save()
             lvl = messages.SUCCESS
             msg = u'%s ( %s ) 成功加入我的婚礼方案!' % (c_type, obj.name)
     else:
@@ -62,9 +62,9 @@ def add_service(user, obj):
 def add_product(user, obj, amount):
     c_type= ContentType.objects.get_for_model(obj)
     try:
-        item = CartInfo.objects.get(buyer=user, object_id=obj.id, content_type__pk=c_type.id)
+        item = WedScheme.objects.get(owner=user, object_id=obj.id, content_type__pk=c_type.id)
     except ObjectDoesNotExist:  # add new item to cart
-        CartInfo(buyer=user, content_object=obj, amount=amount).save()
+        WedScheme(owner=user, content_object=obj, amount=amount).save()
         lvl = messages.SUCCESS
         msg = u'%s 件 %s ( %s ) 成功加入我的婚礼方案!' % (amount, c_type, obj.name)
     else:
@@ -118,7 +118,7 @@ def is_booked(t_wed, obj_id, obj_type, user=None):
 
 def book(request, t_wed, cart_id):
 
-    cart_obj = CartInfo.objects.get(id=cart_id)
+    cart_obj = WedScheme.objects.get(id=cart_id)
     c_type = cart_obj.content_type
     obj = cart_obj.content_object
 
