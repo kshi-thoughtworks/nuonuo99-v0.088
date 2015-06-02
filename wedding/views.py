@@ -14,7 +14,10 @@ from wedding.models import WedScheme, WedEssential, Order
 
 import base.choices as choise_set
 
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def diy(request):
 
     user = request.user
