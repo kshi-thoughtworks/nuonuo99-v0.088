@@ -21,14 +21,14 @@
 <h2>我的婚礼信息</h2>
 
 
-<form class="form-horizontal" >
+<form class="form-horizontal" method="post"> {% csrf_token %}
 
     <div class="form-group">
         <label class="col-sm-2 col-lg-2 control-label">
             婚期
         </label>
         <div class="col-sm-10 col-lg-2">
-            <input type="text" readonly class="form-control" name="wedday" id="wedday">
+            <input type="text" readonly class="form-control" name="t_wed" id="wedday">
         </div>
     </div>
 
@@ -50,10 +50,10 @@
             桌数
         </label>
         <div class="col-sm-10 col-lg-1">
-            <input type="number" class="form-control" id="girl" placeholder="最少" name="girl">
+            <input type="number" class="form-control" id="min-guest" placeholder="最少" name="btm_table_num">
         </div>
         <div class="col-sm-10 col-lg-1">
-            <input type="number" class="form-control" id="girl" placeholder="最多" name="girl">
+            <input type="number" class="form-control" id="max-guest" placeholder="最多" name="top_table_num">
         </div>
     </div>
 
@@ -62,7 +62,7 @@
             婚礼期望
         </label>
         <div class="col-sm-10 col-lg-6">
-            <textarea class="form-control" rows="10"></textarea>
+            <textarea class="form-control" rows="10" name="expect"></textarea>
         </div>
     </div>
 
