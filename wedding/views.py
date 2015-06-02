@@ -33,6 +33,8 @@ def diy(request):
     photo_type= ContentType.objects.get_for_model(Photographer)
     vedio_type= ContentType.objects.get_for_model(VedioGuys)
     flower_type= ContentType.objects.get_for_model(WedFlower)
+    av_type= ContentType.objects.get_for_model(WedAv)
+    stage_type= ContentType.objects.get_for_model(StageEffect)
 
     content = {
         'flower_cate': choise_set.C_FLOWER_CATE,
@@ -44,6 +46,8 @@ def diy(request):
         'photographer_item': WedScheme.objects.filter(owner=user, content_type__pk=photo_type.id),
         'vedioguys_item': WedScheme.objects.filter(owner=user, content_type__pk=vedio_type.id),
         'flower_item': WedScheme.objects.filter(owner=user, content_type__pk=flower_type.id),
+        'av_item': WedScheme.objects.filter(owner=user, content_type__pk=av_type.id),
+        'stage_item': WedScheme.objects.filter(owner=user, content_type__pk=stage_type.id),
         'wed_info': wed_info,
         'cart_data': WedScheme.objects.filter(owner=user),
         }
