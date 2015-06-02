@@ -8,7 +8,7 @@ from django.contrib import messages
 
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist 
-from expert.models import MC, MakeUp
+from expert.models import MC, MakeUp, Photographer, VedioGuys
 from std_product.models import WedFlower
 from wedding.models import WedScheme, WedEssential, Order
 
@@ -93,6 +93,32 @@ def add_service_makeup(request, obj_id):
         obj = MakeUp.objects.get(id=obj_id)
     except ObjectDoesNotExist:
         error_msg = '化妆师(id=%s)不存在!' % obj_id
+        return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
+
+    lvl, msg = add_service(request.user, obj)
+    messages.add_message(request, lvl, msg)
+
+    return HttpResponseRedirect(reverse('wedding_overview'))
+
+
+def add_service_photo(request, obj_id):
+    try:
+        obj = Photographer.objects.get(id=obj_id)
+    except ObjectDoesNotExist:
+        error_msg = '化妆师(id=%s)不存在!' % obj_id
+        return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
+
+    lvl, msg = add_service(request.user, obj)
+    messages.add_message(request, lvl, msg)
+
+    return HttpResponseRedirect(reverse('wedding_overview'))
+
+
+def add_service_vedio(request, obj_id):
+    try:
+        obj = VedioGuys.objects.get(id=obj_id)
+    except ObjectDoesNotExist:
+        error_msg = '摄影师(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
 
     lvl, msg = add_service(request.user, obj)

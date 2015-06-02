@@ -61,7 +61,7 @@ def photographer_home(request):
     content = {
         'paras': choice_set.PHOTO_PARAS(),
         'list_url': 'photographer_list',
-        'cart_url': 'add_service_mc',
+        'cart_url': 'add_service_photo',
         'data_set': data,
         'disp_name': u'摄影师',
         }
@@ -81,7 +81,7 @@ def vedioguys_home(request):
     content = {
         'paras': choice_set.VEDIO_PARAS(),
         'list_url': 'vedioguys_list',
-        'cart_url': 'add_service_mc',
+        'cart_url': 'add_service_vedio',
         'data_set': data,
         'disp_name': u'摄像师',
         }
