@@ -212,6 +212,7 @@ def add_product_av(request, obj_id, amount_str):
 
     return HttpResponseRedirect(reverse('wedding_overview'))
 
+
 def add_product_stage(request, obj_id, amount_str):
     amount = int(amount_str)
 
