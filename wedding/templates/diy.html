@@ -17,7 +17,7 @@
 
 <div class="basic-info">
 
-    <ul class="list-group col-lg-6 col-md-6">
+    <ul class="list-group col-lg-5 col-md-5">
         <li class="list-group-item">婚期: {{ wed_info.t_wed | date:"Y. n. j" }}</li>
         <li class="list-group-item">地点: {{ wed_info.loc }} </li>
         <li class="list-group-item">
@@ -28,8 +28,11 @@
         </li>
     </ul>
 
-    <div class="col-lg-6 col-md-6">
-        <h3>婚礼期望</h3>
+    <div class="col-lg-7 col-md-7">
+        <h3>
+            婚礼期望
+            <a href="{% url "edit_essential" %}" type="button" class="btn btn-success pull-right">修改</a>
+        </h3>
         <p> {{ wed_info.expect }} </p>
     </div>
 

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>婚礼基本信息</title>
+{% endblock %}
+
+
+{% load staticfiles %}
+
+{% block css %}
+<link href="{% static "css/accounts.css" %}" rel="stylesheet" media="screen">
+<link href="{% static "css/bootstrap-datepicker3.standalone.min.css" %}" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content %}
+
+<div style="padding-top:30px"></div>
+
+
+<h2>我的婚礼信息</h2>
+
+
+<form class="form-horizontal" >
+
+    <div class="form-group">
+        <label class="col-sm-2 col-lg-2 control-label">
+            婚期
+        </label>
+        <div class="col-sm-10 col-lg-2">
+            <input type="text" readonly class="form-control" name="wedday" id="wedday">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="girl" class="col-sm-2 col-lg-2 control-label">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            新人
+        </label>
+        <div class="col-sm-10 col-lg-2">
+            <input type="text" class="form-control" id="boy" placeholder="新郎" name="boy">
+        </div>
+        <div class="col-sm-10 col-lg-2">
+            <input type="text" class="form-control" id="girl" placeholder="新娘" name="girl">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 col-lg-2 control-label">
+            桌数
+        </label>
+        <div class="col-sm-10 col-lg-1">
+            <input type="number" class="form-control" id="girl" placeholder="最少" name="girl">
+        </div>
+        <div class="col-sm-10 col-lg-1">
+            <input type="number" class="form-control" id="girl" placeholder="最多" name="girl">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 col-lg-2 control-label">
+            婚礼期望
+        </label>
+        <div class="col-sm-10 col-lg-6">
+            <textarea class="form-control" rows="10"></textarea>
+        </div>
+    </div>
+
+    
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">提交</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static "js/bootstrap-datepicker.min.js" %}" ></script>
+    <script src="{% static "js/bootstrap-datepicker.zh-CN.min.js" %}" ></script>
+    <script type="text/javascript">
+    $('#wedday').datepicker({
+        format: "yyyy-mm-dd",
+        startView: 1,
+        language: "zh-CN",
+        autoclose: true
+        });
+    </script> 
+{% endblock %}

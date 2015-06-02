@@ -226,3 +226,7 @@ def add_product_stage(request, obj_id, amount_str):
     messages.add_message(request, lvl, msg)
 
     return HttpResponseRedirect(reverse('wedding_overview'))
+
+
+def edit_essential(request):
+    return render_to_response('edit-essential.html', RequestContext(request))
