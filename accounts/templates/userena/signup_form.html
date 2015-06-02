@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title> 诺诺 - 注册 </title>
+{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link href="{% static "css/accounts.css" %}" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content %}
+
+<form action="" method="post" class="form-signin" role=form> {% csrf_token %}
+  <fieldset>
+    <h2 class="form-signin-heading">欢迎注册诺诺</h2>
+    {% if has_error %}
+    <span id="helpBlock" class="help-block">
+        <label class="error">Incorrect username or password.</label>
+    </span>
+    {% endif %}
+
+    <p>
+        <label for="id_username">用户名:</label> 
+        <input class="required" id="id_username" maxlength="30" name="username" type="text" />
+    </p>
+    
+    <p>
+    <label for="id_email">邮箱:</label> 
+    <input class="required" id="id_email" maxlength="75" name="email" type="text" />
+    </p>
+    
+    <p>
+    <label for="id_password1">密码:</label> 
+    <input class="required" id="id_password1" name="password1" type="password" />
+    </p>
+    
+    <p>
+    <label for="id_password2">重复密码:</label> 
+    <input class="required" id="id_password2" name="password2" type="password" />
+    </p>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">免费注册</button>
+</form>
+
+{% endblock %}
