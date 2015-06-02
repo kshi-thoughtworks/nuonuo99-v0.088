@@ -1,16 +1,21 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>我的婚礼方案</title>
+<title>婚礼 DIY </title>
 {% endblock %}
 
 {% block content %}
 
+<div id="#top" style="padding-top:100px"></div>
 
+<div class="col-lg-2">
+    {% include 'filter_list.html' %}
+</div>
+
+
+<div class="my-wed-scheme col-lg-10">
 
 <div class="basic-info">
-
-    <h2>婚礼基本信息</h2>
 
     <ul class="list-group col-lg-6 col-md-6">
         <li class="list-group-item">婚期: {{ wed_info.t_wed | date:"Y. n. j" }}</li>
@@ -24,12 +29,11 @@
     </ul>
 
     <div class="col-lg-6 col-md-6">
-        <h3>新人期望</h3>
+        <h3>婚礼期望</h3>
         <p> {{ wed_info.expect }} </p>
     </div>
 
 </div>
-
 
 
 <div class="clearfix"></div>
@@ -59,6 +63,7 @@
 
 <div class="clearfix"></div>
 
+<h2>我的婚礼方案</h2>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -72,12 +77,6 @@
         </div>
         <div id="items-flower" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
-                <div class="btn-group">
-                {% for id, name in flower_cate %}
-                    <a href="{% url "flower_home" id %}" type="button" class="btn btn-success">{{ name }}</a>
-                {% endfor %}
-                </div>
-
                 {% for item in flower_item %}
                     <div class="col-sm-3 col-md-2 col-lg-2">
                         <div class="thumbnail">
@@ -102,14 +101,14 @@
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#items-mc" aria-expanded="true" aria-controls="collapseOne">
-                司仪 
+                <a data-toggle="collapse" data-parent="#accordion" href="#items-expert" aria-expanded="true" aria-controls="collapseOne">
+                    婚礼人
                 </a>
-                <a href="{% url "mc_home" %}" type="button" class="btn btn-success pull-right">添加</a>
             </h4>
         </div>
-        <div id="items-mc" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div id="items-expert" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
+
                 {% for item in mc_item %}
                     <div class="col-sm-3 col-md-2 col-lg-2">
                         <div class="thumbnail">
@@ -117,104 +116,93 @@
                             <div class="caption">
                             <h3>
                                 {{ item.content_object.name }}
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
                             </h3>
+                            <p>
+                                司仪
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </p>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#items-makeup" aria-expanded="true" aria-controls="collapseOne">
-                化妆师
-                </a>
-                <a href="{% url "makeup_home" %}" type="button" class="btn btn-success pull-right">添加</a>
-            </h4>
-        </div>
-        <div id="items-makeup" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
 
                 {% for item in makeup_item %}
                     <div class="col-sm-3 col-md-2 col-lg-2">
                         <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} "></img>
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
                             <div class="caption">
                             <h3>
                                 {{ item.content_object.name }}
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
                             </h3>
+                            <p>
+                                化妆师
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </p>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
-            </div>
-        </div>
-    </div>
 
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#items-photographer" aria-expanded="true" aria-controls="collapseOne">
-                    摄像师
-                </a>
-                <a href="{% url "photographer_home" %}" type="button" class="btn btn-success pull-right">添加</a>
-            </h4>
-        </div>
-        <div id="items-photographer" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
+                {% for item in makeup_item %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }}
+                            </h3>
+                            <p>
+                                化妆师
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
 
                 {% for item in photographer_item %}
                     <div class="col-sm-3 col-md-2 col-lg-2">
                         <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} "></img>
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
                             <div class="caption">
                             <h3>
                                 {{ item.content_object.name }}
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
                             </h3>
+                            <p>
+                                摄影师
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </p>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
-            </div>
-        </div>
-    </div>
-
-
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#items-vedioguys" aria-expanded="true" aria-controls="collapseOne">
-                    摄影师
-                </a>
-                <a href="{% url "vedioguys_home" %}" type="button" class="btn btn-success pull-right">添加</a>
-            </h4>
-        </div>
-        <div id="items-vedioguys" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
 
                 {% for item in vedioguys_item %}
                     <div class="col-sm-3 col-md-2 col-lg-2">
                         <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} "></img>
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
                             <div class="caption">
                             <h3>
                                 {{ item.content_object.name }}
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
                             </h3>
+                            <p>
+                                摄像师
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </p>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
+ 
+ 
+
+
+
+ 
+
             </div>
         </div>
     </div>
-
 </div>
 
 
