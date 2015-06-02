@@ -19,7 +19,7 @@
             AV <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" role="menu">
-            {% for id, name in flower_cate %}
+            {% for id, name in av_cate %}
                 <li role="presentation"> <a href="{% url "av_home" id %}">{{ name }}</a> </li>
             {% endfor %}
         </ul>
@@ -29,7 +29,7 @@
             舞台效果<span class="caret"></span>
         </a>
         <ul class="dropdown-menu" role="menu">
-            {% for id, name in flower_cate %}
+            {% for id, name in stage_cate %}
                 <li role="presentation"> <a href="{% url "stage_home" id %}">{{ name }}</a> </li>
             {% endfor %}
         </ul>

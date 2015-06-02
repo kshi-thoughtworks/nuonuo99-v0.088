@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist 
 from expert.models import MC, MakeUp, Photographer, VedioGuys
-from std_product.models import WedFlower
+from std_product.models import WedFlower, WedAv, StageEffect
 from wedding.models import WedScheme, WedEssential, Order
 
 import base.choices as choise_set
@@ -36,13 +36,14 @@ def diy(request):
 
     content = {
         'flower_cate': choise_set.C_FLOWER_CATE,
+        'av_cate': choise_set.C_AV_CATE,
+        'stage_cate': choise_set.C_STAGE_CATE,
+
         'mc_item': WedScheme.objects.filter(owner=user, content_type__pk=mc_type.id),
         'makeup_item': WedScheme.objects.filter(owner=user, content_type__pk=makeup_type.id),
         'photographer_item': WedScheme.objects.filter(owner=user, content_type__pk=photo_type.id),
         'vedioguys_item': WedScheme.objects.filter(owner=user, content_type__pk=vedio_type.id),
         'flower_item': WedScheme.objects.filter(owner=user, content_type__pk=flower_type.id),
-        'av': choise_set.C_AV_CATE,
-        'stage': choise_set.C_STAGE_CATE,
         'wed_info': wed_info,
         'cart_data': WedScheme.objects.filter(owner=user),
         }
@@ -185,6 +186,35 @@ def add_product_flower(request, obj_id, amount_str):
         obj = WedFlower.objects.get(id=obj_id)
     except ObjectDoesNotExist:
         error_msg = '花艺(id=%s)不存在!' % obj_id
+        return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
+
+    lvl, msg = add_product(request.user, obj, amount)
+    messages.add_message(request, lvl, msg)
+
+    return HttpResponseRedirect(reverse('wedding_overview'))
+
+
+def add_product_av(request, obj_id, amount_str):
+    amount = int(amount_str)
+
+    try:
+        obj = WedAv.objects.get(id=obj_id)
+    except ObjectDoesNotExist:
+        error_msg = 'AV 工程(id=%s)不存在!' % obj_id
+        return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
+
+    lvl, msg = add_product(request.user, obj, amount)
+    messages.add_message(request, lvl, msg)
+
+    return HttpResponseRedirect(reverse('wedding_overview'))
+
+def add_product_stage(request, obj_id, amount_str):
+    amount = int(amount_str)
+
+    try:
+        obj = StageEffect.objects.get(id=obj_id)
+    except ObjectDoesNotExist:
+        error_msg = '舞台背景(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
 
     lvl, msg = add_product(request.user, obj, amount)

@@ -53,7 +53,7 @@ def wedav_home(request, cate):
     content = {
         'paras': choice_set.AV_PARAS(cate),
         'list_url': 'av_list',
-        'cart_url': 'add_service_mc',
+        'cart_url': 'add_product_av',
         'data_set': WedAv.objects.filter(category=cate),
         'disp_name': choice_set.get_disp_av_cate(cate),
         'cate': cate,
@@ -79,7 +79,7 @@ def stage_home(request, cate):
     content = {
         'paras': choice_set.STAGE_PARAS(cate),
         'list_url': 'stage_list',
-        'cart_url': 'add_service_mc',
+        'cart_url': 'add_product_stage',
         'data_set': StageEffect.objects.filter(category=cate),
         'disp_name': choice_set.get_disp_stage_cate(cate),
         'cate': cate,
