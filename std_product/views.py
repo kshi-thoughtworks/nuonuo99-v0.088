@@ -17,11 +17,13 @@ import base.choices as choice_set
 
 
 def wedflower_home(request, cate):
+    data = WedFlowerFilter(request.GET, queryset=WedFlower.objects.filter(category=cate))
+
     content = {
         'paras': choice_set.FLOWER_PARAS(cate),
         'list_url': 'flower_list',
         'cart_url': 'add_product_flower',
-        'data_set': WedFlower.objects.filter(category=cate),
+        'data_set': data,
         'disp_name': choice_set.get_disp_flower_cate(cate),
         'cate': cate,
         }
@@ -35,11 +37,12 @@ class WedFlowerList(generics.ListCreateAPIView):
 
 
 def wedav_home(request, cate):
+    data = WedAvFilter(request.GET, queryset=WedAv.objects.filter(category=cate))
     content = {
         'paras': choice_set.AV_PARAS(cate),
         'list_url': 'av_list',
         'cart_url': 'add_product_av',
-        'data_set': WedAv.objects.filter(category=cate),
+        'data_set': data,
         'disp_name': choice_set.get_disp_av_cate(cate),
         'cate': cate,
         }
@@ -53,11 +56,12 @@ class WedAvList(generics.ListCreateAPIView):
 
 
 def stage_home(request, cate):
+    data = StageEffectFilter(request.GET, queryset=StageEffect.objects.filter(category=cate))
     content = {
         'paras': choice_set.STAGE_PARAS(cate),
         'list_url': 'stage_list',
         'cart_url': 'add_product_stage',
-        'data_set': StageEffect.objects.filter(category=cate),
+        'data_set': data,
         'disp_name': choice_set.get_disp_stage_cate(cate),
         'cate': cate,
         }
