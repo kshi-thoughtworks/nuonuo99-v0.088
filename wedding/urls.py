@@ -11,6 +11,8 @@ urlpatterns = patterns('wedding.views',
     url(r'^add-service/vedio/(\d+)$', 'add_service_vedio', name='add_service_vedio'),
 
     url(r'^add-product/flower/(\d+)/(\d+)$', 'add_product_flower', name='add_product_flower'),
+
     url(r'^my$', 'diy', name='wedding_overview'),
+
     url(r'^book/(.*)/(.+)$', 'book', name='book_service'),
 )

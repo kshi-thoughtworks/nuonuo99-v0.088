@@ -27,11 +27,17 @@ def diy(request):
 
     mc_type= ContentType.objects.get_for_model(MC)
     makeup_type= ContentType.objects.get_for_model(MakeUp)
+    photo_type= ContentType.objects.get_for_model(Photographer)
+    vedio_type= ContentType.objects.get_for_model(VedioGuys)
+    flower_type= ContentType.objects.get_for_model(WedFlower)
 
     content = {
         'flower_cate': choise_set.C_FLOWER_CATE,
         'mc_item': WedScheme.objects.filter(owner=user, content_type__pk=mc_type.id),
         'makeup_item': WedScheme.objects.filter(owner=user, content_type__pk=makeup_type.id),
+        'photographer_item': WedScheme.objects.filter(owner=user, content_type__pk=photo_type.id),
+        'vedioguys_item': WedScheme.objects.filter(owner=user, content_type__pk=vedio_type.id),
+        'flower_item': WedScheme.objects.filter(owner=user, content_type__pk=flower_type.id),
         'av': choise_set.C_AV_CATE,
         'stage': choise_set.C_STAGE_CATE,
         'wed_info': wed_info,

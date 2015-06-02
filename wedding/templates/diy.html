@@ -157,6 +157,99 @@
             </div>
         </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#items-photographer" aria-expanded="true" aria-controls="collapseOne">
+                    摄像师
+                </a>
+                <a href="{% url "photographer_home" %}" type="button" class="btn btn-success pull-right">添加</a>
+            </h4>
+        </div>
+        <div id="items-photographer" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+
+                {% for item in photographer_item %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} "></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }}
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#items-vedioguys" aria-expanded="true" aria-controls="collapseOne">
+                    摄影师
+                </a>
+                <a href="{% url "vedioguys_home" %}" type="button" class="btn btn-success pull-right">添加</a>
+            </h4>
+        </div>
+        <div id="items-vedioguys" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+
+                {% for item in vedioguys_item %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} "></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }}
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#items-flower" aria-expanded="true" aria-controls="collapseOne">
+                    花艺
+                </a>
+            </h4>
+        </div>
+        <div id="items-flower" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <div class="btn-group">
+                {% for id, name in flower_cate %}
+                    <a href="{% url "flower_home" id %}" type="button" class="btn btn-success">{{ name }}</a>
+                {% endfor %}
+                </div>
+
+                {% for item in flower_item %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.photo1.url }} "></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }}
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
 
 
