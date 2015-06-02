@@ -10,17 +10,10 @@ import django_filters
 
 from std_product.models import WedFlower, WedAv, StageEffect
 from std_product.serializers import WedFlowerSerializer, WedAvSerializer, StageEffectSerializer
+from std_product.filters import WedFlowerFilter, WedAvFilter, StageEffectFilter
 
 from base.utils import price_filter
 import base.choices as choice_set
-
-
-class WedFlowerFilter(django_filters.FilterSet):
-    price = django_filters.CharFilter(action=choice_set.range_action('price'))
-
-    class Meta:
-        model = WedFlower
-        fields = ['price', 'category', 'style']
 
 
 def wedflower_home(request, cate):
@@ -41,14 +34,6 @@ class WedFlowerList(generics.ListCreateAPIView):
     filter_class = WedFlowerFilter
 
 
-class WedAvFilter(django_filters.FilterSet):
-    price = django_filters.CharFilter(action=choice_set.range_action('price'))
-
-    class Meta:
-        model = WedAv
-        fields = ['price', 'category', 'wed_env']
-
-
 def wedav_home(request, cate):
     content = {
         'paras': choice_set.AV_PARAS(cate),
@@ -65,14 +50,6 @@ class WedAvList(generics.ListCreateAPIView):
     queryset = WedAv.objects.all()
     serializer_class = WedAvSerializer
     filter_class = WedAvFilter
-
-
-class StageEffectFilter(django_filters.FilterSet):
-    price = django_filters.CharFilter(action=choice_set.range_action('price'))
-
-    class Meta:
-        model = StageEffect
-        fields = ['price', 'category', 'sub_category']
 
 
 def stage_home(request, cate):
