@@ -27,7 +27,7 @@ def wedflower_home(request, cate):
     content = {
         'paras': choice_set.FLOWER_PARAS(cate),
         'list_url': 'flower_list',
-        'cart_url': 'add_service_mc',
+        'cart_url': 'add_product_flower',
         'data_set': WedFlower.objects.filter(category=cate),
         'disp_name': choice_set.get_disp_flower_cate(cate),
         'cate': cate,
