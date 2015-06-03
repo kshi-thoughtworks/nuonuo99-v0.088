@@ -1,0 +1,6 @@
+<a href="{%url "book_service" wed_info.t_wed item.id %}" type="button" class="btn btn-danger"
+{% if not wed_info.t_wed %}
+     disabled="disabled"
+{% endif %}
+    >下单</a> 
+<a href="{%url "del_service" item.id %}" type="button" class="btn btn-danger">删除</a> 

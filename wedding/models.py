@@ -69,7 +69,7 @@ class Order(models.Model):
     object_id = models.PositiveIntegerField(u'商品 ID')
     content_object = GenericForeignKey('content_type', 'object_id')
 
-    progress = models.CharField(u'准备进展', max_length=255, blank=True)
+    progress = models.CharField(u'准备进展描述', max_length=255, blank=True)
 
     def __unicode__(self):
         return self.buyer.username

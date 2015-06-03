@@ -183,6 +183,19 @@ def book(request, t_wed, cart_id):
     return HttpResponseRedirect(reverse('wedding_overview'))
 
 
+def delete(request, cart_id):
+    cart_obj = WedScheme.objects.get(id=cart_id)
+    cart_obj.delete()
+    c_type = cart_obj.content_type
+    obj = cart_obj.content_object
+
+    lvl = messages.SUCCESS
+    msg = u'%s ( %s ) 删除成功!' % (c_type, obj.name)
+
+    messages.add_message(request, lvl, msg)
+    return HttpResponseRedirect(reverse('wedding_overview'))
+
+
 def add_product_flower(request, obj_id, amount_str):
     amount = int(amount_str)
 

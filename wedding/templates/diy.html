@@ -168,6 +168,9 @@
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#items-expert" aria-expanded="true" aria-controls="collapseOne">
                     婚礼人
+                    {% if not wed_info.t_wed %}
+                    <small>填写婚期信息后, 可以下单预约婚礼人</small>
+                    {% endif %}
                 </a>
             </h4>
         </div>
@@ -185,6 +188,7 @@
                             <p>
                                 司仪
                                 <span class="pull-right">￥{{ item.content_object.price }} </span>
+                                {% include 'operate_e.html' %}
                             </p>
                             </div>
                         </div>
@@ -202,6 +206,7 @@
                             <p>
                                 化妆师
                                 <span class="pull-right">￥{{ item.content_object.price }} </span>
+                                {% include 'operate_e.html' %}
                             </p>
                             </div>
                         </div>
@@ -219,6 +224,7 @@
                             <p>
                                 摄影师
                                 <span class="pull-right">￥{{ item.content_object.price }} </span>
+                                {% include 'operate_e.html' %}
                             </p>
                             </div>
                         </div>
@@ -236,6 +242,7 @@
                             <p>
                                 摄像师
                                 <span class="pull-right">￥{{ item.content_object.price }} </span>
+                                {% include 'operate_e.html' %}
                             </p>
                             </div>
                         </div>
