@@ -208,23 +208,6 @@
                     </div>
                 {% endfor %}
 
-                {% for item in makeup_item %}
-                    <div class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
-                            <div class="caption">
-                            <h3>
-                                {{ item.content_object.name }}
-                            </h3>
-                            <p>
-                                化妆师
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
-                            </p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-
                 {% for item in photographer_item %}
                     <div class="col-sm-3 col-md-2 col-lg-2">
                         <div class="thumbnail">
