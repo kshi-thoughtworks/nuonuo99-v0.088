@@ -48,8 +48,16 @@ def diy(request):
         'flower_item': WedScheme.objects.filter(owner=user, content_type__pk=flower_type.id),
         'av_item': WedScheme.objects.filter(owner=user, content_type__pk=av_type.id),
         'stage_item': WedScheme.objects.filter(owner=user, content_type__pk=stage_type.id),
+
+        'mc_item_order': Order.objects.filter(buyer=user, content_type__pk=mc_type.id),
+        'makeup_item_order': Order.objects.filter(buyer=user, content_type__pk=makeup_type.id),
+        'photographer_item_order': Order.objects.filter(buyer=user, content_type__pk=photo_type.id),
+        'vedioguys_item_order': Order.objects.filter(buyer=user, content_type__pk=vedio_type.id),
+        'flower_item_order': Order.objects.filter(buyer=user, content_type__pk=flower_type.id),
+        'av_item_order': Order.objects.filter(buyer=user, content_type__pk=av_type.id),
+        'stage_item_order': Order.objects.filter(buyer=user, content_type__pk=stage_type.id),
+
         'wed_info': wed_info,
-        'cart_data': WedScheme.objects.filter(owner=user),
         }
     return render_to_response('diy.html', RequestContext(request, content))
 
