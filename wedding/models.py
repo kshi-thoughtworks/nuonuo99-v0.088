@@ -6,6 +6,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User
 from location.models import County
 from base.choices import C_ORDER_STATUS
+from provider.models import ProviderInfo
 
 import datetime
 import base.models as choice_set
@@ -35,6 +36,10 @@ class WedScheme(models.Model):
     """under decision
     """
     owner = models.ForeignKey(User, verbose_name=u'用户')
+
+    p_flower = models.ForeignKey(ProviderInfo, verbose_name=u'花艺供应商', related_name="p_flower")
+    p_av = models.ForeignKey(ProviderInfo, verbose_name=u'AV 供应商', related_name="p_av")
+    p_stage = models.ForeignKey(ProviderInfo, verbose_name=u'舞台效果供应商', related_name="p_stage")
 
     content_type = models.ForeignKey(ContentType, verbose_name=u'商品类型')
     object_id = models.PositiveIntegerField(u'商品 ID')
