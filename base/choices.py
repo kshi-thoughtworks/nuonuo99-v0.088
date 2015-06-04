@@ -2,6 +2,13 @@
 from location.models import Province
 
 
+C_PRODUCT_TYPE = (
+    ('flower', u'花艺'),
+    ('av', u'AV 工程'),
+    ('stage', u'舞台背景'),
+    )
+
+
 def range_action(name):
     def action(queryset, value):
         if not value:

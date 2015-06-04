@@ -1,8 +1,11 @@
 #-*- coding:utf-8 -*-
 from django.db import models
+
 from django.contrib.auth.models import User
 from base.models import SlaProvider
+
 from django.conf import settings
+import base.choices as choice_set
 
 
 class ProviderInfo(models.Model):
@@ -10,6 +13,7 @@ class ProviderInfo(models.Model):
 
     """
     avatar = models.FileField(u'头像', upload_to=settings.AVATAR_PATH)
+    type = models.CharField(u'业务类型', choices=choice_set.C_PRODUCT_TYPE, max_length=7, null=True)
     name = models.CharField(u'供应商名', max_length=255)
     contact = models.CharField(u'联系人', max_length=255)
     phone = models.CharField(u'手机号', max_length=16)

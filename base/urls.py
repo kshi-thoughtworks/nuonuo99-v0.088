@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^service/', include('expert.urls')),
     url(r'^product/', include('std_product.urls')),
     url(r'^wedding/', include('wedding.urls')),
+    url(r'^provider/', include('provider.urls')),
 )
 
 
