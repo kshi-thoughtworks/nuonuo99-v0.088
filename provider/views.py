@@ -8,7 +8,6 @@ from provider.models import ProviderInfo
 
 t_dict = {k: v for k, v in choice_set.C_PRODUCT_TYPE}
 
-print t_dict
 
 def provider(request, c_type):
     data = ProviderInfo.objects.filter(type=c_type)
