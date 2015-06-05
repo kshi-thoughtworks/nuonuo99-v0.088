@@ -14,19 +14,15 @@
         <div class="col-sm-6 col-md-3 col-lg-3">
             <div class="thumbnail">
                 <img src="{{ item.avatar.url }} "></img>
+
                 <div class="caption">
-                    <h3>
-                        {{ item.name }}
-                    </h3>
-                    <p>
-                        电话: {{ item.phone}}
-                    </p>
-                    <p>
-                        {{ item.desc|slice:":100" }}
-                    </p>
+                    <h3> {{ item.name }} </h3>
+                    <p> 电话: {{ item.phone}} </p>
+                    <p> {{ item.desc|slice:":100" }} </p>
                     <p>
                     </p>
                 </div>
+
             </div>
         </div>
         {% endfor %}
