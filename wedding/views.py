@@ -192,6 +192,31 @@ def book(request, t_wed, cart_id):
     return HttpResponseRedirect(reverse('wedding_overview'))
 
 
+def buy(request, t_wed, cart_id):
+    cart_obj = WedScheme.objects.get(id=cart_id)
+    c_type = cart_obj.content_type
+    obj = cart_obj.content_object
+
+    try:
+        item = Order.objects.get(t_wed=t_wed, object_id=obj.id, content_type__pk=c_type.id)
+    except ObjectDoesNotExist:
+        kwargs = {
+            "buyer": request.user,
+            "content_object": cart_obj.content_object,
+            "t_wed": t_wed,
+            "amount": cart_obj.amount,
+            "status": 1,
+        }
+        item = Order(**kwargs)
+    else:
+        item.amount += cart_obj.amount
+
+    item.save()
+    cart_obj.delete()
+
+    return HttpResponseRedirect(reverse('wedding_overview'))
+
+
 def delete(request, cart_id):
     cart_obj = WedScheme.objects.get(id=cart_id)
     cart_obj.delete()
