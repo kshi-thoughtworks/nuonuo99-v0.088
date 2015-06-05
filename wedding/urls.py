@@ -19,4 +19,5 @@ urlpatterns = patterns('wedding.views',
     url(r'^book/(.*)/(.+)$', 'book', name='book_service'),
     url(r'^del/(.+)$', 'delete', name='del_service'),
     url(r'^wedinfo$', 'edit_essential', name='edit_essential'),
+    url(r'^set-provider/(\w+)/(\d+)$', 'update_p_wed', name='update_p_wed'),
 )

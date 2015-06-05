@@ -15,6 +15,7 @@ def provider(request, c_type):
 
     content = {
         'data_set': data,
-        'disp_name': t_dict[c_type]
+        'c_type': c_type,
+        'disp_name': t_dict[c_type],
         }
     return render_to_response('provider.html', RequestContext(request, content))

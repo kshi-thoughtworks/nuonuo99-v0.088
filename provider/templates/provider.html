@@ -20,6 +20,7 @@
                     <p> 电话: {{ item.phone}} </p>
                     <p> {{ item.desc|slice:":100" }} </p>
                     <p>
+                        <a href="{%url "update_p_wed" c_type item.id %}" type="button" class="btn btn-danger">选择</a>
                     </p>
                 </div>
 

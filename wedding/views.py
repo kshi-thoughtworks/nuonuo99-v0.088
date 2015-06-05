@@ -251,3 +251,7 @@ def add_product_stage(request, obj_id, amount_str):
 
 def edit_essential(request):
     return render_to_response('edit-essential.html', RequestContext(request))
+
+
+def update_p_wed(request, c_type, pid):
+    return HttpResponseRedirect(reverse('wedding_overview'))
