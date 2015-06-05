@@ -28,7 +28,7 @@ class StdProduct(models.Model):
 class WedFlower(StdProduct):
     """花艺产品"""
     category = models.IntegerField(u'产品子类', choices=choice_set.C_FLOWER_CATE)
-    style = models.IntegerField(u'样式', choices=choice_set.C_FLOWER_STYLE)
+    style = models.IntegerField(u'样式', choices=choice_set.C_FLOWER_STYLE, null=True, blank=True)
     color = models.CharField(u'颜色', max_length=32)
     items = models.ManyToManyField(C_FlowerVariety, through='FlowerItem', through_fields=('product', 'variety'), verbose_name=u'花材')
     scale = models.ManyToManyField(C_Scale, through='FlowerScale', through_fields=('product', 'key'), verbose_name=u'尺寸')
@@ -86,7 +86,7 @@ class WedAv(StdProduct):
 class StageEffect(StdProduct):
     """舞台效果"""
     category = models.IntegerField(u'产品子类', choices=choice_set.C_STAGE_CATE)
-    sub_category = models.IntegerField(u'种类', choices=choice_set.C_STAGE_SUB_CATE)
+    sub_category = models.IntegerField(u'种类', choices=choice_set.C_STAGE_SUB_CATE, null=True, blank=True)
     wed_env = models.IntegerField(u'使用场地', choices=choice_set.C_WED_ENV)
 
     base_amount = models.PositiveIntegerField(u'起步数量')
