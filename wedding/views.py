@@ -11,6 +11,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from expert.models import MC, MakeUp, Photographer, VedioGuys
 from std_product.models import WedFlower, WedAv, StageEffect
 from wedding.models import WedScheme, WedEssential, Order
+from provider.models import ProviderInfo
 
 import base.choices as choise_set
 
@@ -254,4 +255,13 @@ def edit_essential(request):
 
 
 def update_p_wed(request, c_type, pid):
+    provider = ProviderInfo.objects.get(id=pid)
+    wed_info = WedEssential.objects.get(user=request.user)
+    if c_type == 'flower':
+        wed_info.p_flower = provider
+    elif c_type == 'av':
+        wed_info.p_av = provider
+    else:
+        wed_info.p_stage = provider
+    wed_info.save()
     return HttpResponseRedirect(reverse('wedding_overview'))
