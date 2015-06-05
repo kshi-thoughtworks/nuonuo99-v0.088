@@ -265,3 +265,11 @@ def update_p_wed(request, c_type, pid):
         wed_info.p_stage = provider
     wed_info.save()
     return HttpResponseRedirect(reverse('wedding_overview'))
+
+
+def update_product(request, cart_id):
+    cart_obj = WedScheme.objects.get(id=cart_id)
+    cart_obj.amount = request.GET['amount']
+    cart_obj.save()
+
+    return HttpResponseRedirect(reverse('wedding_overview'))

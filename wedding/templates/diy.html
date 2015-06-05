@@ -82,18 +82,20 @@
         <div id="items-flower" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
                 {% for item in flower_item %}
-                    <div class="col-sm-3 col-md-2 col-lg-2">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
                         <div class="thumbnail">
                             <img src="{{ item.content_object.photo1.url }} "></img>
                             <div class="caption">
-                                <p>
-                                    <ul>
-                                        <li>{{ item.content_object.name }}</li>
-                                        <li>单价: ￥{{ item.content_object.price }}</li>
-                                        <li>数量: {{ item.amount }}</li>
-                                    </ul>
-                                </p>
+                                {{ item.content_object.name }}<br/>
+                                单价: ￥{{ item.content_object.price }}
                             </div>
+                            <form action="{% url "update_product" item.id %}" class="form-inline">
+                                <div class="form-group">
+                                    数量: <input type="number" class="form-control" id="amount" name="amount" placeholder="{{ item.amount }}">
+                                </div>
+                                <button type="submit" class="btn btn-danger">修改</button>
+                            </form>
+                            <a href="{%url "del_service" item.id %}" type="button" class="btn btn-danger">删除</a>
                         </div>
                     </div>
                 {% endfor %}
