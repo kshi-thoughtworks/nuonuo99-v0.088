@@ -1,0 +1,13 @@
+{% if not wed_info.t_wed %}
+        <small>
+            填写婚期后可选择供应商
+        </small>
+{% else %}
+    {% if not provider.name %}
+        <small>选择供应商</small>
+    {% else %}
+        <small>
+            供应商: {{ provider.name }} -- {{ provider.phone }}
+        </small>
+    {% endif %}
+{% endif %}

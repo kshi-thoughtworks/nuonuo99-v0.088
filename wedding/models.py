@@ -24,9 +24,9 @@ class WedEssential(models.Model):
     btm_table_num = models.IntegerField(u'桌数(最少)', blank=True)
     top_table_num = models.IntegerField(u'桌数(最多)', blank=True)
 
-    p_flower = models.ForeignKey(ProviderInfo, verbose_name=u'花艺供应商', related_name="p_flower")
-    p_av = models.ForeignKey(ProviderInfo, verbose_name=u'AV 供应商', related_name="p_av")
-    p_stage = models.ForeignKey(ProviderInfo, verbose_name=u'舞台效果供应商', related_name="p_stage")
+    p_flower = models.ForeignKey(ProviderInfo, verbose_name=u'花艺供应商', related_name="p_flower", null=True, blank=True)
+    p_av = models.ForeignKey(ProviderInfo, verbose_name=u'AV 供应商', related_name="p_av", null=True, blank=True)
+    p_stage = models.ForeignKey(ProviderInfo, verbose_name=u'舞台效果供应商', related_name="p_stage", null=True, blank=True)
 
     def __unicode__(self):
         return u'%s-%s(%s)' % (self.boy, self.girl, self.t_wed)
