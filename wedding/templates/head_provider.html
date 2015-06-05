@@ -4,7 +4,7 @@
         </small>
 {% else %}
     {% if not provider.name %}
-        <small>选择供应商</small>
+        <a href="{%url "provider_list" type %}" type="button" class="btn btn-danger pull-right">选择供应商</a>
     {% else %}
         <small>
             供应商: {{ provider.name }} -- {{ provider.phone }}
