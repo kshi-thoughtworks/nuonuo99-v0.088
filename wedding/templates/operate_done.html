@@ -1,0 +1,13 @@
+<div class="col-sm-3 col-md-3 col-lg-3">
+    <div class="thumbnail">
+        <img src="{{ item.content_object.photo1.url }} "></img>
+
+        <div class="caption">
+            已下单<br/>
+            {{ item.content_object.name }}<br/>
+            单价: ￥{{ item.content_object.price }}<br/>
+            数量: {{ item.amount }}
+        </div>
+    </div>
+</div>
+ 

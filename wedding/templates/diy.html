@@ -84,6 +84,10 @@
                 {% for item in flower_item %}
                     {% include 'operate_p.html' %}
                {% endfor %}
+
+                {% for item in flower_item_order %}
+                    {% include 'operate_done.html' %}
+               {% endfor %}
             </div>
         </div>
     </div>
@@ -103,6 +107,10 @@
                 {% for item in av_item %}
                     {% include 'operate_p.html' %}
                 {% endfor %}
+
+                {% for item in av_item_order %}
+                    {% include 'operate_done.html' %}
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -121,6 +129,10 @@
             <div class="panel-body">
                 {% for item in stage_item %}
                     {% include 'operate_p.html' %}
+                {% endfor %}
+
+                {% for item in stage_item_order %}
+                    {% include 'operate_done.html' %}
                 {% endfor %}
             </div>
         </div>
