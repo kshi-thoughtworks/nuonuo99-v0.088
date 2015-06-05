@@ -4,10 +4,12 @@
         </small>
 {% else %}
     {% if not provider.name %}
+        选择供应商后可下单
         <a href="{%url "provider_list" type %}" type="button" class="btn btn-danger pull-right">选择供应商</a>
     {% else %}
         <small>
             供应商: {{ provider.name }} -- {{ provider.phone }}
+            <a href="{%url "provider_list" type %}" type="button" class="btn btn-danger pull-right">修改供应商</a>
         </small>
     {% endif %}
 {% endif %}
