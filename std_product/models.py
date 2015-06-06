@@ -34,6 +34,9 @@ class flower(StdProduct):
     items = models.ManyToManyField(C_FlowerVariety, through='FlowerItem', through_fields=('product', 'variety'), verbose_name=u'花材')
     scale = models.ManyToManyField(C_Scale, through='FlowerScale', through_fields=('product', 'key'), verbose_name=u'尺寸')
 
+    def validate_amount(self, amount):
+        return amount > 0
+
     class Meta:
         verbose_name = u"花艺产品"
         verbose_name_plural = verbose_name
@@ -79,6 +82,9 @@ class av(StdProduct):
     amount_step = models.PositiveIntegerField(u'计价数量')
     float_price = models.PositiveIntegerField(u'计价价格')
 
+    def validate_amount(self, amount):
+        return (amount > self.base_amount) and ((amount - self.base_amount) % self.amount_step) == 0
+
     def notes(self):
         return u'起步数量 %s, 起步单价 %s, 计价数量 %s, 计价价格 %s' % (self.base_amount, self.price, self.amount_step, self.float_price)
 
@@ -97,6 +103,9 @@ class stage(StdProduct):
     unit = models.CharField(u'计价单位', max_length=7)
     amount_step = models.PositiveIntegerField(u'计价数量')
     float_price = models.PositiveIntegerField(u'计价价格')
+
+    def validate_amount(self, amount):
+        return (amount > self.base_amount) and ((amount - self.base_amount) % self.amount_step) == 0
 
     def notes(self):
         return u'起步数量 %s, 起步单价 %s, 计价数量 %s, 计价价格 %s' % (self.base_amount, self.price, self.amount_step, self.float_price)

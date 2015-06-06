@@ -315,8 +315,13 @@ def update_p_wed(request, c_type, pid):
 
 
 def update_product(request, cart_id):
+    amount = int(request.GET['amount'])
     cart_obj = WedScheme.objects.get(id=cart_id)
-    cart_obj.amount = request.GET['amount']
-    cart_obj.save()
+
+    if cart_obj.content_object.validate_amount(amount):
+        cart_obj.amount = amount
+        cart_obj.save()
+    else:
+        messages.add_message(request, messages.ERROR, u'数量不符合产品要求')
 
     return HttpResponseRedirect(reverse('wedding_overview'))
