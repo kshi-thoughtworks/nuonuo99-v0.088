@@ -11,10 +11,10 @@ import base.choices as choice_set
 
 
 def product_home(request, type, cate):
-    print type
     model = getattr(std_product.models, type)
     filter = getattr(std_product.filters, '%s_filter' % type)
     paras = getattr(choice_set, '%s_paras' % type)
+    choice = getattr(choice_set, 'get_disp_%s_cate' % type)
 
     data = filter(request.GET, queryset=model.objects.filter(category=cate))
 
@@ -24,7 +24,7 @@ def product_home(request, type, cate):
         'data_set': data,
         'type': type,
         'cate': cate,
-        'disp_name': choice_set.get_disp_flower_cate(cate),
+        'disp_name': choice(cate),
 
         'flower_cate': choice_set.C_FLOWER_CATE,
         'av_cate': choice_set.C_AV_CATE,

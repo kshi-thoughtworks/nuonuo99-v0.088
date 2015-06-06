@@ -241,7 +241,7 @@ _wed_env = (u'室内', u'室外')
 C_WED_ENV = int_choice(_wed_env)
 
 
-def AV_PARAS(cate):
+def av_paras(cate):
     paras = [
         {
             'name': 'price',
@@ -300,7 +300,7 @@ _stage_sub_cate = {
     }
 
 
-def STAGE_PARAS(cate):
+def stage_paras(cate):
     paras = [
         {
             'name': 'price',
