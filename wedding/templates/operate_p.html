@@ -9,7 +9,7 @@
 
         <form action="{% url "update_product" item.id %}" class="form-inline">
             <div class="form-group">
-            数量: <input type="number" class="form-control" id="amount" name="amount" placeholder="{{ item.amount }}">
+            数量: <input type="number" class="form-control" id="amount" name="amount" value="{{ item.amount }}" style="width:80px">
             </div>
 
             <button type="submit" class="btn btn-danger">修改</button>
