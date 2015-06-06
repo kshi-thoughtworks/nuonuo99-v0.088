@@ -83,7 +83,7 @@ class av(StdProduct):
     float_price = models.PositiveIntegerField(u'计价价格')
 
     def validate_amount(self, amount):
-        return (amount > self.base_amount) and ((amount - self.base_amount) % self.amount_step) == 0
+        return (amount >= self.base_amount) and ((amount - self.base_amount) % self.amount_step) == 0
 
     def notes(self):
         return u'起步数量 %s, 起步单价 %s, 计价数量 %s, 计价价格 %s' % (self.base_amount, self.price, self.amount_step, self.float_price)
@@ -105,7 +105,7 @@ class stage(StdProduct):
     float_price = models.PositiveIntegerField(u'计价价格')
 
     def validate_amount(self, amount):
-        return (amount > self.base_amount) and ((amount - self.base_amount) % self.amount_step) == 0
+        return (amount >= self.base_amount) and ((amount - self.base_amount) % self.amount_step) == 0
 
     def notes(self):
         return u'起步数量 %s, 起步单价 %s, 计价数量 %s, 计价价格 %s' % (self.base_amount, self.price, self.amount_step, self.float_price)
