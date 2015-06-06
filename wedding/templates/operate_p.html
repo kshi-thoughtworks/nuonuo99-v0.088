@@ -4,7 +4,8 @@
 
         <div class="caption">
             {{ item.content_object.name }}<br/>
-            单价: ￥{{ item.content_object.price }}
+            单价: ￥{{ item.content_object.price }} <br/>
+            总价: ￥{{ total }}
         </div>
 
         <form action="{% url "update_product" item.id %}" class="form-inline">

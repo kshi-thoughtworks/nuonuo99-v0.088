@@ -82,7 +82,7 @@
         <div id="items-flower" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
                 {% for item in flower_item %}
-                    {% include 'operate_p.html' with provider=wed_info.p_flower %}
+                    {% include 'operate_p.html' with provider=wed_info.p_flower total=item.charge_flower %}
                {% endfor %}
 
                 {% for item in flower_item_order %}
@@ -105,7 +105,7 @@
         <div id="items-av" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
                 {% for item in av_item %}
-                    {% include 'operate_p.html' with provider=wed_info.p_av %}
+                    {% include 'operate_p.html' with provider=wed_info.p_av total=item.charge_step %}
                 {% endfor %}
 
                 {% for item in av_item_order %}
@@ -128,7 +128,7 @@
         <div id="items-stage" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
                 {% for item in stage_item %}
-                    {% include 'operate_p.html' with provider=wed_info.p_stage %}
+                    {% include 'operate_p.html' with provider=wed_info.p_stage total=item.charge_step %}
                 {% endfor %}
 
                 {% for item in stage_item_order %}
