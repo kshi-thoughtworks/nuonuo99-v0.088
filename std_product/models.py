@@ -25,7 +25,7 @@ class StdProduct(models.Model):
         abstract = True
 
 
-class WedFlower(StdProduct):
+class flower(StdProduct):
     """花艺产品"""
     category = models.IntegerField(u'产品子类', choices=choice_set.C_FLOWER_CATE)
     style = models.IntegerField(u'样式', choices=choice_set.C_FLOWER_STYLE, null=True, blank=True)
@@ -39,7 +39,7 @@ class WedFlower(StdProduct):
 
 
 class FlowerItem(models.Model):
-    product = models.ForeignKey(WedFlower, verbose_name=u'花艺产品')
+    product = models.ForeignKey(flower, verbose_name=u'花艺产品')
     variety = models.ForeignKey(C_FlowerVariety, verbose_name=u'鲜花品种')
     amount = models.PositiveIntegerField(u'数量')
 
@@ -53,7 +53,7 @@ class FlowerItem(models.Model):
 
 
 class FlowerScale(models.Model):
-    product = models.ForeignKey(WedFlower, verbose_name=u'花艺产品')
+    product = models.ForeignKey(flower, verbose_name=u'花艺产品')
     key = models.ForeignKey(C_Scale, verbose_name=u'尺寸类型')
     value = models.PositiveIntegerField(u'数值')
 
@@ -66,7 +66,7 @@ class FlowerScale(models.Model):
         unique_together = ("product", "key")
 
 
-class WedAv(StdProduct):
+class av(StdProduct):
     """AV 产品"""
     category = models.IntegerField(u'产品子类', choices=choice_set.C_AV_CATE)
     wed_env = models.IntegerField(u'使用场地', choices=choice_set.C_WED_ENV)
@@ -83,7 +83,7 @@ class WedAv(StdProduct):
         verbose_name_plural = verbose_name
 
 
-class StageEffect(StdProduct):
+class stage(StdProduct):
     """舞台效果"""
     category = models.IntegerField(u'产品子类', choices=choice_set.C_STAGE_CATE)
     sub_category = models.IntegerField(u'种类', choices=choice_set.C_STAGE_SUB_CATE, null=True, blank=True)

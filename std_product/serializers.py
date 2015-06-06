@@ -1,19 +1,19 @@
 #-*- coding:utf-8 -*-
 from rest_framework import serializers
 
-from std_product.models import WedFlower, WedAv, StageEffect
+from std_product.models import flower, av, stage
 
 
 class WedFlowerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = WedFlower
+        model = flower
 
 
 class WedAvSerializer(serializers.ModelSerializer):
     class Meta:
-        model = WedAv
+        model = av
 
 
 class StageEffectSerializer(serializers.ModelSerializer):
     class Meta:
-        model = StageEffect
+        model = stage

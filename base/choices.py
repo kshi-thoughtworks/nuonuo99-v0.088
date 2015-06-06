@@ -216,7 +216,7 @@ _cate_style = {
     }
 
 
-def FLOWER_PARAS(cate):
+def flower_paras(cate):
     return [
     {
         'name': 'price',

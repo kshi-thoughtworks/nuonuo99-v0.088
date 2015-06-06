@@ -4,13 +4,14 @@
     <li role="presentation"> <a href="{% url "expert_home" "makeup" %}">化妆师</a> </li>
     <li role="presentation"> <a href="{% url "expert_home" "photographer" %}">摄像师</a> </li>
     <li role="presentation"> <a href="{% url "expert_home" "vedioguys" %}">摄影师</a> </li>
+
     <li role="presentation" class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
             花艺 <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" role="menu">
             {% for id, name in flower_cate %}
-                <li role="presentation"> <a href="{% url "flower_home" id %}">{{ name }}</a> </li>
+                <li role="presentation"> <a href="{% url "product_home" "flower" id %}">{{ name }}</a> </li>
             {% endfor %}
         </ul>
     </li>
@@ -20,7 +21,7 @@
         </a>
         <ul class="dropdown-menu" role="menu">
             {% for id, name in av_cate %}
-                <li role="presentation"> <a href="{% url "av_home" id %}">{{ name }}</a> </li>
+                <li role="presentation"> <a href="{% url "product_home" "av" id %}">{{ name }}</a> </li>
             {% endfor %}
         </ul>
     </li>
@@ -30,7 +31,7 @@
         </a>
         <ul class="dropdown-menu" role="menu">
             {% for id, name in stage_cate %}
-                <li role="presentation"> <a href="{% url "stage_home" id %}">{{ name }}</a> </li>
+                <li role="presentation"> <a href="{% url "product_home" "stage" id %}">{{ name }}</a> </li>
             {% endfor %}
         </ul>
     </li>

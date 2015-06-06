@@ -2,28 +2,28 @@
 import django_filters
 
 import base.choices as choice_set
-from std_product.models import WedFlower, WedAv, StageEffect
+from std_product.models import flower, av, stage
 
 
-class WedFlowerFilter(django_filters.FilterSet):
+class flower_filter(django_filters.FilterSet):
     price = django_filters.CharFilter(action=choice_set.range_action('price'))
 
     class Meta:
-        model = WedFlower
+        model = flower
         fields = ['price', 'category', 'style']
 
 
-class WedAvFilter(django_filters.FilterSet):
+class av_filter(django_filters.FilterSet):
     price = django_filters.CharFilter(action=choice_set.range_action('price'))
 
     class Meta:
-        model = WedAv
+        model = av
         fields = ['price', 'category', 'wed_env']
 
 
-class StageEffectFilter(django_filters.FilterSet):
+class stage_filter(django_filters.FilterSet):
     price = django_filters.CharFilter(action=choice_set.range_action('price'))
 
     class Meta:
-        model = StageEffect
+        model = stage
         fields = ['price', 'category', 'sub_category']

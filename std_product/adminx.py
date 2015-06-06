@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 import xadmin
-from std_product.models import WedFlower, FlowerItem, FlowerScale, WedAv, StageEffect
+from std_product.models import flower, FlowerItem, FlowerScale, av, stage
 
 def full_cols(*args):
     return ('category', 'name', 'price') + args + ('desc',)
@@ -49,9 +49,9 @@ class StageEffectAdmin(StdProductAdmin):
     list_display = full_cols('wed_env', 'sub_category', 'base_amount', 'unit', 'amount_step', 'float_price')
 
 
-xadmin.site.register(WedAv, WedAvAdmin)
-xadmin.site.register(StageEffect, StageEffectAdmin)
-xadmin.site.register(WedFlower, WedFlowerAdmin)
+xadmin.site.register(av, WedAvAdmin)
+xadmin.site.register(stage, StageEffectAdmin)
+xadmin.site.register(flower, WedFlowerAdmin)
 
 xadmin.site.register(FlowerItem, FlowerItemAdmin)
 xadmin.site.register(FlowerScale, FlowerScaleAdmin)

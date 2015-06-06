@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist 
 from expert.models import mc, makeup, photographer, vedioguys
-from std_product.models import WedFlower, WedAv, StageEffect
+from std_product.models import flower, av, stage
 from wedding.models import WedScheme, WedEssential, Order
 from provider.models import ProviderInfo
 
@@ -51,9 +51,9 @@ def scheme_overview(request):
     makeup_type= ContentType.objects.get_for_model(makeup)
     photo_type= ContentType.objects.get_for_model(photographer)
     vedio_type= ContentType.objects.get_for_model(vedioguys)
-    flower_type= ContentType.objects.get_for_model(WedFlower)
-    av_type= ContentType.objects.get_for_model(WedAv)
-    stage_type= ContentType.objects.get_for_model(StageEffect)
+    flower_type= ContentType.objects.get_for_model(flower)
+    av_type= ContentType.objects.get_for_model(av)
+    stage_type= ContentType.objects.get_for_model(stage)
 
     content = {
         'flower_cate': choise_set.C_FLOWER_CATE,
@@ -252,7 +252,7 @@ def add_product_flower(request, obj_id, amount_str):
     amount = int(amount_str)
 
     try:
-        obj = WedFlower.objects.get(id=obj_id)
+        obj = flower.objects.get(id=obj_id)
     except ObjectDoesNotExist:
         error_msg = '花艺(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
@@ -267,7 +267,7 @@ def add_product_av(request, obj_id, amount_str):
     amount = int(amount_str)
 
     try:
-        obj = WedAv.objects.get(id=obj_id)
+        obj = av.objects.get(id=obj_id)
     except ObjectDoesNotExist:
         error_msg = 'AV 工程(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
@@ -282,7 +282,7 @@ def add_product_stage(request, obj_id, amount_str):
     amount = int(amount_str)
 
     try:
-        obj = StageEffect.objects.get(id=obj_id)
+        obj = stage.objects.get(id=obj_id)
     except ObjectDoesNotExist:
         error_msg = '舞台背景(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
