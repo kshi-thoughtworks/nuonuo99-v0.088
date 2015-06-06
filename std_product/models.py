@@ -18,6 +18,7 @@ class StdProduct(models.Model):
     photo3 = models.FileField(u'样图3', upload_to=settings.SERVICE_PATH, blank=True)
     photo4 = models.FileField(u'样图4', upload_to=settings.SERVICE_PATH, blank=True)
 
+
     def __unicode__(self):
         return "%s-%s" % (self.name, self.price)
 
@@ -78,6 +79,9 @@ class av(StdProduct):
     amount_step = models.PositiveIntegerField(u'计价数量')
     float_price = models.PositiveIntegerField(u'计价价格')
 
+    def notes(self):
+        return u'起步数量 %s, 起步单价 %s, 计价数量 %s, 计价价格 %s' % (self.base_amount, self.price, self.amount_step, self.float_price)
+
     class Meta:
         verbose_name = u"AV 产品"
         verbose_name_plural = verbose_name
@@ -93,6 +97,9 @@ class stage(StdProduct):
     unit = models.CharField(u'计价单位', max_length=7)
     amount_step = models.PositiveIntegerField(u'计价数量')
     float_price = models.PositiveIntegerField(u'计价价格')
+
+    def notes(self):
+        return u'起步数量 %s, 起步单价 %s, 计价数量 %s, 计价价格 %s' % (self.base_amount, self.price, self.amount_step, self.float_price)
 
     class Meta:
         verbose_name = u"舞台效果"
