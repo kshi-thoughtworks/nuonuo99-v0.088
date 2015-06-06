@@ -21,5 +21,9 @@ def expert_home(request, type):
         'data_set': data,
         'type': type,
         'disp_name': model._meta.verbose_name,
+
+        'flower_cate': choice_set.C_FLOWER_CATE,
+        'av_cate': choice_set.C_AV_CATE,
+        'stage_cate': choice_set.C_STAGE_CATE,
         }
     return render_to_response('expert.html', RequestContext(request, content))
