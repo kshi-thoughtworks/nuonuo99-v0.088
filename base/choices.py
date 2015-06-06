@@ -75,7 +75,7 @@ _makeup_price = (
     )
 
 
-def MC_PARAS():
+def mc_paras():
     return [
     {
         'name': 'price',
@@ -115,7 +115,7 @@ def MC_PARAS():
     ]
 
 
-def MAKEUP_PARAS():
+def makeup_paras():
     return [
     {
         'name': 'price',
@@ -135,7 +135,7 @@ def MAKEUP_PARAS():
     ]
 
 
-def PHOTO_PARAS():
+def photographer_paras():
     return [
     {
         'name': 'price',
@@ -155,7 +155,7 @@ def PHOTO_PARAS():
     ]
 
 
-def VEDIO_PARAS():
+def vedioguys_paras():
     return [
     {
         'name': 'price',
