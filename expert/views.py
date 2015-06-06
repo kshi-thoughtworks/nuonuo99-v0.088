@@ -7,7 +7,7 @@ from rest_framework import generics
 from rest_framework import permissions
 
 
-from expert.models import MC, MakeUp, Photographer, VedioGuys
+from expert.models import mc, makeup, photographer, vedioguys
 
 from expert.filters import McFilter, MakeUpFilter, PhotographerFilter, VedioGuysFilter
 from expert.serializers import McSerializer, MakeUpSerializer, PhotographerSerializer, VedioGuysSerializer
@@ -17,7 +17,7 @@ import base.choices as choice_set
 
 
 def mc_home(request):
-    data = McFilter(request.GET, queryset=MC.objects.all())
+    data = McFilter(request.GET, queryset=mc.objects.all())
 
     content = {
         'paras': choice_set.MC_PARAS(),
@@ -30,13 +30,13 @@ def mc_home(request):
 
 
 class McList(generics.ListCreateAPIView):
-    queryset = MC.objects.all()
+    queryset = mc.objects.all()
     serializer_class = McSerializer
     filter_class = McFilter
 
 
 def makeup_home(request):
-    data = MakeUpFilter(request.GET, queryset=MakeUp.objects.all())
+    data = MakeUpFilter(request.GET, queryset=makeup.objects.all())
 
     content = {
         'paras': choice_set.MAKEUP_PARAS(),
@@ -49,14 +49,14 @@ def makeup_home(request):
 
 
 class MakeUpList(generics.ListCreateAPIView):
-    queryset = MakeUp.objects.all()
+    queryset = makeup.objects.all()
     serializer_class = MakeUpSerializer
     filter_class = MakeUpFilter
 
 
 def photographer_home(request):
 
-    data = PhotographerFilter(request.GET, queryset=Photographer.objects.all())
+    data = PhotographerFilter(request.GET, queryset=photographer.objects.all())
 
     content = {
         'paras': choice_set.PHOTO_PARAS(),
@@ -69,14 +69,14 @@ def photographer_home(request):
 
 
 class PhotographerList(generics.ListCreateAPIView):
-    queryset = Photographer.objects.all()
+    queryset = photographer.objects.all()
     serializer_class = PhotographerSerializer
     filter_class = PhotographerFilter
 
 
 def vedioguys_home(request):
 
-    data = VedioGuysFilter(request.GET, queryset=VedioGuys.objects.all())
+    data = VedioGuysFilter(request.GET, queryset=vedioguys.objects.all())
 
     content = {
         'paras': choice_set.VEDIO_PARAS(),
@@ -89,6 +89,6 @@ def vedioguys_home(request):
 
 
 class VedioGuysList(generics.ListCreateAPIView):
-    queryset = VedioGuys.objects.all()
+    queryset = vedioguys.objects.all()
     serializer_class = VedioGuysSerializer
     filter_class = VedioGuysFilter

@@ -8,7 +8,7 @@ from django.contrib import messages
 
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist 
-from expert.models import MC, MakeUp, Photographer, VedioGuys
+from expert.models import mc, makeup, photographer, vedioguys
 from std_product.models import WedFlower, WedAv, StageEffect
 from wedding.models import WedScheme, WedEssential, Order
 from provider.models import ProviderInfo
@@ -47,10 +47,10 @@ def scheme_overview(request):
         wed_info = None
 
 
-    mc_type= ContentType.objects.get_for_model(MC)
-    makeup_type= ContentType.objects.get_for_model(MakeUp)
-    photo_type= ContentType.objects.get_for_model(Photographer)
-    vedio_type= ContentType.objects.get_for_model(VedioGuys)
+    mc_type= ContentType.objects.get_for_model(mc)
+    makeup_type= ContentType.objects.get_for_model(makeup)
+    photo_type= ContentType.objects.get_for_model(photographer)
+    vedio_type= ContentType.objects.get_for_model(vedioguys)
     flower_type= ContentType.objects.get_for_model(WedFlower)
     av_type= ContentType.objects.get_for_model(WedAv)
     stage_type= ContentType.objects.get_for_model(StageEffect)
@@ -118,7 +118,7 @@ def add_product(user, obj, amount):
 
 def add_service_mc(request, obj_id):
     try:
-        obj = MC.objects.get(id=obj_id)
+        obj = mc.objects.get(id=obj_id)
     except ObjectDoesNotExist:
         error_msg = '司仪(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
@@ -131,7 +131,7 @@ def add_service_mc(request, obj_id):
 
 def add_service_makeup(request, obj_id):
     try:
-        obj = MakeUp.objects.get(id=obj_id)
+        obj = makeup.objects.get(id=obj_id)
     except ObjectDoesNotExist:
         error_msg = '化妆师(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
@@ -144,7 +144,7 @@ def add_service_makeup(request, obj_id):
 
 def add_service_photo(request, obj_id):
     try:
-        obj = Photographer.objects.get(id=obj_id)
+        obj = photographer.objects.get(id=obj_id)
     except ObjectDoesNotExist:
         error_msg = '化妆师(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))
@@ -157,7 +157,7 @@ def add_service_photo(request, obj_id):
 
 def add_service_vedio(request, obj_id):
     try:
-        obj = VedioGuys.objects.get(id=obj_id)
+        obj = vedioguys.objects.get(id=obj_id)
     except ObjectDoesNotExist:
         error_msg = '摄影师(id=%s)不存在!' % obj_id
         return render_to_response('error.html', RequestContext(request, {"error_msg": error_msg}))

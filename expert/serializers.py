@@ -1,24 +1,24 @@
 #-*- coding:utf-8 -*-
 from rest_framework import serializers
 
-from expert.models import MC, MakeUp, Photographer, VedioGuys
+from expert.models import mc, makeup, photographer, vedioguys
 
 
 class McSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MC
+        model = mc
 
 
 class MakeUpSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MakeUp
+        model = makeup
 
 
 class PhotographerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Photographer
+        model = photographer
 
 
 class VedioGuysSerializer(serializers.ModelSerializer):
     class Meta:
-        model = VedioGuys
+        model = vedioguys

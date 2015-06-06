@@ -53,7 +53,7 @@ class Expert(models.Model):
         abstract = True
 
 
-class MC(Expert):
+class mc(Expert):
     """司仪 master of ceremonies"""
     wed_sty = models.IntegerField(u'专业', choices=choice_set.C_WED_STY)
     lang = models.IntegerField(u'主持语言', choices=choice_set.C_LANG)
@@ -73,7 +73,7 @@ class MC(Expert):
         verbose_name_plural = verbose_name
 
 
-class MakeUp(Expert):
+class makeup(Expert):
     """化妆师"""
 
     wed_sty = models.IntegerField(u'专业', choices=choice_set.C_WED_STY)
@@ -95,7 +95,7 @@ class MakeUp(Expert):
         verbose_name_plural = verbose_name
 
 
-class Photographer(Expert):
+class photographer(Expert):
     """摄影师"""
 
     device_brand = models.CharField(u'相机品牌', max_length=255, blank=True)
@@ -107,7 +107,7 @@ class Photographer(Expert):
         verbose_name_plural = verbose_name
 
 
-class VedioGuys(Expert):
+class vedioguys(Expert):
     """摄像师"""
 
     use_camera = models.BooleanField(u'使用照相机', default=False)

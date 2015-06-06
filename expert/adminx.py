@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 import xadmin
-from expert.models import MC, MakeUp, Photographer, VedioGuys
+from expert.models import mc, makeup, photographer, vedioguys
 
 
 def edit_cols(group1, group2):
@@ -46,7 +46,7 @@ class VedioGuysAdmin(ExpertAdmin):
     list_display = full_cols('use_camera',)
 
 
-xadmin.site.register(MC, McAdmin)
-xadmin.site.register(MakeUp, MakeUpAdmin)
-xadmin.site.register(Photographer, PhotographerAdmin)
-xadmin.site.register(VedioGuys, VedioGuysAdmin)
+xadmin.site.register(mc, McAdmin)
+xadmin.site.register(makeup, MakeUpAdmin)
+xadmin.site.register(photographer, PhotographerAdmin)
+xadmin.site.register(vedioguys, VedioGuysAdmin)
