@@ -65,6 +65,50 @@ def diy(request):
     return render_to_response('diy.html', RequestContext(request, content))
 
 
+def scheme_overview(request):
+
+    user = request.user
+
+    try:
+        wed_info = WedEssential.objects.get(user=user)
+    except ObjectDoesNotExist:
+        wed_info = None
+
+
+    mc_type= ContentType.objects.get_for_model(MC)
+    makeup_type= ContentType.objects.get_for_model(MakeUp)
+    photo_type= ContentType.objects.get_for_model(Photographer)
+    vedio_type= ContentType.objects.get_for_model(VedioGuys)
+    flower_type= ContentType.objects.get_for_model(WedFlower)
+    av_type= ContentType.objects.get_for_model(WedAv)
+    stage_type= ContentType.objects.get_for_model(StageEffect)
+
+    content = {
+        'flower_cate': choise_set.C_FLOWER_CATE,
+        'av_cate': choise_set.C_AV_CATE,
+        'stage_cate': choise_set.C_STAGE_CATE,
+
+        'mc_item': WedScheme.objects.filter(owner=user, content_type__pk=mc_type.id),
+        'makeup_item': WedScheme.objects.filter(owner=user, content_type__pk=makeup_type.id),
+        'photographer_item': WedScheme.objects.filter(owner=user, content_type__pk=photo_type.id),
+        'vedioguys_item': WedScheme.objects.filter(owner=user, content_type__pk=vedio_type.id),
+        'flower_item': WedScheme.objects.filter(owner=user, content_type__pk=flower_type.id),
+        'av_item': WedScheme.objects.filter(owner=user, content_type__pk=av_type.id),
+        'stage_item': WedScheme.objects.filter(owner=user, content_type__pk=stage_type.id),
+
+        'mc_item_order': Order.objects.filter(buyer=user, content_type__pk=mc_type.id),
+        'makeup_item_order': Order.objects.filter(buyer=user, content_type__pk=makeup_type.id),
+        'photographer_item_order': Order.objects.filter(buyer=user, content_type__pk=photo_type.id),
+        'vedioguys_item_order': Order.objects.filter(buyer=user, content_type__pk=vedio_type.id),
+        'flower_item_order': Order.objects.filter(buyer=user, content_type__pk=flower_type.id),
+        'av_item_order': Order.objects.filter(buyer=user, content_type__pk=av_type.id),
+        'stage_item_order': Order.objects.filter(buyer=user, content_type__pk=stage_type.id),
+
+        'wed_info': wed_info,
+        }
+    return render_to_response('scheme_overview.html', RequestContext(request, content))
+
+
 def add_service(user, obj):
     c_type= ContentType.objects.get_for_model(obj)
     try:

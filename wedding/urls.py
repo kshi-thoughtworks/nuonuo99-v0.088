@@ -14,7 +14,7 @@ urlpatterns = patterns('wedding.views',
     url(r'^add-product/av/(\d+)/(\d+)$', 'add_product_av', name='add_product_av'),
     url(r'^add-product/stage/(\d+)/(\d+)$', 'add_product_stage', name='add_product_stage'),
 
-    url(r'^my$', 'diy', name='wedding_overview'),
+    url(r'^my$', 'scheme_overview', name='wedding_overview'),
 
     url(r'^book/(.*)/(.+)$', 'book', name='book_service'),
     url(r'^del/(.+)$', 'delete', name='del_service'),

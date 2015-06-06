@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>婚礼 DIY </title>
+{% endblock %}
+
+{% block content %}
+
+<div id="#top" style="padding-top:30px"></div>
+
+<div class="col-lg-2">
+    {% include 'filter_list.html' %}
+</div>
+
+
+<div class="my-wed-scheme col-lg-10">
+
+<div class="basic-info">
+
+    <ul class="list-group col-lg-5 col-md-5">
+        <li class="list-group-item">婚期: {{ wed_info.t_wed | date:"Y. n. j" }}</li>
+        <li class="list-group-item">地点: {{ wed_info.loc }} </li>
+        <li class="list-group-item">
+            新人: {{ wed_info.boy }} -- {{ wed_info.girl }}
+        </li>
+        <li class="list-group-item">
+            桌数: {{ wed_info.btm_table_num }} - {{ wed_info.top_table_num}}
+        </li>
+    </ul>
+
+    <div class="col-lg-7 col-md-7">
+        <h3>
+            婚礼期望
+            <a href="{% url "edit_essential" %}" type="button" class="btn btn-success pull-right">修改</a>
+        </h3>
+        <p> {{ wed_info.expect }} </p>
+    </div>
+
+</div>
+
+
+<div class="clearfix"></div>
+
+
+{% if messages %}
+
+<ul class="messages list-group">
+    {% for message in messages %}
+        <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+
+
+{% if show_success %}
+    <div class="success">
+        <h3>商品已成功加入购物车！</h3>
+        <a class="btn" href="#" id="GotoShoppingCart">去购物车结算</a>
+        <span>您还可以 <a class="btn" href="javascript:history.back();">继续购物</a></span>
+    </div>
+{% endif %}
+
+
+
+<div class="clearfix"></div>
+
+<h2>我的婚礼方案</h2>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <div class="panel panel-default" id="wed-flower">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#items-flower" aria-expanded="true" aria-controls="collapseOne">
+                    花艺
+                </a>
+                {% include 'head_provider.html' with provider=wed_info.p_flower type="flower" %}
+            </h4>
+        </div>
+        <div id="items-flower" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                {% for item in flower_item %}
+                    {% include 'operate_p.html' with provider=wed_info.p_flower %}
+               {% endfor %}
+
+                {% for item in flower_item_order %}
+                    {% include 'operate_done.html' %}
+               {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default" id="wed-av">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#items-av" aria-expanded="true" aria-controls="collapseOne">
+                    AV 工程
+                </a>
+                {% include 'head_provider.html' with provider=wed_info.p_av type="av" %}
+            </h4>
+        </div>
+        <div id="items-av" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                {% for item in av_item %}
+                    {% include 'operate_p.html' with provider=wed_info.p_av %}
+                {% endfor %}
+
+                {% for item in av_item_order %}
+                    {% include 'operate_done.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default" id="wed-stage">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#items-stage" aria-expanded="true" aria-controls="collapseOne">
+                    舞台效果
+                </a>
+                {% include 'head_provider.html' with provider=wed_info.p_stage type="stage" %}
+            </h4>
+        </div>
+        <div id="items-stage" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                {% for item in stage_item %}
+                    {% include 'operate_p.html' with provider=wed_info.p_stage %}
+                {% endfor %}
+
+                {% for item in stage_item_order %}
+                    {% include 'operate_done.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default" id="wed-expert">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#items-expert" aria-expanded="true" aria-controls="collapseOne">
+                    婚礼人
+                    {% if not wed_info.t_wed %}
+                    <small>填写婚期信息后, 可以下单预约婚礼人</small>
+                    {% endif %}
+                </a>
+            </h4>
+        </div>
+        <div id="items-expert" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+
+                {% for item in mc_item %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }}
+                            </h3>
+                            <p>
+                                司仪
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                                {% include 'operate_e.html' %}
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% for item in makeup_item %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }}
+                            </h3>
+                            <p>
+                                化妆师
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                                {% include 'operate_e.html' %}
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% for item in photographer_item %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }}
+                            </h3>
+                            <p>
+                                摄影师
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                                {% include 'operate_e.html' %}
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% for item in vedioguys_item %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }}
+                            </h3>
+                            <p>
+                                摄像师
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                                {% include 'operate_e.html' %}
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% for item in mc_item_order %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }} -- 已下单
+                            </h3>
+                            <p>
+                                司仪
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% for item in makeup_item_order %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }} -- 已下单
+                            </h3>
+                            <p>
+                                化妆师
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% for item in photographer_item_order %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }} -- 已下单
+                            </h3>
+                            <p>
+                                摄影师
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% for item in vedioguys_item_order %}
+                    <div class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
+                            <div class="caption">
+                            <h3>
+                                {{ item.content_object.name }} -- 已下单
+                            </h3>
+                            <p>
+                                摄像师
+                                <span class="pull-right">￥{{ item.content_object.price }} </span>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
