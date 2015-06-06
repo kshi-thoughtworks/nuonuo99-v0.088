@@ -13,6 +13,8 @@ from std_product.models import WedFlower, WedAv, StageEffect
 from wedding.models import WedScheme, WedEssential, Order
 from provider.models import ProviderInfo
 
+from wedding.forms import WedEssentialForm
+
 import base.choices as choise_set
 
 from django.contrib.auth.decorators import login_required
@@ -276,6 +278,14 @@ def add_product_stage(request, obj_id, amount_str):
 
 
 def edit_essential(request):
+    if request.method == 'POST':
+        try:
+            obj = WedEssential.objects.get(user=request.user)
+        except ObjectDoesNotExist:
+            obj = WedEssential(user=request.user)
+
+        f = WedEssentialForm(request.POST, instance=obj)
+        f.save()
     return render_to_response('edit-essential.html', RequestContext(request))
 
 

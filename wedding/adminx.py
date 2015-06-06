@@ -4,7 +4,7 @@ from wedding.models import WedScheme, WedEssential, Order
 
 
 class WedEssentialAdmin(object):
-    list_display = ("user", "boy", "girl", "t_wed", "loc", "expect")
+    list_display = ("user", "boy", "girl", "t_wed", "expect")
 
 
 class WedSchemeAdmin(object):

@@ -20,9 +20,9 @@ class WedEssential(models.Model):
     user = models.ForeignKey(User, verbose_name=u'用户')
 
     expect = models.TextField(u'婚礼期望', max_length=2000, blank=True)
-    loc = models.ForeignKey(County, verbose_name=u'地点')
-    btm_table_num = models.IntegerField(u'桌数(最少)', blank=True)
-    top_table_num = models.IntegerField(u'桌数(最多)', blank=True)
+    # loc = models.ForeignKey(County, verbose_name=u'地点')
+    btm_table_num = models.IntegerField(u'桌数(最少)')
+    top_table_num = models.IntegerField(u'桌数(最多)')
 
     p_flower = models.ForeignKey(ProviderInfo, verbose_name=u'花艺供应商', related_name="p_flower", null=True, blank=True)
     p_av = models.ForeignKey(ProviderInfo, verbose_name=u'AV 供应商', related_name="p_av", null=True, blank=True)
@@ -34,6 +34,7 @@ class WedEssential(models.Model):
     class Meta:
         verbose_name = u"婚礼基本信息"
         verbose_name_plural = verbose_name
+        unique_together = ('user',)
 
 
 class WedScheme(models.Model):
