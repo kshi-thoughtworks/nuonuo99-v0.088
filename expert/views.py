@@ -7,7 +7,12 @@ from rest_framework import generics
 from rest_framework import permissions
 
 
+import expert.models
+import expert.filters
+import expert.serializers
+
 from expert.models import mc, makeup, photographer, vedioguys
+
 
 from expert.filters import mc_filter, makeup_filter, photographer_filter, vedioguys_filter
 from expert.serializers import mc_serializer, makeup_serializer, photographer_serializer, vedioguys_serializer
@@ -16,15 +21,18 @@ from base.utils import price_filter
 import base.choices as choice_set
 
 
-def mc_home(request):
-    data = mc_filter(request.GET, queryset=mc.objects.all())
+def mc_home(request, type='mc'):
+    model = getattr(expert.models, type)
+    filter = getattr(expert.filters, '%s_filter' % type)
+    paras = getattr(choice_set, '%s_paras' % type)
+
+    data = filter(request.GET, queryset=model.objects.all())
 
     content = {
-        'paras': choice_set.MC_PARAS(),
-        'list_url': 'mc_list',
-        'cart_url': 'add_service_mc',
+        'paras': paras(),
+        'cart_url': 'add_service_%s' % type,
         'data_set': data,
-        'disp_name': u'司仪',
+        'disp_name': model._meta.verbose_name
         }
     return render_to_response('expert.html', RequestContext(request, content))
 
