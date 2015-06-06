@@ -28,7 +28,7 @@
             婚期
         </label>
         <div class="col-sm-10 col-lg-2">
-            <input type="text" readonly class="form-control" name="t_wed" id="wedday">
+            <input type="text" readonly class="form-control" name="t_wed" id="wedday" value="{{ data.t_wed|date:"Y-m-d" }}">
         </div>
     </div>
 
@@ -38,10 +38,10 @@
             新人
         </label>
         <div class="col-sm-10 col-lg-2">
-            <input type="text" class="form-control" id="boy" placeholder="新郎" name="boy">
+            <input type="text" class="form-control" id="boy" placeholder="新郎" name="boy" value="{{ data.boy }}">
         </div>
         <div class="col-sm-10 col-lg-2">
-            <input type="text" class="form-control" id="girl" placeholder="新娘" name="girl">
+            <input type="text" class="form-control" id="girl" placeholder="新娘" name="girl" value="{{ data.girl }}">
         </div>
     </div>
 
@@ -50,10 +50,10 @@
             桌数
         </label>
         <div class="col-sm-10 col-lg-1">
-            <input type="number" class="form-control" id="min-guest" placeholder="最少" name="btm_table_num">
+            <input type="number" class="form-control" id="min-guest" placeholder="最少" name="btm_table_num" value="{{ data.btm_table_num }}">
         </div>
         <div class="col-sm-10 col-lg-1">
-            <input type="number" class="form-control" id="max-guest" placeholder="最多" name="top_table_num">
+            <input type="number" class="form-control" id="max-guest" placeholder="最多" name="top_table_num" value="{{ data.top_table_num }}">
         </div>
     </div>
 
@@ -62,7 +62,7 @@
             婚礼期望
         </label>
         <div class="col-sm-10 col-lg-6">
-            <textarea class="form-control" rows="10" name="expect"></textarea>
+            <textarea class="form-control" rows="10" name="expect">{{ data.expect }}</textarea>
         </div>
     </div>
 

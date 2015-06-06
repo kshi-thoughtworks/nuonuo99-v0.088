@@ -278,15 +278,19 @@ def add_product_stage(request, obj_id, amount_str):
 
 
 def edit_essential(request):
-    if request.method == 'POST':
-        try:
-            obj = WedEssential.objects.get(user=request.user)
-        except ObjectDoesNotExist:
-            obj = WedEssential(user=request.user)
+    try:
+        obj = WedEssential.objects.get(user=request.user)
+    except ObjectDoesNotExist:
+        obj = WedEssential(user=request.user)
 
+    if request.method == 'POST':
         f = WedEssentialForm(request.POST, instance=obj)
-        f.save()
-    return render_to_response('edit-essential.html', RequestContext(request))
+        if f.is_valid():
+            f.save()
+            return HttpResponseRedirect(reverse('wedding_overview'))
+    else:
+        f = WedEssentialForm(instance=obj)
+    return render_to_response('edit-essential.html', RequestContext(request, {'data': obj}))
 
 
 def update_p_wed(request, c_type, pid):
