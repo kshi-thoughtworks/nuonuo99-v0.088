@@ -10,7 +10,7 @@ from rest_framework import permissions
 from expert.models import mc, makeup, photographer, vedioguys
 
 from expert.filters import mc_filter, makeup_filter, photographer_filter, vedioguys_filter
-from expert.serializers import McSerializer, MakeUpSerializer, PhotographerSerializer, VedioGuysSerializer
+from expert.serializers import mc_serializer, makeup_serializer, photographer_serializer, vedioguys_serializer
 
 from base.utils import price_filter
 import base.choices as choice_set
@@ -31,7 +31,7 @@ def mc_home(request):
 
 class McList(generics.ListCreateAPIView):
     queryset = mc.objects.all()
-    serializer_class = McSerializer
+    serializer_class = mc_serializer
     filter_class = mc_filter
 
 
@@ -50,7 +50,7 @@ def makeup_home(request):
 
 class MakeUpList(generics.ListCreateAPIView):
     queryset = makeup.objects.all()
-    serializer_class = MakeUpSerializer
+    serializer_class = makeup_serializer
     filter_class = makeup_filter
 
 
@@ -70,7 +70,7 @@ def photographer_home(request):
 
 class PhotographerList(generics.ListCreateAPIView):
     queryset = photographer.objects.all()
-    serializer_class = PhotographerSerializer
+    serializer_class = photographer_serializer
     filter_class = photographer_filter
 
 
@@ -90,5 +90,5 @@ def vedioguys_home(request):
 
 class VedioGuysList(generics.ListCreateAPIView):
     queryset = vedioguys.objects.all()
-    serializer_class = VedioGuysSerializer
+    serializer_class = vedioguys_serializer
     filter_class = vedioguys_filter
