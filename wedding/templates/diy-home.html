@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>婚礼基本信息</title>
+{% endblock %}
+
+
+{% load staticfiles %}
+
+{% block css %}
+<link href="{% static "css/accounts.css" %}" rel="stylesheet" media="screen">
+<link href="{% static "css/bootstrap-datepicker3.standalone.min.css" %}" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block content %}
+
+<div style="padding-top:30px"></div>
+
+
+<h2 class="center-block">我的婚礼信息</h2>
+<form class="form-horizontal" method="post"> {% csrf_token %}
+
+    <div class="form-group">
+        <label class="col-sm-2 col-lg-2 control-label">
+            婚期
+        </label>
+        <div class="col-sm-10 col-lg-2">
+            <input type="text" readonly class="form-control" name="t_wed" id="wedday" value="{{ data.t_wed|date:"Y-m-d" }}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="girl" class="col-sm-2 col-lg-2 control-label">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            新人
+        </label>
+        <div class="col-sm-10 col-lg-2">
+            <input type="text" class="form-control" id="boy" placeholder="新郎" name="boy" value="{{ data.boy }}">
+        </div>
+        <div class="col-sm-10 col-lg-2">
+            <input type="text" class="form-control" id="girl" placeholder="新娘" name="girl" value="{{ data.girl }}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 col-lg-2 control-label">
+            桌数
+        </label>
+        <div class="col-sm-10 col-lg-1">
+            <input type="number" class="form-control" id="min-guest" placeholder="最少" name="btm_table_num" value="{{ data.btm_table_num }}">
+        </div>
+        <div class="col-sm-10 col-lg-1">
+            <input type="number" class="form-control" id="max-guest" placeholder="最多" name="top_table_num" value="{{ data.top_table_num }}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-danger">开启我的 DIY 之旅</button>
+        </div>
+    </div>
+</form>
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static "js/bootstrap-datepicker.min.js" %}" ></script>
+    <script src="{% static "js/bootstrap-datepicker.zh-CN.min.js" %}" ></script>
+    <script type="text/javascript">
+    $('#wedday').datepicker({
+        format: "yyyy-mm-dd",
+        startView: 1,
+        language: "zh-CN",
+        autoclose: true
+        });
+    </script> 
+{% endblock %}

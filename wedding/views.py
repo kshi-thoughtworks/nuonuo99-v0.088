@@ -22,47 +22,19 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def diy(request):
-
-    user = request.user
-
     try:
-        wed_info = WedEssential.objects.get(user=user)
+        obj = WedEssential.objects.get(user=request.user)
     except ObjectDoesNotExist:
-        wed_info = None
+        obj = WedEssential(user=request.user)
 
-
-    mc_type= ContentType.objects.get_for_model(MC)
-    makeup_type= ContentType.objects.get_for_model(MakeUp)
-    photo_type= ContentType.objects.get_for_model(Photographer)
-    vedio_type= ContentType.objects.get_for_model(VedioGuys)
-    flower_type= ContentType.objects.get_for_model(WedFlower)
-    av_type= ContentType.objects.get_for_model(WedAv)
-    stage_type= ContentType.objects.get_for_model(StageEffect)
-
-    content = {
-        'flower_cate': choise_set.C_FLOWER_CATE,
-        'av_cate': choise_set.C_AV_CATE,
-        'stage_cate': choise_set.C_STAGE_CATE,
-
-        'mc_item': WedScheme.objects.filter(owner=user, content_type__pk=mc_type.id),
-        'makeup_item': WedScheme.objects.filter(owner=user, content_type__pk=makeup_type.id),
-        'photographer_item': WedScheme.objects.filter(owner=user, content_type__pk=photo_type.id),
-        'vedioguys_item': WedScheme.objects.filter(owner=user, content_type__pk=vedio_type.id),
-        'flower_item': WedScheme.objects.filter(owner=user, content_type__pk=flower_type.id),
-        'av_item': WedScheme.objects.filter(owner=user, content_type__pk=av_type.id),
-        'stage_item': WedScheme.objects.filter(owner=user, content_type__pk=stage_type.id),
-
-        'mc_item_order': Order.objects.filter(buyer=user, content_type__pk=mc_type.id),
-        'makeup_item_order': Order.objects.filter(buyer=user, content_type__pk=makeup_type.id),
-        'photographer_item_order': Order.objects.filter(buyer=user, content_type__pk=photo_type.id),
-        'vedioguys_item_order': Order.objects.filter(buyer=user, content_type__pk=vedio_type.id),
-        'flower_item_order': Order.objects.filter(buyer=user, content_type__pk=flower_type.id),
-        'av_item_order': Order.objects.filter(buyer=user, content_type__pk=av_type.id),
-        'stage_item_order': Order.objects.filter(buyer=user, content_type__pk=stage_type.id),
-
-        'wed_info': wed_info,
-        }
-    return render_to_response('diy.html', RequestContext(request, content))
+    if request.method == 'POST':
+        f = WedEssentialForm(request.POST, instance=obj)
+        if f.is_valid():
+            f.save()
+            return HttpResponseRedirect(reverse('wedding_overview'))
+    else:
+        f = WedEssentialForm(instance=obj)
+    return render_to_response('diy-home.html', RequestContext(request, {'data': obj}))
 
 
 def scheme_overview(request):
