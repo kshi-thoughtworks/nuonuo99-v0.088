@@ -55,7 +55,11 @@
                         {{ item.desc }}
                     </p>
                     <p>
+                        {% if item.base_amount %}
+                        <a href="{% url cart_url item.id item.base_amount %}" class="btn btn-primary" role="button">购买</a>
+                        {% else %}
                         <a href="{% url cart_url item.id "1" %}" class="btn btn-primary" role="button">购买</a>
+                        {% endif %}
                     </p>
                 </div>
             </div>
