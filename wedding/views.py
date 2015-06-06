@@ -25,16 +25,8 @@ def diy(request):
     try:
         obj = WedEssential.objects.get(user=request.user)
     except ObjectDoesNotExist:
-        obj = WedEssential(user=request.user)
-
-    if request.method == 'POST':
-        f = WedEssentialForm(request.POST, instance=obj)
-        if f.is_valid():
-            f.save()
-            return HttpResponseRedirect(reverse('wedding_overview'))
-    else:
-        f = WedEssentialForm(instance=obj)
-    return render_to_response('diy-home.html', RequestContext(request, {'data': obj}))
+        return HttpResponseRedirect(reverse('edit_essential'))
+    return HttpResponseRedirect(reverse('product_home', args=('flower', 1)))
 
 
 def scheme_overview(request):
