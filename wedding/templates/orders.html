@@ -8,7 +8,7 @@
 
 <div id="#top" style="padding-top:30px"></div>
 
-<h2>我的订单</h2>
+<h2>我的订单 -- 总价 {{ total }}</h2>
 
 <table class="table table-striped">
 <thead>
@@ -17,6 +17,7 @@
         <th>名称<th>
         <th>数量<th>
         <th>单价(计费方式)<th>
+        <th>价格<th>
         <th>订单备注<th>
     </tr>
 </thead>
@@ -28,6 +29,7 @@
         <th>{{ item.content_object.name }}<th>
         <th>{{ item.amount }}<th>
         <th>{{ item.content_object.notes }}<th>
+        <th>{{ item.price }}<th>
         <th>{{ item.order_notes }}<th>
     </tr>
     {% endfor %}

@@ -96,6 +96,8 @@ class Order(models.Model):
     need_dress_peer = models.BooleanField(u'伴娘妆', default=False)
     need_arm = models.BooleanField(u'摇臂', default=False)
 
+    price = models.PositiveIntegerField(u'价格', default=0)
+
     content_type = models.ForeignKey(ContentType, verbose_name=u'商品类型')
     object_id = models.PositiveIntegerField(u'商品 ID')
     content_object = GenericForeignKey('content_type', 'object_id')

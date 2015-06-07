@@ -185,6 +185,12 @@ def book(request, t_wed, cart_id):
         lvl = messages.ERROR
         msg = u'%s ( %s ) 档期不可用!' % (c_type, obj.name)
     else:
+        price = obj.price
+        if cart_obj.need_arm:
+            price = cart_obj.charge_vedioguys()
+        elif cart_obj.need_decoration or cart_obj.need_dress_mum or cart_obj.need_dress_peer or cart_obj.need_hair:
+            price = cart_obj.charge_makeup()
+
         kwargs = {
             "buyer": request.user,
             "content_object": obj,
@@ -196,6 +202,7 @@ def book(request, t_wed, cart_id):
             "need_dress_mum": cart_obj.need_dress_mum,
             "need_dress_peer": cart_obj.need_dress_peer,
             "need_arm": cart_obj.need_arm,
+            "price": price,
             }
         Order(**kwargs).save()
         cart_obj.delete()
@@ -215,12 +222,18 @@ def buy(request, t_wed, cart_id):
     try:
         item = Order.objects.get(t_wed=t_wed, object_id=obj.id, content_type__pk=c_type.id)
     except ObjectDoesNotExist:
+        if hasattr(obj, 'float_price'):
+            price = cart_obj.charge_step()
+        else:
+            price = cart_obj.charge_flower()
+
         kwargs = {
             "buyer": request.user,
             "content_object": cart_obj.content_object,
             "t_wed": t_wed,
             "amount": cart_obj.amount,
             "status": 1,
+            "price": price,
             }
         item = Order(**kwargs)
     else:
@@ -359,7 +372,10 @@ def update_expert(request, cart_id):
 
 def orders(request):
 
+    items = Order.objects.filter(buyer=request.user)
+    prices = [item.price for item in items]
     content = {
-        'items': Order.objects.filter(buyer=request.user),
+        'items': items,
+        'total': sum(prices),
         }
     return render_to_response('orders.html', RequestContext(request, content))
