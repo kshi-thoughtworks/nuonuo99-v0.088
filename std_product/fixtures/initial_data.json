@@ -1,0 +1,18 @@
+[
+{
+    "fields": {
+        "category": 1,
+        "style": 1,
+        "name": "\u82b1\u95e8A",
+        "color": "\u767d\u7d2b\u8272",
+        "price": 500,
+        "photo2": "",
+        "photo3": "",
+        "photo1": "service_photo/QQ\u622a\u56fe20150604231819_9Uey0Bu.png",
+        "photo4": "",
+        "desc": "\u90fd\u53d1\u987a\u4e30\u6253"
+    },
+    "model": "std_product.flower",
+    "pk": 1
+}
+]

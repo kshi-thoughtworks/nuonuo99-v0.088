@@ -142,5 +142,14 @@
     },
     "model": "base.c_scale",
     "pk": 2
+},
+{
+    "fields": {
+        "name": "\u7d2b\u7f57\u5170",
+        "keyword": "\u7d2b\u7f57\u5170",
+        "brief": "jfaskdhfjkashfd"
+    },
+    "model": "base.c_flowervariety",
+    "pk": 1
 }
 ]
