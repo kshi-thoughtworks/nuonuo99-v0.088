@@ -43,6 +43,10 @@ class Expert(models.Model):
     honor = models.TextField(u'所获荣誉', blank=True)
     vcr = models.CharField(u'自我介绍视频 url', max_length=255, blank=True)
 
+    def get_disp_name(self):
+        return self._meta.verbose_name
+
+
     def product_key(self):
         return '%s_%s' % (self._meta.object_name.lower(), self.id)
 

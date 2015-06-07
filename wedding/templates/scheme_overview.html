@@ -150,80 +150,14 @@
                 </a>
             </h4>
         </div>
+
         <div id="items-expert" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
 
-                {% for item in mc_item %}
-                    <div class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
-                            <div class="caption">
-                            <h3>
-                                {{ item.content_object.name }}
-                            </h3>
-                            <p>
-                                司仪
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
-                                {% include 'operate_e.html' %}
-                            </p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-
-                {% for item in makeup_item %}
-                    <div class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
-                            <div class="caption">
-                            <h3>
-                                {{ item.content_object.name }}
-                            </h3>
-                            <p>
-                                化妆师
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
-                                {% include 'operate_e.html' %}
-                            </p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-
-                {% for item in photographer_item %}
-                    <div class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
-                            <div class="caption">
-                            <h3>
-                                {{ item.content_object.name }}
-                            </h3>
-                            <p>
-                                摄影师
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
-                                {% include 'operate_e.html' %}
-                            </p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-
-                {% for item in vedioguys_item %}
-                    <div class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
-                            <div class="caption">
-                            <h3>
-                                {{ item.content_object.name }}
-                            </h3>
-                            <p>
-                                摄像师
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
-                                {% include 'operate_e.html' %}
-                            </p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+            {% include 'expert_brief.html' with items=mc_item %}
+            {% include 'expert_brief.html' with items=makeup_item %}
+            {% include 'expert_brief.html' with items=photographer_item %}
+            {% include 'expert_brief.html' with items=vedioguys_item %}
 
                 {% for item in mc_item_order %}
                     <div class="col-sm-3 col-md-2 col-lg-2">
