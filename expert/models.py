@@ -43,6 +43,9 @@ class Expert(models.Model):
     honor = models.TextField(u'所获荣誉', blank=True)
     vcr = models.CharField(u'自我介绍视频 url', max_length=255, blank=True)
 
+    def notes(self):
+        return '基础价格: %s' % self.price
+
     def get_disp_name(self):
         return self._meta.verbose_name
 

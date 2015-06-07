@@ -28,6 +28,7 @@
                 {% if user.is_authenticated %}
                     <li> <a href="{% url 'wedding_overview' %}">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user.username }} 的婚礼方案</a> </li>
+                    <li> <a href="{% url 'orders' %}">订单</a> </li>
                     <li> <a href="{% url 'userena_profile_edit' user %}">
                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a> </li>
                     <li> <a href="{% url 'userena_signout' %}">

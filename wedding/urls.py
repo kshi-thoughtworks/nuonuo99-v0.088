@@ -25,4 +25,5 @@ urlpatterns = patterns('wedding.views',
     url(r'^set-more/(\d+)$', 'update_expert', name='update_expert'),
 
     url(r'^buy/(.+)/(\d+)$', 'buy', name='buy'),
+    url(r'^orders$', 'orders', name='orders'),
 )

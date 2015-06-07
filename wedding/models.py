@@ -102,6 +102,17 @@ class Order(models.Model):
 
     progress = models.CharField(u'准备进展描述', max_length=255, blank=True)
 
+    def order_notes(self):
+        items = (
+            (self.need_decoration, u'饰品'),
+            (self.need_hair, u'盘头'),
+            (self.need_dress_mum, u'妈妈装'),
+            (self.need_dress_peer, u'伴娘妆'),
+            (self.need_arm, u'摇臂'),
+            )
+        msg = ['需要%s' % info for k, info in items if k]
+        return ','.join(msg)
+
     def __unicode__(self):
         return self.buyer.username
 

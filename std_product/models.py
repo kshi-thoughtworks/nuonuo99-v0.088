@@ -34,6 +34,9 @@ class flower(StdProduct):
     items = models.ManyToManyField(C_FlowerVariety, through='FlowerItem', through_fields=('product', 'variety'), verbose_name=u'花材')
     scale = models.ManyToManyField(C_Scale, through='FlowerScale', through_fields=('product', 'key'), verbose_name=u'尺寸')
 
+    def notes(self):
+        return u'单价 %s' % self.price
+
     def validate_amount(self, amount):
         return amount > 0
 
