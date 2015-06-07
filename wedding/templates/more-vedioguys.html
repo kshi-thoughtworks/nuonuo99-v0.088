@@ -1,23 +1,30 @@
-<form action="{% url "update_product" item.id %}" class="form-inline">
+<form action="{% url "update_expert" item.id %}" class="form-inline">
     {% with p=item.content_object.charge_arm %}
-    <div class="checkbox
-        ">
-          <label>
-            <input type="checkbox" name="charge_arm" value="0"
-        {% if p == -1 %} disabled {% endif %}
-            > 提供摇臂
-            {% if p == 0 %}
-                免费
-            {% else %}
-                {% if p > 0 %}
-                    ￥ {{ p }}
-                {% else %}
-                    不提供
-                {% endif %}
 
-            {% endif %}
-        </label>
+    <div>
+    摇臂
+    {% if p == -1 %}
+        不提供该服务
+    {% else %}
+        {% if p == 0 %} 免费 {% else %} ￥ {{ p }} {% endif %}
+    {% endif %}
     </div>
+
+    <div>
+    {% if p > -1 %}
+        <label class="radio-inline">
+            <input type="radio" name="arm" id="arm-on" value="1"
+            {% if item.need_arm %} checked {% endif %}
+            > 需要
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="arm" id="arm-off" value="0"
+            {% if not item.need_arm %} checked {% endif %}
+            > 不需要
+        </label>
+    {% endif %}
+    </div>
+
     {% endwith %}
     <button type="submit" class="btn btn-danger">修改</button>
 </form>

@@ -22,5 +22,7 @@ urlpatterns = patterns('wedding.views',
     url(r'^set-provider/(\w+)/(\d+)$', 'update_p_wed', name='update_p_wed'),
 
     url(r'^set-number/(\d+)$', 'update_product', name='update_product'),
+    url(r'^set-more/(\d+)$', 'update_expert', name='update_expert'),
+
     url(r'^buy/(.+)/(\d+)$', 'buy', name='buy'),
 )

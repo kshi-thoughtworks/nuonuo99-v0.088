@@ -48,6 +48,12 @@ class WedScheme(models.Model):
 
     amount = models.PositiveIntegerField(u'数量', default=0)
 
+    need_decoration = models.BooleanField(u'饰品', default=False)
+    need_hair = models.BooleanField(u'盘头', default=False)
+    need_dress_mum = models.BooleanField(u'妈妈装', default=False)
+    need_dress_peer = models.BooleanField(u'伴娘妆', default=False)
+    need_arm = models.BooleanField(u'摇臂', default=False)
+
     t_add = models.DateTimeField(u'加入时间', default=datetime.datetime.now)
 
 

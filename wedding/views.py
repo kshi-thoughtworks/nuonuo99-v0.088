@@ -325,3 +325,16 @@ def update_product(request, cart_id):
         messages.add_message(request, messages.ERROR, u'数量不符合产品要求')
 
     return HttpResponseRedirect(reverse('wedding_overview'))
+
+
+def update_expert(request, cart_id):
+    cart_obj = WedScheme.objects.get(id=cart_id)
+
+    paras = request.GET
+
+    if 'arm' in paras:
+        cart_obj.need_arm = bool(int(paras['arm']))
+
+    cart_obj.save()
+
+    return HttpResponseRedirect(reverse('wedding_overview'))
