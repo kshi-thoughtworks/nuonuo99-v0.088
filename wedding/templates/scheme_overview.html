@@ -76,7 +76,7 @@
                 <a data-toggle="collapse" data-parent="#accordion" href="#items-flower" aria-expanded="true" aria-controls="collapseOne">
                     花艺
                 </a>
-                {% include 'head_provider.html' with provider=wed_info.p_flower type="flower" %}
+                {% include 'head_provider.html' with provider=wed_info.p_flower type="flower" item_order=flower_item_order %}
             </h4>
         </div>
         <div id="items-flower" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -99,7 +99,7 @@
                 <a data-toggle="collapse" data-parent="#accordion" href="#items-av" aria-expanded="true" aria-controls="collapseOne">
                     AV 工程
                 </a>
-                {% include 'head_provider.html' with provider=wed_info.p_av type="av" %}
+                {% include 'head_provider.html' with provider=wed_info.p_av type="av" item_order=av_item_order %}
             </h4>
         </div>
         <div id="items-av" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -122,7 +122,7 @@
                 <a data-toggle="collapse" data-parent="#accordion" href="#items-stage" aria-expanded="true" aria-controls="collapseOne">
                     舞台效果
                 </a>
-                {% include 'head_provider.html' with provider=wed_info.p_stage type="stage" %}
+                {% include 'head_provider.html' with provider=wed_info.p_stage type="stage" item_order=stage_item_order %}
             </h4>
         </div>
         <div id="items-stage" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">

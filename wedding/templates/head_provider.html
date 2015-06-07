@@ -1,7 +1,5 @@
 {% if not wed_info.t_wed %}
-        <small>
-            填写婚期后可选择供应商
-        </small>
+    <small> 填写婚期后可选择供应商 </small>
 {% else %}
     {% if not provider.name %}
         选择供应商后可下单
@@ -9,7 +7,9 @@
     {% else %}
         <small>
             供应商: {{ provider.name }} -- {{ provider.phone }}
-            <a href="{%url "provider_list" type %}" type="button" class="btn btn-danger pull-right">修改供应商</a>
         </small>
+        {% if item_order|length_is:"0" %}
+        <a href="{%url "provider_list" type %}" type="button" class="btn btn-danger pull-right">修改供应商</a>
+        {% endif %}
     {% endif %}
 {% endif %}
