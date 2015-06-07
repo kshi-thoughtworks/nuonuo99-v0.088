@@ -154,78 +154,15 @@
         <div id="items-expert" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
 
-            {% include 'expert_brief.html' with items=mc_item %}
-            {% include 'expert_brief.html' with items=makeup_item %}
-            {% include 'expert_brief.html' with items=photographer_item %}
-            {% include 'expert_brief.html' with items=vedioguys_item %}
+            {% include 'expert_brief.html' with items=mc_item orderd=False %}
+            {% include 'expert_brief.html' with items=makeup_item orderd=False %}
+            {% include 'expert_brief.html' with items=photographer_item orderd=False %}
+            {% include 'expert_brief.html' with items=vedioguys_item orderd=False %}
 
-                {% for item in mc_item_order %}
-                    <div class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
-                            <div class="caption">
-                            <h3>
-                                {{ item.content_object.name }} -- 已下单
-                            </h3>
-                            <p>
-                                司仪
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
-                            </p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-
-                {% for item in makeup_item_order %}
-                    <div class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
-                            <div class="caption">
-                            <h3>
-                                {{ item.content_object.name }} -- 已下单
-                            </h3>
-                            <p>
-                                化妆师
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
-                            </p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-
-                {% for item in photographer_item_order %}
-                    <div class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
-                            <div class="caption">
-                            <h3>
-                                {{ item.content_object.name }} -- 已下单
-                            </h3>
-                            <p>
-                                摄影师
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
-                            </p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-
-                {% for item in vedioguys_item_order %}
-                    <div class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="thumbnail">
-                            <img src="{{ item.content_object.avatar.url }} " class="img-thumbnail img-responsive"></img>
-                            <div class="caption">
-                            <h3>
-                                {{ item.content_object.name }} -- 已下单
-                            </h3>
-                            <p>
-                                摄像师
-                                <span class="pull-right">￥{{ item.content_object.price }} </span>
-                            </p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+            {% include 'expert_brief.html' with items=mc_item_order orderd=True %}
+            {% include 'expert_brief.html' with items=makeup_item_order orderd=True %}
+            {% include 'expert_brief.html' with items=photographer_item_order orderd=True %}
+            {% include 'expert_brief.html' with items=vedioguys_item_order orderd=True %}
 
             </div>
         </div>
