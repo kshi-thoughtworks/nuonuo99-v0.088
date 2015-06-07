@@ -56,14 +56,17 @@ class WedScheme(models.Model):
 
     t_add = models.DateTimeField(u'加入时间', default=datetime.datetime.now)
 
-
     def charge_flower(self):
         return self.content_object.price * self.amount
-
 
     def charge_step(self):
         return self.content_object.price * self.content_object.base_amount + self.content_object.float_price * (self.amount - self.content_object.base_amount)
 
+    def charge_makeup(self):
+        return self.content_object.price + int(self.need_decoration) * self.content_object.charge_decoration + int(self.need_hair) * self.content_object.charge_hair + int(self.need_dress_mum) * self.content_object.charge_dress_mum + int(self.need_dress_peer) * self.content_object.charge_dress_peer
+
+    def charge_vedioguys(self):
+        return self.content_object.price + int(self.need_arm) * self.content_object.charge_arm
 
     def __unicode__(self):
         return self.owner.username
