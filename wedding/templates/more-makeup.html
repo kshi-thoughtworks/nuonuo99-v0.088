@@ -1,0 +1,88 @@
+<form action="{% url "update_product" item.id %}" class="form-inline">
+    {% with p=item.content_object.charge_decoration %}
+    <div class="checkbox
+        ">
+          <label>
+            <input type="checkbox" name="charge_arm" value="0"
+        {% if p == -1 %} disabled {% endif %}
+            > 提供饰品
+            {% if p == 0 %}
+                免费
+            {% else %}
+                {% if p > 0 %}
+                    ￥ {{ p }}
+                {% else %}
+                    不提供
+                {% endif %}
+
+            {% endif %}
+        </label>
+    </div>
+    {% endwith %}
+
+    {% with p=item.content_object.charge_hair %}
+    <div class="checkbox
+        ">
+          <label>
+            <input type="checkbox" name="charge_arm" value="0"
+        {% if p == -1 %} disabled {% endif %}
+            > 提供盘头
+            {% if p == 0 %}
+                免费
+            {% else %}
+                {% if p > 0 %}
+                    ￥ {{ p }}
+                {% else %}
+                    不提供
+                {% endif %}
+
+            {% endif %}
+        </label>
+    </div>
+    {% endwith %}
+ 
+    {% with p=item.content_object.charge_dress_mum %}
+    <div class="checkbox
+        ">
+          <label>
+            <input type="checkbox" name="charge_arm" value="0"
+        {% if p == -1 %} disabled {% endif %}
+            > 提供妈妈装
+            {% if p == 0 %}
+                免费
+            {% else %}
+                {% if p > 0 %}
+                    ￥ {{ p }}
+                {% else %}
+                    不提供
+                {% endif %}
+
+            {% endif %}
+        </label>
+    </div>
+    {% endwith %}
+
+
+    {% with p=item.content_object.charge_dress_peer %}
+    <div class="checkbox
+        ">
+          <label>
+            <input type="checkbox" name="charge_arm" value="0"
+        {% if p == -1 %} disabled {% endif %}
+            > 提供伴娘装
+            {% if p == 0 %}
+                免费
+            {% else %}
+                {% if p > 0 %}
+                    ￥ {{ p }}
+                {% else %}
+                    不提供
+                {% endif %}
+
+            {% endif %}
+        </label>
+    </div>
+    {% endwith %}
+ 
+    <button type="submit" class="btn btn-danger">修改</button>
+</form>

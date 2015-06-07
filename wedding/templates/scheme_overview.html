@@ -29,8 +29,7 @@
     </ul>
 
     <div class="col-lg-7 col-md-7">
-        <h3>
-            婚礼期望
+        <h3> 婚礼期望
             <a href="{% url "edit_essential" %}" type="button" class="btn btn-success pull-right">修改</a>
         </h3>
         <p> {{ wed_info.expect }} </p>
@@ -154,10 +153,10 @@
         <div id="items-expert" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
 
-            {% include 'expert_brief.html' with items=mc_item orderd=False %}
-            {% include 'expert_brief.html' with items=makeup_item orderd=False %}
-            {% include 'expert_brief.html' with items=photographer_item orderd=False %}
-            {% include 'expert_brief.html' with items=vedioguys_item orderd=False %}
+            {% include 'expert_brief.html' with items=mc_item orderd=False charge_more="more-empty.html" %}
+            {% include 'expert_brief.html' with items=makeup_item orderd=False charge_more="more-makeup.html" %}
+            {% include 'expert_brief.html' with items=photographer_item orderd=False charge_more="more-empty.html" %}
+            {% include 'expert_brief.html' with items=vedioguys_item orderd=False charge_more="more-vedioguys.html" %}
 
             {% include 'expert_brief.html' with items=mc_item_order orderd=True %}
             {% include 'expert_brief.html' with items=makeup_item_order orderd=True %}

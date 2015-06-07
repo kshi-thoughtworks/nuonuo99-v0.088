@@ -1,0 +1,23 @@
+<form action="{% url "update_product" item.id %}" class="form-inline">
+    {% with p=item.content_object.charge_arm %}
+    <div class="checkbox
+        ">
+          <label>
+            <input type="checkbox" name="charge_arm" value="0"
+        {% if p == -1 %} disabled {% endif %}
+            > 提供摇臂
+            {% if p == 0 %}
+                免费
+            {% else %}
+                {% if p > 0 %}
+                    ￥ {{ p }}
+                {% else %}
+                    不提供
+                {% endif %}
+
+            {% endif %}
+        </label>
+    </div>
+    {% endwith %}
+    <button type="submit" class="btn btn-danger">修改</button>
+</form>
