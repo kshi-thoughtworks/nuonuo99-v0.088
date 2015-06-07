@@ -1,88 +1,116 @@
-<form action="{% url "update_product" item.id %}" class="form-inline">
-    {% with p=item.content_object.charge_decoration %}
-    <div class="checkbox
-        ">
-          <label>
-            <input type="checkbox" name="charge_arm" value="0"
-        {% if p == -1 %} disabled {% endif %}
-            > 提供饰品
-            {% if p == 0 %}
-                免费
-            {% else %}
-                {% if p > 0 %}
-                    ￥ {{ p }}
-                {% else %}
-                    不提供
-                {% endif %}
+<form action="{% url "update_expert" item.id %}" class="form-inline">
 
-            {% endif %}
+
+    {% with p=item.content_object.charge_decoration %}
+    <div>
+    饰品
+    {% if p == -1 %}
+        不提供该服务
+    {% else %}
+        {% if p == 0 %} 免费 {% else %} ￥ {{ p }} {% endif %}
+    {% endif %}
+    </div>
+
+    <div>
+    {% if p > -1 %}
+        <label class="radio-inline">
+            <input type="radio" name="decora" value="1"
+            {% if item.need_decoration %} checked {% endif %}
+            > 需要
         </label>
+        <label class="radio-inline">
+            <input type="radio" name="decora" value="0"
+            {% if not item.need_decoration %} checked {% endif %}
+            > 不需要
+        </label>
+    {% endif %}
     </div>
     {% endwith %}
 
-    {% with p=item.content_object.charge_hair %}
-    <div class="checkbox
-        ">
-          <label>
-            <input type="checkbox" name="charge_arm" value="0"
-        {% if p == -1 %} disabled {% endif %}
-            > 提供盘头
-            {% if p == 0 %}
-                免费
-            {% else %}
-                {% if p > 0 %}
-                    ￥ {{ p }}
-                {% else %}
-                    不提供
-                {% endif %}
 
-            {% endif %}
+
+    {% with p=item.content_object.charge_hair %}
+    <div>
+    饰品
+    {% if p == -1 %}
+        不提供该服务
+    {% else %}
+        {% if p == 0 %} 免费 {% else %} ￥ {{ p }} {% endif %}
+    {% endif %}
+    </div>
+
+    <div>
+    {% if p > -1 %}
+        <label class="radio-inline">
+            <input type="radio" name="hair" value="1"
+            {% if item.need_hair %} checked {% endif %}
+            > 需要
         </label>
+        <label class="radio-inline">
+            <input type="radio" name="hair" value="0"
+            {% if not item.need_hair %} checked {% endif %}
+            > 不需要
+        </label>
+    {% endif %}
     </div>
     {% endwith %}
  
-    {% with p=item.content_object.charge_dress_mum %}
-    <div class="checkbox
-        ">
-          <label>
-            <input type="checkbox" name="charge_arm" value="0"
-        {% if p == -1 %} disabled {% endif %}
-            > 提供妈妈装
-            {% if p == 0 %}
-                免费
-            {% else %}
-                {% if p > 0 %}
-                    ￥ {{ p }}
-                {% else %}
-                    不提供
-                {% endif %}
 
-            {% endif %}
+
+    {% with p=item.content_object.charge_dress_mum %}
+    <div>
+    妈妈装
+    {% if p == -1 %}
+        不提供该服务
+    {% else %}
+        {% if p == 0 %} 免费 {% else %} ￥ {{ p }} {% endif %}
+    {% endif %}
+    </div>
+
+    <div>
+    {% if p > -1 %}
+        <label class="radio-inline">
+            <input type="radio" name="mum" value="1"
+            {% if item.need_dress_mum %} checked {% endif %}
+            > 需要
         </label>
+        <label class="radio-inline">
+            <input type="radio" name="mum" value="0"
+            {% if not item.need_dress_mum %} checked {% endif %}
+            > 不需要
+        </label>
+    {% endif %}
     </div>
     {% endwith %}
+ 
 
 
     {% with p=item.content_object.charge_dress_peer %}
-    <div class="checkbox
-        ">
-          <label>
-            <input type="checkbox" name="charge_arm" value="0"
-        {% if p == -1 %} disabled {% endif %}
-            > 提供伴娘装
-            {% if p == 0 %}
-                免费
-            {% else %}
-                {% if p > 0 %}
-                    ￥ {{ p }}
-                {% else %}
-                    不提供
-                {% endif %}
+    <div>
+    伴娘装
+    {% if p == -1 %}
+        不提供该服务
+    {% else %}
+        {% if p == 0 %} 免费 {% else %} ￥ {{ p }} {% endif %}
+    {% endif %}
+    </div>
 
-            {% endif %}
+    <div>
+    {% if p > -1 %}
+        <label class="radio-inline">
+            <input type="radio" name="peer" value="1"
+            {% if item.need_dress_peer %} checked {% endif %}
+            > 需要
         </label>
+        <label class="radio-inline">
+            <input type="radio" name="peer" value="0"
+            {% if not item.need_dress_peer %} checked {% endif %}
+            > 不需要
+        </label>
+    {% endif %}
     </div>
     {% endwith %}
+ 
  
     <button type="submit" class="btn btn-danger">修改</button>
 </form>

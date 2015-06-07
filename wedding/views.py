@@ -335,6 +335,18 @@ def update_expert(request, cart_id):
     if 'arm' in paras:
         cart_obj.need_arm = bool(int(paras['arm']))
 
+    if 'decora' in paras:
+        cart_obj.need_decoration = bool(int(paras['decora']))
+
+    if 'hair' in paras:
+        cart_obj.need_hair = bool(int(paras['hair']))
+
+    if 'mum' in paras:
+        cart_obj.need_dress_mum = bool(int(paras['mum']))
+
+    if 'peer' in paras:
+        cart_obj.need_dress_peer = bool(int(paras['peer']))
+
     cart_obj.save()
 
     return HttpResponseRedirect(reverse('wedding_overview'))
