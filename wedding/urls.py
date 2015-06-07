@@ -7,8 +7,8 @@ urlpatterns = patterns('wedding.views',
 
     url(r'^add-service/mc/(\d+)$', 'add_service_mc', name='add_service_mc'),
     url(r'^add-service/makeup/(\d+)$', 'add_service_makeup', name='add_service_makeup'),
-    url(r'^add-service/photo/(\d+)$', 'add_service_photo', name='add_service_photo'),
-    url(r'^add-service/vedio/(\d+)$', 'add_service_vedio', name='add_service_vedio'),
+    url(r'^add-service/photo/(\d+)$', 'add_service_photo', name='add_service_photographer'),
+    url(r'^add-service/vedio/(\d+)$', 'add_service_vedio', name='add_service_vedioguys'),
 
     url(r'^add-product/flower/(\d+)/(\d+)$', 'add_product_flower', name='add_product_flower'),
     url(r'^add-product/av/(\d+)/(\d+)$', 'add_product_av', name='add_product_av'),
