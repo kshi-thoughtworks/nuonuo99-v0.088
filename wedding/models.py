@@ -87,7 +87,14 @@ class Order(models.Model):
     status = models.PositiveIntegerField(u'状态', choices=C_ORDER_STATUS.CHOICES,default=C_ORDER_STATUS.NOPAY)
     t_add = models.DateTimeField(u'加入时间', default=datetime.datetime.now)
     t_paid = models.DateTimeField(u'付款时间', blank=True, null=True)
+
     amount = models.PositiveIntegerField(u'数量', default=0)
+
+    need_decoration = models.BooleanField(u'饰品', default=False)
+    need_hair = models.BooleanField(u'盘头', default=False)
+    need_dress_mum = models.BooleanField(u'妈妈装', default=False)
+    need_dress_peer = models.BooleanField(u'伴娘妆', default=False)
+    need_arm = models.BooleanField(u'摇臂', default=False)
 
     content_type = models.ForeignKey(ContentType, verbose_name=u'商品类型')
     object_id = models.PositiveIntegerField(u'商品 ID')

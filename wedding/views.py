@@ -216,6 +216,11 @@ def buy(request, t_wed, cart_id):
             "t_wed": t_wed,
             "amount": cart_obj.amount,
             "status": 1,
+            "need_decoration": cart_obj.need_decoration,
+            "need_hair": cart_obj.need_hair,
+            "need_dress_mum": cart_obj.need_dress_mum,
+            "need_dress_peer": cart_obj.need_dress_peer,
+            "need_arm": cart_obj.need_arm,
         }
         item = Order(**kwargs)
     else:
