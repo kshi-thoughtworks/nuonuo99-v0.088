@@ -21,11 +21,13 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def diy(request):
+def diy(request):  # diy page
     try:
         obj = WedEssential.objects.get(user=request.user)
     except ObjectDoesNotExist:
+        # wed info not exists, redirect
         return HttpResponseRedirect(reverse('edit_essential'))
+    # wed info exist. go to product page. flower page by default
     return HttpResponseRedirect(reverse('product_home', args=('flower', 1)))
 
 
@@ -73,6 +75,7 @@ def scheme_overview(request):
     return render_to_response('scheme_overview.html', RequestContext(request, content))
 
 
+# common method for add expert
 def add_service(user, obj):
     c_type= ContentType.objects.get_for_model(obj)
     try:
@@ -92,6 +95,7 @@ def add_service(user, obj):
     return lvl, msg
 
 
+# common method for add std_product
 def add_product(user, obj, amount):
     c_type= ContentType.objects.get_for_model(obj)
     try:
@@ -175,6 +179,7 @@ def is_booked(t_wed, obj_id, obj_type, user=None):
         return (item.user == user) + 1
 
 
+# buy expert
 def book(request, t_wed, cart_id):
 
     cart_obj = WedScheme.objects.get(id=cart_id)
@@ -185,10 +190,11 @@ def book(request, t_wed, cart_id):
         lvl = messages.ERROR
         msg = u'%s ( %s ) 档期不可用!' % (c_type, obj.name)
     else:
-        price = obj.price
-        if cart_obj.need_arm:
+        # calc price
+        price = obj.price  # mc, photographer
+        if cart_obj.need_arm:  # vedioguys
             price = cart_obj.charge_vedioguys()
-        elif cart_obj.need_decoration or cart_obj.need_dress_mum or cart_obj.need_dress_peer or cart_obj.need_hair:
+        elif cart_obj.need_decoration or cart_obj.need_dress_mum or cart_obj.need_dress_peer or cart_obj.need_hair:  # makeup
             price = cart_obj.charge_makeup()
 
         kwargs = {
@@ -214,6 +220,7 @@ def book(request, t_wed, cart_id):
     return HttpResponseRedirect(reverse('wedding_overview'))
 
 
+# buy std_product
 def buy(request, t_wed, cart_id):
     cart_obj = WedScheme.objects.get(id=cart_id)
     c_type = cart_obj.content_type
@@ -222,7 +229,9 @@ def buy(request, t_wed, cart_id):
     try:
         item = Order.objects.get(t_wed=t_wed, object_id=obj.id, content_type__pk=c_type.id)
     except ObjectDoesNotExist:
-        if hasattr(obj, 'float_price'):
+
+        # calc price
+        if hasattr(obj, 'float_price'):  # av or stage
             price = cart_obj.charge_step()
         else:
             price = cart_obj.charge_flower()
@@ -319,6 +328,7 @@ def edit_essential(request):
     return render_to_response('edit-essential.html', RequestContext(request, {'data': obj}))
 
 
+# set product provider
 def update_p_wed(request, c_type, pid):
     provider = ProviderInfo.objects.get(id=pid)
     wed_info = WedEssential.objects.get(user=request.user)
@@ -332,6 +342,7 @@ def update_p_wed(request, c_type, pid):
     return HttpResponseRedirect(reverse('wedding_overview'))
 
 
+# set product amount info
 def update_product(request, cart_id):
     amount = int(request.GET['amount'])
     cart_obj = WedScheme.objects.get(id=cart_id)
@@ -345,6 +356,7 @@ def update_product(request, cart_id):
     return HttpResponseRedirect(reverse('wedding_overview'))
 
 
+# set expert charge info
 def update_expert(request, cart_id):
     cart_obj = WedScheme.objects.get(id=cart_id)
 
@@ -370,8 +382,8 @@ def update_expert(request, cart_id):
     return HttpResponseRedirect(reverse('wedding_overview'))
 
 
+# orders list
 def orders(request):
-
     items = Order.objects.filter(buyer=request.user)
     prices = [item.price for item in items]
     content = {
