@@ -3,7 +3,7 @@
 
     <div>
     摇臂
-    {% if p == -1 %}
+    {% if p < 0 %}
         不提供该服务
     {% else %}
         {% if p == 0 %} 免费 {% else %} ￥ {{ p }} {% endif %}
@@ -11,7 +11,7 @@
     </div>
 
     <div>
-    {% if p > -1 %}
+    {% if p >= 0 %}
         <label class="radio-inline">
             <input type="radio" name="arm" id="arm-on" value="1"
             {% if item.need_arm %} checked {% endif %}

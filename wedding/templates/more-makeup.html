@@ -4,7 +4,7 @@
     {% with p=item.content_object.charge_decoration %}
     <div>
     饰品
-    {% if p == -1 %}
+    {% if p < 0 %}
         不提供该服务
     {% else %}
         {% if p == 0 %} 免费 {% else %} ￥ {{ p }} {% endif %}
@@ -12,7 +12,7 @@
     </div>
 
     <div>
-    {% if p > -1 %}
+    {% if p >= 0 %}
         <label class="radio-inline">
             <input type="radio" name="decora" value="1"
             {% if item.need_decoration %} checked {% endif %}
@@ -32,7 +32,7 @@
     {% with p=item.content_object.charge_hair %}
     <div>
     饰品
-    {% if p == -1 %}
+    {% if p < 0 %}
         不提供该服务
     {% else %}
         {% if p == 0 %} 免费 {% else %} ￥ {{ p }} {% endif %}
@@ -40,7 +40,7 @@
     </div>
 
     <div>
-    {% if p > -1 %}
+    {% if p >= 0 %}
         <label class="radio-inline">
             <input type="radio" name="hair" value="1"
             {% if item.need_hair %} checked {% endif %}
@@ -60,7 +60,7 @@
     {% with p=item.content_object.charge_dress_mum %}
     <div>
     妈妈装
-    {% if p == -1 %}
+    {% if p < 0 %}
         不提供该服务
     {% else %}
         {% if p == 0 %} 免费 {% else %} ￥ {{ p }} {% endif %}
@@ -68,7 +68,7 @@
     </div>
 
     <div>
-    {% if p > -1 %}
+    {% if p >= 0 %}
         <label class="radio-inline">
             <input type="radio" name="mum" value="1"
             {% if item.need_dress_mum %} checked {% endif %}
@@ -88,7 +88,7 @@
     {% with p=item.content_object.charge_dress_peer %}
     <div>
     伴娘装
-    {% if p == -1 %}
+    {% if p < 0 %}
         不提供该服务
     {% else %}
         {% if p == 0 %} 免费 {% else %} ￥ {{ p }} {% endif %}
@@ -96,7 +96,7 @@
     </div>
 
     <div>
-    {% if p > -1 %}
+    {% if p >= 0 %}
         <label class="radio-inline">
             <input type="radio" name="peer" value="1"
             {% if item.need_dress_peer %} checked {% endif %}
